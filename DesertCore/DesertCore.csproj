@@ -39,6 +39,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZetaLongPaths, Version=1.0.0.27, Culture=neutral, PublicKeyToken=b764f59068f31f38">
+      <HintPath>..\..\vs_dev_lib\ZetaLongPaths\Bin\Release\ZetaLongPaths.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesertCoreProgram.cs" />
@@ -46,6 +49,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesertGenerator\DesertGenerator.csproj">
+      <Project>{df6631de-8986-4ef9-946c-fb609a136170}</Project>
+      <Name>DesertGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Media;
 using System.Threading;
-
+using DesertGenerator;
 namespace DesertCore
 {
     internal static class DesertCoreProgram
@@ -10,10 +10,9 @@ namespace DesertCore
 
         public static void Main(string[] args)
         {
-            DrawMenu();
-            while (true)
-            {
-            }
+          //  DrawMenu();
+         DesertGenerator.DesertGenerator.GenerateDesert();
+          Console.ReadKey();
         }
 
 
