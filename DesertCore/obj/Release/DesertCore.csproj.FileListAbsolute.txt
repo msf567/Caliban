@@ -3,3 +3,4 @@ D:\ForsakenDunes\Builds\DesertCore.exe
 D:\ForsakenDunes\Builds\DesertCore.pdb
 D:\ForsakenDunes\DesertCore\obj\Release\DesertCore.exe
 D:\ForsakenDunes\DesertCore\obj\Release\DesertCore.pdb
+D:\ForsakenDunes\Builds\cscore.snk
