@@ -1,0 +1,7 @@
+D:\ForsakenDunes\DesertGenerator\bin\Debug\DesertGenerator.exe
+D:\ForsakenDunes\DesertGenerator\bin\Debug\DesertGenerator.pdb
+D:\ForsakenDunes\DesertGenerator\obj\Debug\DesertGenerator.csprojResolveAssemblyReference.cache
+D:\ForsakenDunes\DesertGenerator\obj\Debug\DesertGenerator.exe
+D:\ForsakenDunes\DesertGenerator\obj\Debug\DesertGenerator.pdb
+D:\ForsakenDunes\Builds\DesertGenerator.exe
+D:\ForsakenDunes\Builds\DesertGenerator.pdb

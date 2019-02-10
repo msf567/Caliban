@@ -1,0 +1,6 @@
+D:\ForsakenDunes\Builds\cscore.snk
+D:\ForsakenDunes\Builds\DesertGenerator.exe
+D:\ForsakenDunes\Builds\DesertGenerator.pdb
+D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.csprojResolveAssemblyReference.cache
+D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.exe
+D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.pdb
