@@ -4,51 +4,48 @@ using System.IO;
 using System.Linq;
 using ZetaLongPaths;
 
-namespace DesertGenerator
+namespace DesertCore
 {
     public static class DesertGenerator
     {
-        private const int DesertWidth = 4;
+        public static int MaxWidth = 6;
 
-        private const int DesertDepth = 3;
+        public static  int MaxDepth = 8;
         //private readonly int _amountOfTreasures = 1;
-
+        public static bool DesertGenerated { get; private set; }
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
 
-
-        private static readonly string[] DesertNames = new string[3]
+        private static readonly string[] DesertNames = new string[2]
         {
             "sand",
-            "hill",
             "dune"
         };
 
         private static readonly ZlpDirectoryInfo DesertRoot = new ZlpDirectoryInfo(@"D:\\Desert");
 
-        private static void ClearDesert()
+        public static void ClearDesert()
         {
-            Console.WriteLine(@"Clearing Desert...");
             foreach (var rock in HeavyRocks)
             {
-                rock.Unlock(0, 0);
+                rock.Close();
             }
 
             if(Directory.Exists(DesertRoot.FullName))
                 DesertRoot.DeleteContents(true);
 
-            Console.WriteLine("Cleared Desert");
+            DesertGenerated = false;
         }
 
         public static void GenerateDesert()
         {
             ClearDesert();
-            GenerateDesertNode(DesertRoot, 0);
-            Console.WriteLine(@"Finished Desert Generation!");
+            GenerateDesertNode(DesertRoot, MaxDepth);
+            DesertGenerated = true;
         }
 
-        private static void GenerateDesertNode(ZlpDirectoryInfo parent, int depth)
+        private static void GenerateDesertNode(ZlpDirectoryInfo parent, int myMaxDepth)
         {
-            if (depth == DesertDepth) // bottom of the stack
+            if (myMaxDepth == 0) // bottom of the stack
             {
                 DropRock(parent.FullName);
                 return;
@@ -56,12 +53,11 @@ namespace DesertGenerator
             else
             {
                 var r = new Random(Guid.NewGuid().GetHashCode());
-                var numberOfChildren = r.Next(1, DesertWidth);
-                var newDepth = depth + 1;
+                var numberOfChildren = r.Next(1, MaxWidth);
+                var newDepth = r.Next(0, myMaxDepth - 1);
                 for (var i = 0; i < numberOfChildren; i++)
                 {
                     var newDir = new ZlpDirectoryInfo(parent.FullName).CreateSubdirectory(GetNewFolderName(parent));
-                    Console.WriteLine(@"Creating " + newDir.FullName);
 
                     GenerateDesertNode(newDir, newDepth);
                 }
@@ -83,10 +79,9 @@ namespace DesertGenerator
         private static void DropRock(string path)
         {
             ZlpFileInfo f = new ZlpFileInfo(Path.Combine(path, "heavy.rock"));
-            var newRock =   f.OpenCreate();
+            var newRock = f.OpenCreate();
             newRock.Lock(0, 0);
             HeavyRocks.Add(newRock);
-            Console.WriteLine(@"Dropping rock at " + path);
         }
     }
 }
