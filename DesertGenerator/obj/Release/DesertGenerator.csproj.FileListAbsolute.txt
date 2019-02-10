@@ -1,8 +1,0 @@
-D:\ForsakenDunes\Builds\cscore.snk
-D:\ForsakenDunes\Builds\DesertGenerator.pdb
-D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.csprojResolveAssemblyReference.cache
-D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.pdb
-D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.Resources.resources
-D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.csproj.GenerateResource.Cache
-D:\ForsakenDunes\Builds\DesertGenerator.dll
-D:\ForsakenDunes\DesertGenerator\obj\Release\DesertGenerator.dll

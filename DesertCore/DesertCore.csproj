@@ -45,16 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesertCoreProgram.cs" />
+    <Compile Include="DesertGenerator.cs" />
     <Compile Include="MusicPlayer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DesertGenerator\DesertGenerator.csproj">
-      <Project>{df6631de-8986-4ef9-946c-fb609a136170}</Project>
-      <Name>DesertGenerator</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
