@@ -46,12 +46,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\vs_dev_lib\cscore\CSCore\CSCore.csproj">
       <Project>{c3dccfe3-dd3f-4eee-849b-33e355b1e064}</Project>
       <Name>CSCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
