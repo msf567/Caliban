@@ -1,0 +1,11 @@
+D:\Caliban\DesertCore\bin\Debug\DesertCore.exe
+D:\Caliban\DesertCore\bin\Debug\DesertCore.pdb
+D:\Caliban\DesertCore\bin\Debug\CSCore.dll
+D:\Caliban\DesertCore\bin\Debug\ZetaLongPaths.dll
+D:\Caliban\DesertCore\bin\Debug\CSCore.pdb
+D:\Caliban\DesertCore\bin\Debug\CSCore.xml
+D:\Caliban\DesertCore\bin\Debug\ZetaLongPaths.pdb
+D:\Caliban\DesertCore\bin\Debug\de\ZetaLongPaths.resources.dll
+D:\Caliban\DesertCore\obj\Debug\DesertCore.csprojResolveAssemblyReference.cache
+D:\Caliban\DesertCore\obj\Debug\DesertCore.exe
+D:\Caliban\DesertCore\obj\Debug\DesertCore.pdb
