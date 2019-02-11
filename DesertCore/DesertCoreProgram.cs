@@ -46,55 +46,48 @@ namespace DesertCore
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(Center("~~~"));
-            Console.WriteLine(Center("Mark Fingerhut Presents"));
-            Console.WriteLine(Center("~~~"));
+            CenterWrite("~~~");
+            CenterWrite("Gentle_Virus Presents");
+            CenterWrite("~~~");
             if (introMode) Thread.Sleep(2398);
-            Console.WriteLine(Center("A FileSystem Survival Game"));
-            Console.WriteLine(Center("~~~"));
+            CenterWrite("A File System Survival Game");
+            CenterWrite("~~~");
             if (introMode) Thread.Sleep(2412);
-            Console.ForegroundColor = DesertGenerator.DesertGenerated ?  ConsoleColor.Yellow : ConsoleColor.DarkYellow;
+            Console.ForegroundColor = DesertGenerator.DesertGenerated ? ConsoleColor.Yellow : ConsoleColor.Yellow;
 
-            Console.WriteLine(Center(
-                    " ▄▀▀▀█▄    ▄▀▀▀▀▄   ▄▀▀▄▀▀▀▄  ▄▀▀▀▀▄  ▄▀▀█▄   ▄▀▀▄ █  ▄▀▀█▄▄▄▄  ▄▀▀▄ ▀▄      ▄▀▀▀▀▄  ▄▀▀█▄   ▄▀▀▄ ▀▄  ▄▀▀█▄▄   ▄▀▀▀▀▄ "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    "█  ▄▀  ▀▄ █      █ █   █   █ █ █   ▐ ▐ ▄▀ ▀▄ █  █ ▄▀ ▐  ▄▀   ▐ █  █ █ █     █ █   ▐ ▐ ▄▀ ▀▄ █  █ █ █ █ ▄▀   █ █ █   ▐ "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    "▐ █▄▄▄▄   █      █ ▐  █▀▀█▀     ▀▄     █▄▄▄█ ▐  █▀▄    █▄▄▄▄▄  ▐  █  ▀█        ▀▄     █▄▄▄█ ▐  █  ▀█ ▐ █    █    ▀▄   "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    " █    ▐   ▀▄    ▄▀  ▄▀    █  ▀▄   █   ▄▀   █   █   █   █    ▌    █   █      ▀▄   █   ▄▀   █   █   █    █    █ ▀▄   █  "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    " █          ▀▀▀▀   █     █    █▀▀▀   █   ▄▀  ▄▀   █   ▄▀▄▄▄▄   ▄▀   █        █▀▀▀   █   ▄▀  ▄▀   █    ▄▀▄▄▄▄▀  █▀▀▀   "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    "█                  ▐     ▐    ▐      ▐   ▐   █    ▐   █    ▐   █    ▐        ▐      ▐   ▐   █    ▐   █     ▐   ▐      "))
-                ;
-            if (introMode) Thread.Sleep(594);
-            Console.WriteLine(Center(
-                    "▐                                            ▐        ▐        ▐                            ▐        ▐                "))
-                ;
-            if (introMode) Thread.Sleep(594);
+            foreach (var s in TitleGraphic)
+            {
+                CenterWrite(s);
+                if (introMode) Thread.Sleep(594);
+            }
+            CenterWrite("");
+            CenterWrite("");
+            CenterWrite("");
+            
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(Center(@"(G)enerate Desert | (C)lear Desert | (Q)uit"));
+            CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
             return Console.ReadKey().KeyChar;
         }
 
-        private static string Center(string s)
+        private static void CenterWrite(string s)
         {
-            int consoleWidth = Console.WindowWidth;
-            int sLen = s.Length;
+            var consoleWidth = Console.WindowWidth;
+            var sLen = s.Length;
 
-            int gap = consoleWidth - sLen;
-            return new string(' ', gap / 2) + s;
+            var gap = consoleWidth - sLen;
+            Console.WriteLine(new string(' ', gap / 2) + s);
         }
+        
+        private static string[] TitleGraphic = new string[]
+        {
+            " ▄████████    ▄████████  ▄█        ▄█  ▀█████████▄     ▄████████ ███▄▄▄▄       ",
+            "███    ███   ███    ███ ███       ███    ███    ███   ███    ███ ███▀▀▀██▄     ",
+            "███    █▀    ███    ███ ███       ███▌   ███    ███   ███    ███ ███   ███     ",
+            "███          ███    ███ ███       ███▌  ▄███▄▄▄██▀    ███    ███ ███   ███     ",
+            "███        ▀███████████ ███       ███▌ ▀▀███▀▀▀██▄  ▀███████████ ███   ███     ",
+            "███    █▄    ███    ███ ███       ███    ███    ██▄   ███    ███ ███   ███     ",
+            "███    ███   ███    ███ ███▌    ▄ ███    ███    ███   ███    ███ ███   ███     ",
+            "████████▀    ███    █▀  █████▄▄██ █▀   ▄█████████▀    ███    █▀   ▀█   █▀      "        
+        };
     }
 }

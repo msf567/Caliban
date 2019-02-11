@@ -8,9 +8,9 @@ namespace DesertCore
 {
     public static class DesertGenerator
     {
-        public static int MaxWidth = 6;
+        public static int MaxWidth = 10;
 
-        public static  int MaxDepth = 8;
+        public static  int MaxDepth = 10;
         //private readonly int _amountOfTreasures = 1;
         public static bool DesertGenerated { get; private set; }
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
