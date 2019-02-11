@@ -1,0 +1,7 @@
+D:\Caliban\WaterMeter\obj\Release\WaterMeter.csprojResolveAssemblyReference.cache
+D:\Caliban\WaterMeter\bin\Release\WaterMeter.exe
+D:\Caliban\WaterMeter\bin\Release\WaterMeter.pdb
+D:\Caliban\WaterMeter\obj\Release\WaterMeter.exe
+D:\Caliban\WaterMeter\obj\Release\WaterMeter.pdb
+D:\Caliban\Builds\WaterMeter.exe
+D:\Caliban\Builds\WaterMeter.pdb
