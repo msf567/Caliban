@@ -3,3 +3,8 @@ D:\ForsakenDunes\Builds\DesertCore.exe
 D:\ForsakenDunes\Builds\DesertCore.pdb
 D:\ForsakenDunes\DesertCore\obj\Release\DesertCore.exe
 D:\ForsakenDunes\DesertCore\obj\Release\DesertCore.pdb
+D:\Caliban\Builds\DesertCore.exe
+D:\Caliban\Builds\DesertCore.pdb
+D:\Caliban\DesertCore\obj\Release\DesertCore.csprojResolveAssemblyReference.cache
+D:\Caliban\DesertCore\obj\Release\DesertCore.exe
+D:\Caliban\DesertCore\obj\Release\DesertCore.pdb
