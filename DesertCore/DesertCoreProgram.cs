@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Media;
+using System.Reflection;
 using System.Threading;
 using DesertGenerator;
 
@@ -9,8 +11,30 @@ namespace DesertCore
     {
         private static SoundPlayer _music = new SoundPlayer();
 
+        public static void CopyStream(Stream input, Stream output)
+        {
+            byte[] buffer = new byte[8 * 1024];
+            int len;
+            while ((len = input.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                output.Write(buffer, 0, len);
+            }
+        }
+
         public static void Main(string[] args)
         {
+            if (!Directory.Exists("WaterMeter"))
+                Directory.CreateDirectory("WaterMeter");
+            var thisAssembly = Assembly.GetExecutingAssembly();
+
+            using (var stream = thisAssembly.GetManifestResourceStream("DesertCore.WaterMeter.exe"))
+            {
+                using (Stream file = File.Create("WaterMeter\\WaterMeter.exe"))
+                {
+                    CopyStream(stream, file);
+                }
+            }
+
             var userKey = DrawMenu(true);
 
             while (userKey != 'q')
@@ -60,10 +84,11 @@ namespace DesertCore
                 CenterWrite(s);
                 if (introMode) Thread.Sleep(594);
             }
+
             CenterWrite("");
             CenterWrite("");
             CenterWrite("");
-            
+
             Console.ForegroundColor = ConsoleColor.White;
             CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
             return Console.ReadKey().KeyChar;
@@ -77,7 +102,7 @@ namespace DesertCore
             var gap = consoleWidth - sLen;
             Console.WriteLine(new string(' ', gap / 2) + s);
         }
-        
+
         private static string[] TitleGraphic = new string[]
         {
             " ▄████████    ▄████████  ▄█        ▄█  ▀█████████▄     ▄████████ ███▄▄▄▄       ",
@@ -87,7 +112,7 @@ namespace DesertCore
             "███        ▀███████████ ███       ███▌ ▀▀███▀▀▀██▄  ▀███████████ ███   ███     ",
             "███    █▄    ███    ███ ███       ███    ███    ██▄   ███    ███ ███   ███     ",
             "███    ███   ███    ███ ███▌    ▄ ███    ███    ███   ███    ███ ███   ███     ",
-            "████████▀    ███    █▀  █████▄▄██ █▀   ▄█████████▀    ███    █▀   ▀█   █▀      "        
+            "████████▀    ███    █▀  █████▄▄██ █▀   ▄█████████▀    ███    █▀   ▀█   █▀      "
         };
     }
 }

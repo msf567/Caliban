@@ -36,6 +36,7 @@
       <HintPath>..\packages\EventHook.1.4.105\lib\net45\EventHook.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
