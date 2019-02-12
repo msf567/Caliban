@@ -1,8 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesertCore", "DesertCore\DesertCore.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanCore", "CalibanCore\CalibanCore.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterMeter", "WaterMeter\WaterMeter.csproj", "{37909059-67BE-462A-80E4-6C6C2779BEEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{C5237FAE-D8D0-4625-B330-29D3C25509D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanLib", "CalibanLib\CalibanLib.csproj", "{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5237FAE-D8D0-4625-B330-29D3C25509D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5237FAE-D8D0-4625-B330-29D3C25509D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5237FAE-D8D0-4625-B330-29D3C25509D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5237FAE-D8D0-4625-B330-29D3C25509D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

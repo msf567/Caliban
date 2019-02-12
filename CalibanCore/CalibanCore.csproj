@@ -7,8 +7,8 @@
     <ProjectGuid>{16012FD9-8081-464B-A616-264D7F20DD06}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DesertCore</RootNamespace>
-    <AssemblyName>DesertCore</AssemblyName>
+    <RootNamespace>CalibanCore</RootNamespace>
+    <AssemblyName>CalibanCore</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,15 +44,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesertCoreProgram.cs" />
-    <Compile Include="DesertGenerator.cs" />
-    <Compile Include="MusicPlayer.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CalibanCoreProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="WaterMeter.exe" />
+    <ProjectReference Include="..\CalibanLib\CalibanLib.csproj">
+      <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
+      <Name>CalibanLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,15 +4,16 @@ using System.IO;
 using System.Linq;
 using ZetaLongPaths;
 
-namespace DesertCore
+namespace CalibanLib.Desert
 {
     public static class DesertGenerator
     {
-        public static int MaxWidth = 10;
+        private const int MaxWidth = 10;
 
-        public static  int MaxDepth = 10;
+        private const int MaxDepth = 10;
+
         //private readonly int _amountOfTreasures = 1;
-        public static bool DesertGenerated { get; private set; }
+        private static bool DesertGenerated { get; set; }
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
 
         private static readonly string[] DesertNames = new string[2]
@@ -78,7 +79,7 @@ namespace DesertCore
 
         private static void DropRock(string path)
         {
-            ZlpFileInfo f = new ZlpFileInfo(Path.Combine(path, "heavy.rock"));
+            var f = new ZlpFileInfo(Path.Combine(path, "heavy.rock"));
             var newRock = f.OpenCreate();
             newRock.Lock(0, 0);
             HeavyRocks.Add(newRock);
