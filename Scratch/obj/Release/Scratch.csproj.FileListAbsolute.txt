@@ -1,0 +1,8 @@
+D:\Caliban\Scratch\bin\Release\Scratch.exe
+D:\Caliban\Scratch\bin\Release\Scratch.pdb
+D:\Caliban\Scratch\bin\Release\CLIGL.dll
+D:\Caliban\Scratch\bin\Release\CLIGL.pdb
+D:\Caliban\Scratch\bin\Release\CLIGL.dll.config
+D:\Caliban\Scratch\obj\Release\Scratch.csprojResolveAssemblyReference.cache
+D:\Caliban\Scratch\obj\Release\Scratch.exe
+D:\Caliban\Scratch\obj\Release\Scratch.pdb
