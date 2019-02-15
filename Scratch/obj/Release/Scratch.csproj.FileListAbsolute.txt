@@ -6,3 +6,5 @@ D:\Caliban\Scratch\bin\Release\CLIGL.dll.config
 D:\Caliban\Scratch\obj\Release\Scratch.csprojResolveAssemblyReference.cache
 D:\Caliban\Scratch\obj\Release\Scratch.exe
 D:\Caliban\Scratch\obj\Release\Scratch.pdb
+D:\Caliban\Builds\Scratch.exe
+D:\Caliban\Builds\Scratch.pdb

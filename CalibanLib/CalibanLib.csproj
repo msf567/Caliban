@@ -48,9 +48,20 @@
   <ItemGroup>
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
     <Compile Include="Desert\DesertGenerator.cs" />
+    <Compile Include="Desert\DesertNameGenerator.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\WaterLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resources.cs" />
-    <Compile Include="Transport\Class1.cs" />
+    <Compile Include="Transport\ClientApp.cs" />
+    <Compile Include="Transport\ClientTerminal.cs" />
+    <Compile Include="Transport\ConnectedClient.cs" />
+    <Compile Include="Transport\Globals.cs" />
+    <Compile Include="Transport\Messages.cs" />
+    <Compile Include="Transport\ServerTerminal.cs" />
+    <Compile Include="Transport\SocketListener.cs" />
+    <Compile Include="Utility\MathEx.cs" />
+    <Compile Include="Utility\StringEx.cs" />
     <Compile Include="Windows\GlobalInput.cs" />
     <Compile Include="Windows\Windows.cs" />
   </ItemGroup>
