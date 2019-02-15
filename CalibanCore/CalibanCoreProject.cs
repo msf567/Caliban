@@ -1,85 +1,94 @@
 ﻿using System;
-using System.Media;
 using System.Threading;
 using CalibanLib.Desert;
-using CalibanLib.ConsoleOutput;
+using CalibanLib.Transport;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using CalibanLib.Game;
+using CalibanLib.Utility;
+using CalibanLib.Windows;
+
 namespace CalibanCore
 {
     internal static class CalibanCoreProject
     {
-        private static readonly SoundPlayer Music = new SoundPlayer();
+        private static ServerTerminal _server;
 
+        private static readonly CalibanMenu Menu = new CalibanMenu();
+        private static readonly WaterLevel WaterLevel = new WaterLevel();
+        private static bool _closeFlag;
         public static void Main(string[] args)
         {
-            var userKey = DrawMenu(false);
-    
-            while (userKey != 'q')
+            Windows.DeleteMenu(Windows.GetSystemMenu(Windows.GetConsoleWindow(), false), 
+                Windows.SC_CLOSE,
+                Windows.MF_BYCOMMAND);
+            
+            InitServer();
+            WaterLevel.Init(_server);
+            var userKey = Menu.Show();
+
+            while (!_closeFlag)
             {
                 switch (userKey)
                 {
-                    case 'g':
+                    case 'e':
                         DesertGenerator.GenerateDesert();
                         break;
                     case 'c':
                         DesertGenerator.ClearDesert();
                         break;
-                    default:
-                        break;
+                    case 'q':
+                        CloseGame();
+                        continue;
                 }
 
-                userKey = DrawMenu();
+                userKey = Menu.Show();
             }
         }
 
-        private static char DrawMenu(bool introMode = false)
+        private static void CloseGame()
         {
-            Console.Clear();
-            Console.SetWindowSize(122, 24);
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            if (introMode)
-            {
-                Music.SoundLocation = "desert.wav";
-                Music.Load();
-                Thread.Sleep(2000);
-                Music.Play();
-            }
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            ConsoleFormat.CenterWrite("~~~");
-            ConsoleFormat.CenterWrite("Gentle_Virus Presents");
-            ConsoleFormat.CenterWrite("~~~");
-            if (introMode) Thread.Sleep(2398);
-            ConsoleFormat.CenterWrite("A File System Survival Game");
-            ConsoleFormat.CenterWrite("~~~");
-            if (introMode) Thread.Sleep(2412);
-            foreach (var s in TitleGraphic)
-            {
-                ConsoleFormat.CenterWrite(s);
-                if (introMode) Thread.Sleep(594);
-            }
-
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-
-            Console.ForegroundColor = ConsoleColor.White;
-            ConsoleFormat.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
-            return Console.ReadKey().KeyChar;
+            WaterLevel.Dispose();
+            _server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE,""));
+            _closeFlag = true;
         }
 
-        private static readonly string[] TitleGraphic = new string[]
+        private static void InitServer()
         {
-            " ▄████████    ▄████████  ▄█        ▄█  ▀█████████▄     ▄████████ ███▄▄▄▄       ",
-            "███    ███   ███    ███ ███       ███    ███    ███   ███    ███ ███▀▀▀██▄     ",
-            "███    █▀    ███    ███ ███       ███▌   ███    ███   ███    ███ ███   ███     ",
-            "███          ███    ███ ███       ███▌  ▄███▄▄▄██▀    ███    ███ ███   ███     ",
-            "███        ▀███████████ ███       ███▌ ▀▀███▀▀▀██▄  ▀███████████ ███   ███     ",
-            "███    █▄    ███    ███ ███       ███    ███    ██▄   ███    ███ ███   ███     ",
-            "███    ███   ███    ███ ███▌    ▄ ███    ███    ███   ███    ███ ███   ███     ",
-            "████████▀    ███    █▀  █████▄▄██ █▀   ▄█████████▀    ███    █▀   ▀█   █▀      "
-        };
+            _server = new ServerTerminal();
+            _server.ClientConnect += ServerOnClientConnect;
+            _server.MessageRecived += ServerOnMessageRecived;
+            _server.ClientDisconnect += ServerOnClientDisconnect;
+            _server.StartListen(5678);
+        }
+
+        private static void ServerOnClientDisconnect(Socket socket)
+        {
+            Console.WriteLine(socket.Handle.ToInt64() + " disconnected!");
+        }
+
+        private static void ServerOnMessageRecived(Socket socket, byte[] message)
+        {
+            var msg = Messages.Parse(message);
+            switch (msg.Type)
+            {
+                case MessageType.GAME_CLOSE:
+                    break;
+                case MessageType.WATERLEVEL_GET:
+                    _server.SendMessageToClient("WaterMeter",
+                        Messages.Build(MessageType.WATERLEVEL_SET, WaterLevel.CurrentLevel.ToString()));
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            Console.WriteLine("Received " + msg + " from " + socket.Handle);
+        }
+
+        private static void ServerOnClientConnect(Socket socket)
+        {
+            Console.WriteLine("Client Connected!");
+        }
     }
 }

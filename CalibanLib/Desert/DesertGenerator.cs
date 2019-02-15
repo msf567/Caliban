@@ -8,19 +8,14 @@ namespace CalibanLib.Desert
 {
     public static class DesertGenerator
     {
-        private const int MaxWidth = 10;
+        private const int MaxWidth = 4;
 
-        private const int MaxDepth = 10;
+        private const int MaxDepth = 3;
 
         //private readonly int _amountOfTreasures = 1;
         private static bool DesertGenerated { get; set; }
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
-
-        private static readonly string[] DesertNames = new string[2]
-        {
-            "sand",
-            "dune"
-        };
+        private static DesertNameGenerator _nameGenerator = new DesertNameGenerator();
 
         private static readonly ZlpDirectoryInfo DesertRoot = new ZlpDirectoryInfo(@"D:\\Desert");
 
@@ -31,7 +26,7 @@ namespace CalibanLib.Desert
                 rock.Close();
             }
 
-            if(Directory.Exists(DesertRoot.FullName))
+            if (Directory.Exists(DesertRoot.FullName))
                 DesertRoot.DeleteContents(true);
 
             DesertGenerated = false;
@@ -58,23 +53,12 @@ namespace CalibanLib.Desert
                 var newDepth = r.Next(0, myMaxDepth - 1);
                 for (var i = 0; i < numberOfChildren; i++)
                 {
-                    var newDir = new ZlpDirectoryInfo(parent.FullName).CreateSubdirectory(GetNewFolderName(parent));
+                    string newfolderName = _nameGenerator.GetNewFolderName(parent);
+                    var newDir = new ZlpDirectoryInfo(parent.FullName).CreateSubdirectory(newfolderName);
 
                     GenerateDesertNode(newDir, newDepth);
                 }
             }
-        }
-
-        private static string GetNewFolderName(ZlpDirectoryInfo parent)
-        {
-            var r = new Random(Guid.NewGuid().GetHashCode());
-            var count = 0;
-            var baseName = DesertNames[r.Next(DesertNames.Length)];
-            var newFolderName = baseName;
-            while (Directory.Exists(Path.Combine(parent.FullName, newFolderName)))
-                newFolderName = baseName + count++.ToString();
-
-            return newFolderName;
         }
 
         private static void DropRock(string path)
