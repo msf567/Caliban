@@ -1,0 +1,5 @@
+D:\Caliban\Builds\CalibanLib.dll
+D:\Caliban\Builds\CalibanLib.pdb
+D:\Caliban\CalibanLib\obj\Debug\CalibanLib.csprojResolveAssemblyReference.cache
+D:\Caliban\CalibanLib\obj\Debug\CalibanLib.dll
+D:\Caliban\CalibanLib\obj\Debug\CalibanLib.pdb
