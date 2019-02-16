@@ -1,8 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 using CLIGL;
 
 namespace Scratch
@@ -23,6 +19,7 @@ namespace Scratch
         private static int ContainerHeight = 30;
         private static int popCount = 2;
         private static int popPos = 0;
+
         public static void Main(string[] args)
         {
             r = new Random(Guid.NewGuid().GetHashCode());
@@ -32,7 +29,7 @@ namespace Scratch
             while (true)
             {
                 renderingBuffer.ClearPixelBuffer(RenderingPixel.EmptyPixel);
-                
+
                 renderingBuffer.SetRectangle(10, 10, 7, 20,
                     new RenderingPixel('.', ConsoleColor.Blue, ConsoleColor.DarkBlue));
 
@@ -40,17 +37,17 @@ namespace Scratch
                 {
                     bubbling = true;
                     bubbleHeight = waterHeight - 1;
-                    bubblePos = r.Next(1, waterWidth-1);
+                    bubblePos = r.Next(1, waterWidth - 1);
                 }
 
                 if (bubbling)
                 {
                     if (loopCounter % 40 == 0)
                         bubbleHeight--;
-                    
-                    renderingBuffer.SetPixel(10+bubblePos, 10 + bubbleHeight,
+
+                    renderingBuffer.SetPixel(10 + bubblePos, 10 + bubbleHeight,
                         new RenderingPixel('0', ConsoleColor.Blue, ConsoleColor.DarkBlue));
-                    
+
                     if (bubbleHeight < 0)
                     {
                         popPos = bubblePos;
@@ -61,11 +58,11 @@ namespace Scratch
 
                 if (popCount > 0)
                 {
-                    renderingBuffer.SetPixel(10+popPos , 9,
+                    renderingBuffer.SetPixel(10 + popPos, 9,
                         new RenderingPixel('*', ConsoleColor.Blue, ConsoleColor.Black));
                     popCount--;
                 }
-                
+
 
                 renderingWindow.Render(renderingBuffer);
                 loopCounter++;

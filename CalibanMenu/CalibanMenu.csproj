@@ -4,14 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37909059-67BE-462A-80E4-6C6C2779BEEE}</ProjectGuid>
+    <ProjectGuid>{16012FD9-8081-464B-A616-264D7F20DD06}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WaterMeter</RootNamespace>
-    <AssemblyName>WaterMeter</AssemblyName>
+      <RootNamespace>CALIBAN</RootNamespace>
+      <AssemblyName>CALIBAN</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationIcon>dune.ico</ApplicationIcon>
+    </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
@@ -32,34 +35,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CLIGL, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
+    <Reference Include="CSCore, Version=1.2.1.2, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\vs_dev_lib\cscore\CSCore\bin\Release\CSCore.dll</HintPath>
     </Reference>
-    <Reference Include="EventHook, Version=1.4.105.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\EventHook.1.4.105\lib\net45\EventHook.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
+      <Reference Include="System.Windows.Forms"/>
     <Reference Include="System.Xml" />
+    <Reference Include="ZetaLongPaths, Version=1.0.0.27, Culture=neutral, PublicKeyToken=b764f59068f31f38">
+      <HintPath>..\..\vs_dev_lib\ZetaLongPaths\Bin\Release\ZetaLongPaths.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WaterMeter.cs" />
-    <Compile Include="WaterMeterProgram.cs" />
+      <Compile Include="MenuProgram.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config"/>
-  </ItemGroup>
-  <ItemGroup>
       <ProjectReference Include="..\Caliban\Caliban.csproj">
-          <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
+      <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
           <Name>Caliban</Name>
-      </ProjectReference>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

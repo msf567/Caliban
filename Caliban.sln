@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanCore", "CalibanCore\CalibanCore.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanMenu", "CalibanMenu\CalibanMenu.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterMeter", "WaterMeter\WaterMeter.csproj", "{37909059-67BE-462A-80E4-6C6C2779BEEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{C5237FAE-D8D0-4625-B330-29D3C25509D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanLib", "CalibanLib\CalibanLib.csproj", "{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban", "Caliban\Caliban.csproj", "{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "..\SocketsMultipleClients\Sockets Multiple Clients - Bytes\Client\Client.csproj", "{18F628C8-FD7C-44BC-8D1E-044A701FB864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugLog", "DebugLog\DebugLog.csproj", "{6A19FC3C-67F1-4F2C-8986-43957F1605E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
