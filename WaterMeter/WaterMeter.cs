@@ -2,12 +2,12 @@ using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
-using CalibanLib.ConsoleOutput;
-using CalibanLib.Transport;
-using CalibanLib.Utility;
-using CalibanLib.Windows;
+using System.Windows.Forms;
+using Caliban.Transport;
+using Caliban.Utility;
+using Caliban.Windows;
 using CLIGL;
-using Message = CalibanLib.Transport.Message;
+using Message = Caliban.Transport.Message;
 
 namespace WaterMeter
 {
@@ -28,14 +28,27 @@ namespace WaterMeter
         {
             Width = w;
             Height = h;
+            ConfigureWindow();
 
             r = new Random(Guid.NewGuid().GetHashCode());
-            window = new RenderingWindow(TITLE, Width, Height);
 
-            buffer = new RenderingBuffer(Width, Height);
+
             Thread t = new Thread(UpdateThread);
             t.Start();
-            Console.SetWindowPosition(0, 0);
+        }
+
+        private void ConfigureWindow()
+        {
+            IntPtr hwnd = Process.GetCurrentProcess().MainWindowHandle;
+            int SWidth = Screen.PrimaryScreen.Bounds.Width;
+
+            window = new RenderingWindow(TITLE, Width, Height);
+            buffer = new RenderingBuffer(Width, Height);
+
+            var style = Windows.GetWindowLong(hwnd, Windows.GWL_STYLE);
+            Windows.SetWindowLong(hwnd, Windows.GWL_STYLE, (style & ~Windows.WS_CAPTION));
+
+            Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Windows.SWP.NOSIZE);
         }
 
         private void UpdateThread()
@@ -51,14 +64,14 @@ namespace WaterMeter
         {
             if (_initialized)
             {
-                string waterLevelString =Math.Ceiling((_waterLevel)).ToString();
+                string waterLevelString = Math.Ceiling((_waterLevel)).ToString();
                 buffer.ClearPixelBuffer(RenderingPixel.EmptyPixel);
                 buffer.SetRectangle(0, 0, Width, Height,
                     new RenderingPixel(
                         '.',
                         ConsoleColor.Blue,
                         ConsoleColor.DarkBlue));
-                buffer.SetString(0,0,waterLevelString,ConsoleColor.White,ConsoleColor.Black);
+                buffer.SetString(0, 0, waterLevelString, ConsoleColor.White, ConsoleColor.Black);
             }
             else
                 buffer.SetRectangle(0, 0, Width, Height,
@@ -97,6 +110,5 @@ namespace WaterMeter
         }
 
         #endregion
-
     }
 }
