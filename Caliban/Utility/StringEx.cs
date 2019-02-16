@@ -1,14 +1,14 @@
 using System.Text;
 
-namespace Caliban.Utility
+namespace Caliban.Core.Utility
 {
     public static class StringEx
     {
-        public static string String(this byte[] bytes)
+        public static string String(this byte[] _bytes)
         {
-            var chars = new char[bytes.Length];
+            var chars = new char[_bytes.Length];
             var d = Encoding.UTF8.GetDecoder();
-            d.GetChars(bytes, 0, bytes.Length, chars, 0);
+            d.GetChars(_bytes, 0, _bytes.Length, chars, 0);
             var szData = new string(chars);
 
             return szData;

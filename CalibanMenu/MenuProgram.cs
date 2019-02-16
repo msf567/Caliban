@@ -1,50 +1,62 @@
-﻿using Caliban.Game;
-using Caliban.Utility;
-using Caliban.Windows;
-using Menu = Caliban.Menu.Menu;
+﻿using System;
+using System.Threading;
+using Caliban.Core.Game;
+using Caliban.Core.Utility;
+using Caliban.Core.Windows;
+using Menu = Caliban.Core.Menu.Menu;
 
 namespace CalibanMenu
 {
     internal static class CalibanCoreProject
     {
-        private static bool _closeFlag;
-        private static Game currentGame = new Game(true);
+        private static bool closeFlag;
+        private static Game currentGame = new Game(false);
         private static Menu menu;
 
-        public static void Main(string[] args)
+        public static void Main(string[] _args)
         {
             Windows.ConfigureMenuWindow();
 
             menu = new Menu();
-            var userKey = menu.Main();
-
-            while (!_closeFlag)
+            var userKey = ConsoleKey.Escape;
+            menu.Main();
+            while (!closeFlag)
             {
                 switch (userKey)
                 {
-                    case 'e':
-                        NewGame();
+                    case ConsoleKey.Escape:
+                        menu.Main();
                         break;
-                    case 'a':
+                    case ConsoleKey.E:
+                        NewGame(false);
+                        break;
+                    case ConsoleKey.A:
                         menu.About();
                         break;
-                    case 'c':
+                    case ConsoleKey.C:
                         CloseGame();
                         break;
-                    case 'q':
+                    case ConsoleKey.Q:
                         CloseApp();
                         continue;
                 }
 
-                userKey = menu.Main();
+                userKey = Console.ReadKey().Key;
             }
         }
 
 
-        private static void NewGame()
+        private static void NewGame(bool _debug)
         {
+            if (!ModuleLoader.IsReady())
+            {
+                Console.WriteLine("Waiting for modules to load...");
+                return;
+            }
             currentGame?.Close();
-            currentGame = new Game(true);
+            
+            ModuleLoader.Clear();
+            currentGame = new Game(_debug);
             currentGame.Start();
         }
 
@@ -59,7 +71,7 @@ namespace CalibanMenu
             D.Close();
             menu.Close();
             currentGame?.Close();
-            _closeFlag = true;
+            closeFlag = true;
         }
     }
 }

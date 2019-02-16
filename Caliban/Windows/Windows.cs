@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Caliban.Windows
+namespace Caliban.Core.Windows
 {
     public static class Windows
     {
@@ -52,7 +52,7 @@ namespace Caliban.Windows
         static readonly IntPtr HWND_TOP = new IntPtr(0);
         static readonly IntPtr HWND_BOTTOM = new IntPtr(1);
 
-        public static class HWND
+        public static class Hwnd
         {
             public static IntPtr
                 NoTopMost = new IntPtr(-2),
@@ -61,7 +61,7 @@ namespace Caliban.Windows
                 Bottom = new IntPtr(1);
         }
 
-        public static class SWP
+        public static class Swp
         {
             public static readonly int
                 NOSIZE = 0x0001,
@@ -85,10 +85,10 @@ namespace Caliban.Windows
         public const int SC_CLOSE = 0xF060;
 
         [DllImport("user32.dll")]
-        public static extern int DeleteMenu(IntPtr hMenu, int nPosition, int wFlags);
+        public static extern int DeleteMenu(IntPtr _hMenu, int _nPosition, int _wFlags);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        public static extern IntPtr GetSystemMenu(IntPtr _hWnd, bool _bRevert);
 
         [DllImport("kernel32.dll", ExactSpelling = true)]
         public static extern IntPtr GetConsoleWindow();
@@ -97,41 +97,41 @@ namespace Caliban.Windows
         private static extern IntPtr GetForegroundWindow();
 
         [DllImport("user32.dll")]
-        private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
+        private static extern int GetWindowText(IntPtr _hWnd, StringBuilder _text, int _count);
 
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        private static extern IntPtr FindWindow(string _lpClassName, string _lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy,
-            int uFlags);
+        public static extern bool SetWindowPos(IntPtr _hWnd, IntPtr _hWndInsertAfter, int _x, int _y, int _cx, int _cy,
+            int _uFlags);
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetActiveWindow();
 
         [DllImport("USER32.DLL")]
-        public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+        public static extern int SetWindowLong(IntPtr _hWnd, int _nIndex, int _dwNewLong);
 
         [DllImport("USER32.DLL")]
-        public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        public static extern int GetWindowLong(IntPtr _hWnd, int _nIndex);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+        public static extern bool GetWindowRect(IntPtr _hwnd, out RECT _lpRect);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
             public int Left, Top, Right, Bottom;
 
-            public RECT(int left, int top, int right, int bottom)
+            public RECT(int _left, int _top, int _right, int _bottom)
             {
-                Left = left;
-                Top = top;
-                Right = right;
-                Bottom = bottom;
+                Left = _left;
+                Top = _top;
+                Right = _right;
+                Bottom = _bottom;
             }
 
-            public RECT(System.Drawing.Rectangle r) : this(r.Left, r.Top, r.Right, r.Bottom)
+            public RECT(System.Drawing.Rectangle _r) : this(_r.Left, _r.Top, _r.Right, _r.Bottom)
             {
             }
 
@@ -187,37 +187,37 @@ namespace Caliban.Windows
                 }
             }
 
-            public static implicit operator System.Drawing.Rectangle(RECT r)
+            public static implicit operator System.Drawing.Rectangle(RECT _r)
             {
-                return new System.Drawing.Rectangle(r.Left, r.Top, r.Width, r.Height);
+                return new System.Drawing.Rectangle(_r.Left, _r.Top, _r.Width, _r.Height);
             }
 
-            public static implicit operator RECT(System.Drawing.Rectangle r)
+            public static implicit operator RECT(System.Drawing.Rectangle _r)
             {
-                return new RECT(r);
+                return new RECT(_r);
             }
 
-            public static bool operator ==(RECT r1, RECT r2)
+            public static bool operator ==(RECT _r1, RECT _r2)
             {
-                return r1.Equals(r2);
+                return _r1.Equals(_r2);
             }
 
-            public static bool operator !=(RECT r1, RECT r2)
+            public static bool operator !=(RECT _r1, RECT _r2)
             {
-                return !r1.Equals(r2);
+                return !_r1.Equals(_r2);
             }
 
-            public bool Equals(RECT r)
+            public bool Equals(RECT _r)
             {
-                return r.Left == Left && r.Top == Top && r.Right == Right && r.Bottom == Bottom;
+                return _r.Left == Left && _r.Top == Top && _r.Right == Right && _r.Bottom == Bottom;
             }
 
-            public override bool Equals(object obj)
+            public override bool Equals(object _obj)
             {
-                if (obj is RECT)
-                    return Equals((RECT) obj);
-                else if (obj is System.Drawing.Rectangle)
-                    return Equals(new RECT((System.Drawing.Rectangle) obj));
+                if (_obj is RECT)
+                    return Equals((RECT) _obj);
+                else if (_obj is System.Drawing.Rectangle)
+                    return Equals(new RECT((System.Drawing.Rectangle) _obj));
                 return false;
             }
 

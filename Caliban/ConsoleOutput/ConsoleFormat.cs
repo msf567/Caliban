@@ -1,14 +1,16 @@
-namespace Caliban.ConsoleOutput
+using System;
+
+namespace Caliban.Core.ConsoleOutput
 {
     public static class ConsoleFormat
     {
-        public static void CenterWrite(string s)
+        public static void CenterWrite(string _s)
         {
-            var consoleWidth = System.Console.WindowWidth;
-            var sLen = s.Length;
+            var consoleWidth = Console.WindowWidth;
+            var sLen = _s.Length;
 
             var gap = consoleWidth - sLen;
-            System.Console.WriteLine(new string(' ', gap / 2) + s);
+            Console.WriteLine(new string(' ', gap / 2) + _s);
         }
     }
 }

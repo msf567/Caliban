@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using ZetaLongPaths;
 
-namespace Caliban.Desert
+namespace Caliban.Core.Desert
 {
     public static class DesertGenerator
     {
@@ -14,7 +14,7 @@ namespace Caliban.Desert
         //private readonly int _amountOfTreasures = 1;
         private static bool DesertGenerated { get; set; }
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
-        private static DesertNameGenerator _nameGenerator = new DesertNameGenerator();
+        private static DesertNameGenerator nameGenerator = new DesertNameGenerator();
 
         private static readonly ZlpDirectoryInfo DesertRoot = new ZlpDirectoryInfo(@"D:\\Desert");
 
@@ -38,31 +38,31 @@ namespace Caliban.Desert
             DesertGenerated = true;
         }
 
-        private static void GenerateDesertNode(ZlpDirectoryInfo parent, int myMaxDepth)
+        private static void GenerateDesertNode(ZlpDirectoryInfo _parent, int _myMaxDepth)
         {
-            if (myMaxDepth == 0) // bottom of the stack
+            if (_myMaxDepth == 0) // bottom of the stack
             {
-                DropRock(parent.FullName);
+                DropRock(_parent.FullName);
                 return;
             }
             else
             {
                 var r = new Random(Guid.NewGuid().GetHashCode());
                 var numberOfChildren = r.Next(1, MaxWidth);
-                var newDepth = r.Next(0, myMaxDepth - 1);
+                var newDepth = r.Next(0, _myMaxDepth - 1);
                 for (var i = 0; i < numberOfChildren; i++)
                 {
-                    string newfolderName = _nameGenerator.GetNewFolderName(parent);
-                    var newDir = new ZlpDirectoryInfo(parent.FullName).CreateSubdirectory(newfolderName);
+                    string newfolderName = nameGenerator.GetNewFolderName(_parent);
+                    var newDir = new ZlpDirectoryInfo(_parent.FullName).CreateSubdirectory(newfolderName);
 
                     GenerateDesertNode(newDir, newDepth);
                 }
             }
         }
 
-        private static void DropRock(string path)
+        private static void DropRock(string _path)
         {
-            var f = new ZlpFileInfo(Path.Combine(path, "heavy.rock"));
+            var f = new ZlpFileInfo(Path.Combine(_path, "heavy.rock"));
             var newRock = f.OpenCreate();
             newRock.Lock(0, 0);
             HeavyRocks.Add(newRock);

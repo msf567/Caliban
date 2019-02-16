@@ -1,24 +1,21 @@
 using System;
-using System.Diagnostics;
 using System.Net.Sockets;
-using Caliban.Transport;
-using Caliban.Utility;
+using Caliban.Core.Transport;
+using Caliban.Core.Utility;
 
-namespace Caliban.Game
+namespace Caliban.Core.Game
 {
     public class Game
     {
         private readonly ServerTerminal server;
         private WaterLevel waterLevel;
-        private readonly bool DebugMode;
 
-        public Game(bool debug)
+        public Game(bool _debug)
         {
-            DebugMode = debug;
             server = new ServerTerminal();
-            server.MessageRecived += ServerOnMessageRecived;
+            server.MessageReceived += ServerOnMessageReceived;
             server.StartListen(5678);
-            if (DebugMode)
+            if (_debug)
                 D.Init(server);
         }
 
@@ -34,9 +31,9 @@ namespace Caliban.Game
             server.Close();
         }
 
-        private void ServerOnMessageRecived(Socket socket, byte[] message)
+        private void ServerOnMessageReceived(Socket _socket, byte[] _message)
         {
-            var msg = Messages.Parse(message);
+            var msg = Messages.Parse(_message);
             switch (msg.Type)
             {
                 case MessageType.GAME_CLOSE:
@@ -45,11 +42,13 @@ namespace Caliban.Game
                     server.SendMessageToClient("WaterMeter",
                         Messages.Build(MessageType.WATERLEVEL_SET, 50.ToString()));
                     break;
+                case MessageType.WATERLEVEL_ADD:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            D.Log("Received " + msg + " from " + socket.Handle);
+            D.Log("Received " + msg + " from " + _socket.Handle);
         }
     }
 }

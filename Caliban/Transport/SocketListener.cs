@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public class SocketListener
     {
@@ -11,66 +11,68 @@ namespace Caliban.Transport
             public Socket ThisSocket;
             public byte[] DataBuffer;
 
-            public CSocketPacket(int bufferLength)
+            public CSocketPacket(int _bufferLength)
             {
-                DataBuffer = new byte[bufferLength];
+                DataBuffer = new byte[_bufferLength];
             }
         }
 
         private const int BufferLength = 1000;
-        private AsyncCallback _pfnWorkerCallBack;
-        private Socket _mSocWorker;
+        private AsyncCallback pfnWorkerCallBack;
+        private Socket mSocWorker;
 
         public event TcpTerminalMessageRecivedDel MessageReceived;
         public event TcpTerminalDisconnectDel Disconnected;
 
-        public void StartReceiving(Socket socket)
+        public void StartReceiving(Socket _socket)
         {
-            _mSocWorker = socket;
-            WaitForData(socket);
+            mSocWorker = _socket;
+            WaitForData(_socket);
         }
 
         public void StopListening()
         {
             // Incase connection has been established with remote client - 
             // Raise the OnDisconnection event.
-            if (_mSocWorker != null)
+            if (mSocWorker != null)
             {
-                _mSocWorker.Shutdown(SocketShutdown.Both);
-                _mSocWorker.Close();
-                _mSocWorker = null;
+                mSocWorker?.Shutdown(SocketShutdown.Both);
+                mSocWorker?.Close();
+                mSocWorker = null;
             }
         }
 
-        private void WaitForData(Socket soc)
+        private void WaitForData(Socket _soc)
         {
             try
             {
-                if (_pfnWorkerCallBack == null)
+                if (pfnWorkerCallBack == null)
                 {
-                    _pfnWorkerCallBack = new AsyncCallback(OnDataReceived);
+                    pfnWorkerCallBack = new AsyncCallback(OnDataReceived);
                 }
 
                 CSocketPacket theSocPkt = new CSocketPacket(BufferLength);
-                theSocPkt.ThisSocket = soc;
+                theSocPkt.ThisSocket = _soc;
                 // now start to listen for any data...
-                soc.BeginReceive(
+                _soc.BeginReceive(
                     theSocPkt.DataBuffer,
                     0,
                     theSocPkt.DataBuffer.Length,
                     SocketFlags.None,
-                    _pfnWorkerCallBack,
+                    pfnWorkerCallBack,
                     theSocPkt);
             }
             catch (SocketException sex)
             {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Environment.Exit(-1);
                 Debug.Fail(sex.ToString(), "WaitForData: Socket failed");
             }
         }
 
-        private void OnDataReceived(IAsyncResult asyn)
+        private void OnDataReceived(IAsyncResult _asyn)
         {
-            CSocketPacket theSockId = (CSocketPacket) asyn.AsyncState;
+            CSocketPacket theSockId = (CSocketPacket) _asyn.AsyncState;
             Socket socket = theSockId.ThisSocket;
 
             if (!socket.Connected)
@@ -83,7 +85,7 @@ namespace Caliban.Transport
                 int iRx;
                 try
                 {
-                    iRx = socket.EndReceive(asyn);
+                    iRx = socket.EndReceive(_asyn);
                 }
                 catch (SocketException)
                 {
@@ -106,7 +108,7 @@ namespace Caliban.Transport
 
                 RaiseMessageReceived(bytes);
 
-                WaitForData(_mSocWorker);
+                WaitForData(mSocWorker);
             }
             catch (Exception ex)
             {
@@ -114,26 +116,26 @@ namespace Caliban.Transport
             }
         }
 
-        private void RaiseMessageReceived(byte[] bytes)
+        private void RaiseMessageReceived(byte[] _bytes)
         {
             if (MessageReceived != null)
             {
-                MessageReceived(_mSocWorker, bytes);
+                MessageReceived(mSocWorker, _bytes);
             }
         }
 
-        private void OnDisconnection(Socket socket)
+        private void OnDisconnection(Socket _socket)
         {
             if (Disconnected != null)
             {
-                Disconnected(socket);
+                Disconnected(_socket);
             }
         }
 
-        private void OnConnectionDropped(Socket socket)
+        private void OnConnectionDropped(Socket _socket)
         {
-            _mSocWorker = null;
-            OnDisconnection(socket);
+            mSocWorker = null;
+            OnDisconnection(_socket);
         }
     }
 }

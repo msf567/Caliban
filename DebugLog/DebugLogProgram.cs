@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Caliban.Transport;
+using Caliban.Core.Transport;
 
 namespace DebugLog
 {
@@ -38,7 +38,7 @@ namespace DebugLog
                         closeFlag = true;
                         break;
                     case MessageType.DEBUG_LOG:
-                        WriteLine(Messages.Parse(message).Param);
+                        WriteLine(Messages.Parse(message).Value);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

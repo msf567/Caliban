@@ -1,0 +1,5 @@
+D:\Caliban\Builds\WaterPuddle.exe
+D:\Caliban\Builds\WaterPuddle.pdb
+D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.csprojResolveAssemblyReference.cache
+D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.exe
+D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.pdb

@@ -2,63 +2,75 @@ using System;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public class ClientApp
     {
         public void Deconstruct()
         {
-            _client.Close();
+            client.Close();
         }
 
-        private ClientTerminal _client;
-        private readonly string _name;
-        private readonly byte _registerToken;
+        private ClientTerminal client;
+        protected readonly string clientName;
 
-        public ClientApp(string name)
+        protected bool ShouldRegister = true;
+
+        protected bool IsConnected = false;
+        private bool IsReady = false;
+
+        protected void SetClientReady()
         {
-            _name = name;
-            _registerToken = Convert.ToByte('!');
-            InitClient();
+            IsReady = true;
+            if (ShouldRegister && IsConnected)
+            {
+                SendMessageToHost(Messages.Build(MessageType.REGIESTER, clientName));
+            }
+        }
+
+        public ClientApp(string _clientName, bool _shouldRegister = true)
+        {
+            this.clientName = _clientName;
+            this.ShouldRegister = _shouldRegister;
+           InitClient();
         }
 
         private void InitClient()
         {
-            _client = new ClientTerminal();
-            _client.Connected += ClientOnConnected;
-            _client.Disconncted += ClientOnDisconncted;
-            _client.MessageRecived += (s, e) => ClientOnMessageReceived(e);
+            client = new ClientTerminal();
+            client.Connected += ClientOnConnected;
+            client.Disconncted += ClientOnDisconncted;
+            client.MessageRecived += (_s, _e) => ClientOnMessageReceived(_e);
 
-            _client.Connect(5678);
-            _client.StartListen();
+            client.Connect(5678);
+            client.StartListen();
         }
 
-        protected virtual void ClientOnMessageReceived(byte[] message)
+        protected virtual void ClientOnMessageReceived(byte[] _message)
         {
             //Console.WriteLine("Received Message " + Messages.Parse(message));
         }
 
-        protected virtual void ClientOnDisconncted(Socket socket)
+        protected virtual void ClientOnDisconncted(Socket _socket)
         {
+            IsConnected = false;
         }
 
-        protected void SendMessageToHost(string message)
+        protected void SendMessageToHost(string _message)
         {
-            _client.SendMessage(message);
+            client.SendMessage(_message);
         }
 
-        protected void SendMessageToHost(byte[] message)
+        protected void SendMessageToHost(byte[] _message)
         {
-            _client.SendMessage(message);
+            client.SendMessage(_message);
         }
 
-        protected virtual void ClientOnConnected(Socket socket)
+        protected virtual void ClientOnConnected(Socket _socket)
         {
-            var nameBytes = Encoding.ASCII.GetBytes(_name);
-            var registerMessage = new byte[_name.Length + 1];
-            registerMessage[0] = _registerToken;
-            nameBytes.CopyTo(registerMessage, 1);
-            SendMessageToHost(registerMessage);
+            IsConnected = true;
+            if (ShouldRegister && IsReady)
+                SendMessageToHost(Messages.Build(MessageType.REGIESTER, clientName));
         }
     }
 }

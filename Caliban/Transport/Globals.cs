@@ -1,10 +1,10 @@
 using System.Net.Sockets;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
-    public delegate void TcpTerminalMessageRecivedDel(Socket socket, byte[] message);
+    public delegate void TcpTerminalMessageRecivedDel(Socket _socket, byte[] _message);
 
-    public delegate void TcpTerminalConnectDel(Socket socket);
+    public delegate void TcpTerminalConnectDel(Socket _socket);
 
-    public delegate void TcpTerminalDisconnectDel(Socket socket);
+    public delegate void TcpTerminalDisconnectDel(Socket _socket);
 }

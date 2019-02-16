@@ -1,30 +1,34 @@
 using System;
 using System.Diagnostics;
-using System.IO;
-using System.IO.Pipes;
-using Caliban.Transport;
+using Caliban.Core.Transport;
 
-namespace Caliban.Utility
+namespace Caliban.Core.Utility
 {
     public static class D
     {
         private static ServerTerminal s;
         private static Process p;
 
-        public static void Init(ServerTerminal server)
+        public static void Init(ServerTerminal _server)
         {
-            s = server;
+            s = _server;
             p = Process.Start("DebugLog.exe");
         }
 
         public static void Close()
         {
-            p?.Kill();
+            if (p != null && !p.HasExited)
+                p?.Kill();
         }
 
-        public static void Log(string m)
+        public static void Log(string _m)
         {
-            s.SendMessageToClient("DEBUG", Messages.Build(MessageType.DEBUG_LOG, m));
+            if (p != null)
+                s.SendMessageToClient("DEBUG", Messages.Build(MessageType.DEBUG_LOG, _m));
+            else
+            {
+                Console.WriteLine(_m);
+            }
         }
     }
 }
