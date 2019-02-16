@@ -1,0 +1,13 @@
+D:\Caliban\DebugLog\bin\Release\DebugLog.exe
+D:\Caliban\DebugLog\bin\Release\DebugLog.pdb
+D:\Caliban\DebugLog\bin\Release\Caliban.Core.dll
+D:\Caliban\DebugLog\bin\Release\EventHook.dll
+D:\Caliban\DebugLog\bin\Release\ZetaLongPaths.dll
+D:\Caliban\DebugLog\bin\Release\Caliban.Core.pdb
+D:\Caliban\DebugLog\bin\Release\ZetaLongPaths.pdb
+D:\Caliban\DebugLog\bin\Release\de\ZetaLongPaths.resources.dll
+D:\Caliban\DebugLog\obj\Release\DebugLog.csprojResolveAssemblyReference.cache
+D:\Caliban\DebugLog\obj\Release\DebugLog.exe
+D:\Caliban\DebugLog\obj\Release\DebugLog.pdb
+D:\Caliban\Builds\DebugLog.exe
+D:\Caliban\Builds\DebugLog.pdb

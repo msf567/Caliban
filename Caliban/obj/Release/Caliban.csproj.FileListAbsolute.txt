@@ -1,0 +1,5 @@
+D:\Caliban\Caliban\obj\Release\Caliban.csprojResolveAssemblyReference.cache
+D:\Caliban\Builds\Caliban.Core.dll
+D:\Caliban\Builds\Caliban.Core.pdb
+D:\Caliban\Caliban\obj\Release\Caliban.Core.dll
+D:\Caliban\Caliban\obj\Release\Caliban.Core.pdb
