@@ -1,14 +1,14 @@
 using System;
 
-namespace Caliban.Utility
+namespace Caliban.Core.Utility
 {
     public static class MathEx
     {
-        public static T Clamp<T>(this T val, T min, T max) where T : IComparable<T>
+        public static T Clamp<T>(this T _val, T _min, T _max) where T : IComparable<T>
         {
-            if (val.CompareTo(min) < 0) return min;
-            else if (val.CompareTo(max) > 0) return max;
-            else return val;
+            if (_val.CompareTo(_min) < 0) return _min;
+            else if (_val.CompareTo(_max) > 0) return _max;
+            else return _val;
         }
     }
 }

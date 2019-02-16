@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using Caliban.Utility;
+using Caliban.Core.Game;
+using Caliban.Core.Utility;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public class ServerTerminal
     {
@@ -15,47 +16,47 @@ namespace Caliban.Transport
             MClients = new Dictionary<long, ConnectedClient>();
         }
 
-        public event TcpTerminalMessageRecivedDel MessageRecived;
+        public event TcpTerminalMessageRecivedDel MessageReceived;
         public event TcpTerminalConnectDel ClientConnect;
         public event TcpTerminalDisconnectDel ClientDisconnect;
 
-        private Socket _socket;
-        private bool _closed;
+        private Socket socket;
+        private bool closed;
 
         private Dictionary<long, ConnectedClient> MClients { get; set; }
 
         private Dictionary<string, List<ConnectedClient>>
-            _namedClients = new Dictionary<string, List<ConnectedClient>>();
+            namedClients = new Dictionary<string, List<ConnectedClient>>();
 
-        public void StartListen(int port)
+        public void StartListen(int _port)
         {
-            IPEndPoint ipLocal = new IPEndPoint(IPAddress.Loopback, port);
-            _socket = new Socket(AddressFamily.InterNetwork,
+            IPEndPoint ipLocal = new IPEndPoint(IPAddress.Loopback, _port);
+            socket = new Socket(AddressFamily.InterNetwork,
                 SocketType.Stream, ProtocolType.Tcp);
             try
             {
-                _socket.Bind(ipLocal);
+                socket.Bind(ipLocal);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", port));
+                Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
                 return;
             }
 
-            _socket.Listen(4);
-            _socket.BeginAccept(OnClientConnection, null);
+            socket.Listen(4);
+            socket.BeginAccept(OnClientConnection, null);
         }
 
-        private void OnClientConnection(IAsyncResult asyn)
+        private void OnClientConnection(IAsyncResult _asyn)
         {
-            if (_closed)
+            if (closed)
             {
                 return;
             }
 
             try
             {
-                Socket clientSocket = _socket.EndAccept(asyn);
+                Socket clientSocket = socket.EndAccept(_asyn);
 
                 RaiseClientConnected(clientSocket);
 
@@ -74,7 +75,7 @@ namespace Caliban.Transport
 
                 MClients[key] = connectedClient;
 
-                _socket.BeginAccept(OnClientConnection, null);
+                socket.BeginAccept(OnClientConnection, null);
             }
             catch (ObjectDisposedException odex)
             {
@@ -88,18 +89,19 @@ namespace Caliban.Transport
             }
         }
 
-        private void OnClientDisconnection(Socket socket)
+        private void OnClientDisconnection(Socket _socket)
         {
-            long key = socket.Handle.ToInt64();
+            long key = _socket.Handle.ToInt64();
             if (MClients.ContainsKey(key))
             {
                 ConnectedClient c = MClients[key];
-                foreach (var cList in _namedClients.Values)
+                foreach (var cList in namedClients.Values)
                 {
                     if (cList.Contains(c))
                     {
                         cList.Remove(c);
                     }
+                    
                 }
 
                 MClients.Remove(key);
@@ -109,33 +111,35 @@ namespace Caliban.Transport
                 D.Log("Unknown client " + key + " has been disconncted!");
             }
 
-            RaiseClientDisconnected(socket);
+            RaiseClientDisconnected(_socket);
         }
 
-        private void RegisterClient(Socket socket, string name)
+        private void RegisterClient(Socket _socket, string _name)
         {
-            D.Log("Registering " + name);
-            ConnectedClient c = MClients[socket.Handle.ToInt64()];
-            if (_namedClients.ContainsKey(name))
+            D.Log("Registering " + _name);
+            ConnectedClient c = MClients[_socket.Handle.ToInt64()];
+            if (namedClients.ContainsKey(_name))
             {
-                _namedClients[name].Add(c);
+                namedClients[_name].Add(c);
             }
             else
             {
-                _namedClients.Add(name, new List<ConnectedClient>());
-                _namedClients[name].Add(c);
+                namedClients.Add(_name, new List<ConnectedClient>());
+                namedClients[_name].Add(c);
             }
+            
+            ModuleLoader.ReadyClient(_name);
         }
 
-        public void SendMessageToClient(string clientName, byte[] message)
+        public void SendMessageToClient(string _clientName, byte[] _message)
         {
             try
             {
-                if (_namedClients.ContainsKey(clientName))
+                if (namedClients.ContainsKey(_clientName))
                 {
-                    foreach (ConnectedClient client in _namedClients[clientName])
+                    foreach (ConnectedClient client in namedClients[_clientName])
                     {
-                        client.Send(message);
+                        client.Send(_message);
                     }
                 }
                 else
@@ -149,13 +153,13 @@ namespace Caliban.Transport
             }
         }
 
-        public void BroadcastMessage(byte[] message)
+        public void BroadcastMessage(byte[] _message)
         {
             try
             {
                 foreach (ConnectedClient connectedClient in MClients.Values)
                 {
-                    connectedClient.Send(message);
+                    connectedClient.Send(_message);
                 }
             }
             catch (SocketException se)
@@ -168,9 +172,9 @@ namespace Caliban.Transport
         {
             try
             {
-                if (_socket != null)
+                if (socket != null)
                 {
-                    _closed = true;
+                    closed = true;
 
                     // Close the clients
                     foreach (ConnectedClient connectedClient in MClients.Values)
@@ -178,45 +182,46 @@ namespace Caliban.Transport
                         connectedClient.Stop();
                     }
 
-                    _socket.Close();
+                    socket.Close();
 
-                    _socket = null;
+                    socket = null;
                 }
             }
-            catch (ObjectDisposedException odex)
+            catch (ObjectDisposedException)
             {
                 D.Log("Stop failed");
             }
         }
 
-        private void OnMessageReceived(Socket socket, byte[] message)
+        private void OnMessageReceived(Socket _socket, byte[] _message)
         {
-            if (MessageRecived != null)
+            if (MessageReceived != null)
             {
-                int msgLen = Convert.ToInt16(message[0]);
+                int msgLen = Convert.ToInt16(_message[0]);
                 byte[] trimmedMessage = new byte[msgLen];
-                Array.Copy(message, 1, trimmedMessage, 0, msgLen);
+                Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
 
-                if (trimmedMessage[0] == Convert.ToByte('!'))
-                    RegisterClient(socket, trimmedMessage.Skip(1).ToArray().String());
+                Message m = Messages.Parse(trimmedMessage);
+                if (m.Type == MessageType.REGIESTER)
+                    RegisterClient(_socket,m.Value);
                 else
-                    MessageRecived(socket, trimmedMessage);
+                    MessageReceived(_socket, trimmedMessage);
             }
         }
 
-        private void RaiseClientConnected(Socket socket)
+        private void RaiseClientConnected(Socket _socket)
         {
             if (ClientConnect != null)
             {
-                ClientConnect(socket);
+                ClientConnect(_socket);
             }
         }
 
-        private void RaiseClientDisconnected(Socket socket)
+        private void RaiseClientDisconnected(Socket _socket)
         {
             if (ClientDisconnect != null)
             {
-                ClientDisconnect(socket);
+                ClientDisconnect(_socket);
             }
         }
     }

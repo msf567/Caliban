@@ -1,53 +1,53 @@
 using System;
 using System.Net.Sockets;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public class ConnectedClient
     {
-        private Socket _mClientSocket;
-        SocketListener _mListener;
+        private Socket mClientSocket;
+        SocketListener mListener;
 
         public event TcpTerminalMessageRecivedDel MessageRecived
         {
-            add { _mListener.MessageReceived += value; }
-            remove { _mListener.MessageReceived -= value; }
+            add { mListener.MessageReceived += value; }
+            remove { mListener.MessageReceived -= value; }
         }
 
         public event TcpTerminalDisconnectDel Disconnected
         {
-            add { _mListener.Disconnected += value; }
-            remove { _mListener.Disconnected -= value; }
+            add { mListener.Disconnected += value; }
+            remove { mListener.Disconnected -= value; }
         }
 
-        public ConnectedClient(Socket clientSocket)
+        public ConnectedClient(Socket _clientSocket)
         {
-            _mClientSocket = clientSocket;
-            _mListener = new SocketListener();
+            mClientSocket = _clientSocket;
+            mListener = new SocketListener();
         }
 
         public void StartListen()
         {
-            _mListener.StartReceiving(_mClientSocket);
+            mListener.StartReceiving(mClientSocket);
         }
 
-        public void Send(byte[] buffer)
+        public void Send(byte[] _buffer)
         {
-            if (_mClientSocket == null)
+            if (mClientSocket == null)
             {
                 throw new Exception("Can't send data. ConnectedClient is Closed!");
             }
 
-            byte[] sendData = new byte[buffer.Length + 1];
-            sendData[0] = Convert.ToByte(buffer.Length);
-            buffer.CopyTo(sendData, 1);
-            _mClientSocket.Send(sendData);
+            byte[] sendData = new byte[_buffer.Length + 1];
+            sendData[0] = Convert.ToByte(_buffer.Length);
+            _buffer.CopyTo(sendData, 1);
+            mClientSocket.Send(sendData);
         }
 
         public void Stop()
         {
-            _mListener.StopListening();
-            _mClientSocket = null;
+            mListener.StopListening();
+            mClientSocket = null;
         }
     }
 }

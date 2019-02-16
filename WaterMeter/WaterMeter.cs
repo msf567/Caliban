@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
-using Caliban.Transport;
-using Caliban.Utility;
-using Caliban.Windows;
+using Caliban.Core.Transport;
+using Caliban.Core.Utility;
+using Caliban.Core.Windows;
 using CLIGL;
-using Message = Caliban.Transport.Message;
+using Message = Caliban.Core.Transport.Message;
 
 namespace WaterMeter
 {
@@ -16,18 +16,18 @@ namespace WaterMeter
         public const string TITLE = "Water Meter";
         private static Random r;
 
-        private float _waterLevel;
-        private bool _initialized;
+        private float waterLevel;
+        private bool initialized;
         private bool closeFlag = false;
         private RenderingWindow window;
         private RenderingBuffer buffer;
         public readonly int Width;
         public readonly int Height;
 
-        public WaterMeter(int w, int h) : base("WaterMeter")
+        public WaterMeter(int _w, int _h) : base("WaterMeter")
         {
-            Width = w;
-            Height = h;
+            Width = _w;
+            Height = _h;
             ConfigureWindow();
 
             r = new Random(Guid.NewGuid().GetHashCode());
@@ -35,12 +35,13 @@ namespace WaterMeter
 
             Thread t = new Thread(UpdateThread);
             t.Start();
+            
         }
 
         private void ConfigureWindow()
         {
             IntPtr hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            int SWidth = Screen.PrimaryScreen.Bounds.Width;
+            int sWidth = Screen.PrimaryScreen.Bounds.Width;
 
             window = new RenderingWindow(TITLE, Width, Height);
             buffer = new RenderingBuffer(Width, Height);
@@ -48,13 +49,15 @@ namespace WaterMeter
             var style = Windows.GetWindowLong(hwnd, Windows.GWL_STYLE);
             Windows.SetWindowLong(hwnd, Windows.GWL_STYLE, (style & ~Windows.WS_CAPTION));
 
-            Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Windows.SWP.NOSIZE);
+            Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Windows.Swp.NOSIZE);
         }
 
         private void UpdateThread()
         {
+            SetClientReady();
+            
             while (!closeFlag)
-            {
+            {   
                 RenderWaterLevel();
                 Thread.Sleep(100);
             }
@@ -62,9 +65,9 @@ namespace WaterMeter
 
         private void RenderWaterLevel()
         {
-            if (_initialized)
+            if (initialized)
             {
-                string waterLevelString = Math.Ceiling((_waterLevel)).ToString();
+                string waterLevelString = Math.Ceiling((waterLevel)).ToString();
                 buffer.ClearPixelBuffer(RenderingPixel.EmptyPixel);
                 buffer.SetRectangle(0, 0, Width, Height,
                     new RenderingPixel(
@@ -85,24 +88,24 @@ namespace WaterMeter
 
         #region networking
 
-        protected override void ClientOnConnected(Socket socket)
+        protected override void ClientOnConnected(Socket _socket)
         {
-            base.ClientOnConnected(socket);
+            base.ClientOnConnected(_socket);
             Thread.Sleep(500);
             SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_GET, ""));
         }
 
-        protected override void ClientOnMessageReceived(byte[] message)
+        protected override void ClientOnMessageReceived(byte[] _message)
         {
-            Message m = Messages.Parse(message);
+            Message m = Messages.Parse(_message);
             switch (m.Type)
             {
                 case MessageType.GAME_CLOSE:
                     closeFlag = true;
                     break;
                 case MessageType.WATERLEVEL_SET:
-                    _initialized = true;
-                    _waterLevel = (float) Math.Floor(float.Parse(m.Param)).Clamp(0, 100);
+                    initialized = true;
+                    waterLevel = (float) Math.Floor(float.Parse(m.Value)).Clamp(0, 100);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

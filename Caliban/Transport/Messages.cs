@@ -1,50 +1,53 @@
 using System;
 using System.Linq;
-using Caliban.Utility;
+using Caliban.Core.Utility;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public enum MessageType
     {
         GAME_CLOSE = 0x0000,
         DEBUG_LOG = 0x0001,
+        REGIESTER = 0x0002,
+        
         WATERLEVEL_SET = 0x0101,
-        WATERLEVEL_GET = 0x0102
+        WATERLEVEL_GET = 0x0102,
+        WATERLEVEL_ADD = 0x0103
     }
 
     public struct Message
     {
         public MessageType Type;
-        public string Param;
+        public string Value;
 
-        public Message(MessageType type, string param)
+        public Message(MessageType _type, string _value)
         {
-            Type = type;
-            Param = param;
+            Type = _type;
+            Value = _value;
         }
 
         public override string ToString()
         {
-            return "Type: " + Type + " Param: " + Param;
+            return "Type: " + Type + " Param: " + Value;
         }
     }
 
     public static class Messages
     {
-        public static byte[] Build(MessageType type, string message)
+        public static byte[] Build(MessageType _type, string _message)
         {
-            var typeData = BitConverter.GetBytes((uint) type);
-            var messageData = System.Text.Encoding.ASCII.GetBytes(message);
+            var typeData = BitConverter.GetBytes((uint) _type);
+            var messageData = System.Text.Encoding.ASCII.GetBytes(_message);
             byte[] retMsg = new byte[4 + messageData.Length];
             typeData.CopyTo(retMsg, 0);
             messageData.CopyTo(retMsg, 4);
             return retMsg;
         }
 
-        public static Message Parse(byte[] bytes)
+        public static Message Parse(byte[] _bytes)
         {
-            var type = (MessageType) BitConverter.ToInt32(bytes.Take(4).ToArray(), 0);
-            var param = bytes.Skip(4).Take(bytes.Length - 4).ToArray().String();
+            var type = (MessageType) BitConverter.ToInt32(_bytes.Take(4).ToArray(), 0);
+            var param = _bytes.Skip(4).Take(_bytes.Length - 4).ToArray().String();
             return new Message(type, param);
         }
     }

@@ -2,13 +2,13 @@
 {
     internal class WaterMeterProgram
     {
-        public static void Main(string[] args)
+        public static void Main(string[] _args)
         {
-            int WIDTH = 15;
-            int HEIGHT = 30;
+            int width = 15;
+            int height = 30;
 
 
-            WaterMeter waterMeter = new WaterMeter(WIDTH, HEIGHT);
+            WaterMeter waterMeter = new WaterMeter(width, height);
         }
     }
 }

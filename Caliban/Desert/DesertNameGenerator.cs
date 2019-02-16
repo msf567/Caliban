@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ZetaLongPaths;
 
-namespace Caliban.Desert
+namespace Caliban.Core.Desert
 {
     public class DesertNameGenerator
     {
@@ -17,21 +17,21 @@ namespace Caliban.Desert
 
         private readonly Random random = new Random();
 
-        public string GetRandomString(int length)
+        public string GetRandomString(int _length)
         {
             const string chars = "abcdefghijklmnopqrstuvwxyz0987654321";
-            string newHash = new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
+            string newHash = new string(Enumerable.Repeat(chars, _length)
+                .Select(_s => _s[random.Next(_s.Length)]).ToArray());
 
             while (claimedHashes.Contains(newHash))
-                newHash = new string(Enumerable.Repeat(chars, length)
-                    .Select(s => s[random.Next(s.Length)]).ToArray());
+                newHash = new string(Enumerable.Repeat(chars, _length)
+                    .Select(_s => _s[random.Next(_s.Length)]).ToArray());
 
             claimedHashes.Add(newHash);
             return newHash;
         }
 
-        public string GetNewFolderName(ZlpDirectoryInfo parent)
+        public string GetNewFolderName(ZlpDirectoryInfo _parent)
         {
             var r = new Random(Guid.NewGuid().GetHashCode());
             var baseName = DesertNames[r.Next(DesertNames.Length)];

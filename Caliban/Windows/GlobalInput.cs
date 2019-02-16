@@ -1,17 +1,17 @@
 using System;
 using EventHook;
 
-namespace Caliban.Windows
+namespace Caliban.Core.Windows
 {
     public class Point
     {
-        public readonly int x;
-        public readonly int y;
+        public readonly int X;
+        public readonly int Y;
 
-        public Point(EventHook.Hooks.Point p)
+        public Point(EventHook.Hooks.Point _p)
         {
-            this.x = p.x;
-            this.y = p.y;
+            this.X = _p.x;
+            this.Y = _p.y;
         }
     }
 
@@ -31,11 +31,11 @@ namespace Caliban.Windows
 
     public class MouseArgs : EventArgs
     {
-        public MouseArgs(MouseEventArgs e)
+        public MouseArgs(MouseEventArgs _e)
         {
-            Message = (MouseMessages) e.Message;
-            Point = new Point(e.Point);
-            MouseData = e.MouseData;
+            Message = (MouseMessages) _e.Message;
+            Point = new Point(_e.Point);
+            MouseData = _e.MouseData;
         }
 
         public MouseMessages Message { get; set; }
@@ -51,9 +51,9 @@ namespace Caliban.Windows
         private static readonly KeyboardWatcher KbWatcher;
         private static readonly MouseWatcher MouseWatcher;
 
-        public delegate void GlobalKeyPressEvent(string key);
+        public delegate void GlobalKeyPressEvent(string _key);
 
-        public delegate void GlobalMouseMoveEvent(MouseArgs key);
+        public delegate void GlobalMouseMoveEvent(MouseArgs _key);
 
         public static GlobalKeyPressEvent OnGlobalKeyPress;
         public static GlobalMouseMoveEvent OnGlobalMouseMove;
@@ -77,15 +77,15 @@ namespace Caliban.Windows
             MouseWatcher.OnMouseInput += GlobalMouse;
         }
 
-        private static void GlobalKeyPress(object s, KeyInputEventArgs e)
+        private static void GlobalKeyPress(object _s, KeyInputEventArgs _e)
         {
-            if (e.KeyData.EventType == KeyEvent.down)
-                OnGlobalKeyPress?.Invoke(e.KeyData.Keyname);
+            if (_e.KeyData.EventType == KeyEvent.down)
+                OnGlobalKeyPress?.Invoke(_e.KeyData.Keyname);
         }
 
-        private static void GlobalMouse(object s, MouseEventArgs e)
+        private static void GlobalMouse(object _s, MouseEventArgs _e)
         {
-            OnGlobalMouseMove?.Invoke(new MouseArgs(e));
+            OnGlobalMouseMove?.Invoke(new MouseArgs(_e));
         }
     }
 }

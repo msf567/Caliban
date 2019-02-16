@@ -3,9 +3,10 @@ using System.Diagnostics;
 using System.Media;
 using System.Threading;
 using System.Windows.Forms;
-using Caliban.ConsoleOutput;
+using Caliban.Core.ConsoleOutput;
+using CLIGL;
 
-namespace Caliban.Menu
+namespace Caliban.Core.Menu
 {
     enum MenuState
     {
@@ -17,8 +18,11 @@ namespace Caliban.Menu
 
     public class Menu
     {
-        private readonly SoundPlayer Music = new SoundPlayer();
-        private int WIDTH = 90;
+        private readonly SoundPlayer music = new SoundPlayer();
+        private int width = 90;
+        private int height = 5;
+        private RenderingWindow window;
+        private RenderingBuffer buffer;
 
         public Menu()
         {
@@ -30,24 +34,24 @@ namespace Caliban.Menu
             int height = Console.WindowHeight;
             while (height > 1)
             {
-                Console.SetWindowSize(WIDTH, --height);
-                Console.SetBufferSize(WIDTH, height);
+                Console.SetWindowSize(width, --height);
+                Console.SetBufferSize(width, height);
             }
         }
 
-        public char Main(bool introMode = false)
+        public void Main(bool _introMode = false)
         {
             Console.Clear();
             int height = 1;
-            Console.SetWindowSize(WIDTH, height);
-            Console.SetBufferSize(WIDTH, height);
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            if (introMode)
+            if (_introMode)
             {
-                Music.SoundLocation = "desert.wav";
-                Music.Load();
+                music.SoundLocation = "desert.wav";
+                music.Load();
                 Thread.Sleep(2000);
-                Music.Play();
+                music.Play();
             }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -60,19 +64,19 @@ namespace Caliban.Menu
             IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("~~~");
             IncreaseWindow(ref height);
-            if (introMode) Thread.Sleep(2398);
+            if (_introMode) Thread.Sleep(2398);
             ConsoleFormat.CenterWrite("A File System Survival Game");
             IncreaseWindow(ref height);
             IncreaseWindow(ref height);
             IncreaseWindow(ref height);
-            if (introMode) Thread.Sleep(2412);
+            if (_introMode) Thread.Sleep(2412);
             ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             ConsoleFormat.CenterWrite("");
             foreach (var s in titleGraphic)
             {
                 ConsoleFormat.CenterWrite(s);
                 IncreaseWindow(ref height);
-                if (introMode) Thread.Sleep(594);
+                if (_introMode) Thread.Sleep(594);
             }
 
             ConsoleFormat.CenterWrite("");
@@ -87,13 +91,14 @@ namespace Caliban.Menu
             Console.ForegroundColor = ConsoleColor.White;
             ConsoleFormat.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
             IncreaseWindow(ref height);
-            return Console.ReadKey().KeyChar;
+           // return Console.ReadKey().Key;
         }
 
         private void ConfigureWindow()
         {
-            Console.SetWindowSize(WIDTH, 1);
-            Console.SetBufferSize(WIDTH, 1);
+            window = new RenderingWindow("CALIBAN", width, height);
+            buffer = new RenderingBuffer(width, height);
+
             Console.Title = "CALIBAN";
             var hwnd = Process.GetCurrentProcess().MainWindowHandle;
             var style = Windows.Windows.GetWindowLong(hwnd, Windows.Windows.GWL_STYLE);
@@ -103,13 +108,13 @@ namespace Caliban.Menu
             Windows.Windows.GetWindowRect(hwnd, out r);
 
             Windows.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
-                Windows.Windows.SWP.NOSIZE);
+                Windows.Windows.Swp.NOSIZE);
         }
 
-        private void IncreaseWindow(ref int height)
+        private void IncreaseWindow(ref int _height)
         {
-            Console.SetWindowSize(WIDTH, ++height);
-            Console.SetBufferSize(WIDTH, height);
+            Console.SetWindowSize(width, ++_height);
+            Console.SetBufferSize(width, _height);
         }
 
         private readonly string[] titleGraphic =
@@ -126,12 +131,9 @@ namespace Caliban.Menu
 
         public void About()
         {
-            var userKey = ConsoleKey.A;
             int height = 1;
-            Console.SetWindowSize(WIDTH, height);
-            Console.SetBufferSize(WIDTH, height);
-            while (userKey != ConsoleKey.Escape)
-            {
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
                 Console.Clear();
                 ConsoleFormat.CenterWrite("");
                 IncreaseWindow(ref height);
@@ -145,8 +147,6 @@ namespace Caliban.Menu
                 IncreaseWindow(ref height);
                 ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
                 IncreaseWindow(ref height);
-                userKey = Console.ReadKey().Key;
-            }
         }
     }
 }

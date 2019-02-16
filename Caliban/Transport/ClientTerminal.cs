@@ -2,79 +2,79 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Caliban.Transport
+namespace Caliban.Core.Transport
 {
     public class ClientTerminal
     {
-        Socket _mSocClient;
-        private SocketListener _mListener;
+        Socket mSocClient;
+        private SocketListener mListener;
 
         public event TcpTerminalMessageRecivedDel MessageRecived;
         public event TcpTerminalConnectDel Connected;
         public event TcpTerminalDisconnectDel Disconncted;
 
-        public void Connect(int alPort)
+        public void Connect(int _alPort)
         {
             //create a new client socket ...
-            _mSocClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            var remoteEndPoint = new IPEndPoint(IPAddress.Loopback, alPort);
+            mSocClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            var remoteEndPoint = new IPEndPoint(IPAddress.Loopback, _alPort);
 
             // Connect
-            _mSocClient.Connect(remoteEndPoint);
+            mSocClient.Connect(remoteEndPoint);
 
             OnServerConnection();
         }
 
-        public void SendMessage(string message)
+        public void SendMessage(string _message)
         {
-            if (_mSocClient == null)
+            if (mSocClient == null)
             {
                 return;
             }
 
-            var messageData = System.Text.Encoding.ASCII.GetBytes(message);
+            var messageData = System.Text.Encoding.ASCII.GetBytes(_message);
             var sendData = new byte[messageData.Length + 1];
             sendData[0] = Convert.ToByte(messageData.Length);
             messageData.CopyTo(sendData, 1);
-            _mSocClient.Send(sendData);
+            mSocClient.Send(sendData);
         }
 
-        public void SendMessage(byte[] messageData)
+        public void SendMessage(byte[] _messageData)
         {
-            var sendData = new byte[messageData.Length + 1];
-            sendData[0] = Convert.ToByte(messageData.Length);
-            messageData.CopyTo(sendData, 1);
-            _mSocClient.Send(sendData);
+            var sendData = new byte[_messageData.Length + 1];
+            sendData[0] = Convert.ToByte(_messageData.Length);
+            _messageData.CopyTo(sendData, 1);
+            mSocClient.Send(sendData);
         }
 
         public void StartListen()
         {
-            if (_mSocClient == null)
+            if (mSocClient == null)
             {
                 return;
             }
 
-            if (_mListener != null)
+            if (mListener != null)
             {
                 return;
             }
 
-            _mListener = new SocketListener();
-            _mListener.Disconnected += OnServerConnectionDroped;
-            _mListener.MessageReceived += OnMessageReceived;
+            mListener = new SocketListener();
+            mListener.Disconnected += OnServerConnectionDroped;
+            mListener.MessageReceived += OnMessageReceived;
 
-            _mListener.StartReceiving(_mSocClient);
+            mListener.StartReceiving(mSocClient);
         }
 
         public string ReadData()
         {
-            if (_mSocClient == null)
+            if (mSocClient == null)
             {
                 return string.Empty;
             }
 
             var buffer = new byte[1024];
-            var iRx = _mSocClient.Receive(buffer);
+            var iRx = mSocClient.Receive(buffer);
             var chars = new char[iRx];
 
             var d = System.Text.Encoding.UTF8.GetDecoder();
@@ -86,39 +86,39 @@ namespace Caliban.Transport
 
         public void Close()
         {
-            if (_mSocClient == null)
+            if (mSocClient == null)
                 return;
 
-            _mListener?.StopListening();
+            mListener?.StopListening();
 
-            _mSocClient.Close();
-            _mListener = null;
-            _mSocClient = null;
+            mSocClient.Close();
+            mListener = null;
+            mSocClient = null;
         }
 
         private void OnServerConnection()
         {
-            Connected?.Invoke(_mSocClient);
+            Connected?.Invoke(mSocClient);
         }
 
-        private void OnMessageReceived(Socket socket, byte[] message)
+        private void OnMessageReceived(Socket _socket, byte[] _message)
         {
             if (MessageRecived == null) return;
-            int msgLen = Convert.ToInt16(message[0]);
+            int msgLen = Convert.ToInt16(_message[0]);
             var trimmedMessage = new byte[msgLen];
-            Array.Copy(message, 1, trimmedMessage, 0, msgLen);
-            MessageRecived(socket, trimmedMessage);
+            Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
+            MessageRecived(_socket, trimmedMessage);
         }
 
-        private void OnServerConnectionDroped(Socket socket)
+        private void OnServerConnectionDroped(Socket _socket)
         {
             Close();
-            RaiseServerDisconnected(socket);
+            RaiseServerDisconnected(_socket);
         }
 
-        private void RaiseServerDisconnected(Socket socket)
+        private void RaiseServerDisconnected(Socket _socket)
         {
-            Disconncted?.Invoke(socket);
+            Disconncted?.Invoke(_socket);
         }
     }
 }

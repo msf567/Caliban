@@ -1,9 +1,11 @@
+using System;
 using System.Diagnostics;
+using System.Net.Sockets;
 using System.Threading;
-using Caliban.Transport;
-using Caliban.Windows;
+using Caliban.Core.Transport;
+using Caliban.Core.Windows;
 
-namespace Caliban.Game
+namespace Caliban.Core.Game
 {
     public class WaterLevel
     {
@@ -11,15 +13,29 @@ namespace Caliban.Game
         private ServerTerminal server;
         private bool closeFlag;
 
-        public WaterLevel(ServerTerminal s)
+        public WaterLevel(ServerTerminal _s)
         {
-            server = s;
-            CurrentLevel = 100;
+            server = _s;
+            server.MessageReceived += ServerOnMessageReceived;
+            CurrentLevel = 50;
             GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
             updateThread = new Thread(UpdateThread);
             updateThread.Start();
-            Process.Start("WaterMeter.exe");
+            
+            ModuleLoader.LoadModuleAndWait("WaterMeter.exe","WaterMeter");
+        }
+
+        private void ServerOnMessageReceived(Socket __socket, byte[] _message)
+        {
+            Console.WriteLine("Water Level received a message!");
+            Message m = Messages.Parse(_message);
+            switch (m.Type)
+            {
+                case MessageType.WATERLEVEL_ADD:
+                    CurrentLevel += int.Parse(m.Value);
+                    break;
+            }
         }
 
         private void UpdateThread()
@@ -34,13 +50,12 @@ namespace Caliban.Game
 
         public float CurrentLevel { get; set; }
 
-
-        private void OnGlobalMouseMove(MouseArgs e)
+        private void OnGlobalMouseMove(MouseArgs _e)
         {
             CurrentLevel -= 0.01f;
         }
 
-        private void OnGlobalKeyPress(string key)
+        private void OnGlobalKeyPress(string _key)
         {
             //CurrentLevel -= 0.2f;
         }
