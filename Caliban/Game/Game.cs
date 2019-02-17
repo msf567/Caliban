@@ -1,5 +1,6 @@
 using System;
 using System.Net.Sockets;
+using Caliban.Core.Desert;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 
@@ -22,6 +23,7 @@ namespace Caliban.Core.Game
         public void Start()
         {
             waterLevel = new WaterLevel(server);
+          //  DesertGenerator.GenerateDesert();
         }
 
         public void Close()
@@ -29,6 +31,7 @@ namespace Caliban.Core.Game
             waterLevel?.Dispose();
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
             server.Close();
+            DesertGenerator.ClearDesert();
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)

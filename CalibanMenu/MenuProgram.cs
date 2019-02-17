@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
+using Caliban.Core.Desert;
 using Caliban.Core.Game;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
@@ -30,15 +32,31 @@ namespace CalibanMenu
                     case ConsoleKey.E:
                         NewGame(false);
                         break;
+                    case ConsoleKey.G:
+                        DesertGenerator.GenerateDesert();
+                        break;
                     case ConsoleKey.A:
                         menu.About();
                         break;
                     case ConsoleKey.C:
-                        CloseGame();
+                        DesertGenerator.ClearDesert();
                         break;
                     case ConsoleKey.Q:
                         CloseApp();
                         continue;
+                    
+                    case ConsoleKey.UpArrow:
+                        Console.WriteLine("Desert Depth: " + ++DesertParameters.DesertDepth);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        Console.WriteLine("Desert Depth: " + --DesertParameters.DesertDepth);
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        Console.WriteLine("Desert Width: " + --DesertParameters.DesertWidth);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        Console.WriteLine("Desert Width: " + ++DesertParameters.DesertWidth);
+                        break;
                 }
 
                 userKey = Console.ReadKey().Key;

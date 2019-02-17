@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban", "Caliban\Caliban.csproj", "{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "..\SocketsMultipleClients\Sockets Multiple Clients - Bytes\Client\Client.csproj", "{18F628C8-FD7C-44BC-8D1E-044A701FB864}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugLog", "DebugLog\DebugLog.csproj", "{6A19FC3C-67F1-4F2C-8986-43957F1605E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterPuddle", "WaterPuddle\WaterPuddle.csproj", "{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}"
@@ -39,10 +37,6 @@ Global
 		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18F628C8-FD7C-44BC-8D1E-044A701FB864}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A19FC3C-67F1-4F2C-8986-43957F1605E0}.Release|Any CPU.ActiveCfg = Release|Any CPU

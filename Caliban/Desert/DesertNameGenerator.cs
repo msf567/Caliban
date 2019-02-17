@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using ZetaLongPaths;
 
 namespace Caliban.Core.Desert
 {
@@ -31,7 +31,7 @@ namespace Caliban.Core.Desert
             return newHash;
         }
 
-        public string GetNewFolderName(ZlpDirectoryInfo _parent)
+        public string GetNewFolderName(DirectoryInfo _parent)
         {
             var r = new Random(Guid.NewGuid().GetHashCode());
             var baseName = DesertNames[r.Next(DesertNames.Length)];

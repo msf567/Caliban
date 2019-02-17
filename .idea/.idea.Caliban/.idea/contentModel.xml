@@ -13,6 +13,7 @@
         <e p="Desert" t="Include">
           <e p="DesertGenerator.cs" t="Include" />
           <e p="DesertNameGenerator.cs" t="Include" />
+          <e p="DesertParameters.cs" t="Include" />
         </e>
         <e p="Game" t="Include">
           <e p="Game.cs" t="Include" />
@@ -93,9 +94,6 @@
         <e p="WaterPuddle.csproj" t="IncludeRecursive" />
         <e p="WaterPuddleProgram.cs" t="Include" />
       </e>
-    </e>
-    <e p="D:\SocketsMultipleClients\Sockets Multiple Clients - Bytes\Client" t="IncludeRecursive">
-      <e p="Client.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
