@@ -35,7 +35,6 @@ namespace WaterMeter
 
             Thread t = new Thread(UpdateThread);
             t.Start();
-            
         }
 
         private void ConfigureWindow()
@@ -55,9 +54,9 @@ namespace WaterMeter
         private void UpdateThread()
         {
             SetClientReady();
-            
+
             while (!closeFlag)
-            {   
+            {
                 RenderWaterLevel();
                 Thread.Sleep(100);
             }
@@ -65,11 +64,17 @@ namespace WaterMeter
 
         private void RenderWaterLevel()
         {
+            int waterHeight = (int)Math.Floor( (waterLevel / 100.0f) * Height);
             if (initialized)
             {
                 string waterLevelString = Math.Ceiling((waterLevel)).ToString();
                 buffer.ClearPixelBuffer(RenderingPixel.EmptyPixel);
                 buffer.SetRectangle(0, 0, Width, Height,
+                    new RenderingPixel(
+                        ' ',
+                        ConsoleColor.Black,
+                        ConsoleColor.Black));
+                buffer.SetRectangle(0, Height - waterHeight, Width, waterHeight,
                     new RenderingPixel(
                         '.',
                         ConsoleColor.Blue,
@@ -78,10 +83,7 @@ namespace WaterMeter
             }
             else
                 buffer.SetRectangle(0, 0, Width, Height,
-                    new RenderingPixel(
-                        ' ',
-                        ConsoleColor.Black,
-                        ConsoleColor.Black));
+                    new RenderingPixel(' ', ConsoleColor.Black, ConsoleColor.Black));
 
             window.Render(buffer);
         }

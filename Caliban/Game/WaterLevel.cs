@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
+using Caliban.Core.Utility;
 using Caliban.Core.Windows;
 
 namespace Caliban.Core.Game
@@ -17,7 +18,7 @@ namespace Caliban.Core.Game
         {
             server = _s;
             server.MessageReceived += ServerOnMessageReceived;
-            CurrentLevel = 50;
+            CurrentLevel = 80;
             GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
             updateThread = new Thread(UpdateThread);
@@ -34,17 +35,21 @@ namespace Caliban.Core.Game
             {
                 case MessageType.WATERLEVEL_ADD:
                     CurrentLevel += int.Parse(m.Value);
+                    CurrentLevel = CurrentLevel.Clamp(0, 100);
                     break;
             }
+
+            Console.WriteLine(CurrentLevel);
         }
 
         private void UpdateThread()
         {
             while (!closeFlag)
             {
+                CurrentLevel.Clamp(0, 100);
                 server.SendMessageToClient("WaterMeter",
                     Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
-                Thread.Sleep(300);
+                Thread.Sleep(70);
             }
         }
 
@@ -53,6 +58,8 @@ namespace Caliban.Core.Game
         private void OnGlobalMouseMove(MouseArgs _e)
         {
             CurrentLevel -= 0.01f;
+            if (_e.Message == MouseMessages.WM_LBUTTONDOWN)
+                CurrentLevel--;
         }
 
         private void OnGlobalKeyPress(string _key)
