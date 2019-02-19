@@ -8,10 +8,11 @@ namespace Caliban.Core.Transport
     {
         GAME_CLOSE = 0x0000,
         DEBUG_LOG = 0x0001,
-        REGIESTER = 0x0002,
+        REGISTER = 0x0002,
         
         GAME_WIN = 0x0003,
         GAME_LOSE = 0x0004,
+        KILL_ME = 0x0005,
         
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,

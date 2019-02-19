@@ -28,7 +28,7 @@ namespace CalibanMenu
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.Escape;
-            Menu.Main(false,true);
+            Menu.Main(false,false);
             while (!closeFlag)
             {
                 switch (userKey)

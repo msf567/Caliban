@@ -25,7 +25,7 @@ namespace Caliban.Core.Transport
             IsReady = true;
             if (ShouldRegister && IsConnected)
             {
-                SendMessageToHost(Messages.Build(MessageType.REGIESTER, clientName));
+                SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
             }
         }
 
@@ -71,7 +71,7 @@ namespace Caliban.Core.Transport
         {
             IsConnected = true;
             if (ShouldRegister)
-                SendMessageToHost(Messages.Build(MessageType.REGIESTER, clientName));
+                SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Caliban.Core.Utility;
+using Treasures;
 
 namespace Caliban.Core.Desert
 {
@@ -45,7 +46,7 @@ namespace Caliban.Core.Desert
                                 //Console.WriteLine("Desert Cleared!");
                             }
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             //Console.WriteLine("failed " + e.Message);
                         }
@@ -58,17 +59,14 @@ namespace Caliban.Core.Desert
 
         public static void GenerateDesert()
         {
-            //ClearDesert();
-            //Console.WriteLine("Generating Desert!");
             if (!Directory.Exists(DesertRoot.FullName))
                 Directory.CreateDirectory(DesertRoot.FullName);
-            GenerateDesertNode(DesertRoot, DesertParameters.DesertDepth);
-            //Console.WriteLine("Desert Generated!");
+            ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNode(DesertRoot, DesertParameters.DesertDepth); });
             DesertGenerated = true;
         }
 
         // TODO: figure out how to actually detect when desert is finished generating
-        private static int RockCount = 0;
+        //private static int RockCount = 0;
         private static void GenerateDesertNode(DirectoryInfo _parent, int _myMaxDepth)
         {
             if (_myMaxDepth == 0) // bottom of the stack
@@ -87,29 +85,21 @@ namespace Caliban.Core.Desert
                     string newfolderName = nameGenerator.GetNewFolderName(_parent);
                     var newDir = new DirectoryInfo(_parent.FullName).CreateSubdirectory(newfolderName);
 
-                    ThreadPool.QueueUserWorkItem(delegate
-                    {
-                        try
-                        {
-                            GenerateDesertNode(newDir, newDepth);
-                        }
-                        catch (Exception e)
-                        {
-                            //Console.WriteLine("failed " + e.Message);
-                        }
-                    });
+                    ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNode(newDir, newDepth); });
                 }
             }
         }
 
-        private static void DropRock(string _path) // place a heavy rock at the end of each folder path to prevent modifying the folders mid-game
+        private static void
+            DropRock(string _path) // place a heavy rock at the end of each folder path to prevent modifying the folders mid-game
         {
             var f = new FileInfo(Path.Combine(_path, "heavy.rock"));
             var newRock = f.Create();
             newRock.Close();
             // newRock.Lock(0, 3);
             HeavyRocks.Add(newRock);
-            Resources.Resources.WriteEmbeddedResource("Caliban.Core","WaterPuddle.exe", _path);
+            TreasureManager.WriteEmbeddedResource("Treasures", "WaterPuddle.exe", _path, "WaterPuddle.exe");
+            //Resources.Resources.WriteEmbeddedResource("Caliban.Core","WaterPuddle.exe", _path);
             //  newRock.Close();
         }
     }
