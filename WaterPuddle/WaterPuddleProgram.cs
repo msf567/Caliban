@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using Caliban.Core.Transport;
 
@@ -27,10 +28,12 @@ namespace WaterPuddle
 
         public static void Main(string[] args)
         {
+            Environment.SetEnvironmentVariable("PATH",
+                Environment.GetEnvironmentVariable("PATH") + ";" + @"D:\Caliban\Builds");
             Process[] pname = Process.GetProcessesByName("CALIBAN");
             if (pname.Length == 0)
                 return;
-            
+
             WaterPuddle wp = new WaterPuddle(15);
         }
     }

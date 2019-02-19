@@ -16,7 +16,7 @@ namespace Caliban.Core.Desert
 
         public static void ClearDesert()
         {
-            Console.WriteLine("Clearing Desert!");
+            //Console.WriteLine("Clearing Desert!");
             foreach (var rock in HeavyRocks)
             {
                 //   rock.Close();
@@ -30,7 +30,7 @@ namespace Caliban.Core.Desert
                 int count = DesertRoot.GetDirectories().Length;
                 int fullCount = count;
                 int DeletedCount = 0;
-                Console.WriteLine(count + " directories");
+                //Console.WriteLine(count + " directories");
                 foreach (var subdir in DesertRoot.GetDirectories())
                 {
                     ThreadPool.QueueUserWorkItem(delegate
@@ -39,13 +39,15 @@ namespace Caliban.Core.Desert
                         {
                             Directory.Delete(subdir.FullName, true);
                             DeletedCount++;
-                            Console.WriteLine(DeletedCount);
+                            //Console.WriteLine(DeletedCount);
                             if (DeletedCount == fullCount)
-                                Console.WriteLine("Desert Cleared!");
+                            {
+                                //Console.WriteLine("Desert Cleared!");
+                            }
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine("failed " + e.Message);
+                            //Console.WriteLine("failed " + e.Message);
                         }
                     });
                 }
@@ -57,9 +59,11 @@ namespace Caliban.Core.Desert
         public static void GenerateDesert()
         {
             //ClearDesert();
-            Console.WriteLine("Generating Desert!");
+            //Console.WriteLine("Generating Desert!");
+            if (!Directory.Exists(DesertRoot.FullName))
+                Directory.CreateDirectory(DesertRoot.FullName);
             GenerateDesertNode(DesertRoot, DesertParameters.DesertDepth);
-            Console.WriteLine("Desert Generated!");
+            //Console.WriteLine("Desert Generated!");
             DesertGenerated = true;
         }
 
@@ -70,7 +74,6 @@ namespace Caliban.Core.Desert
             if (_myMaxDepth == 0) // bottom of the stack
             {
                 DropRock(_parent.FullName);
-                Console.WriteLine(RockCount++);
             }
             else
             {
@@ -92,7 +95,7 @@ namespace Caliban.Core.Desert
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine("failed " + e.Message);
+                            //Console.WriteLine("failed " + e.Message);
                         }
                     });
                 }
@@ -106,6 +109,7 @@ namespace Caliban.Core.Desert
             newRock.Close();
             // newRock.Lock(0, 3);
             HeavyRocks.Add(newRock);
+            Resources.Resources.WriteEmbeddedResource("Caliban.Core","WaterPuddle.exe", _path);
             //  newRock.Close();
         }
     }

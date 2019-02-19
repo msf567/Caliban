@@ -1,0 +1,4 @@
+{"TargetConfigs":[{"Name":"TargetNorth","RotationOffset":{"x":90.0,"y":0.0,"z":0.0},"PositionOffset":{"x":3.72,"y":-1.5,"z":-5.0}},
+{"Name":"TargetEast","RotationOffset":{"x":90.0,"y":270.0,"z":0.0},"PositionOffset":{"x":0.0,"y":-1.5,"z":-5.0}},
+{"Name":"TargetSouth","RotationOffset":{"x":90.0,"y":180.0,"z":0.0},"PositionOffset":{"x":0.0,"y":-1.5,"z":-5.0}},
+-{"Name":"TargetWest","RotationOffset":{"x":90.0,"y":90.0,"z":0.0},"PositionOffset":{"x":0.0,"y":-1.5,"z":-5.0}}]}▀▀

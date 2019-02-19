@@ -30,7 +30,7 @@ namespace Caliban.Core.Windows
                     var path = System.IO.Path.GetFileName((string) ie.FullName);
                     if (path == null || path.ToLower() != "explorer.exe") continue;
                     var explorepath = ie.document.focuseditem.path;
-                    System.Console.WriteLine(explorepath);
+                   // Console.WriteLine(explorepath);
                 }
             }
             finally

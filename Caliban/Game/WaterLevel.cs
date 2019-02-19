@@ -18,6 +18,7 @@ namespace Caliban.Core.Game
         {
             server = _s;
             server.MessageReceived += ServerOnMessageReceived;
+            //Console.WriteLine("Subscribed...");
             CurrentLevel = 80;
             GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
@@ -29,7 +30,6 @@ namespace Caliban.Core.Game
 
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)
         {
-            Console.WriteLine("Water Level received a message!");
             Message m = Messages.Parse(_message);
             switch (m.Type)
             {
@@ -37,16 +37,20 @@ namespace Caliban.Core.Game
                     CurrentLevel += int.Parse(m.Value);
                     CurrentLevel = CurrentLevel.Clamp(0, 100);
                     break;
+                case MessageType.WATERLEVEL_GET:
+                    server.SendMessageToClient("WaterMeter", Messages.Build(MessageType.WATERLEVEL_SET,CurrentLevel.ToString()));
+                    break;
             }
-
-            Console.WriteLine(CurrentLevel);
         }
 
         private void UpdateThread()
         {
             while (!closeFlag)
             {
-                CurrentLevel.Clamp(0, 100);
+                CurrentLevel.Clamp(0, 100);                    
+                if(CurrentLevel < 0 && Game.CurrentGame.state == GameState.IN_PROGRESS)
+                    server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
+                
                 server.SendMessageToClient("WaterMeter",
                     Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
                 Thread.Sleep(70);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
 
@@ -18,7 +19,7 @@ namespace DebugLog
 
             private void WriteLine(string s)
             {
-                Console.WriteLine(s);
+                //Console.WriteLine(s);
             }
 
             private void UpdateThread()
@@ -27,6 +28,12 @@ namespace DebugLog
                 {
                     Thread.Sleep(100);
                 }
+            }
+
+            protected override void ClientOnDisconncted(Socket _socket)
+            {
+                base.ClientOnDisconncted(_socket);
+                Environment.Exit(-1);
             }
 
             protected override void ClientOnMessageReceived(byte[] message)

@@ -4,11 +4,14 @@ using Caliban.Core.Utility;
 
 namespace Caliban.Core.Transport
 {
-    public enum MessageType
+    public enum MessageType 
     {
         GAME_CLOSE = 0x0000,
         DEBUG_LOG = 0x0001,
         REGIESTER = 0x0002,
+        
+        GAME_WIN = 0x0003,
+        GAME_LOSE = 0x0004,
         
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,

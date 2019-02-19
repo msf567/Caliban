@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugLog", "DebugLog\DebugL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterPuddle", "WaterPuddle\WaterPuddle.csproj", "{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note", "Note\Note.csproj", "{9025743F-CF9E-49C9-A138-383D2F2FA8B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treasures", "Treasures\Treasures.csproj", "{C3060E62-16C7-4B07-99C3-C6E791F5241C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9025743F-CF9E-49C9-A138-383D2F2FA8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9025743F-CF9E-49C9-A138-383D2F2FA8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9025743F-CF9E-49C9-A138-383D2F2FA8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9025743F-CF9E-49C9-A138-383D2F2FA8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -35,7 +35,7 @@ namespace Caliban.Core.Transport
         {
             if (mClientSocket == null)
             {
-                throw new Exception("Can't send data. ConnectedClient is Closed!");
+                return;
             }
 
             byte[] sendData = new byte[_buffer.Length + 1];
