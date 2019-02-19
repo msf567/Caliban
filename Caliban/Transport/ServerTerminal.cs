@@ -38,7 +38,7 @@ namespace Caliban.Core.Transport
             {
                 socket.Bind(ipLocal);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
                 return;
@@ -79,11 +79,11 @@ namespace Caliban.Core.Transport
 
                 socket.BeginAccept(OnClientConnection, null);
             }
-            catch (ObjectDisposedException odex)
+            catch (ObjectDisposedException)
             {
                 //Console.WriteLine(odex.ToString(), "OnClientConnection: Socket has been closed");
             }
-            catch (Exception sex)
+            catch (Exception)
             {
                 //Console.WriteLine(sex.ToString(),   "OnClientConnection: Socket failed");
             }
@@ -154,7 +154,7 @@ namespace Caliban.Core.Transport
                     ////Console.WriteLine(clientName +" not in client dictionary!");
                 }
             }
-            catch (SocketException se)
+            catch (SocketException)
             {
                 //Console.WriteLine(se.ToString(), "Buffer could not be sent");
             }
@@ -209,7 +209,7 @@ namespace Caliban.Core.Transport
                 Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
 
                 Message m = Messages.Parse(trimmedMessage);
-                if (m.Type == MessageType.REGIESTER)
+                if (m.Type == MessageType.REGISTER)
                     RegisterClient(_socket, m.Value);
                 else
                 {

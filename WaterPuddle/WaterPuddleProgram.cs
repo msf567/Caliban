@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using Caliban.Core.Transport;
 
@@ -22,19 +24,28 @@ namespace WaterPuddle
                 }
 
                 SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString()));
+                int PID = Process.GetCurrentProcess().Id;
+                string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string exeName = AppDomain.CurrentDomain.FriendlyName;
+                string fullPath = Path.Combine(assemblyPath, exeName);
+                SendMessageToHost(Messages.Build(MessageType.KILL_ME, fullPath + " " + PID));
                 Deconstruct();
             }
         }
 
         public static void Main(string[] args)
         {
-            Environment.SetEnvironmentVariable("PATH",
-                Environment.GetEnvironmentVariable("PATH") + ";" + @"D:\Caliban\Builds");
             Process[] pname = Process.GetProcessesByName("CALIBAN");
             if (pname.Length == 0)
                 return;
 
-            WaterPuddle wp = new WaterPuddle(15);
+            WaterPuddle wp = new WaterPuddle(50);
+            ProcessStartInfo Info = new ProcessStartInfo();
+            Info.Arguments = "Del " + Assembly.GetExecutingAssembly().Location;
+            Info.WindowStyle = ProcessWindowStyle.Hidden;
+            Info.CreateNoWindow = true;
+            Info.FileName = "cmd.exe";
+            Process.Start(Info);
         }
     }
 }
