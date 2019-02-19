@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\AudioPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
     <Compile Include="Desert\DesertGenerator.cs" />
     <Compile Include="Desert\DesertNameGenerator.cs" />
@@ -73,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\WaterPuddle.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

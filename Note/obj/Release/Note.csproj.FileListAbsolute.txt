@@ -1,0 +1,13 @@
+D:\Caliban\Note\bin\Release\Note.exe
+D:\Caliban\Note\bin\Release\Note.pdb
+D:\Caliban\Note\bin\Release\Caliban.Core.dll
+D:\Caliban\Note\bin\Release\EventHook.dll
+D:\Caliban\Note\bin\Release\CLIGL.dll
+D:\Caliban\Note\bin\Release\Caliban.Core.pdb
+D:\Caliban\Note\bin\Release\CLIGL.pdb
+D:\Caliban\Note\bin\Release\CLIGL.dll.config
+D:\Caliban\Note\obj\Release\Note.csprojResolveAssemblyReference.cache
+D:\Caliban\Note\obj\Release\Note.exe
+D:\Caliban\Note\obj\Release\Note.pdb
+D:\Caliban\Builds\Note.exe
+D:\Caliban\Builds\Note.pdb

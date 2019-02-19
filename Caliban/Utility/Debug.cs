@@ -27,7 +27,7 @@ namespace Caliban.Core.Utility
                 s.SendMessageToClient("DEBUG", Messages.Build(MessageType.DEBUG_LOG, _m));
             else
             {
-                Console.WriteLine(_m);
+                //Console.WriteLine(_m);
             }
         }
     }

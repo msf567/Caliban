@@ -30,11 +30,15 @@ namespace Caliban.Core.Game
         {
             if (LoadingClients.Contains(_clientAppName))
             {
-                Console.WriteLine(_clientAppName + " is ready!");   
+                //Console.WriteLine(_clientAppName + " is ready!");   
                 LoadingClients.Remove(_clientAppName);
             }
-            if(LoadingClients.Count == 0)
-                Console.WriteLine("All clients loaded!");
+
+            if (LoadingClients.Count == 0 && Game.CurrentGame.state != GameState.NOT_STARTED)
+            {
+                //Console.WriteLine("All clients loaded!");
+            }
+                
         }
 
         public static bool IsReady()

@@ -53,10 +53,11 @@ namespace WaterMeter
 
         private void UpdateThread()
         {
-            SetClientReady();
 
             while (!closeFlag)
             {
+                if(!IsReady)
+            SetClientReady();
                 RenderWaterLevel();
                 Thread.Sleep(100);
             }

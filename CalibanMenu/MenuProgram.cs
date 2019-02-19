@@ -9,57 +9,75 @@ using Menu = Caliban.Core.Menu.Menu;
 
 namespace CalibanMenu
 {
-    internal static class CalibanCoreProject
+    internal static class MenuProgram
     {
         private static bool closeFlag;
-        private static Game currentGame = new Game(false);
-        private static Menu menu;
+
+        private enum MenuState
+        {
+            MAIN,
+            ABOUT,
+            HELP,
+            STANDBY
+        }
+
+        private static MenuState menuState = MenuState.MAIN;
 
         public static void Main(string[] _args)
         {
             Windows.ConfigureMenuWindow();
-
-            menu = new Menu();
+            Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.Escape;
-            menu.Main();
+            Menu.Main(false,true);
             while (!closeFlag)
             {
                 switch (userKey)
                 {
                     case ConsoleKey.Escape:
-                        menu.Main();
+                        Menu.Main(menuState == MenuState.MAIN);
+                        Game.CurrentGame?.Close();
+                        menuState = MenuState.MAIN;
                         break;
                     case ConsoleKey.E:
-                        NewGame(false);
-                        break;
-                    case ConsoleKey.G:
-                        DesertGenerator.GenerateDesert();
+                        if (menuState == MenuState.MAIN)
+                            NewGame(false);
                         break;
                     case ConsoleKey.A:
-                        menu.About();
-                        break;
-                    case ConsoleKey.C:
-                        DesertGenerator.ClearDesert();
+                        Menu.About(menuState != MenuState.ABOUT);
+                        menuState = MenuState.ABOUT;
                         break;
                     case ConsoleKey.Q:
-                        CloseApp();
+                        if (menuState == MenuState.MAIN)
+                            CloseApp();
                         continue;
-                    
-                    case ConsoleKey.UpArrow:
-                        Console.WriteLine("Desert Depth: " + ++DesertParameters.DesertDepth);
-                        break;
-                    case ConsoleKey.DownArrow:
-                        Console.WriteLine("Desert Depth: " + --DesertParameters.DesertDepth);
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        Console.WriteLine("Desert Width: " + --DesertParameters.DesertWidth);
-                        break;
-                    case ConsoleKey.RightArrow:
-                        Console.WriteLine("Desert Width: " + ++DesertParameters.DesertWidth);
+                    default:
+                        Menu.Main(menuState == MenuState.MAIN);
+                        menuState = MenuState.MAIN;
                         break;
                 }
 
                 userKey = Console.ReadKey().Key;
+            }
+        }
+
+        private static void OnGameStateChange(GameState _state)
+        {
+            switch (_state)
+            {
+                case GameState.WON:
+                    break;
+                case GameState.LOST:
+                    Menu.Lose();
+                    Game.CurrentGame?.Close();
+                    break;
+                case GameState.IN_PROGRESS:
+                    Menu.Standby();
+                    menuState = MenuState.STANDBY;
+                    break;
+                case GameState.NOT_STARTED:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(_state), _state, null);
             }
         }
 
@@ -68,27 +86,28 @@ namespace CalibanMenu
         {
             if (!ModuleLoader.IsReady())
             {
-                Console.WriteLine("Waiting for modules to load...");
+                //Console.WriteLine("Waiting for modules to load...");
                 return;
             }
-            currentGame?.Close();
-            
+
+            Game.CurrentGame?.Close();
+
             ModuleLoader.Clear();
-            currentGame = new Game(_debug);
-            currentGame.Start();
+            Game.CurrentGame = new Game(_debug);
+            Game.CurrentGame.Start();
         }
 
         private static void CloseGame()
         {
-            currentGame?.Close();
-            currentGame = null;
+            Game.CurrentGame?.Close();
+            Game.CurrentGame = null;
         }
 
         private static void CloseApp()
         {
             D.Close();
-            menu.Close();
-            currentGame?.Close();
+            Menu.Close();
+            Game.CurrentGame?.Close();
             closeFlag = true;
         }
     }

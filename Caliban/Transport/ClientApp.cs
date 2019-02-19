@@ -17,10 +17,11 @@ namespace Caliban.Core.Transport
         protected bool ShouldRegister = true;
 
         protected bool IsConnected = false;
-        private bool IsReady = false;
+        protected bool IsReady = false;
 
         protected void SetClientReady()
         {
+            //Console.WriteLine("Readying client");
             IsReady = true;
             if (ShouldRegister && IsConnected)
             {
@@ -48,7 +49,7 @@ namespace Caliban.Core.Transport
 
         protected virtual void ClientOnMessageReceived(byte[] _message)
         {
-            //Console.WriteLine("Received Message " + Messages.Parse(message));
+            ////Console.WriteLine("Received Message " + Messages.Parse(message));
         }
 
         protected virtual void ClientOnDisconncted(Socket _socket)
@@ -69,7 +70,7 @@ namespace Caliban.Core.Transport
         protected virtual void ClientOnConnected(Socket _socket)
         {
             IsConnected = true;
-            if (ShouldRegister && IsReady)
+            if (ShouldRegister)
                 SendMessageToHost(Messages.Build(MessageType.REGIESTER, clientName));
         }
     }

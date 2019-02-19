@@ -13,6 +13,7 @@ namespace Caliban.Core.Transport
     {
         public ServerTerminal()
         {
+            //Console.WriteLine("Server Constructor");
             MClients = new Dictionary<long, ConnectedClient>();
         }
 
@@ -39,11 +40,12 @@ namespace Caliban.Core.Transport
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
+                //Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
                 return;
             }
 
             socket.Listen(4);
+            //Console.WriteLine("Started Server...");
             socket.BeginAccept(OnClientConnection, null);
         }
 
@@ -70,7 +72,7 @@ namespace Caliban.Core.Transport
                 long key = clientSocket.Handle.ToInt64();
                 if (MClients.ContainsKey(key))
                 {
-                    Console.WriteLine("Client with handle key '{0}' already exist!", key);
+                    //Console.WriteLine("Client with handle key '{0}' already exist!", key);
                 }
 
                 MClients[key] = connectedClient;
@@ -79,13 +81,11 @@ namespace Caliban.Core.Transport
             }
             catch (ObjectDisposedException odex)
             {
-                Console.WriteLine(odex.ToString(),
-                    "OnClientConnection: Socket has been closed");
+                //Console.WriteLine(odex.ToString(), "OnClientConnection: Socket has been closed");
             }
             catch (Exception sex)
             {
-                Console.WriteLine(sex.ToString(),
-                    "OnClientConnection: Socket failed");
+                //Console.WriteLine(sex.ToString(),   "OnClientConnection: Socket failed");
             }
         }
 
@@ -101,7 +101,6 @@ namespace Caliban.Core.Transport
                     {
                         cList.Remove(c);
                     }
-                    
                 }
 
                 MClients.Remove(key);
@@ -127,8 +126,16 @@ namespace Caliban.Core.Transport
                 namedClients.Add(_name, new List<ConnectedClient>());
                 namedClients[_name].Add(c);
             }
-            
+
             ModuleLoader.ReadyClient(_name);
+        }
+
+        public void SendMessageToSelf(byte[] _message)
+        {
+            byte[] sendData = new byte[_message.Length + 1];
+            sendData[0] = Convert.ToByte(_message.Length);
+            _message.CopyTo(sendData, 1);
+            OnMessageReceived(socket, sendData);
         }
 
         public void SendMessageToClient(string _clientName, byte[] _message)
@@ -144,12 +151,12 @@ namespace Caliban.Core.Transport
                 }
                 else
                 {
-                    //Console.WriteLine(clientName +" not in client dictionary!");
+                    ////Console.WriteLine(clientName +" not in client dictionary!");
                 }
             }
             catch (SocketException se)
             {
-                Console.WriteLine(se.ToString(), "Buffer could not be sent");
+                //Console.WriteLine(se.ToString(), "Buffer could not be sent");
             }
         }
 
@@ -203,9 +210,11 @@ namespace Caliban.Core.Transport
 
                 Message m = Messages.Parse(trimmedMessage);
                 if (m.Type == MessageType.REGIESTER)
-                    RegisterClient(_socket,m.Value);
+                    RegisterClient(_socket, m.Value);
                 else
+                {
                     MessageReceived(_socket, trimmedMessage);
+                }
             }
         }
 
