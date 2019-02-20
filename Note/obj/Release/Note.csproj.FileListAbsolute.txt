@@ -11,3 +11,10 @@ D:\Caliban\Note\obj\Release\Note.exe
 D:\Caliban\Note\obj\Release\Note.pdb
 D:\Caliban\Builds\Note.exe
 D:\Caliban\Builds\Note.pdb
+A:\Caliban\Builds\Note.exe
+A:\Caliban\Builds\Note.pdb
+A:\Caliban\Note\obj\Release\Note.csprojAssemblyReference.cache
+A:\Caliban\Note\obj\Release\Note.csproj.CoreCompileInputs.cache
+A:\Caliban\Note\obj\Release\Note.csproj.CopyComplete
+A:\Caliban\Note\obj\Release\Note.exe
+A:\Caliban\Note\obj\Release\Note.pdb

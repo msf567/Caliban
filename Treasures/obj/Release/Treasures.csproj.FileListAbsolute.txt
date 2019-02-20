@@ -3,3 +3,9 @@ D:\Caliban\Builds\Treasures.pdb
 D:\Caliban\Treasures\obj\Release\Treasures.csprojResolveAssemblyReference.cache
 D:\Caliban\Treasures\obj\Release\Treasures.dll
 D:\Caliban\Treasures\obj\Release\Treasures.pdb
+A:\Caliban\Builds\Treasures.dll
+A:\Caliban\Builds\Treasures.pdb
+A:\Caliban\Treasures\obj\Release\Treasures.csprojAssemblyReference.cache
+A:\Caliban\Treasures\obj\Release\Treasures.csproj.CoreCompileInputs.cache
+A:\Caliban\Treasures\obj\Release\Treasures.dll
+A:\Caliban\Treasures\obj\Release\Treasures.pdb

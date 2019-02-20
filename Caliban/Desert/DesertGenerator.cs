@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Threading;
 using Caliban.Core.Utility;
 using Treasures;
@@ -13,7 +16,7 @@ namespace Caliban.Core.Desert
         private static readonly List<FileStream> HeavyRocks = new List<FileStream>();
         private static DesertNameGenerator nameGenerator = new DesertNameGenerator();
 
-        private static readonly DirectoryInfo DesertRoot = new DirectoryInfo(@"\\?\D:\\Desert");
+        public static readonly DirectoryInfo DesertRoot = new DirectoryInfo(@"\\?\A:\\Desert");
 
         public static void ClearDesert()
         {
@@ -21,7 +24,7 @@ namespace Caliban.Core.Desert
             foreach (var rock in HeavyRocks)
             {
                 //   rock.Close();
-                //    rock.Unlock(0, 3);
+                // rock.Unlock(0, 3);
             }
 
             HeavyRocks.Clear();
@@ -61,8 +64,12 @@ namespace Caliban.Core.Desert
         {
             if (!Directory.Exists(DesertRoot.FullName))
                 Directory.CreateDirectory(DesertRoot.FullName);
+            Process.Start(@"A:\\Desert");
             ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNode(DesertRoot, DesertParameters.DesertDepth); });
             DesertGenerated = true;
+            foreach (var path in HeavyRocks)
+            {
+            }
         }
 
         // TODO: figure out how to actually detect when desert is finished generating
@@ -84,23 +91,30 @@ namespace Caliban.Core.Desert
                 {
                     string newfolderName = nameGenerator.GetNewFolderName(_parent);
                     var newDir = new DirectoryInfo(_parent.FullName).CreateSubdirectory(newfolderName);
-
                     ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNode(newDir, newDepth); });
                 }
             }
         }
 
-        private static void
-            DropRock(string _path) // place a heavy rock at the end of each folder path to prevent modifying the folders mid-game
+        private static void DropTreasure(string _path)
+        {
+            Console.WriteLine("Dropped Treasure!");
+            TreasureManager.WriteEmbeddedResource("Treasures", "SimpleVictory.exe", _path, "SimpleVictory.exe");
+        }
+
+        // place a heavy rock at the end of each folder path to prevent modifying the folders mid-game
+        private static void DropRock(string _path)
         {
             var f = new FileInfo(Path.Combine(_path, "heavy.rock"));
             var newRock = f.Create();
             newRock.Close();
             // newRock.Lock(0, 3);
             HeavyRocks.Add(newRock);
-            TreasureManager.WriteEmbeddedResource("Treasures", "WaterPuddle.exe", _path, "WaterPuddle.exe");
-            //Resources.Resources.WriteEmbeddedResource("Caliban.Core","WaterPuddle.exe", _path);
-            //  newRock.Close();
+            Random r = new Random(Guid.NewGuid().GetHashCode());
+            if (r.NextDouble() < 0.05f)
+                DropTreasure(_path);
+            else
+                TreasureManager.WriteEmbeddedResource("Treasures", "WaterPuddle.exe", _path, "WaterPuddle.exe");
         }
     }
 }

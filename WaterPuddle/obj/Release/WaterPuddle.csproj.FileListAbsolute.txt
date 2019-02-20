@@ -3,3 +3,10 @@ D:\Caliban\Builds\WaterPuddle.pdb
 D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.csprojResolveAssemblyReference.cache
 D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.exe
 D:\Caliban\WaterPuddle\obj\Release\WaterPuddle.pdb
+A:\Caliban\Builds\WaterPuddle.exe
+A:\Caliban\Builds\WaterPuddle.pdb
+A:\Caliban\WaterPuddle\obj\Release\WaterPuddle.csprojAssemblyReference.cache
+A:\Caliban\WaterPuddle\obj\Release\WaterPuddle.csproj.CoreCompileInputs.cache
+A:\Caliban\WaterPuddle\obj\Release\WaterPuddle.csproj.CopyComplete
+A:\Caliban\WaterPuddle\obj\Release\WaterPuddle.exe
+A:\Caliban\WaterPuddle\obj\Release\WaterPuddle.pdb

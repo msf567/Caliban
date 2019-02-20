@@ -1,0 +1,15 @@
+A:\Caliban\WaterPuddle\bin\Debug\WaterPuddle.exe
+A:\Caliban\WaterPuddle\bin\Debug\WaterPuddle.pdb
+A:\Caliban\WaterPuddle\bin\Debug\Caliban.Core.dll
+A:\Caliban\WaterPuddle\bin\Debug\EventHook.dll
+A:\Caliban\WaterPuddle\bin\Debug\CLIGL.dll
+A:\Caliban\WaterPuddle\bin\Debug\Treasures.dll
+A:\Caliban\WaterPuddle\bin\Debug\Caliban.Core.pdb
+A:\Caliban\WaterPuddle\bin\Debug\CLIGL.pdb
+A:\Caliban\WaterPuddle\bin\Debug\CLIGL.dll.config
+A:\Caliban\WaterPuddle\bin\Debug\Treasures.pdb
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csprojAssemblyReference.cache
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csproj.CoreCompileInputs.cache
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csproj.CopyComplete
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.exe
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.pdb

@@ -32,7 +32,6 @@ namespace WaterMeter
 
             r = new Random(Guid.NewGuid().GetHashCode());
 
-
             Thread t = new Thread(UpdateThread);
             t.Start();
         }
@@ -53,19 +52,20 @@ namespace WaterMeter
 
         private void UpdateThread()
         {
-
             while (!closeFlag)
             {
-                if(!IsReady)
-            SetClientReady();
+                if (!IsReady)
+                    SetClientReady();
                 RenderWaterLevel();
                 Thread.Sleep(100);
+                if (!IsConnected)
+                    closeFlag = true;
             }
         }
 
         private void RenderWaterLevel()
         {
-            int waterHeight = (int)Math.Floor( (waterLevel / 100.0f) * Height);
+            int waterHeight = (int) Math.Floor((waterLevel / 100.0f) * Height);
             if (initialized)
             {
                 string waterLevelString = Math.Ceiling((waterLevel)).ToString();

@@ -51,7 +51,7 @@
     <Compile Include="Audio\AudioPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
     <Compile Include="Desert\DesertGenerator.cs" />
-    <Compile Include="Desert\DesertManager.cs" />
+    <Compile Include="Desert\Desert.cs" />
     <Compile Include="Desert\DesertNameGenerator.cs" />
     <Compile Include="Desert\DesertParameters.cs" />
     <Compile Include="Game\Game.cs" />

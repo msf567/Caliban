@@ -46,5 +46,8 @@
   <ItemGroup>
     <EmbeddedResource Include="WaterPuddle.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SimpleVictory.exe" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

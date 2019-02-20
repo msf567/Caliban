@@ -1,0 +1,15 @@
+A:\Caliban\Note\bin\Debug\Note.exe
+A:\Caliban\Note\bin\Debug\Note.pdb
+A:\Caliban\Note\bin\Debug\Caliban.Core.dll
+A:\Caliban\Note\bin\Debug\EventHook.dll
+A:\Caliban\Note\bin\Debug\CLIGL.dll
+A:\Caliban\Note\bin\Debug\Treasures.dll
+A:\Caliban\Note\bin\Debug\Caliban.Core.pdb
+A:\Caliban\Note\bin\Debug\CLIGL.pdb
+A:\Caliban\Note\bin\Debug\CLIGL.dll.config
+A:\Caliban\Note\bin\Debug\Treasures.pdb
+A:\Caliban\Note\obj\Debug\Note.csprojAssemblyReference.cache
+A:\Caliban\Note\obj\Debug\Note.csproj.CoreCompileInputs.cache
+A:\Caliban\Note\obj\Debug\Note.csproj.CopyComplete
+A:\Caliban\Note\obj\Debug\Note.exe
+A:\Caliban\Note\obj\Debug\Note.pdb

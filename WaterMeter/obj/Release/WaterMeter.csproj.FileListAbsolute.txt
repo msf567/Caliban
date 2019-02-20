@@ -5,3 +5,10 @@ D:\Caliban\WaterMeter\obj\Release\WaterMeter.exe
 D:\Caliban\WaterMeter\obj\Release\WaterMeter.pdb
 D:\Caliban\Builds\WaterMeter.exe
 D:\Caliban\Builds\WaterMeter.pdb
+A:\Caliban\Builds\WaterMeter.exe
+A:\Caliban\Builds\WaterMeter.pdb
+A:\Caliban\WaterMeter\obj\Release\WaterMeter.csprojAssemblyReference.cache
+A:\Caliban\WaterMeter\obj\Release\WaterMeter.csproj.CoreCompileInputs.cache
+A:\Caliban\WaterMeter\obj\Release\WaterMeter.csproj.CopyComplete
+A:\Caliban\WaterMeter\obj\Release\WaterMeter.exe
+A:\Caliban\WaterMeter\obj\Release\WaterMeter.pdb

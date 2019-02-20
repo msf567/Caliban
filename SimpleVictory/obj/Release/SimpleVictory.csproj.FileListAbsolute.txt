@@ -1,0 +1,7 @@
+A:\Caliban\Builds\SimpleVictory.exe
+A:\Caliban\Builds\SimpleVictory.pdb
+A:\Caliban\SimpleVictory\obj\Release\SimpleVictory.csprojAssemblyReference.cache
+A:\Caliban\SimpleVictory\obj\Release\SimpleVictory.csproj.CoreCompileInputs.cache
+A:\Caliban\SimpleVictory\obj\Release\SimpleVictory.csproj.CopyComplete
+A:\Caliban\SimpleVictory\obj\Release\SimpleVictory.exe
+A:\Caliban\SimpleVictory\obj\Release\SimpleVictory.pdb

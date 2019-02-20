@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\msf567\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\msf567\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Caliban.719133536.00" t="ExcludeRecursive" />
-    <e p="D:\Caliban" t="IncludeFlat">
+    <e p="A:\Caliban" t="IncludeFlat">
       <e p="Builds" t="ExcludeRecursive" />
       <e p="Caliban" t="IncludeRecursive">
         <e p="Audio" t="Include">
@@ -14,8 +12,8 @@
           <e p="ConsoleFormat.cs" t="Include" />
         </e>
         <e p="Desert" t="Include">
+          <e p="Desert.cs" t="Include" />
           <e p="DesertGenerator.cs" t="Include" />
-          <e p="DesertManager.cs" t="Include" />
           <e p="DesertNameGenerator.cs" t="Include" />
           <e p="DesertParameters.cs" t="Include" />
         </e>
@@ -85,11 +83,21 @@
         </e>
         <e p="Scratch.csproj" t="IncludeRecursive" />
       </e>
+      <e p="SimpleVictory" t="IncludeRecursive">
+        <e p="merge.bat" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SimpleVictory.csproj" t="IncludeRecursive" />
+        <e p="SimpleVictoryProgram.cs" t="Include" />
+      </e>
       <e p="Treasures" t="IncludeRecursive">
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="SimpleVictory.exe" t="Include" />
         <e p="TreasureManager.cs" t="Include" />
         <e p="Treasures.csproj" t="IncludeRecursive" />
         <e p="WaterPuddle.exe" t="Include" />
@@ -114,5 +122,7 @@
         <e p="WaterPuddleProgram.cs" t="Include" />
       </e>
     </e>
+    <e p="C:\Users\CASE\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\CASE\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_Caliban.-1756632189.00" t="ExcludeRecursive" />
   </component>
 </project>

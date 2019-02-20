@@ -24,11 +24,8 @@ namespace WaterPuddle
                 }
 
                 SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString()));
-                int PID = Process.GetCurrentProcess().Id;
-                string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string exeName = AppDomain.CurrentDomain.FriendlyName;
-                string fullPath = Path.Combine(assemblyPath, exeName);
-                SendMessageToHost(Messages.Build(MessageType.KILL_ME, fullPath + " " + PID));
+
+                KillSelf();
                 Deconstruct();
             }
         }
@@ -39,13 +36,7 @@ namespace WaterPuddle
             if (pname.Length == 0)
                 return;
 
-            WaterPuddle wp = new WaterPuddle(50);
-            ProcessStartInfo Info = new ProcessStartInfo();
-            Info.Arguments = "Del " + Assembly.GetExecutingAssembly().Location;
-            Info.WindowStyle = ProcessWindowStyle.Hidden;
-            Info.CreateNoWindow = true;
-            Info.FileName = "cmd.exe";
-            Process.Start(Info);
+            WaterPuddle wp = new WaterPuddle(20);
         }
     }
 }
