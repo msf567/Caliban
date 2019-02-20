@@ -6,3 +6,13 @@ D:\Caliban\Scratch\bin\Debug\CLIGL.dll.config
 D:\Caliban\Scratch\obj\Debug\Scratch.csprojResolveAssemblyReference.cache
 D:\Caliban\Scratch\obj\Debug\Scratch.exe
 D:\Caliban\Scratch\obj\Debug\Scratch.pdb
+A:\Caliban\Scratch\bin\Debug\Scratch.exe
+A:\Caliban\Scratch\bin\Debug\Scratch.pdb
+A:\Caliban\Scratch\bin\Debug\CLIGL.dll
+A:\Caliban\Scratch\bin\Debug\CLIGL.pdb
+A:\Caliban\Scratch\bin\Debug\CLIGL.dll.config
+A:\Caliban\Scratch\obj\Debug\Scratch.csprojAssemblyReference.cache
+A:\Caliban\Scratch\obj\Debug\Scratch.csproj.CoreCompileInputs.cache
+A:\Caliban\Scratch\obj\Debug\Scratch.csproj.CopyComplete
+A:\Caliban\Scratch\obj\Debug\Scratch.exe
+A:\Caliban\Scratch\obj\Debug\Scratch.pdb

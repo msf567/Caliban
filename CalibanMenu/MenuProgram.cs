@@ -18,6 +18,7 @@ namespace CalibanMenu
             MAIN,
             ABOUT,
             HELP,
+            INTRO,
             STANDBY
         }
 
@@ -27,36 +28,70 @@ namespace CalibanMenu
         {
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
-            var userKey = ConsoleKey.Escape;
-            Menu.Main(false,false);
+            var userKey = ConsoleKey.M;
+            bool playIntro = true;
+            menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
+            Menu.Main(false, playIntro);
+            menuState = MenuState.MAIN;
             while (!closeFlag)
             {
-                switch (userKey)
+                switch (menuState)
                 {
-                    case ConsoleKey.Escape:
-                        Menu.Main(menuState == MenuState.MAIN);
-                        Game.CurrentGame?.Close();
-                        menuState = MenuState.MAIN;
-                        break;
-                    case ConsoleKey.E:
-                        if (menuState == MenuState.MAIN)
+                    case MenuState.MAIN:
+                        if (userKey == ConsoleKey.A)
+                        {
+                            Menu.About(false);
+                            menuState = MenuState.ABOUT;
+                        }
+
+                        else if (userKey == ConsoleKey.E)
+                        {
                             NewGame(false);
-                        break;
-                    case ConsoleKey.A:
-                        Menu.About(menuState != MenuState.ABOUT);
-                        menuState = MenuState.ABOUT;
-                        break;
-                    case ConsoleKey.Q:
-                        if (menuState == MenuState.MAIN)
+                        }
+
+                        else if (userKey == ConsoleKey.Q)
+                        {
                             CloseApp();
-                        continue;
-                    default:
-                        Menu.Main(menuState == MenuState.MAIN);
-                        menuState = MenuState.MAIN;
+                            continue;
+                        }
+                        else
+                        {
+                            Menu.Main(true);
+                        }
+
+                        break;
+                    case MenuState.ABOUT:
+                        if (userKey == ConsoleKey.Escape)
+                        {
+                            Menu.Main(menuState == MenuState.MAIN);
+                            Game.CurrentGame?.Close();
+                            menuState = MenuState.MAIN;
+                        }
+                        else
+                        {
+                            Menu.About(true);
+                        }
+
+                        break;
+                    case MenuState.HELP:
+                        break;
+                    case MenuState.STANDBY:
+                        if (userKey == ConsoleKey.Escape)
+                        {
+                            Menu.Main(menuState == MenuState.MAIN);
+                            Game.CurrentGame?.Close();
+                            menuState = MenuState.MAIN;
+                        }
+                        else
+                            Menu.Standby();
+
+                        break;
+                    case MenuState.INTRO:
                         break;
                 }
 
-                userKey = Console.ReadKey().Key;
+                if (!closeFlag)
+                    userKey = Console.ReadKey().Key;
             }
         }
 
@@ -65,6 +100,8 @@ namespace CalibanMenu
             switch (_state)
             {
                 case GameState.WON:
+                    Menu.Win();
+                    Game.CurrentGame?.Close();
                     break;
                 case GameState.LOST:
                     Menu.Lose();

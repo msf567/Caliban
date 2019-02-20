@@ -1,5 +1,8 @@
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 
 namespace Caliban.Core.Transport
@@ -31,8 +34,8 @@ namespace Caliban.Core.Transport
 
         public ClientApp(string _clientName, bool _shouldRegister = true)
         {
-            this.clientName = _clientName;
-            this.ShouldRegister = _shouldRegister;
+            clientName = _clientName;
+            ShouldRegister = _shouldRegister;
            InitClient();
         }
 
@@ -47,6 +50,16 @@ namespace Caliban.Core.Transport
             client.StartListen();
         }
 
+        protected void KillSelf()
+        {
+            var pid = Process.GetCurrentProcess().Id;
+            var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var exeName = AppDomain.CurrentDomain.FriendlyName;
+            if (assemblyPath == null) return;
+            var fullPath = Path.Combine(assemblyPath, exeName);
+            SendMessageToHost(Messages.Build(MessageType.KILL_ME, fullPath + " " + pid));
+        }
+        
         protected virtual void ClientOnMessageReceived(byte[] _message)
         {
             ////Console.WriteLine("Received Message " + Messages.Parse(message));

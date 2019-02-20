@@ -1,0 +1,15 @@
+A:\Caliban\DebugLog\bin\Debug\DebugLog.exe
+A:\Caliban\DebugLog\bin\Debug\DebugLog.pdb
+A:\Caliban\DebugLog\bin\Debug\Caliban.Core.dll
+A:\Caliban\DebugLog\bin\Debug\EventHook.dll
+A:\Caliban\DebugLog\bin\Debug\CLIGL.dll
+A:\Caliban\DebugLog\bin\Debug\Treasures.dll
+A:\Caliban\DebugLog\bin\Debug\Caliban.Core.pdb
+A:\Caliban\DebugLog\bin\Debug\CLIGL.pdb
+A:\Caliban\DebugLog\bin\Debug\CLIGL.dll.config
+A:\Caliban\DebugLog\bin\Debug\Treasures.pdb
+A:\Caliban\DebugLog\obj\Debug\DebugLog.csprojAssemblyReference.cache
+A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.CoreCompileInputs.cache
+A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.CopyComplete
+A:\Caliban\DebugLog\obj\Debug\DebugLog.exe
+A:\Caliban\DebugLog\obj\Debug\DebugLog.pdb

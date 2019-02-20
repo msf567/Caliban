@@ -7,17 +7,17 @@ using Caliban.Core.Transport;
 
 namespace Caliban.Core.Desert
 {
-    public class DesertManager
+    public class Desert
     {
-        private ServerTerminal server;
+        private readonly ServerTerminal server;
 
-        public DesertManager(ServerTerminal s)
+        public Desert(ServerTerminal s)
         {
             server = s;
             server.MessageReceived += ServerOnMessageReceived;
         }
 
-        private void ServerOnMessageReceived(Socket __socket, byte[] _message)
+        private void ServerOnMessageReceived(Socket _socket, byte[] _message)
         {
             Message m = Messages.Parse(_message);
             Console.WriteLine("Desert Manager received " + m);
@@ -34,21 +34,24 @@ namespace Caliban.Core.Desert
         {
             try
             {
-                Process proc = Process.GetProcessById(ProcessID);
-                proc?.Kill();
+                var proc = Process.GetProcessById(ProcessID);
+                proc.Kill();
             }
             catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
             }
-            
-            if (File.Exists(filePath))
+
+            if (!File.Exists(filePath)) return;
+
+            try
             {
                 File.Delete(filePath);
-                Console.WriteLine("Deleted file...?");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
-        
-        
     }
 }

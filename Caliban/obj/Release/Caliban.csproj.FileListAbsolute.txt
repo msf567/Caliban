@@ -3,3 +3,10 @@ D:\Caliban\Builds\Caliban.Core.pdb
 D:\Caliban\Caliban\obj\Release\Caliban.Core.pdb
 D:\Caliban\Builds\Caliban.Core.dll
 D:\Caliban\Caliban\obj\Release\Caliban.Core.dll
+A:\Caliban\Builds\Caliban.Core.dll
+A:\Caliban\Builds\Caliban.Core.pdb
+A:\Caliban\Caliban\obj\Release\Caliban.csprojAssemblyReference.cache
+A:\Caliban\Caliban\obj\Release\Caliban.csproj.CoreCompileInputs.cache
+A:\Caliban\Caliban\obj\Release\Caliban.csproj.CopyComplete
+A:\Caliban\Caliban\obj\Release\Caliban.Core.dll
+A:\Caliban\Caliban\obj\Release\Caliban.Core.pdb

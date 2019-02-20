@@ -8,3 +8,10 @@ D:\Caliban\Scratch\obj\Release\Scratch.exe
 D:\Caliban\Scratch\obj\Release\Scratch.pdb
 D:\Caliban\Builds\Scratch.exe
 D:\Caliban\Builds\Scratch.pdb
+A:\Caliban\Builds\Scratch.exe
+A:\Caliban\Builds\Scratch.pdb
+A:\Caliban\Scratch\obj\Release\Scratch.csprojAssemblyReference.cache
+A:\Caliban\Scratch\obj\Release\Scratch.csproj.CoreCompileInputs.cache
+A:\Caliban\Scratch\obj\Release\Scratch.csproj.CopyComplete
+A:\Caliban\Scratch\obj\Release\Scratch.exe
+A:\Caliban\Scratch\obj\Release\Scratch.pdb

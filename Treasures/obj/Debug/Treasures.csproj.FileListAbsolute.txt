@@ -1,0 +1,6 @@
+A:\Caliban\Treasures\bin\Debug\Treasures.dll
+A:\Caliban\Treasures\bin\Debug\Treasures.pdb
+A:\Caliban\Treasures\obj\Debug\Treasures.csprojAssemblyReference.cache
+A:\Caliban\Treasures\obj\Debug\Treasures.csproj.CoreCompileInputs.cache
+A:\Caliban\Treasures\obj\Debug\Treasures.dll
+A:\Caliban\Treasures\obj\Debug\Treasures.pdb

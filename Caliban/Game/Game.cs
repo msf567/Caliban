@@ -20,7 +20,7 @@ namespace Caliban.Core.Game
     {
         private readonly ServerTerminal server;
         private WaterLevel waterLevel;
-        private DesertManager desMan;
+        private Desert.Desert desMan;
         public static Game CurrentGame = new Game(false);
         public GameState state = GameState.NOT_STARTED;
 
@@ -51,11 +51,12 @@ namespace Caliban.Core.Game
         public void Start()
         {
             waterLevel = new WaterLevel(server);
-            desMan = new DesertManager(server);
+            desMan = new Desert.Desert(server);
            SetState(GameState.IN_PROGRESS);
            DesertGenerator.GenerateDesert();
 
-            Process.Start("Note.exe", "intro.txt");
+           Process.Start("Note.exe", "intro.txt");
+            
         }
 
         public void Close()

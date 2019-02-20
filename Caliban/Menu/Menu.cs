@@ -53,6 +53,7 @@ namespace Caliban.Core.Menu
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             if (_introMode)
             {
+                Console.WriteLine("intromode");
                 Thread.Sleep(2000);
                 AudioPlayer.PlaySound("MainMenu");
             }
@@ -142,7 +143,7 @@ namespace Caliban.Core.Menu
 
         public static void Standby()
         {
-            int height = 5;
+            int height = 25;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();
@@ -178,6 +179,32 @@ namespace Caliban.Core.Menu
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public static void Win()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            int height = 1;
+            Console.SetWindowSize(width, 40);
+            Console.SetBufferSize(width, 40);
+            Console.Clear();
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            foreach (var line in victoryGraphic)
+            {
+                ConsoleFormat.CenterWrite(line);
+                IncreaseWindow(ref height);
+            }
+
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
+            IncreaseWindow(ref height);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        
         private static readonly string[] titleGraphic =
         {
             " ▄████████    ▄████████  ▄█        ▄█  ▀█████████▄     ▄████████ ███▄▄▄▄  ",

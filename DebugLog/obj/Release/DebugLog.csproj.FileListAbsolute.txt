@@ -11,3 +11,10 @@ D:\Caliban\DebugLog\obj\Release\DebugLog.exe
 D:\Caliban\DebugLog\obj\Release\DebugLog.pdb
 D:\Caliban\Builds\DebugLog.exe
 D:\Caliban\Builds\DebugLog.pdb
+A:\Caliban\Builds\DebugLog.exe
+A:\Caliban\Builds\DebugLog.pdb
+A:\Caliban\DebugLog\obj\Release\DebugLog.csprojAssemblyReference.cache
+A:\Caliban\DebugLog\obj\Release\DebugLog.csproj.CoreCompileInputs.cache
+A:\Caliban\DebugLog\obj\Release\DebugLog.csproj.CopyComplete
+A:\Caliban\DebugLog\obj\Release\DebugLog.exe
+A:\Caliban\DebugLog\obj\Release\DebugLog.pdb

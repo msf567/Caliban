@@ -57,7 +57,6 @@
       </Target>
       -->
   <Target Name="AfterBuild">
-    <Exec Command="merge.bat">
-    </Exec>
+    <Exec Command="merge.bat"> </Exec>
   </Target>
 </Project>
