@@ -11,12 +11,6 @@
         <e p="ConsoleOutput" t="Include">
           <e p="ConsoleFormat.cs" t="Include" />
         </e>
-        <e p="Desert" t="Include">
-          <e p="Desert.cs" t="Include" />
-          <e p="DesertGenerator.cs" t="Include" />
-          <e p="DesertNameGenerator.cs" t="Include" />
-          <e p="DesertParameters.cs" t="Include" />
-        </e>
         <e p="Game" t="Include">
           <e p="Game.cs" t="Include" />
           <e p="ModuleLoader.cs" t="Include" />
@@ -42,11 +36,20 @@
         <e p="Utility" t="Include">
           <e p="Debug.cs" t="Include" />
           <e p="MathEx.cs" t="Include" />
+          <e p="Singleton.cs" t="Include" />
           <e p="StringEx.cs" t="Include" />
         </e>
         <e p="Windows" t="Include">
+          <e p="ExplorerWatcher.cs" t="Include" />
           <e p="GlobalInput.cs" t="Include" />
           <e p="Windows.cs" t="Include" />
+        </e>
+        <e p="World" t="Include">
+          <e p="Desert.cs" t="Include" />
+          <e p="DesertGenerator.cs" t="Include" />
+          <e p="DesertNameGenerator.cs" t="Include" />
+          <e p="DesertNode.cs" t="Include" />
+          <e p="DesertParameters.cs" t="Include" />
         </e>
       </e>
       <e p="Caliban.sln" t="IncludeFlat" />

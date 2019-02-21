@@ -1,0 +1,45 @@
+{
+  "Name": "\\\\?\\A:\\\\Desert",
+  "ParentNode": null,
+  "ChildNodes": [
+    {
+      "Name": "dune_r2qzt2cz",
+      "ChildNodes": [
+        {
+          "Name": "sand_2zfxb1s9",
+          "ChildNodes": [
+            {
+              "Name": "dune_z30c08e1",
+              "ChildNodes": [],
+              "Treasures": [
+                "HeavyRock"
+              ]
+            }
+          ],
+          "Treasures": []
+        }
+      ],
+      "Treasures": []
+    },
+    {
+      "Name": "sand_hwnpcbws",
+      "ChildNodes": [
+        {
+          "Name": "dune_ja0pk2g5",
+          "ChildNodes": [
+            {
+              "Name": "dune_6dqeoooq",
+              "ChildNodes": [],
+              "Treasures": [
+                "HeavyRock"
+              ]
+            }
+          ],
+          "Treasures": []
+        }
+      ],
+      "Treasures": []
+    }
+  ],
+  "Treasures": []
+}

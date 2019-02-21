@@ -26,7 +26,6 @@ namespace Caliban.Core.Menu
         static Menu()
         {
             ConfigureWindow();
-            AudioPlayer.LoadFile("town_dusk_1.wav", "MainMenu");
         }
 
         public static void Close()
@@ -143,7 +142,7 @@ namespace Caliban.Core.Menu
 
         public static void Standby()
         {
-            int height = 25;
+            int height = 75;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();

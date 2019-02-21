@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
-using Caliban.Core.Desert;
 using Caliban.Core.Game;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
@@ -29,9 +28,9 @@ namespace CalibanMenu
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.M;
-            bool playIntro = true;
-            menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
-            Menu.Main(false, playIntro);
+          //  bool playIntro = false;
+         //   menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
+            Menu.Main(false, false);
             menuState = MenuState.MAIN;
             while (!closeFlag)
             {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Media;
 
@@ -13,8 +14,15 @@ namespace Caliban.Core.Audio
                 return;
             SoundPlayer s = new SoundPlayer();
             s.SoundLocation = _filename;
-            s.Load();
-            SoundPlayers.Add(_soundName, s);
+            try
+            {
+                s.Load();
+                SoundPlayers.Add(_soundName, s);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public static void PlaySound(string _soundName, bool _looping = false)

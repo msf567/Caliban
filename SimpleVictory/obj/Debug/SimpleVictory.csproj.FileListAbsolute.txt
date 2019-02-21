@@ -1,0 +1,15 @@
+A:\Caliban\SimpleVictory\bin\Debug\SimpleVictory.exe
+A:\Caliban\SimpleVictory\bin\Debug\SimpleVictory.pdb
+A:\Caliban\SimpleVictory\bin\Debug\Caliban.Core.dll
+A:\Caliban\SimpleVictory\bin\Debug\CLIGL.dll
+A:\Caliban\SimpleVictory\bin\Debug\EventHook.dll
+A:\Caliban\SimpleVictory\bin\Debug\Treasures.dll
+A:\Caliban\SimpleVictory\bin\Debug\Caliban.Core.pdb
+A:\Caliban\SimpleVictory\bin\Debug\CLIGL.pdb
+A:\Caliban\SimpleVictory\bin\Debug\CLIGL.dll.config
+A:\Caliban\SimpleVictory\bin\Debug\Treasures.pdb
+A:\Caliban\SimpleVictory\obj\Debug\SimpleVictory.csprojAssemblyReference.cache
+A:\Caliban\SimpleVictory\obj\Debug\SimpleVictory.csproj.CoreCompileInputs.cache
+A:\Caliban\SimpleVictory\obj\Debug\SimpleVictory.csproj.CopyComplete
+A:\Caliban\SimpleVictory\obj\Debug\SimpleVictory.exe
+A:\Caliban\SimpleVictory\obj\Debug\SimpleVictory.pdb

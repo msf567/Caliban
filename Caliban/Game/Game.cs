@@ -1,10 +1,12 @@
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
-using Caliban.Core.Desert;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
+using Caliban.Core.Windows;
+using Caliban.Core.World;
 
 namespace Caliban.Core.Game
 {
@@ -19,52 +21,72 @@ namespace Caliban.Core.Game
     public class Game
     {
         private readonly ServerTerminal server;
+        private Thread updateLoop;
         private WaterLevel waterLevel;
-        private Desert.Desert desMan;
+        private Desert desert;
+
         public static Game CurrentGame = new Game(false);
         public GameState state = GameState.NOT_STARTED;
 
         public delegate void GameStateChange(GameState state);
 
         public static GameStateChange OnGameStateChange;
+        private static bool closeFlag;
 
         public Game(bool _debug)
         {
             server = new ServerTerminal();
             server.MessageReceived += ServerOnMessageReceived;
             server.StartListen(5678);
+          
             if (_debug)
                 D.Init(server);
             SetState(GameState.NOT_STARTED);
         }
 
+
+        public void Start()
+        {
+            SetState(GameState.IN_PROGRESS);
+            
+            waterLevel = new WaterLevel(server);
+            desert = new Desert(server);
+            
+            updateLoop = new Thread(Update);
+            updateLoop.Start();
+            Process.Start("Note.exe", "intro.txt");
+        }
+
+        private void Update()
+        {
+            closeFlag = false;
+            while (!closeFlag)
+            {
+                desert.Update();
+                waterLevel.Update();
+                
+                Thread.Sleep(50);
+            }
+        }
+
+
         private void Win()
         {
-           SetState(GameState.WON);
+            SetState(GameState.WON);
         }
 
         private void Lose()
         {
-         SetState(GameState.LOST);
-        }
-
-        public void Start()
-        {
-            waterLevel = new WaterLevel(server);
-            desMan = new Desert.Desert(server);
-           SetState(GameState.IN_PROGRESS);
-           DesertGenerator.GenerateDesert();
-
-           Process.Start("Note.exe", "intro.txt");
-            
+            SetState(GameState.LOST);
         }
 
         public void Close()
         {
+            closeFlag = true;
             waterLevel?.Dispose();
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
             server.Close();
-               DesertGenerator.ClearDesert();
+            desert?.Dispose();
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)
@@ -87,8 +109,8 @@ namespace Caliban.Core.Game
 
         private void SetState(GameState _state)
         {
-           state = _state;
-           OnGameStateChange?.Invoke(state);
+            state = _state;
+            OnGameStateChange?.Invoke(state);
         }
     }
 }

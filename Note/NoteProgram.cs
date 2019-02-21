@@ -9,7 +9,7 @@ namespace Note
     internal class NoteProgram
     {
         static bool closeFlag;
-
+        private static int count = 0;
         public static void Main(string[] args)
         {
             if (args.Length < 1)
@@ -25,6 +25,8 @@ namespace Note
             while (!closeFlag)
             {
                 Thread.Sleep(50);
+                if (count++ > 1000)
+                    closeFlag = true;
             }
         }
     }
