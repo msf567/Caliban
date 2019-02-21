@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Caliban.Core.World
 {
@@ -18,16 +19,43 @@ namespace Caliban.Core.World
             ParentNode = _parentNode;
         }
 
-        public void AddChild(DesertNode n)
+        public void AddChild(DesertNode _n)
         {
-            if (!ChildNodes.Contains(n))
-                ChildNodes.Add(n);
+            if (!ChildNodes.Contains(_n))// TODO: put back exact match - init fucntion
+                ChildNodes.Add(_n);
         }
 
         public void AddTreasure(string _treasureName)
         {
             Treasures.Add(_treasureName);
         }
+
+        public DesertNode GetNode(string _name)
+        {
+            DesertNode returnNode = null;
+            DesertNode currentNode = this;
+
+            if (currentNode.Name.Contains(_name))
+            {
+                return currentNode;
+            }
+
+            if (currentNode.ChildNodes.Count == 0)
+                return null;
+
+            foreach (DesertNode d in currentNode.ChildNodes)
+            {
+                DesertNode testingNode = d.GetNode(_name);
+                if (testingNode != null)
+                {
+                    returnNode = testingNode;
+                    break;
+                }
+            }
+
+            return returnNode;
+        }
+
 
         public string FullName()
         {

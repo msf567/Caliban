@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
+using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;

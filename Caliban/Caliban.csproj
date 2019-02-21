@@ -55,7 +55,7 @@
     <Compile Include="Audio\AudioPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
     <Compile Include="Utility\Singleton.cs" />
-    <Compile Include="Windows\ExplorerWatcher.cs" />
+    <Compile Include="OS\ExplorerWatcher.cs" />
     <Compile Include="World\DesertGenerator.cs" />
     <Compile Include="World\Desert.cs" />
     <Compile Include="World\DesertNameGenerator.cs" />
@@ -76,8 +76,8 @@
     <Compile Include="Utility\Debug.cs" />
     <Compile Include="Utility\MathEx.cs" />
     <Compile Include="Utility\StringEx.cs" />
-    <Compile Include="Windows\GlobalInput.cs" />
-    <Compile Include="Windows\Windows.cs" />
+    <Compile Include="OS\GlobalInput.cs" />
+    <Compile Include="OS\Windows.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
