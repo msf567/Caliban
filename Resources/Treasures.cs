@@ -6,12 +6,16 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Treasures
+namespace Resources
 {
-    public static class TreasureManager
+    public static class Treasures
     {
+        public static void Spawn(string _destFolder, string _resName, string _destName = "")
+        {
+            WriteEmbeddedResource(Assembly.GetExecutingAssembly().FullName, _resName, _destFolder, _destName);
+        }
         
-        public static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder, string _destName = "")
+        private static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder, string _destName = "")
         {
             if (!Directory.Exists(_destFolder))
                 Directory.CreateDirectory(_destFolder);
