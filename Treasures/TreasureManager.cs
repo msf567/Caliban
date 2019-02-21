@@ -10,6 +10,7 @@ namespace Treasures
 {
     public static class TreasureManager
     {
+        
         public static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder, string _destName = "")
         {
             if (!Directory.Exists(_destFolder))

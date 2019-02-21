@@ -40,20 +40,27 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audio\AudioPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
-    <Compile Include="Desert\DesertGenerator.cs" />
-    <Compile Include="Desert\Desert.cs" />
-    <Compile Include="Desert\DesertNameGenerator.cs" />
-    <Compile Include="Desert\DesertParameters.cs" />
+    <Compile Include="Utility\Singleton.cs" />
+    <Compile Include="Windows\ExplorerWatcher.cs" />
+    <Compile Include="World\DesertGenerator.cs" />
+    <Compile Include="World\Desert.cs" />
+    <Compile Include="World\DesertNameGenerator.cs" />
+    <Compile Include="World\DesertNode.cs" />
+    <Compile Include="World\DesertParameters.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\ModuleLoader.cs" />
     <Compile Include="Game\WaterLevel.cs" />
@@ -80,6 +87,17 @@
       <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
       <Name>Treasures</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

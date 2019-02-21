@@ -10,9 +10,8 @@ namespace Caliban.Core.Game
 {
     public class WaterLevel
     {
-        private Thread updateThread;
-        private ServerTerminal server;
-        private bool closeFlag;
+        private readonly ServerTerminal server;
+        private float CurrentLevel { get; set; }
 
         public WaterLevel(ServerTerminal _s)
         {
@@ -22,15 +21,13 @@ namespace Caliban.Core.Game
             CurrentLevel = 80;
             GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
-            updateThread = new Thread(UpdateThread);
-            updateThread.Start();
-            
-            ModuleLoader.LoadModuleAndWait("WaterMeter.exe","WaterMeter");
+
+            ModuleLoader.LoadModuleAndWait("WaterMeter.exe", "WaterMeter");
         }
 
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)
         {
-            Message m = Messages.Parse(_message);
+            var m = Messages.Parse(_message);
             switch (m.Type)
             {
                 case MessageType.WATERLEVEL_ADD:
@@ -38,26 +35,23 @@ namespace Caliban.Core.Game
                     CurrentLevel = CurrentLevel.Clamp(0, 100);
                     break;
                 case MessageType.WATERLEVEL_GET:
-                    server.SendMessageToClient("WaterMeter", Messages.Build(MessageType.WATERLEVEL_SET,CurrentLevel.ToString()));
+                    server.SendMessageToClient("WaterMeter",
+                        Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
                     break;
             }
         }
 
-        private void UpdateThread()
+        public void Update()
         {
-            while (!closeFlag)
-            {
-                CurrentLevel.Clamp(0, 100);                    
-                if(CurrentLevel < 0 && Game.CurrentGame.state == GameState.IN_PROGRESS)
-                    server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
-                
-                server.SendMessageToClient("WaterMeter",
-                    Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
-                Thread.Sleep(70);
-            }
+            CurrentLevel.Clamp(0, 100);
+            if (CurrentLevel < 0 && Game.CurrentGame.state == GameState.IN_PROGRESS)
+                server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
+
+            server.SendMessageToClient("WaterMeter",
+                Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
+            Thread.Sleep(70);
         }
 
-        public float CurrentLevel { get; set; }
 
         private void OnGlobalMouseMove(MouseArgs _e)
         {
@@ -73,7 +67,6 @@ namespace Caliban.Core.Game
 
         public void Dispose()
         {
-            closeFlag = true;
         }
     }
 }

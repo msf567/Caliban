@@ -10,3 +10,5 @@ A:\Caliban\Caliban\obj\Release\Caliban.csproj.CoreCompileInputs.cache
 A:\Caliban\Caliban\obj\Release\Caliban.csproj.CopyComplete
 A:\Caliban\Caliban\obj\Release\Caliban.Core.dll
 A:\Caliban\Caliban\obj\Release\Caliban.Core.pdb
+A:\Caliban\Caliban\obj\Release\Interop.SHDocVw.dll
+A:\Caliban\Caliban\obj\Release\Caliban.csproj.ResolveComReference.cache

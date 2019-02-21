@@ -9,11 +9,10 @@ using Caliban.Core.Utility;
 
 namespace Caliban.Core.Transport
 {
-    public class ServerTerminal
+    public class ServerTerminal 
     {
         public ServerTerminal()
         {
-            //Console.WriteLine("Server Constructor");
             MClients = new Dictionary<long, ConnectedClient>();
         }
 
@@ -26,7 +25,7 @@ namespace Caliban.Core.Transport
 
         private Dictionary<long, ConnectedClient> MClients { get; set; }
 
-        private Dictionary<string, List<ConnectedClient>>
+        private readonly Dictionary<string, List<ConnectedClient>>
             namedClients = new Dictionary<string, List<ConnectedClient>>();
 
         public void StartListen(int _port)

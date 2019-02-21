@@ -21,8 +21,8 @@ namespace Caliban.Core.Transport
 
     public struct Message
     {
-        public MessageType Type;
-        public string Value;
+        public readonly MessageType Type;
+        public readonly string Value;
 
         public Message(MessageType _type, string _value)
         {
