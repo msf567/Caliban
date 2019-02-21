@@ -5,15 +5,13 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using Caliban.Core.Utility;
-using Resources;
 using Newtonsoft.Json;
 
 namespace Caliban.Core.World
 {
     public class DesertGenerator
     {
-        private DesertNameGenerator nameGenerator = new DesertNameGenerator();
-        public List<DesertNode> AllNodes = new List<DesertNode>();
+        private readonly DesertNameGenerator nameGenerator = new DesertNameGenerator();
         public DesertNode GenerateDataNodes()
         {
             if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
@@ -22,7 +20,6 @@ namespace Caliban.Core.World
             Process.Start(@"A:\\Desert");
             
             DesertNode rootNode = new DesertNode(null, DesertParameters.DesertRoot.FullName);
-            AllNodes.Add(rootNode);
             GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
 
             GetDebugInfo(rootNode);
@@ -67,7 +64,6 @@ namespace Caliban.Core.World
                     string newfolderName = nameGenerator.GetNewFolderName();
                     var newDir = new DesertNode(_parent, newfolderName);
                     _parent.AddChild(newDir);
-                    AllNodes.Add(newDir);
                     ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNodeData(newDir, newDepth); });
                 }
             }

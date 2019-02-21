@@ -8,7 +8,7 @@ using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
-using Resources;
+using Caliban.Core.Resources;
 
 namespace Caliban.Core.World
 {
@@ -20,14 +20,11 @@ namespace Caliban.Core.World
         private readonly List<FileStream> heavyRocks = new List<FileStream>();
 
         public DesertNode DesertRoot;
-        public List<DesertNode> AllNodes = new List<DesertNode>();
 
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
             DesertRoot = generator.GenerateDataNodes();
-            AllNodes = generator.AllNodes;
-            Console.WriteLine("Number of Nodes: " + AllNodes.Count);
             watcher = new ExplorerWatcher();
             watcher.OnNewExplorerFolder += OnNewExplorerFolder;
         }
