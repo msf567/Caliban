@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using Caliban.Core.Utility;
-using Treasures;
+using Resources;
 using Newtonsoft.Json;
 
 namespace Caliban.Core.World
@@ -54,7 +54,6 @@ namespace Caliban.Core.World
             if (_myMaxDepth == 0)
             {
                 //add rock or treasure (spawned at runtime)
-                Console.WriteLine("Dropping Rock");
                 _parent.AddTreasure("HeavyRock");
             }
             else

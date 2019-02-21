@@ -8,7 +8,7 @@ using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
-using Treasures;
+using Resources;
 
 namespace Caliban.Core.World
 {
@@ -169,13 +169,12 @@ namespace Caliban.Core.World
             if (r.NextDouble() < 0.05f)
                 DropTreasure(_path);
             else
-                TreasureManager.WriteEmbeddedResource("Treasures", "WaterPuddle.exe", _path, "WaterPuddle.exe");
+                Treasures.Spawn("WaterPuddle.exe", _path, "WaterPuddle.exe");
         }
 
         private void DropTreasure(string _path)
         {
-            // Console.WriteLine("Dropped Treasure!");
-            TreasureManager.WriteEmbeddedResource("Treasures", "SimpleVictory.exe", _path, "SimpleVictory.exe");
+            Treasures.Spawn("SimpleVictory.exe", _path, "SimpleVictory.exe");
         }
 
         public void Dispose()
