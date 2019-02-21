@@ -104,14 +104,14 @@ namespace Caliban.Core.Menu
 
             Console.Title = "CALIBAN";
             var hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            var style = Windows.Windows.GetWindowLong(hwnd, Windows.Windows.GWL_STYLE);
-            Windows.Windows.SetWindowLong(hwnd, Windows.Windows.GWL_STYLE, (style & ~ Windows.Windows.WS_CAPTION));
+            var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
+            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, (style & ~ OS.Windows.WS_CAPTION));
             var sWidth = Screen.PrimaryScreen.Bounds.Width;
-            Windows.Windows.RECT r;
-            Windows.Windows.GetWindowRect(hwnd, out r);
+            OS.Windows.RECT r;
+            OS.Windows.GetWindowRect(hwnd, out r);
 
-            Windows.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
-                Windows.Windows.Swp.NOSIZE);
+            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
+                OS.Windows.Swp.NOSIZE);
         }
 
         private static void IncreaseWindow(ref int _height)

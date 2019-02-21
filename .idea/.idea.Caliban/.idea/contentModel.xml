@@ -20,6 +20,11 @@
           <e p="Menu.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
+        <e p="OS" t="Include">
+          <e p="ExplorerWatcher.cs" t="Include" />
+          <e p="GlobalInput.cs" t="Include" />
+          <e p="Windows.cs" t="Include" />
+        </e>
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
@@ -38,11 +43,6 @@
           <e p="MathEx.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="StringEx.cs" t="Include" />
-        </e>
-        <e p="Windows" t="Include">
-          <e p="ExplorerWatcher.cs" t="Include" />
-          <e p="GlobalInput.cs" t="Include" />
-          <e p="Windows.cs" t="Include" />
         </e>
         <e p="World" t="Include">
           <e p="Desert.cs" t="Include" />

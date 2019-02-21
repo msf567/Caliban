@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Caliban.Core.Windows
+namespace Caliban.Core.OS
 {
     public static class Windows
     {
@@ -30,7 +30,7 @@ namespace Caliban.Core.Windows
                     var path = System.IO.Path.GetFileName((string) ie.FullName);
                     if (path == null || path.ToLower() != "explorer.exe") continue;
                     var explorepath = ie.document.focuseditem.path;
-                   // Console.WriteLine(explorepath);
+                    // Console.WriteLine(explorepath);
                 }
             }
             finally
@@ -117,6 +117,10 @@ namespace Caliban.Core.Windows
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool GetWindowRect(IntPtr _hwnd, out RECT _lpRect);
+
+        [DllImport("shell32.dll")]
+       public static extern void SHChangeNotify(HChangeNotifyEventId _wEventId, HChangeNotifyFlags _uFlags, IntPtr _dwItem1,
+            IntPtr _dwItem2);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
@@ -232,5 +236,45 @@ namespace Caliban.Core.Windows
                     "{{Left={0},Top={1},Right={2},Bottom={3}}}", Left, Top, Right, Bottom);
             }
         }
+
+        [Flags]
+        public enum HChangeNotifyEventId
+        {
+            SHCNE_ALLEVENTS = 0x7FFFFFFF,
+            SHCNE_ASSOCCHANGED = 0x08000000,
+            SHCNE_ATTRIBUTES = 0x00000800,
+            SHCNE_CREATE = 0x00000002,
+            SHCNE_DELETE = 0x00000004,
+            SHCNE_DRIVEADD = 0x00000100,
+            SHCNE_DRIVEADDGUI = 0x00010000,
+            SHCNE_DRIVEREMOVED = 0x00000080,
+            SHCNE_EXTENDED_EVENT = 0x04000000,
+            SHCNE_FREESPACE = 0x00040000,
+            SHCNE_MEDIAINSERTED = 0x00000020,
+            SHCNE_MEDIAREMOVED = 0x00000040,
+            SHCNE_MKDIR = 0x00000008,
+            SHCNE_NETSHARE = 0x00000200,
+            SHCNE_NETUNSHARE = 0x00000400,
+            SHCNE_RENAMEFOLDER = 0x00020000,
+            SHCNE_RENAMEITEM = 0x00000001,
+            SHCNE_RMDIR = 0x00000010,
+            SHCNE_SERVERDISCONNECT = 0x00004000,
+            SHCNE_UPDATEDIR = 0x00001000,
+            SHCNE_UPDATEIMAGE = 0x00008000,
+        }
+
+        [Flags]
+        public enum HChangeNotifyFlags
+        {
+            SHCNF_DWORD = 0x0003,
+            SHCNF_IDLIST = 0x0000,
+            SHCNF_PATHA = 0x0001,
+            SHCNF_PATHW = 0x0005,
+            SHCNF_PRINTERA = 0x0002,
+            SHCNF_PRINTERW = 0x0006,
+            SHCNF_FLUSH = 0x1000,
+            SHCNF_FLUSHNOWAIT = 0x2000
+        }
+
     }
 }

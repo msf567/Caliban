@@ -13,7 +13,7 @@ namespace Caliban.Core.World
     public class DesertGenerator
     {
         private DesertNameGenerator nameGenerator = new DesertNameGenerator();
-
+        public List<DesertNode> AllNodes = new List<DesertNode>();
         public DesertNode GenerateDataNodes()
         {
             if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
@@ -22,6 +22,7 @@ namespace Caliban.Core.World
             Process.Start(@"A:\\Desert");
             
             DesertNode rootNode = new DesertNode(null, DesertParameters.DesertRoot.FullName);
+            AllNodes.Add(rootNode);
             GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
 
             GetDebugInfo(rootNode);
@@ -53,7 +54,7 @@ namespace Caliban.Core.World
             if (_myMaxDepth == 0)
             {
                 //add rock or treasure (spawned at runtime)
-                Console.WriteLine("Dropping Rocke");
+                Console.WriteLine("Dropping Rock");
                 _parent.AddTreasure("HeavyRock");
             }
             else
@@ -67,48 +68,10 @@ namespace Caliban.Core.World
                     string newfolderName = nameGenerator.GetNewFolderName();
                     var newDir = new DesertNode(_parent, newfolderName);
                     _parent.AddChild(newDir);
+                    AllNodes.Add(newDir);
                     ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNodeData(newDir, newDepth); });
-                    //GenerateDesertNodeData(newDir, newDepth);
                 }
             }
         }
-
-        //legacy generation
-        /*
-public void GenerateDirect()
-{
-    if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
-        Directory.CreateDirectory(DesertParameters.DesertRoot.FullName);
-    Process.Start(@"A:\\Desert");
-    ThreadPool.QueueUserWorkItem(delegate
-    {
-        GenerateDesertNodeDirect(DesertParameters.DesertRoot, DesertParameters.DesertDepth);
-    });
-
-    DesertGenerated = true;
-}
-private void GenerateDesertNodeDirect(DirectoryInfo _parent, int _myMaxDepth)
-{
-    if (_myMaxDepth == 0) // bottom of the stack
-    {
-        DropRock(_parent.FullName);
-    }
-    else
-    {
-        var r = new Random(Guid.NewGuid().GetHashCode());
-        var numberOfChildren = r.Next(1, DesertParameters.DesertWidth);
-        int lowEnd = (_myMaxDepth - 3).Clamp(0, int.MaxValue);
-        var newDepth = r.Next(lowEnd, _myMaxDepth - 1);
-
-        for (var i = 0; i < numberOfChildren; i++)
-        {
-            string newfolderName = nameGenerator.GetNewFolderName();
-            var newDir = new DirectoryInfo(_parent.FullName).CreateSubdirectory(newfolderName);
-            ThreadPool.QueueUserWorkItem(delegate { GenerateDesertNodeDirect(newDir, newDepth); });
-        }
-    }
-}
-*/
-
     }
 }

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using Caliban.Core.Game;
+using Caliban.Core.OS;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
 using Menu = Caliban.Core.Menu.Menu;

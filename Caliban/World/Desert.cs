@@ -12,7 +12,6 @@ using Treasures;
 
 namespace Caliban.Core.World
 {
-   
     public class Desert : IDisposable
     {
         private List<Tuple<string, int>> filesToDelete = new List<Tuple<string, int>>();
@@ -21,21 +20,56 @@ namespace Caliban.Core.World
         private readonly List<FileStream> heavyRocks = new List<FileStream>();
 
         public DesertNode DesertRoot;
+        public List<DesertNode> AllNodes = new List<DesertNode>();
 
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
             DesertRoot = generator.GenerateDataNodes();
-
+            AllNodes = generator.AllNodes;
+            Console.WriteLine("Number of Nodes: " + AllNodes.Count);
             watcher = new ExplorerWatcher();
             watcher.OnNewExplorerFolder += OnNewExplorerFolder;
         }
-
 
         private void OnNewExplorerFolder(string _newfolder)
         {
             string folder = Path.GetFileName(_newfolder.TrimEnd(Path.DirectorySeparatorChar));
             Console.WriteLine("New Explorer Folder: " + folder);
+
+            int start_time;
+            int elapsed_time;
+            start_time = DateTime.Now.Millisecond;
+            
+            DesertNode currentNode = DesertRoot.GetNode(folder);
+            
+            elapsed_time = DateTime.Now.Millisecond - start_time;
+            Console.WriteLine("Get Node took " + elapsed_time + " ms");
+
+            if (currentNode != null)
+            {
+                SpawnFolders(currentNode);
+                foreach (var node in currentNode.ChildNodes)
+                {
+                    SpawnFolders(node);
+                }
+            }
+        }
+
+        private void SpawnFolders(DesertNode _node)
+        {
+            DirectoryInfo dir = new DirectoryInfo(_node.FullName());
+            //Console.WriteLine("Spawning folders for " + _node.FullName());
+            foreach (DesertNode c in _node.ChildNodes)
+            {
+                DirectoryInfo ci = new DirectoryInfo(c.FullName());
+                if (!dir.GetDirectories().Contains(ci))
+                {
+                    Console.WriteLine("Created directory: " + ci.FullName);
+                    Directory.CreateDirectory(ci.FullName);
+                }
+            }
+         
         }
 
         public void Update()
@@ -96,9 +130,8 @@ namespace Caliban.Core.World
                     });
                 }
             }
-
         }
-        
+
         private void DeleteFile(string _filePath, int _processId)
         {
             Console.WriteLine("Deleting " + _filePath);
@@ -138,13 +171,13 @@ namespace Caliban.Core.World
             else
                 TreasureManager.WriteEmbeddedResource("Treasures", "WaterPuddle.exe", _path, "WaterPuddle.exe");
         }
-             
+
         private void DropTreasure(string _path)
         {
             // Console.WriteLine("Dropped Treasure!");
             TreasureManager.WriteEmbeddedResource("Treasures", "SimpleVictory.exe", _path, "SimpleVictory.exe");
         }
-  
+
         public void Dispose()
         {
             Clear();
