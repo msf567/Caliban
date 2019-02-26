@@ -4,6 +4,8 @@ using System.Threading;
 using System.Windows.Forms;
 using Caliban.Core.ConsoleOutput;
 using Caliban.Core.Audio;
+using Caliban.Core.OS;
+
 using CLIGL;
 
 namespace Caliban.Core.Menu
@@ -26,6 +28,7 @@ namespace Caliban.Core.Menu
         static Menu()
         {
             ConfigureWindow();
+            AudioPlayer.LoadFile("town_dusk_1.wav","IntroMusic");
         }
 
         public static void Close()
@@ -38,7 +41,20 @@ namespace Caliban.Core.Menu
             }
         }
 
-        public static void Main(bool fastDraw, bool _introMode = false)
+        public static void Intro()
+        {
+            var handle = OS.Windows.GetConsoleWindow();
+            OS.Windows. ShowWindow(handle, OS.Windows.SW_HIDE);
+            Console.Clear();
+            AudioPlayer.PlaySound("IntroMusic", true);
+            Thread.Sleep(22_100);
+            Process.Start("Note.exe", "Intro.txt");
+            Thread.Sleep(29_500);
+            OS.Windows. ShowWindow(handle, OS.Windows.SW_SHOW);
+            Main(false);
+        }
+        
+        public static void Main(bool fastDraw)
         {
             Console.Clear();
             int height = 1;
@@ -50,13 +66,7 @@ namespace Caliban.Core.Menu
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            if (_introMode)
-            {
-                Console.WriteLine("intromode");
-                Thread.Sleep(2000);
-                AudioPlayer.PlaySound("MainMenu");
-            }
-
+            
             Console.ForegroundColor = ConsoleColor.Yellow;
             ConsoleFormat.CenterWrite("~~~");
             if (!fastDraw) IncreaseWindow(ref height);
@@ -67,19 +77,17 @@ namespace Caliban.Core.Menu
             if (!fastDraw) IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("~~~");
             if (!fastDraw) IncreaseWindow(ref height);
-            if (_introMode) Thread.Sleep(2398);
             ConsoleFormat.CenterWrite("A File System Survival Game");
             if (!fastDraw) IncreaseWindow(ref height);
             if (!fastDraw) IncreaseWindow(ref height);
             if (!fastDraw) IncreaseWindow(ref height);
-            if (_introMode) Thread.Sleep(2412);
             ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             ConsoleFormat.CenterWrite("");
+         
             foreach (var s in titleGraphic)
             {
                 ConsoleFormat.CenterWrite(s);
                 if (!fastDraw) IncreaseWindow(ref height);
-                if (_introMode) Thread.Sleep(594);
             }
 
             ConsoleFormat.CenterWrite("");

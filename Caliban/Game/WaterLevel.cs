@@ -17,12 +17,12 @@ namespace Caliban.Core.Game
         {
             server = _s;
             server.MessageReceived += ServerOnMessageReceived;
-            //Console.WriteLine("Subscribed...");
+            //D.Write("Subscribed...");
             CurrentLevel = 80;
             GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
 
-            ModuleLoader.LoadModuleAndWait("WaterMeter.exe", "WaterMeter");
+            ModuleLoader.LoadModuleAndWait(@"WaterMeter.exe", "WaterMeter");
         }
 
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)

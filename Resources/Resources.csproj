@@ -44,10 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="WaterPuddle.exe" />
+    <EmbeddedResource Include="SimpleVictory.exe" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SimpleVictory.exe" />
+    <EmbeddedResource Include="WaterPuddle.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,7 +54,6 @@ namespace Caliban.Core.Game
             
             updateLoop = new Thread(Update);
             updateLoop.Start();
-            Process.Start("Note.exe", "intro.txt");
         }
 
         private void Update()
@@ -62,7 +61,7 @@ namespace Caliban.Core.Game
             closeFlag = false;
             while (!closeFlag)
             {
-                desert.Update();
+                desert?.Update();
                 waterLevel.Update();
                 
                 Thread.Sleep(50);
@@ -82,6 +81,7 @@ namespace Caliban.Core.Game
 
         public void Close()
         {
+            SetState(GameState.NOT_STARTED);
             closeFlag = true;
             waterLevel?.Dispose();
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));

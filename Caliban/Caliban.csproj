@@ -53,7 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audio\AudioPlayer.cs" />
+    <Compile Include="Cinematics\Cinematic.cs" />
+    <Compile Include="Cinematics\CinematicPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
+    <Compile Include="Utility\FormsEx.cs" />
     <Compile Include="Utility\Singleton.cs" />
     <Compile Include="OS\ExplorerWatcher.cs" />
     <Compile Include="World\DesertGenerator.cs" />

@@ -3,31 +3,23 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using Caliban.Core.ConsoleOutput;
+using Caliban.Core.Utility;
+using System.Windows.Forms;
 
 namespace Note
 {
     internal class NoteProgram
     {
-        static bool closeFlag;
-        private static int count = 0;
+
         public static void Main(string[] args)
         {
-            if (args.Length < 1)
-                return;
-            string notePath = args[0];
-            var lines = File.ReadLines("intro.txt");
-            foreach (var line in lines)
-            {
-                ConsoleFormat.CenterWrite(line);
-                Thread.Sleep(1000);
-            }
-
-            while (!closeFlag)
-            {
-                Thread.Sleep(50);
-                if (count++ > 1000)
-                    closeFlag = true;
-            }
+            foreach(string s in args)
+              D.Write("arg:" + s);
+         //   if (args.Length == 0)
+          //      return;
+            Application.EnableVisualStyles();
+            Application.Run(new NoteForm(@"A:\\Caliban\\Builds\\Intro.txt"));
+          
         }
     }
 }
