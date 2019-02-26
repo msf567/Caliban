@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.OS;
@@ -29,10 +30,16 @@ namespace CalibanMenu
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.M;
-          //  bool playIntro = false;
-         //   menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
-            Menu.Main(false, false);
+            bool playIntro = _args.Contains("intro");
+            menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
+
+            if (playIntro)
+                Menu.Intro();
+            else
+                Menu.Main(false);
+
             menuState = MenuState.MAIN;
+
             while (!closeFlag)
             {
                 switch (menuState)
@@ -123,7 +130,7 @@ namespace CalibanMenu
         {
             if (!ModuleLoader.IsReady())
             {
-                //Console.WriteLine("Waiting for modules to load...");
+                //D.Write("Waiting for modules to load...");
                 return;
             }
 

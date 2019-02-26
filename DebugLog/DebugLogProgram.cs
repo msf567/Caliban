@@ -19,7 +19,7 @@ namespace DebugLog
 
             private void WriteLine(string s)
             {
-                //Console.WriteLine(s);
+                //D.Write(s);
             }
 
             private void UpdateThread()

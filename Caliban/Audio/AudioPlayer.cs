@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Media;
+using Caliban.Core.Utility;
 
 namespace Caliban.Core.Audio
 {
@@ -21,7 +22,7 @@ namespace Caliban.Core.Audio
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                D.Write(e.Message);
             }
         }
 

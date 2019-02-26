@@ -8,7 +8,7 @@ namespace Caliban.Core.Utility
     {
         private static ServerTerminal server;
         private static Process p;
-
+        public static bool debugMode = false;
         public static void Init(ServerTerminal _server)
         {
             server = _server;
@@ -27,8 +27,14 @@ namespace Caliban.Core.Utility
                 server.SendMessageToClient("DEBUG", Messages.Build(MessageType.DEBUG_LOG, _m));
             else
             {
-                //Console.WriteLine(_m);
+                //D.Write(_m);
             }
+        }
+
+        public static void Write(string m)
+        {
+            if(debugMode)
+                D.Write(m);
         }
     }
 }

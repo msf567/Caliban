@@ -24,7 +24,7 @@ namespace Caliban.Core.Transport
 
         protected void SetClientReady()
         {
-            //Console.WriteLine("Readying client");
+            //D.Write("Readying client");
             IsReady = true;
             if (ShouldRegister && IsConnected)
             {
@@ -57,12 +57,12 @@ namespace Caliban.Core.Transport
             var exeName = AppDomain.CurrentDomain.FriendlyName;
             if (assemblyPath == null) return;
             var fullPath = Path.Combine(assemblyPath, exeName);
-            SendMessageToHost(Messages.Build(MessageType.KILL_ME, fullPath + " " + pid));
+            SendMessageToHost(Messages.Build(MessageType.CONSUME_TREASURE, fullPath + " " + pid));
         }
         
         protected virtual void ClientOnMessageReceived(byte[] _message)
         {
-            ////Console.WriteLine("Received Message " + Messages.Parse(message));
+            ////D.Write("Received Message " + Messages.Parse(message));
         }
 
         protected virtual void ClientOnDisconncted(Socket _socket)

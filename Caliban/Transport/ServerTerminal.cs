@@ -39,12 +39,12 @@ namespace Caliban.Core.Transport
             }
             catch (Exception)
             {
-                //Console.WriteLine(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
+                //D.Write(ex.ToString(), string.Format("Can't connect to port {0}!", _port));
                 return;
             }
 
             socket.Listen(4);
-            //Console.WriteLine("Started Server...");
+            //D.Write("Started Server...");
             socket.BeginAccept(OnClientConnection, null);
         }
 
@@ -71,7 +71,7 @@ namespace Caliban.Core.Transport
                 long key = clientSocket.Handle.ToInt64();
                 if (MClients.ContainsKey(key))
                 {
-                    //Console.WriteLine("Client with handle key '{0}' already exist!", key);
+                    //D.Write("Client with handle key '{0}' already exist!", key);
                 }
 
                 MClients[key] = connectedClient;
@@ -80,11 +80,11 @@ namespace Caliban.Core.Transport
             }
             catch (ObjectDisposedException)
             {
-                //Console.WriteLine(odex.ToString(), "OnClientConnection: Socket has been closed");
+                //D.Write(odex.ToString(), "OnClientConnection: Socket has been closed");
             }
             catch (Exception)
             {
-                //Console.WriteLine(sex.ToString(),   "OnClientConnection: Socket failed");
+                //D.Write(sex.ToString(),   "OnClientConnection: Socket failed");
             }
         }
 
@@ -150,12 +150,12 @@ namespace Caliban.Core.Transport
                 }
                 else
                 {
-                    ////Console.WriteLine(clientName +" not in client dictionary!");
+                    ////D.Write(clientName +" not in client dictionary!");
                 }
             }
             catch (SocketException)
             {
-                //Console.WriteLine(se.ToString(), "Buffer could not be sent");
+                //D.Write(se.ToString(), "Buffer could not be sent");
             }
         }
 

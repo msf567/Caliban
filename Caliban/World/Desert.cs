@@ -4,103 +4,140 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Security.AccessControl;
 using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
 using Caliban.Core.Resources;
+using Caliban.Core.Utility;
 
 namespace Caliban.Core.World
 {
     public class Desert : IDisposable
     {
-        private List<Tuple<string, int>> filesToDelete = new List<Tuple<string, int>>();
+        private List<Tuple<string, int>> consumedTreasures = new List<Tuple<string, int>>();
         private DesertGenerator generator = new DesertGenerator();
-        private readonly ExplorerWatcher watcher;
-        private readonly List<FileStream> heavyRocks = new List<FileStream>();
-
+        private readonly ExplorerWatcher explorerWatcher;
+        private FileSystemWatcher fileSystemWatcher;
         public DesertNode DesertRoot;
 
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
+            Clear();
             DesertRoot = generator.GenerateDataNodes();
-            watcher = new ExplorerWatcher();
-            watcher.OnNewExplorerFolder += OnNewExplorerFolder;
+            explorerWatcher = new ExplorerWatcher();
+            explorerWatcher.OnNewExplorerFolder += OnNewExplorerNav;
+
+            fileSystemWatcher = new FileSystemWatcher(DesertParameters.DesertRoot.FullName);
+            fileSystemWatcher.IncludeSubdirectories = true;
+            fileSystemWatcher.NotifyFilter = NotifyFilters.LastAccess
+                                             | NotifyFilters.LastWrite
+                                             | NotifyFilters.FileName
+                                             | NotifyFilters.DirectoryName;
+            fileSystemWatcher.EnableRaisingEvents = true;
+            fileSystemWatcher.Changed += OnChanged;
+            fileSystemWatcher.Created += OnChanged;
+            fileSystemWatcher.Deleted += OnChanged;
+            fileSystemWatcher.Renamed += OnRenamed;
         }
 
-        private void OnNewExplorerFolder(string _newfolder)
+        private void OnRenamed(object _sender, RenamedEventArgs _e)
         {
-            string folder = Path.GetFileName(_newfolder.TrimEnd(Path.DirectorySeparatorChar));
-            Console.WriteLine("New Explorer Folder: " + folder);
+            D.Write(_e.OldName + " was renamed!");
+        }
 
-            int start_time;
-            int elapsed_time;
-            start_time = DateTime.Now.Millisecond;
-            
-            DesertNode currentNode = DesertRoot.GetNode(folder);
-            
-            elapsed_time = DateTime.Now.Millisecond - start_time;
-            Console.WriteLine("Get Node took " + elapsed_time + " ms");
-
-            if (currentNode != null)
+        private void OnChanged(object _sender, FileSystemEventArgs _e)
+        {
+            if (_e.ChangeType == WatcherChangeTypes.Deleted)
             {
-                SpawnFolders(currentNode);
-                foreach (var node in currentNode.ChildNodes)
-                {
-                    SpawnFolders(node);
-                }
+                // D.Write(_e.Name + " was deleted. Rebuilding...");
+                var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
+                var deletedNode = DesertRoot.GetNode(folder);
+                RenderNode(deletedNode?.ParentNode);
+            }
+
+            if (_e.ChangeType == WatcherChangeTypes.Changed)
+            {
+                //  D.Write(_e.Name + " was changed. Rebuilding...");
+                var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
+
+                var deletedNode = DesertRoot.GetNode(folder);
+                RenderNode(deletedNode?.ParentNode);
             }
         }
 
-        private void SpawnFolders(DesertNode _node)
+        private void OnNewExplorerNav(string _newfolder)
         {
-            DirectoryInfo dir = new DirectoryInfo(_node.FullName());
-            //Console.WriteLine("Spawning folders for " + _node.FullName());
-            foreach (DesertNode c in _node.ChildNodes)
+            if (Game.Game.CurrentGame.state != GameState.IN_PROGRESS)
+                return;
+
+            var folder = Path.GetFileName(_newfolder.TrimEnd(Path.DirectorySeparatorChar));
+
+            var currentNode = DesertRoot.GetNode(folder);
+            if (currentNode == null) return;
+
+            RenderNode(currentNode);
+            foreach (var node in currentNode.ChildNodes)
             {
-                DirectoryInfo ci = new DirectoryInfo(c.FullName());
+                RenderNode(node);
+            }
+        }
+
+        private void RenderNode(DesertNode _node)
+        {
+            if (Game.Game.CurrentGame.state != GameState.IN_PROGRESS || _node == null)
+                return;
+            var dir = new DirectoryInfo(_node.FullName());
+
+            foreach (var f in dir.GetDirectories())
+            {
+                //dir.Delete(true);
+            }
+
+            foreach (var c in _node.ChildNodes)
+            {
+                var ci = new DirectoryInfo(c.FullName());
                 if (!dir.GetDirectories().Contains(ci))
                 {
-                    Console.WriteLine("Created directory: " + ci.FullName);
                     Directory.CreateDirectory(ci.FullName);
                 }
             }
-         
+
+            foreach (var t in _node.Treasures)
+            {
+                Treasures.Spawn(_node.FullName(), t);
+            }
         }
 
         public void Update()
         {
-            foreach (var file in filesToDelete)
+            foreach (var treasure in consumedTreasures)
             {
-                DeleteFile(file.Item1, file.Item2);
+                ConsumeTreasure(treasure.Item1, treasure.Item2);
             }
 
-            filesToDelete.Clear();
+
+            consumedTreasures.Clear();
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)
         {
-            Message m = Messages.Parse(_message);
-            Console.WriteLine("Desert Manager received " + m);
+            var m = Messages.Parse(_message);
+            D.Write("Desert Manager received " + m);
             switch (m.Type)
             {
-                case MessageType.KILL_ME:
+                case MessageType.CONSUME_TREASURE:
                     var p = m.Value.Split(' ');
-                    filesToDelete.Add(new Tuple<string, int>(p[0], int.Parse(p[1])));
+                    consumedTreasures.Add(new Tuple<string, int>(p[0], int.Parse(p[1])));
                     break;
             }
         }
 
-        public void Clear()
+        private void Clear()
         {
-            foreach (var rock in heavyRocks)
-            {
-                // rock.Close();
-                // rock.Unlock(0, 3);
-            }
-
-            heavyRocks.Clear();
+            DesertRoot = null;
 
             if (Directory.Exists(DesertParameters.DesertRoot.FullName))
             {
@@ -113,25 +150,53 @@ namespace Caliban.Core.World
                     {
                         try
                         {
-                            Directory.Delete(subdir.FullName, true);
+                            if (Directory.Exists(subdir.FullName))
+                                DeleteDirectory(subdir.FullName);
                             deletedCount++;
                             if (deletedCount == fullCount)
                             {
-                                Console.WriteLine("Desert Cleared!");
+                                D.Write("Desert Cleared!");
                             }
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e);
+                            D.Write("DELETION ERROR: " + e);
                         }
                     });
                 }
             }
         }
 
-        private void DeleteFile(string _filePath, int _processId)
+        private static void DeleteDirectory(string target_dir)
         {
-            Console.WriteLine("Deleting " + _filePath);
+            string[] files = Directory.GetFiles(target_dir);
+            string[] dirs = Directory.GetDirectories(target_dir);
+
+            foreach (string file in files)
+            {
+                File.SetAttributes(file, FileAttributes.Normal);
+                File.Delete(file);
+            }
+
+            foreach (string dir in dirs)
+            {
+                DeleteDirectory(dir);
+            }
+
+            Directory.Delete(target_dir, false);
+        }
+
+        private void ConsumeTreasure(string _filePath, int _processId)
+        {
+            D.Write("Consuming " + _filePath);
+            FileInfo fileInfo = new FileInfo(_filePath);
+            string treasureName = fileInfo.Name;
+            if (fileInfo.Directory != null)
+            {
+                var nodeName = Path.GetFileName(fileInfo.Directory.Name.TrimEnd(Path.DirectorySeparatorChar));
+                DesertRoot.GetNode(nodeName)?.DeleteTreasure(treasureName);
+            }
+
             try
             {
                 var proc = Process.GetProcessById(_processId);
@@ -139,7 +204,7 @@ namespace Caliban.Core.World
             }
             catch (ArgumentException e)
             {
-                Console.WriteLine(e.Message);
+                D.Write(e.Message);
             }
 
             if (!File.Exists(_filePath)) return;
@@ -150,23 +215,8 @@ namespace Caliban.Core.World
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                D.Write(e.Message);
             }
-        }
-
-        private void DropRock(string _path)
-        {
-            var f = new FileInfo(Path.Combine(_path, "heavy.rock"));
-            var newRock = f.Create();
-            newRock.Close();
-            // newRock.Lock(0, 3);
-            heavyRocks.Add(newRock);
-
-            Random r = new Random(Guid.NewGuid().GetHashCode());
-            if (r.NextDouble() < 0.05f)
-                DropTreasure(_path);
-            else
-                Treasures.Spawn("WaterPuddle.exe", _path, "WaterPuddle.exe");
         }
 
         private void DropTreasure(string _path)
@@ -176,8 +226,10 @@ namespace Caliban.Core.World
 
         public void Dispose()
         {
+            fileSystemWatcher.EnableRaisingEvents = false;
             Clear();
-            watcher.Dispose();
+            explorerWatcher.Dispose();
+            fileSystemWatcher.Dispose();
         }
     }
 }

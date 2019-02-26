@@ -12,7 +12,7 @@ namespace Caliban.Core.Resources
     {
         public static void Spawn(string _destFolder, string _resName, string _destName = "")
         {
-            WriteEmbeddedResource(Assembly.GetExecutingAssembly().FullName, _resName, _destFolder, _destName);
+            WriteEmbeddedResource("Treasures", _resName, _destFolder, _destName);
         }
         
         private static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder, string _destName = "")

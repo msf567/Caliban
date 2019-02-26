@@ -30,7 +30,7 @@ namespace Caliban.Core.OS
                     var path = System.IO.Path.GetFileName((string) ie.FullName);
                     if (path == null || path.ToLower() != "explorer.exe") continue;
                     var explorepath = ie.document.focuseditem.path;
-                    // Console.WriteLine(explorepath);
+                    // D.Write(explorepath);
                 }
             }
             finally
@@ -102,6 +102,12 @@ namespace Caliban.Core.OS
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr FindWindow(string _lpClassName, string _lpWindowName);
 
+        public const int SW_HIDE = 0;
+        public const int SW_SHOW = 5;
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool SetWindowPos(IntPtr _hWnd, IntPtr _hWndInsertAfter, int _x, int _y, int _cx, int _cy,
             int _uFlags);
@@ -119,7 +125,8 @@ namespace Caliban.Core.OS
         public static extern bool GetWindowRect(IntPtr _hwnd, out RECT _lpRect);
 
         [DllImport("shell32.dll")]
-       public static extern void SHChangeNotify(HChangeNotifyEventId _wEventId, HChangeNotifyFlags _uFlags, IntPtr _dwItem1,
+        public static extern void SHChangeNotify(HChangeNotifyEventId _wEventId, HChangeNotifyFlags _uFlags,
+            IntPtr _dwItem1,
             IntPtr _dwItem2);
 
         [StructLayout(LayoutKind.Sequential)]
@@ -275,6 +282,5 @@ namespace Caliban.Core.OS
             SHCNF_FLUSH = 0x1000,
             SHCNF_FLUSHNOWAIT = 0x2000
         }
-
     }
 }
