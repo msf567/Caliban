@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Caliban.Core.Resources
+// ReSharper disable once CheckNamespace
+namespace Caliban.Core.Treasures
 {
     public static class Treasures
     {
@@ -22,7 +18,7 @@ namespace Caliban.Core.Resources
             var thisAssembly = Assembly.GetExecutingAssembly();
             if (_destName == "")
                 _destName = _resourceName;
-            using (var stream = thisAssembly.GetManifestResourceStream(_assemblyName + "." + _resourceName))
+            using (var stream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + _resourceName))
             {
                 using (Stream file = File.Create(Path.Combine(_destFolder, _destName)))
                 {

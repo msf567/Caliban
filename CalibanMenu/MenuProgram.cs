@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Threading;
+using System.Reflection;
 using Caliban.Core.Game;
 using Caliban.Core.OS;
 using Caliban.Core.Utility;
-using Caliban.Core.Windows;
+using Caliban.Core.Treasures;
 using Menu = Caliban.Core.Menu.Menu;
 
 namespace CalibanMenu
@@ -27,16 +27,19 @@ namespace CalibanMenu
 
         public static void Main(string[] _args)
         {
+            string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
+            Treasures.Spawn(folderLoc, "desert.jpg");
+            Wallpaper.Set(new Uri(Path.Combine(folderLoc,"desert.jpg")), Wallpaper.Style.Stretched);
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.M;
-            bool playIntro = _args.Contains("intro");
-            menuState = playIntro ? MenuState.INTRO : MenuState.MAIN;
+            D.debugMode = _args.Contains("debug");
+            menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
 
-            if (playIntro)
-                Menu.Intro();
-            else
+            if (D.debugMode)
                 Menu.Main(false);
+            else
+                Menu.Intro();
 
             menuState = MenuState.MAIN;
 

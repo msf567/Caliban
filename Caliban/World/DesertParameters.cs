@@ -10,10 +10,10 @@ namespace Caliban.Core.World
             {0, 0.0f},
             {1, 0.0f},
             {2, 0.0f},
-            {3, 0.05f},
-            {4, 0.1f},
-            {5, 0.15f},
-            {6, 0.2f}
+            {3, 0.1f},
+            {4, 0.2f},
+            {5, 0.3f},
+            {6, 0.5f}
         };
 
         public static DirectoryInfo DesertRoot = new DirectoryInfo(@"A:\\Desert");

@@ -4,12 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
-using System.Security.AccessControl;
-using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
-using Caliban.Core.Resources;
 using Caliban.Core.Utility;
 
 namespace Caliban.Core.World
@@ -18,15 +15,26 @@ namespace Caliban.Core.World
     {
         private List<Tuple<string, int>> consumedTreasures = new List<Tuple<string, int>>();
         private DesertGenerator generator = new DesertGenerator();
-        private readonly ExplorerWatcher explorerWatcher;
+        private ExplorerWatcher explorerWatcher;
         private FileSystemWatcher fileSystemWatcher;
         public DesertNode DesertRoot;
-
+        private SoundClue demoClue;
+        private MapClue mapClue;
+        
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
             Clear();
             DesertRoot = generator.GenerateDataNodes();
+            string victoryPath = DesertRoot.GetAllNodes().Find(_e => _e.Treasures.Find(e => e.Item1 == "SimpleVictory.exe") != null)
+                .FullName();
+            demoClue = new SoundClue(victoryPath);
+            mapClue = new MapClue("corrupted_map",victoryPath,this);
+            InitWatchers();
+        }
+
+        private void InitWatchers()
+        {
             explorerWatcher = new ExplorerWatcher();
             explorerWatcher.OnNewExplorerFolder += OnNewExplorerNav;
 
@@ -83,6 +91,8 @@ namespace Caliban.Core.World
             {
                 RenderNode(node);
             }
+
+            demoClue?.FolderNav(folder);
         }
 
         private void RenderNode(DesertNode _node)
@@ -107,7 +117,7 @@ namespace Caliban.Core.World
 
             foreach (var t in _node.Treasures)
             {
-                Treasures.Spawn(_node.FullName(), t);
+                Treasures.Treasures.Spawn(_node.FullName(), t.Item1);
             }
         }
 
@@ -146,23 +156,24 @@ namespace Caliban.Core.World
                 var deletedCount = 0;
                 foreach (var subdir in DesertParameters.DesertRoot.GetDirectories())
                 {
-                    ThreadPool.QueueUserWorkItem(delegate
+                    // ThreadPool.QueueUserWorkItem(delegate
+                    //{
+                    try
                     {
-                        try
+                        if (Directory.Exists(subdir.FullName))
+                            DeleteDirectory(subdir.FullName);
+                        deletedCount++;
+                        if (deletedCount == fullCount)
                         {
-                            if (Directory.Exists(subdir.FullName))
-                                DeleteDirectory(subdir.FullName);
-                            deletedCount++;
-                            if (deletedCount == fullCount)
-                            {
-                                D.Write("Desert Cleared!");
-                            }
+                            D.Write("Desert Cleared!");
                         }
-                        catch (Exception e)
-                        {
-                            D.Write("DELETION ERROR: " + e);
-                        }
-                    });
+                    }
+                    catch (Exception e)
+                    {
+                        D.Write("DELETION ERROR: " + e);
+                    }
+
+                    // });
                 }
             }
         }
@@ -221,11 +232,13 @@ namespace Caliban.Core.World
 
         private void DropTreasure(string _path)
         {
-            Treasures.Spawn("SimpleVictory.exe", _path, "SimpleVictory.exe");
+            Treasures.Treasures.Spawn("SimpleVictory.exe", _path, "SimpleVictory.exe");
         }
 
         public void Dispose()
         {
+            demoClue.Dispose();
+            mapClue.Dispose();
             fileSystemWatcher.EnableRaisingEvents = false;
             Clear();
             explorerWatcher.Dispose();

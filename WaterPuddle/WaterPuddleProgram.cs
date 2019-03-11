@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
-using System.Reflection;
 using System.Threading;
 using Caliban.Core.Transport;
 
@@ -36,7 +34,8 @@ namespace WaterPuddle
             if (pname.Length == 0)
                 return;
 
-            WaterPuddle wp = new WaterPuddle(20);
+            Random r = new Random(Guid.NewGuid().GetHashCode());
+            WaterPuddle wp = new WaterPuddle(r.Next(15,30));
         }
     }
 }

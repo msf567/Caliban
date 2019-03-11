@@ -40,6 +40,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+      <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\NAudio.1.9.0-preview2\lib\net35\NAudio.dll</HintPath>
+          <Private>True</Private>
+      </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -52,13 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\AudioPlayer.cs" />
+      <Compile Include="Audio\AudioManager.cs"/>
+      <Compile Include="Audio\LoopStream.cs"/>
+      <Compile Include="Audio\WavePlayer.cs"/>
     <Compile Include="Cinematics\Cinematic.cs" />
     <Compile Include="Cinematics\CinematicPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
+      <Compile Include="Game\Clue.cs"/>
+      <Compile Include="Game\MapClue.cs"/>
+      <Compile Include="Game\SoundClue.cs"/>
     <Compile Include="Utility\FormsEx.cs" />
     <Compile Include="Utility\Singleton.cs" />
     <Compile Include="OS\ExplorerWatcher.cs" />
+      <Compile Include="Utility\Wallpaper.cs"/>
     <Compile Include="World\DesertGenerator.cs" />
     <Compile Include="World\Desert.cs" />
     <Compile Include="World\DesertNameGenerator.cs" />

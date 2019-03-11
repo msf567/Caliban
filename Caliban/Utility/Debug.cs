@@ -34,7 +34,7 @@ namespace Caliban.Core.Utility
         public static void Write(string m)
         {
             if(debugMode)
-                D.Write(m);
+              Console.WriteLine(m);
         }
     }
 }
