@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using Caliban.Core.OS;
 using Caliban.Core.Utility;
-using Caliban.Core.Windows;
 
 namespace WaterMeter
 {

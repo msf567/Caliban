@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading;
 using Caliban.Core.Utility;
 using Newtonsoft.Json;
 
@@ -26,10 +24,19 @@ namespace Caliban.Core.World
             GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
 
             DistributeWater(rootNode);
+            SpawnVictory(rootNode);
             
             PrintDebugInfo(rootNode);
 
             return rootNode;
+        }
+
+        private void SpawnVictory(DesertNode _rootNode)
+        {
+            var deepestNodes = _rootNode.GetAllNodesAtDepth(DesertParameters.DesertDepth);
+            int random = r.Next(0, deepestNodes.Count);
+            deepestNodes[random].AddTreasure("SimpleVictory.exe");
+           D.Write("Adding victory to " + deepestNodes[random].FullName());
         }
 
         private void DistributeWater(DesertNode _rootNode)
@@ -64,7 +71,7 @@ namespace Caliban.Core.World
             for (int x = 0; x < waterNodes.Count; x++)
             {
                 nodes[waterNodes[x]].AddTreasure("WaterPuddle.exe");
-                D.Write("Adding water to " +  nodes[waterNodes[x]].FullName());   
+               // D.Write("Adding water to " +  nodes[waterNodes[x]].FullName());   
             }
         }
 
@@ -94,7 +101,7 @@ namespace Caliban.Core.World
 
             int lowEnd = (_myMaxDepth - 1).Clamp(0, int.MaxValue);
             var newDepth = _myMaxDepth - 1;
-            var numberOfChildren = r.Next(1, DesertParameters.DesertWidth);
+            var numberOfChildren = Math.Abs( r.Next(DesertParameters.DesertWidth - 2, DesertParameters.DesertWidth));
             for (var i = 0; i < numberOfChildren; i++)
             {
                 var newDir = new DesertNode(_parent, nameGenerator.GetNewFolderName());

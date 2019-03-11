@@ -43,9 +43,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZetaLongPaths, Version=1.0.0.27, Culture=neutral, PublicKeyToken=b764f59068f31f38">
-      <HintPath>..\..\vs_dev_lib\ZetaLongPaths\Bin\Release\ZetaLongPaths.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MenuProgram.cs" />
@@ -56,6 +53,10 @@
       <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
       <Name>Caliban</Name>
     </ProjectReference>
+      <ProjectReference Include="..\Resources\Resources.csproj">
+          <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
+          <Name>Resources</Name>
+      </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

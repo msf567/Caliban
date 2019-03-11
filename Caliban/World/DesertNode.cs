@@ -23,7 +23,6 @@ namespace Caliban.Core.World
             return new List<DesertNode>( _self.GetAllNodes().Where(_n => _n.Depth == _depth));
         }
         
-        
     }
     
     [Serializable]
@@ -33,7 +32,7 @@ namespace Caliban.Core.World
         public DesertNode ParentNode;
         public int Depth;
         public List<DesertNode> ChildNodes = new List<DesertNode>();
-        public List<string> Treasures = new List<string>();        
+        public List<Tuple<string, string>> Treasures = new List<Tuple<string,string>>();        
         public DesertNode(DesertNode _parentNode, string _name)
         {
             Name = _name;
@@ -61,15 +60,16 @@ namespace Caliban.Core.World
 
         }
 
-        public void AddTreasure(string _treasureName)
+        public void AddTreasure(string _treasureName, string _treasureArgs = "")
         {
-            Treasures.Add(_treasureName);
+            Treasures.Add(new Tuple<string, string>(_treasureName, _treasureArgs));
         }
 
         public void DeleteTreasure(string _treasureName)
         {
-            if (Treasures.Contains(_treasureName))
-                Treasures.Remove(_treasureName);
+            var foundItem = Treasures.Find(e => e.Item1 == _treasureName);
+            if (foundItem != null)
+                Treasures.Remove(foundItem);
         }
 
         public DesertNode GetNode(string _name)

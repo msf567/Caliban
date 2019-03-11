@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
-using Caliban.Core.Windows;
 using CLIGL;
 using Message = Caliban.Core.Transport.Message;
 

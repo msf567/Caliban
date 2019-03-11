@@ -4,8 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Caliban.Core.ConsoleOutput;
 using Caliban.Core.Audio;
-using Caliban.Core.OS;
-
+using Caliban.Core.Utility;
 using CLIGL;
 
 namespace Caliban.Core.Menu
@@ -28,7 +27,7 @@ namespace Caliban.Core.Menu
         static Menu()
         {
             ConfigureWindow();
-            AudioPlayer.LoadFile("town_dusk_1.wav","IntroMusic");
+            AudioManager.LoadFile("town_dusk_short.wav", "IntroMusic");
         }
 
         public static void Close()
@@ -44,16 +43,18 @@ namespace Caliban.Core.Menu
         public static void Intro()
         {
             var handle = OS.Windows.GetConsoleWindow();
-            OS.Windows. ShowWindow(handle, OS.Windows.SW_HIDE);
+            OS.Windows.ShowWindow(handle, OS.Windows.SW_HIDE);
             Console.Clear();
-            AudioPlayer.PlaySound("IntroMusic", true);
-            Thread.Sleep(22_100);
+            AudioManager.PlaySound("IntroMusic", true);
+            Thread.Sleep(14_754);
+            //Thread.Sleep(22_100);
             Process.Start("Note.exe", "Intro.txt");
-            Thread.Sleep(29_500);
-            OS.Windows. ShowWindow(handle, OS.Windows.SW_SHOW);
+            Thread.Sleep(14_754);
+            //Thread.Sleep(29_500);
+            OS.Windows.ShowWindow(handle, OS.Windows.SW_SHOW);
             Main(false);
         }
-        
+
         public static void Main(bool fastDraw)
         {
             Console.Clear();
@@ -66,7 +67,7 @@ namespace Caliban.Core.Menu
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             ConsoleFormat.CenterWrite("~~~");
             if (!fastDraw) IncreaseWindow(ref height);
@@ -83,7 +84,7 @@ namespace Caliban.Core.Menu
             if (!fastDraw) IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             ConsoleFormat.CenterWrite("");
-         
+
             foreach (var s in titleGraphic)
             {
                 ConsoleFormat.CenterWrite(s);
@@ -103,29 +104,6 @@ namespace Caliban.Core.Menu
             ConsoleFormat.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
             if (!fastDraw) IncreaseWindow(ref height);
             // return Console.ReadKey().Key;
-        }
-
-        private static void ConfigureWindow()
-        {
-            window = new RenderingWindow("CALIBAN", width, height);
-            buffer = new RenderingBuffer(width, height);
-
-            Console.Title = "CALIBAN";
-            var hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
-            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, (style & ~ OS.Windows.WS_CAPTION));
-            var sWidth = Screen.PrimaryScreen.Bounds.Width;
-            OS.Windows.RECT r;
-            OS.Windows.GetWindowRect(hwnd, out r);
-
-            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
-                OS.Windows.Swp.NOSIZE);
-        }
-
-        private static void IncreaseWindow(ref int _height)
-        {
-            Console.SetWindowSize(width, ++_height);
-            Console.SetBufferSize(width, _height);
         }
 
         public static void About(bool fastDraw)
@@ -150,7 +128,7 @@ namespace Caliban.Core.Menu
 
         public static void Standby()
         {
-            int height = 75;
+            int height = D.debugMode ? 75 : 6;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();
@@ -211,7 +189,30 @@ namespace Caliban.Core.Menu
             IncreaseWindow(ref height);
             Console.ForegroundColor = ConsoleColor.White;
         }
-        
+
+        private static void ConfigureWindow()
+        {
+            window = new RenderingWindow("CALIBAN", width, height);
+            buffer = new RenderingBuffer(width, height);
+
+            Console.Title = "CALIBAN";
+            var hwnd = Process.GetCurrentProcess().MainWindowHandle;
+            var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
+            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, (style & ~ OS.Windows.WS_CAPTION));
+            var sWidth = Screen.PrimaryScreen.Bounds.Width;
+            OS.Windows.RECT r;
+            OS.Windows.GetWindowRect(hwnd, out r);
+
+            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
+                OS.Windows.Swp.NOSIZE);
+        }
+
+        private static void IncreaseWindow(ref int _height)
+        {
+            Console.SetWindowSize(width, ++_height);
+            Console.SetBufferSize(width, _height);
+        }
+
         private static readonly string[] titleGraphic =
         {
             " ▄████████    ▄████████  ▄█        ▄█  ▀█████████▄     ▄████████ ███▄▄▄▄  ",

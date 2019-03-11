@@ -1,12 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Media;
 using System.Threading;
 using System.Windows.Forms;
-using Caliban.Core.ConsoleOutput;
-using Caliban.Core.Utility;
 
 namespace Note
 {
@@ -59,7 +56,7 @@ namespace Note
                 var words = line.Split(' ');
                 while (i < words.Length)
                 {
-                    int time = r.Next(100, 180);
+                    int time = r.Next(120, 200);
                     for (int x = 0; x < 4; x++)
                     {
                         if (i <= words.Length - 1)
@@ -71,7 +68,7 @@ namespace Note
                     Thread.Sleep(time);
                 }
 
-                Thread.Sleep(600);
+                Thread.Sleep(650);
                 AppendText(Environment.NewLine);
             }
 

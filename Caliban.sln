@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleVictory", "SimpleVict
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{C3060E62-16C7-4B07-99C3-C6E791F5241C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TornMap", "TornMap\TornMap.csproj", "{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3060E62-16C7-4B07-99C3-C6E791F5241C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

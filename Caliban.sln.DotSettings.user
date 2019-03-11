@@ -4,4 +4,5 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="D:\Caliban\packages\EventHook.1.4.105\lib\net45\EventHook.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
+	
 	</wpf:ResourceDictionary>

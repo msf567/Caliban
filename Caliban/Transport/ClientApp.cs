@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Reflection;
-using System.Text;
 
 namespace Caliban.Core.Transport
 {
