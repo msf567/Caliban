@@ -53,9 +53,10 @@ namespace Caliban.Core.Game
 
         private void OnGlobalMouseMove(MouseArgs _e)
         {
-            CurrentLevel -= 0.01f;
-            if (_e.Message == MouseMessages.WM_LBUTTONDOWN)
+            if (_e.Message != MouseMessages.WM_MOUSEMOVE)
                 CurrentLevel--;
+            else
+                CurrentLevel -= 0.01f;
         }
 
         private void OnGlobalKeyPress(string _key)
