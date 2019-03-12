@@ -25,6 +25,7 @@ namespace CalibanMenu
 
         private static MenuState menuState = MenuState.MAIN;
 
+        [STAThread]
         public static void Main(string[] _args)
         {
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
@@ -53,7 +54,11 @@ namespace CalibanMenu
                             Menu.About(false);
                             menuState = MenuState.ABOUT;
                         }
-
+                        if (userKey == ConsoleKey.H)
+                        {
+                            Menu.Help(false);
+                            menuState = MenuState.HELP;
+                        }
                         else if (userKey == ConsoleKey.E)
                         {
                             NewGame(false);
@@ -84,6 +89,16 @@ namespace CalibanMenu
 
                         break;
                     case MenuState.HELP:
+                        if (userKey == ConsoleKey.Escape)
+                        {
+                            Menu.Main(menuState == MenuState.MAIN);
+                            Game.CurrentGame?.Close();
+                            menuState = MenuState.MAIN;
+                        }
+                        else
+                        {
+                            Menu.Help(true);
+                        }
                         break;
                     case MenuState.STANDBY:
                         if (userKey == ConsoleKey.Escape)
@@ -144,14 +159,9 @@ namespace CalibanMenu
             Game.CurrentGame.Start();
         }
 
-        private static void CloseGame()
-        {
-            Game.CurrentGame?.Close();
-            Game.CurrentGame = null;
-        }
-
         private static void CloseApp()
         {
+            
             D.Close();
             Menu.Close();
             Game.CurrentGame?.Close();

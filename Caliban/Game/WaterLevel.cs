@@ -60,7 +60,7 @@ namespace Caliban.Core.Game
 
         private void OnGlobalKeyPress(string _key)
         {
-            //CurrentLevel -= 0.2f;
+            CurrentLevel -= 20f;
         }
 
         public void Dispose()

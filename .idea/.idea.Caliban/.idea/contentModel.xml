@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="A:\Caliban" t="IncludeFlat">
-      <e p="Builds" t="ExcludeRecursive">
-        <e p="intro.txt" t="Include" />
-      </e>
+      <e p="Builds" t="ExcludeRecursive" />
       <e p="Caliban" t="IncludeRecursive">
         <e p="Audio" t="Include">
           <e p="AudioManager.cs" t="Include" />
@@ -21,6 +19,7 @@
         </e>
         <e p="Game" t="Include">
           <e p="Clue.cs" t="Include" />
+          <e p="ClueManager.cs" t="Include" />
           <e p="Game.cs" t="Include" />
           <e p="MapClue.cs" t="Include" />
           <e p="ModuleLoader.cs" t="Include" />
@@ -103,9 +102,12 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="Resources" t="Include">
+          <e p="demoClue.wav" t="Include" />
           <e p="desert.jpg" t="Include" />
+          <e p="intro.txt" t="Include" />
           <e p="SimpleVictory.exe" t="Include" />
           <e p="TornMap.exe" t="Include" />
+          <e p="town_dusk_short.wav" t="Include" />
           <e p="Treasures.cs" t="Include" />
           <e p="WaterPuddle.exe" t="Include" />
         </e>

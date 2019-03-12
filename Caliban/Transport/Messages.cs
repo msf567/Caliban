@@ -16,7 +16,9 @@ namespace Caliban.Core.Transport
         
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,
-        WATERLEVEL_ADD = 0x0103
+        WATERLEVEL_ADD = 0x0103,
+        
+        MAP_LOCAITON = 0x0104
     }
 
     public struct Message

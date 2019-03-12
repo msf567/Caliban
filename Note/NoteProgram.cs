@@ -22,7 +22,7 @@ namespace Note
                 }
 
                 Application.EnableVisualStyles();
-                noteForm = new NoteForm(@"A:\\Caliban\\Builds\\" + _clientName + ".txt");
+                noteForm = new NoteForm(_clientName + ".txt");
                
                 Application.Run(noteForm);
             }
@@ -47,7 +47,7 @@ namespace Note
             foreach (string s in args)
                 D.Write("arg:" + s);
             
-            var nc = new NoteClient("Intro");
+            var nc = new NoteClient("intro");
         }
     }
 }

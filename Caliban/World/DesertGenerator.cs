@@ -18,15 +18,15 @@ namespace Caliban.Core.World
             if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
                 Directory.CreateDirectory(DesertParameters.DesertRoot.FullName);
 
-            Process.Start(@"A:\\Desert");
+          
 
-            DesertNode rootNode = new DesertNode(null, @"\\?\" + DesertParameters.DesertRoot.FullName);
+            DesertNode rootNode = new DesertNode(null,DesertParameters.DesertRoot.FullName);
             GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
 
             DistributeWater(rootNode);
             SpawnVictory(rootNode);
             
-            PrintDebugInfo(rootNode);
+         //   PrintDebugInfo(rootNode);
 
             return rootNode;
         }

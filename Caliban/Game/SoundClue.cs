@@ -10,7 +10,8 @@ namespace Caliban.Core.Game
     {
         public SoundClue(string _clueLocation) : base(_clueLocation)
         {
-            AudioManager.LoadFile("DemoClue.wav", "DemoClue");
+            AudioManager.LoadFile("demoClue.wav", "DemoClue");
+           // AudioManager.LoadFile(Treasures.Treasures.GetStream("demoClue.wav"), "DemoClue");
             AudioManager.SetVolume("DemoClue", 0.0f);
             AudioManager.PlaySound("DemoClue", true);
         }

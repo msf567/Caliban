@@ -1,5 +1,7 @@
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
+using System.Windows.Forms;
 using Caliban.Core.Audio;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
@@ -48,7 +50,10 @@ namespace Caliban.Core.Game
             waterLevel = new WaterLevel(server);
             desert = new Desert(server);
             updateLoop = new Thread(Update);
+            updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
+            // DM ME YOUR EMAIL TO RECEIVE DEMO
+            Process.Start(DesertParameters.DesertRoot.FullName);
         }
 
         private void Update()
@@ -58,7 +63,6 @@ namespace Caliban.Core.Game
             {
                 desert?.Update();
                 waterLevel.Update();
-                
                 Thread.Sleep(50);
             }
         }
@@ -76,13 +80,13 @@ namespace Caliban.Core.Game
 
         public void Close()
         {
+            server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
+            Thread.Sleep(500);
             SetState(GameState.NOT_STARTED);
             closeFlag = true;
+            desert?.Dispose();     
             waterLevel?.Dispose();
-            server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
             server.Close();
-            desert?.Dispose();
-            
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)

@@ -18,18 +18,19 @@ namespace Caliban.Core.World
         private ExplorerWatcher explorerWatcher;
         private FileSystemWatcher fileSystemWatcher;
         public DesertNode DesertRoot;
-        private SoundClue demoClue;
-        private MapClue mapClue;
-        
+        private ClueManager clueManager; 
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
-            Clear();
+            DeleteFolders();
             DesertRoot = generator.GenerateDataNodes();
             string victoryPath = DesertRoot.GetAllNodes().Find(_e => _e.Treasures.Find(e => e.Item1 == "SimpleVictory.exe") != null)
                 .FullName();
-            demoClue = new SoundClue(victoryPath);
-            mapClue = new MapClue("corrupted_map",victoryPath,this);
+            
+            clueManager = new ClueManager(_s);
+            clueManager.AddClue(new SoundClue(victoryPath));
+            clueManager.AddClue(new MapClue("corrupted_map",victoryPath,this));
+                        
             InitWatchers();
         }
 
@@ -38,7 +39,7 @@ namespace Caliban.Core.World
             explorerWatcher = new ExplorerWatcher();
             explorerWatcher.OnNewExplorerFolder += OnNewExplorerNav;
 
-            fileSystemWatcher = new FileSystemWatcher(DesertParameters.DesertRoot.FullName);
+            fileSystemWatcher = new FileSystemWatcher(DesertParameters.DesertRoot.FullName.Replace(@"\\?\",""));
             fileSystemWatcher.IncludeSubdirectories = true;
             fileSystemWatcher.NotifyFilter = NotifyFilters.LastAccess
                                              | NotifyFilters.LastWrite
@@ -68,11 +69,11 @@ namespace Caliban.Core.World
 
             if (_e.ChangeType == WatcherChangeTypes.Changed)
             {
-                //  D.Write(_e.Name + " was changed. Rebuilding...");
                 var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
 
-                var deletedNode = DesertRoot.GetNode(folder);
-                RenderNode(deletedNode?.ParentNode);
+                var changedNode = DesertRoot.GetNode(folder);
+                RenderNode(changedNode?.ParentNode);
+               //   D.Write(_e.Name + " was changed. Rebuilding...");
             }
         }
 
@@ -92,7 +93,7 @@ namespace Caliban.Core.World
                 RenderNode(node);
             }
 
-            demoClue?.FolderNav(folder);
+           ClueManager.FolderNav(folder);
         }
 
         private void RenderNode(DesertNode _node)
@@ -128,7 +129,6 @@ namespace Caliban.Core.World
                 ConsumeTreasure(treasure.Item1, treasure.Item2);
             }
 
-
             consumedTreasures.Clear();
         }
 
@@ -145,7 +145,7 @@ namespace Caliban.Core.World
             }
         }
 
-        private void Clear()
+        private void DeleteFolders()
         {
             DesertRoot = null;
 
@@ -237,10 +237,9 @@ namespace Caliban.Core.World
 
         public void Dispose()
         {
-            demoClue.Dispose();
-            mapClue.Dispose();
+            ClueManager.Dispose();
             fileSystemWatcher.EnableRaisingEvents = false;
-            Clear();
+            DeleteFolders();
             explorerWatcher.Dispose();
             fileSystemWatcher.Dispose();
         }

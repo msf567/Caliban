@@ -41,15 +41,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-      <Compile Include="Resources\Treasures.cs"/>
+    <Compile Include="Resources\Treasures.cs" />
   </ItemGroup>
   <ItemGroup>
-      <EmbeddedResource Include="Resources\desert.jpg"/>
-      <EmbeddedResource Include="Resources\SimpleVictory.exe"/>
-      <EmbeddedResource Include="Resources\WaterPuddle.exe"/>
+    <EmbeddedResource Include="Resources\desert.jpg" />
+    <EmbeddedResource Include="Resources\SimpleVictory.exe" />
+    <EmbeddedResource Include="Resources\WaterPuddle.exe" />
   </ItemGroup>
   <ItemGroup>
-      <EmbeddedResource Include="Resources\TornMap.exe"/>
+    <EmbeddedResource Include="Resources\TornMap.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\intro.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\town_dusk_short.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\demoClue.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

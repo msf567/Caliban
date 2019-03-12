@@ -28,6 +28,7 @@ namespace Caliban.Core.Menu
         {
             ConfigureWindow();
             AudioManager.LoadFile("town_dusk_short.wav", "IntroMusic");
+            //AudioManager.LoadFile(Treasures.Treasures.GetStream("town_dusk_short.wav"), "IntroMusic");
         }
 
         public static void Close()
@@ -118,7 +119,7 @@ namespace Caliban.Core.Menu
             IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
             IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("This is the about page. Any questions?");
+            ConsoleFormat.CenterWrite("Will, I left this here for you!");
             IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
             IncreaseWindow(ref height);
@@ -126,9 +127,38 @@ namespace Caliban.Core.Menu
             IncreaseWindow(ref height);
         }
 
+        public static void Help(bool fastDraw)
+        {
+            int height = 1;
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
+            Console.Clear();
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("Find SimpleVictory.exe. Be sure to drink water.");
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("Mouse actions are taxing. Key presses are deadly. Don't even think about a CLI.");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("There may be some clues for you along the way. Stay vigilant.");
+            IncreaseWindow(ref height);
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("");
+            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
+            IncreaseWindow(ref height);
+        }
+        
         public static void Standby()
         {
-            int height = D.debugMode ? 75 : 6;
+            int height = D.debugMode ? 30 : 6;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();

@@ -57,6 +57,8 @@ namespace WaterMeter
                 if (!IsReady)
                     SetClientReady();
                 RenderWaterLevel();
+                
+                  
                 Thread.Sleep(100);
                 if (!IsConnected)
                     closeFlag = true;
