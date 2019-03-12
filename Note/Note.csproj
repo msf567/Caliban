@@ -70,9 +70,10 @@
     <None Include="blip.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Builds\intro.txt">
-      <Link>intro.txt</Link>
-    </Content>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

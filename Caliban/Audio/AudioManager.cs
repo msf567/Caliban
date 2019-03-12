@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Media;
 using System.Threading;
 using Caliban.Core.Utility;
@@ -22,6 +23,7 @@ namespace Caliban.Core.Audio
             output.Play();
         }
         
+        
         public static void LoadFile(string _filename, string _soundName)
         {
             if (Sounds.ContainsKey(_soundName))
@@ -36,6 +38,22 @@ namespace Caliban.Core.Audio
             }
         }
 
+        /*
+        public static void LoadFile(Stream _stream, string _soundName)
+        {
+            if (Sounds.ContainsKey(_soundName))
+                return;
+            try
+            {
+                Sounds.Add(_soundName, new WavePlayer(_stream));
+            }
+            catch (Exception e)
+            {
+                D.Write(e.Message);
+            }
+        }
+        */
+
         public static void SetVolume(string _soundName, float _vol)
         {
             if (Sounds.ContainsKey(_soundName))
@@ -48,7 +66,7 @@ namespace Caliban.Core.Audio
         {
             if (Sounds.ContainsKey(_soundName))
             {
-                Sounds[_soundName].Stream.EnableLooping = _looping;
+                Sounds[_soundName].LoopStream.EnableLooping = _looping;
                 mixer.AddInputStream(Sounds[_soundName].Channel);               
                 output.Play();
             }

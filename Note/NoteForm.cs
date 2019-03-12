@@ -4,7 +4,8 @@ using System.IO;
 using System.Media;
 using System.Threading;
 using System.Windows.Forms;
-
+using Caliban.Core.Treasures;
+using System.Drawing.Text;
 namespace Note
 {
     public partial class NoteForm : Form
@@ -16,10 +17,28 @@ namespace Note
         private SoundPlayer sound = new SoundPlayer(Properties.Resources.blip);
         private Random r = new Random(Guid.NewGuid().GetHashCode());
 
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
+           IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+        Font myFont;
+
         public NoteForm(string _notePath)
         {
             InitializeComponent();
+            byte[] fontData = Properties.Resources.font;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.font.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.font.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            myFont = new Font(fonts.Families[0], 12.0F);
             notePath = _notePath;
+            noteText.Font = myFont;
             sound.Load();
         }
 
@@ -32,7 +51,8 @@ namespace Note
 
         void WriteText()
         {
-            var lines = File.ReadLines(notePath);
+           // var lines = File.ReadLines(notePath);
+           var lines = Treasures.GetResourceText(notePath).Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             bool titleSet = false;
             bool sizeSet = false;
             foreach (var line in lines)

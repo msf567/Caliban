@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -16,8 +17,14 @@ namespace Caliban.Core.World
             {6, 0.5f}
         };
 
-        public static DirectoryInfo DesertRoot = new DirectoryInfo(@"A:\\Desert");
+        public static readonly DirectoryInfo DesertRoot;
         public static int DesertWidth = 5;
         public static int DesertDepth = 5;
+
+        static DesertParameters()
+        {
+            string path =@"\\?\" +  Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            DesertRoot = new DirectoryInfo(Path.Combine(path, "Desert"));
+        }
     }
 }
