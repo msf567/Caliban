@@ -94,6 +94,9 @@
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
         </e>
+        <e p="Resources" t="Include">
+          <e p="Perfect DOS VGA 437.ttf" t="Include" />
+        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Resources" t="IncludeRecursive">

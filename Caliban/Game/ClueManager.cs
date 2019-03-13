@@ -50,7 +50,6 @@ namespace Caliban.Core.Game
         
         public static void FolderNav(string _folder)
         {
-            D.Write("Folder Nav" + _folder);
             foreach (Clue c in currentClues)
                 if (c is SoundClue)
                 {
