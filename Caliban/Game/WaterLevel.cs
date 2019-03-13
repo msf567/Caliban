@@ -53,9 +53,12 @@ namespace Caliban.Core.Game
 
         private void OnGlobalMouseMove(MouseArgs _e)
         {
-            if (_e.Message != MouseMessages.WM_MOUSEMOVE)
+            if (_e.Message == MouseMessages.WM_LBUTTONDOWN ||
+                _e.Message == MouseMessages.WM_RBUTTONDOWN ||
+                _e.Message == MouseMessages.WM_XBUTTONDOWN ||
+                _e.Message == MouseMessages.WM_WHEELBUTTONDOWN)
                 CurrentLevel--;
-            else
+            else if (_e.Message != MouseMessages.WM_MOUSEMOVE)
                 CurrentLevel -= 0.01f;
         }
 

@@ -186,6 +186,7 @@ namespace Caliban.Core.World
             foreach (string file in files)
             {
                 File.SetAttributes(file, FileAttributes.Normal);
+                
                 File.Delete(file);
             }
 
@@ -194,7 +195,18 @@ namespace Caliban.Core.World
                 DeleteDirectory(dir);
             }
 
-            Directory.Delete(target_dir, false);
+            try
+            {
+                Directory.Delete(target_dir, false);
+            }
+            catch (IOException) 
+            {
+                Directory.Delete(target_dir, false);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Directory.Delete(target_dir, false);
+            }
         }
 
         private void ConsumeTreasure(string _filePath, int _processId)
@@ -228,11 +240,6 @@ namespace Caliban.Core.World
             {
                 D.Write(e.Message);
             }
-        }
-
-        private void DropTreasure(string _path)
-        {
-            Treasures.Treasures.Spawn("SimpleVictory.exe", _path, "SimpleVictory.exe");
         }
 
         public void Dispose()
