@@ -55,7 +55,8 @@ namespace Caliban.Core.World
             if (!DesertParameters.WaterLevels.ContainsKey(d))
                 return;
             
-            int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
+            //int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
+            int amt = nodes.Count-1;
             D.Write("Adding " + amt + " water to depth " + d);
             List<int> waterNodes = new List<int>();
             int number;
