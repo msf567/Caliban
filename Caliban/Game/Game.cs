@@ -22,7 +22,7 @@ namespace Caliban.Core.Game
     {
         private readonly ServerTerminal server;
         private Thread updateLoop;
-        private WaterLevel waterLevel;
+        private WaterManager waterManager;
         private Desert desert;
 
         public static Game CurrentGame = new Game(false);
@@ -48,7 +48,7 @@ namespace Caliban.Core.Game
         public void Start()
         {
             SetState(GameState.IN_PROGRESS);
-            waterLevel = new WaterLevel(server);
+            waterManager = new WaterManager(server);
             desert = new Desert(server);
             updateLoop = new Thread(Update);
             updateLoop.SetApartmentState(ApartmentState.STA);
@@ -63,7 +63,7 @@ namespace Caliban.Core.Game
             while (!closeFlag)
             {
                 desert?.Update();
-                waterLevel.Update();
+                waterManager.Update();
                 Thread.Sleep(50);
             }
         }
@@ -91,7 +91,7 @@ namespace Caliban.Core.Game
             SetState(GameState.NOT_STARTED);
             closeFlag = true;
             desert?.Dispose();     
-            waterLevel?.Dispose();
+            waterManager?.Dispose();
             server.Close();
         }
 

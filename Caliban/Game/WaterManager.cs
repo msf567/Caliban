@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
@@ -8,14 +9,15 @@ using Caliban.Core.World;
 
 namespace Caliban.Core.Game
 {
-    public class WaterLevel
+    public class WaterManager
     {
         private readonly ServerTerminal server;
         private float CurrentLevel { get; set; }
+        private static List<string> waterIDs = new List<string>();
 
-        private static Dictionary<string,string> WaterPuddles = new Dictionary<string, string>();
-        
-        public WaterLevel(ServerTerminal _s)
+        private static Dictionary<string, string> WaterPuddles = new Dictionary<string, string>();
+
+        public WaterManager(ServerTerminal _s)
         {
             server = _s;
             server.MessageReceived += ServerOnMessageReceived;
@@ -30,11 +32,20 @@ namespace Caliban.Core.Game
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)
         {
             var m = Messages.Parse(_message);
+            D.Write("Water Level received " + m);
             switch (m.Type)
             {
                 case MessageType.WATERLEVEL_ADD:
-                    CurrentLevel += int.Parse(m.Value);
+                    string amount = m.Value.Split(' ')[0];
+                    string id = m.Value.Split(' ')[1];
+                   if (!IsLegalWater(id))
+                    {
+                        Game.CurrentGame.CheatFlag();
+                        break;
+                    }
+                    CurrentLevel += int.Parse(amount);
                     CurrentLevel = CurrentLevel.Clamp(0, 100);
+                    
                     break;
                 case MessageType.WATERLEVEL_GET:
                     server.SendMessageToClient("WaterMeter",
@@ -42,12 +53,25 @@ namespace Caliban.Core.Game
                     break;
             }
         }
-        
+
+        private bool IsLegalWater(string _id)
+        {
+            bool legal = false;
+            if (waterIDs.Contains(_id))
+            {
+                legal = true;
+                waterIDs.Remove(_id);
+            }
+            return legal;
+        }
+
         public static void AddWaterPuddle(DesertNode _node)
         {
-            _node.AddTreasure("WaterPuddle.exe","MyWater.exe");
+            string newID = UIDFactory.GetNewUID(8, waterIDs);
+            string waterName = "WaterPuddle_" + newID + ".exe";
+            _node.AddTreasure("WaterPuddle.exe", waterName);
         }
-        
+
         public void Update()
         {
             CurrentLevel.Clamp(0, 100);
@@ -58,7 +82,7 @@ namespace Caliban.Core.Game
                 Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
             Thread.Sleep(70);
         }
-        
+
 //        public
 
         private void OnGlobalMouseMove(MouseArgs _e)
@@ -68,7 +92,7 @@ namespace Caliban.Core.Game
                 _e.Message == MouseMessages.WM_XBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_WHEELBUTTONDOWN)
                 CurrentLevel--;
-            else if (_e.Message != MouseMessages.WM_MOUSEMOVE)
+            else if (_e.Message == MouseMessages.WM_MOUSEMOVE)
                 CurrentLevel -= 0.01f;
         }
 
@@ -79,6 +103,7 @@ namespace Caliban.Core.Game
 
         public void Dispose()
         {
+            waterIDs.Clear();
         }
     }
 }

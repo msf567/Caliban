@@ -24,7 +24,7 @@
           <e p="MapClue.cs" t="Include" />
           <e p="ModuleLoader.cs" t="Include" />
           <e p="SoundClue.cs" t="Include" />
-          <e p="WaterLevel.cs" t="Include" />
+          <e p="WaterManager.cs" t="Include" />
         </e>
         <e p="Menu" t="Include">
           <e p="Menu.cs" t="Include" />
@@ -59,9 +59,9 @@
         <e p="World" t="Include">
           <e p="Desert.cs" t="Include" />
           <e p="DesertGenerator.cs" t="Include" />
-          <e p="DesertNameGenerator.cs" t="Include" />
           <e p="DesertNode.cs" t="Include" />
           <e p="DesertParameters.cs" t="Include" />
+          <e p="UIDFactory.cs" t="Include" />
         </e>
       </e>
       <e p="Caliban.sln" t="IncludeFlat" />

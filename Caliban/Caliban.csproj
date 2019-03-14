@@ -76,12 +76,12 @@
     <Compile Include="Utility\Wallpaper.cs" />
     <Compile Include="World\DesertGenerator.cs" />
     <Compile Include="World\Desert.cs" />
-    <Compile Include="World\DesertNameGenerator.cs" />
+      <Compile Include="World\UIDFactory.cs"/>
     <Compile Include="World\DesertNode.cs" />
     <Compile Include="World\DesertParameters.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\ModuleLoader.cs" />
-    <Compile Include="Game\WaterLevel.cs" />
+      <Compile Include="Game\WaterManager.cs"/>
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\ClientApp.cs" />

@@ -130,6 +130,10 @@ namespace CalibanMenu
                     Game.CurrentGame?.Close();
                     break;
                 case GameState.LOST:
+                    Menu.Lose();
+                    Game.CurrentGame?.Close();
+                    break;
+                case GameState.CHEATED:
                     Menu.Cheat();
                     Game.CurrentGame?.Close();
                     break;

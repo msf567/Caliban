@@ -10,8 +10,16 @@ using Newtonsoft.Json;
 namespace Caliban.Core.World
 {
     public class DesertGenerator
-    {
-        private readonly DesertNameGenerator nameGenerator = new DesertNameGenerator();
+    {        
+        private List<string> folderIDs = new List<string>();
+        private static readonly string[] DesertNames = new string[4]
+        {
+            "sand",
+            "dune",
+            "ridge",
+            "dust"
+        };
+        
         readonly Random r = new Random(Guid.NewGuid().GetHashCode());
 
         public DesertNode GenerateDataNodes()
@@ -55,8 +63,8 @@ namespace Caliban.Core.World
             if (!DesertParameters.WaterLevels.ContainsKey(d))
                 return;
             
-            //int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
-            int amt = nodes.Count-1;
+            int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
+            //int amt = nodes.Count-1;
             D.Write("Adding " + amt + " water to depth " + d);
             List<int> waterNodes = new List<int>();
             int number;
@@ -70,8 +78,7 @@ namespace Caliban.Core.World
 
             for (int x = 0; x < waterNodes.Count; x++)
             {
-                WaterLevel.AddWaterPuddle(nodes[waterNodes[x]]);
-               
+                WaterManager.AddWaterPuddle(nodes[waterNodes[x]]);
                // D.Write("Adding water to " +  nodes[waterNodes[x]].FullName());   
             }
         }
@@ -105,10 +112,19 @@ namespace Caliban.Core.World
             var numberOfChildren = Math.Abs( r.Next(DesertParameters.DesertWidth - 2, DesertParameters.DesertWidth));
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var newDir = new DesertNode(_parent, nameGenerator.GetNewFolderName());
+                var newDir = new DesertNode(_parent, GetNewFolderName());
                 _parent.AddChild(newDir);
                  GenerateDesertNodeData(newDir, newDepth);
             }
+        }
+
+        private string GetNewFolderName()
+        {
+            var r = new Random(Guid.NewGuid().GetHashCode());
+            var baseName = DesertNames[r.Next(DesertNames.Length)];
+            var newFolderName = baseName + "_" +  UIDFactory.GetNewUID(8, folderIDs);
+
+            return newFolderName;
         }
     }
 }

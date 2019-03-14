@@ -21,7 +21,9 @@ namespace WaterPuddle
                     Thread.Sleep(10);
                 }
 
-                SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString()));
+                string myID = AppDomain.CurrentDomain.FriendlyName.Replace(".exe","").Split('_')[1];
+
+                SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString() + " " + myID));
 
                 KillSelf();
                 Deconstruct();
