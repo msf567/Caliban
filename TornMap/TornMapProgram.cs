@@ -14,10 +14,6 @@ namespace TornMap
             private Random r = new Random(Guid.NewGuid().GetHashCode());
             private string baseClueLoc = "";
             
-            private RenderingWindow window;
-            private RenderingBuffer buffer;
-            public readonly int Width;
-            public readonly int Height;
             public const string TITLE = "░or█upt░d █ap";
 
             public Map(string _clientName) : base(_clientName)

@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
+using Caliban.Core.World;
 
 namespace Caliban.Core.Game
 {
@@ -11,6 +13,8 @@ namespace Caliban.Core.Game
         private readonly ServerTerminal server;
         private float CurrentLevel { get; set; }
 
+        private static Dictionary<string,string> WaterPuddles = new Dictionary<string, string>();
+        
         public WaterLevel(ServerTerminal _s)
         {
             server = _s;
@@ -38,7 +42,12 @@ namespace Caliban.Core.Game
                     break;
             }
         }
-
+        
+        public static void AddWaterPuddle(DesertNode _node)
+        {
+            _node.AddTreasure("WaterPuddle.exe","MyWater.exe");
+        }
+        
         public void Update()
         {
             CurrentLevel.Clamp(0, 100);
@@ -49,7 +58,8 @@ namespace Caliban.Core.Game
                 Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
             Thread.Sleep(70);
         }
-
+        
+//        public
 
         private void OnGlobalMouseMove(MouseArgs _e)
         {

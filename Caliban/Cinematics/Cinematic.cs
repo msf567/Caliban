@@ -4,7 +4,6 @@ namespace Caliban.Core.Cinematics
 {
     public class Cinematic
     {
-        private Thread runThread;
         
         public Cinematic(string filePath)
         {

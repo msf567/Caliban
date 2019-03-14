@@ -30,7 +30,7 @@ namespace CalibanMenu
         {
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
             Treasures.Spawn(folderLoc, "desert.jpg");
-            Wallpaper.Set(new Uri(Path.Combine(folderLoc,"desert.jpg")), Wallpaper.Style.Stretched);
+            Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
             var userKey = ConsoleKey.M;
@@ -51,12 +51,12 @@ namespace CalibanMenu
                     case MenuState.MAIN:
                         if (userKey == ConsoleKey.A)
                         {
-                            Menu.About(false);
+                            Menu.About();
                             menuState = MenuState.ABOUT;
                         }
-                        if (userKey == ConsoleKey.H)
+                        else if (userKey == ConsoleKey.H)
                         {
-                            Menu.Help(false);
+                            Menu.Help();
                             menuState = MenuState.HELP;
                         }
                         else if (userKey == ConsoleKey.E)
@@ -84,7 +84,7 @@ namespace CalibanMenu
                         }
                         else
                         {
-                            Menu.About(true);
+                            Menu.About();
                         }
 
                         break;
@@ -97,8 +97,9 @@ namespace CalibanMenu
                         }
                         else
                         {
-                            Menu.Help(true);
+                            Menu.Help();
                         }
+
                         break;
                     case MenuState.STANDBY:
                         if (userKey == ConsoleKey.Escape)
@@ -129,7 +130,7 @@ namespace CalibanMenu
                     Game.CurrentGame?.Close();
                     break;
                 case GameState.LOST:
-                    Menu.Lose();
+                    Menu.Cheat();
                     Game.CurrentGame?.Close();
                     break;
                 case GameState.IN_PROGRESS:
@@ -161,7 +162,6 @@ namespace CalibanMenu
 
         private static void CloseApp()
         {
-            
             D.Close();
             Menu.Close();
             Game.CurrentGame?.Close();

@@ -8,7 +8,6 @@ namespace Caliban.Core.Game
 {
     public class MapClue : Clue
     {
-        private readonly string fileName;
         Random r = new Random(Guid.NewGuid().GetHashCode());
 
         public MapClue(string _mapName, string _clueLocation, Desert _d, int _spawnDepth = 2) : base(_clueLocation)
