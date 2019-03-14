@@ -35,6 +35,10 @@
     <Reference Include="CLIGL, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
     </Reference>
+      <Reference Include="Colorful.Console, Version=1.2.9.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Colorful.Console.1.2.9\lib\net461\Colorful.Console.dll</HintPath>
+          <Private>True</Private>
+      </Reference>
     <Reference Include="EventHook, Version=1.4.105.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\EventHook.1.4.105\lib\net45\EventHook.dll</HintPath>
       <Private>True</Private>

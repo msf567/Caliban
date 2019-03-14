@@ -55,7 +55,7 @@ namespace Caliban.Core.World
 
         public void AddChild(DesertNode _n)
         {
-            if (!ChildNodes.Contains(_n)) // TODO: put back exact match - init fucntion
+            if (!ChildNodes.Contains(_n)) 
                 ChildNodes.Add(_n);
 
         }

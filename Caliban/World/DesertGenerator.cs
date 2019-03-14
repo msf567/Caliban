@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Caliban.Core.Game;
 using Caliban.Core.Utility;
 using Newtonsoft.Json;
 
@@ -17,8 +18,6 @@ namespace Caliban.Core.World
         {
             if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
                 Directory.CreateDirectory(DesertParameters.DesertRoot.FullName);
-
-          
 
             DesertNode rootNode = new DesertNode(null,DesertParameters.DesertRoot.FullName);
             GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
@@ -51,7 +50,7 @@ namespace Caliban.Core.World
             var nodes = _rootNode.GetAllNodesAtDepth(d);
             if (nodes == null) return;
          
-            D.Write("There are " + nodes?.Count + " nodes at depth " + d);
+            D.Write("There are " + nodes.Count + " nodes at depth " + d);
 
             if (!DesertParameters.WaterLevels.ContainsKey(d))
                 return;
@@ -70,7 +69,8 @@ namespace Caliban.Core.World
 
             for (int x = 0; x < waterNodes.Count; x++)
             {
-                nodes[waterNodes[x]].AddTreasure("WaterPuddle.exe");
+                WaterLevel.AddWaterPuddle(nodes[waterNodes[x]]);
+               
                // D.Write("Adding water to " +  nodes[waterNodes[x]].FullName());   
             }
         }

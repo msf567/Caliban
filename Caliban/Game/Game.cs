@@ -13,6 +13,7 @@ namespace Caliban.Core.Game
     {
         WON,
         LOST,
+        CHEATED,
         IN_PROGRESS,
         NOT_STARTED
     }
@@ -78,6 +79,11 @@ namespace Caliban.Core.Game
             SetState(GameState.LOST);
         }
 
+        public void CheatFlag()
+        {
+            SetState(GameState.CHEATED);
+        }
+        
         public void Close()
         {
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
