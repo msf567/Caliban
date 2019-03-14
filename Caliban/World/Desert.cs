@@ -137,7 +137,6 @@ namespace Caliban.Core.World
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)
         {
             var m = Messages.Parse(_message);
-            D.Write("Desert Manager received " + m);
             switch (m.Type)
             {
                 case MessageType.CONSUME_TREASURE:
@@ -213,7 +212,6 @@ namespace Caliban.Core.World
 
         private void ConsumeTreasure(string _filePath, int _processId)
         {
-            D.Write("Consuming " + _filePath);
             FileInfo fileInfo = new FileInfo(_filePath);
             string treasureName = fileInfo.Name;
             if (fileInfo.Directory != null)
