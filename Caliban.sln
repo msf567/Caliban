@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanMenu", "CalibanMenu\CalibanMenu.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterMeter", "WaterMeter\WaterMeter.csproj", "{37909059-67BE-462A-80E4-6C6C2779BEEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{C5237FAE-D8D0-4625-B330-29D3C25509D4}"
@@ -23,16 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Reso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TornMap", "TornMap\TornMap.csproj", "{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalibanApp", "CalibanApp\CalibanApp.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{16012FD9-8081-464B-A616-264D7F20DD06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16012FD9-8081-464B-A616-264D7F20DD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16012FD9-8081-464B-A616-264D7F20DD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16012FD9-8081-464B-A616-264D7F20DD06}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37909059-67BE-462A-80E4-6C6C2779BEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +65,10 @@ Global
 		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16012FD9-8081-464B-A616-264D7F20DD06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16012FD9-8081-464B-A616-264D7F20DD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16012FD9-8081-464B-A616-264D7F20DD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16012FD9-8081-464B-A616-264D7F20DD06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

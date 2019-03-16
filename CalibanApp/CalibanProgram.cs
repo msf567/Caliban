@@ -10,7 +10,7 @@ using Menu = Caliban.Core.Menu.Menu;
 
 namespace CalibanMenu
 {
-    internal static class MenuProgram
+    internal static class CalibanProgram
     {
         private static bool closeFlag;
 
@@ -29,7 +29,7 @@ namespace CalibanMenu
         public static void Main(string[] _args)
         {
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
-            Treasures.Spawn(folderLoc, "desert.jpg");
+            Treasures.Spawn(folderLoc, TreasureType.SIMPLE, "desert.jpg");
             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
@@ -38,7 +38,7 @@ namespace CalibanMenu
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
 
             if (D.debugMode)
-                Menu.Main(false);
+                Menu.Main();
             else
                 Menu.Intro();
 
@@ -71,15 +71,16 @@ namespace CalibanMenu
                         }
                         else
                         {
-                            Menu.Main(true);
+                            Menu.Main();
                         }
 
                         break;
                     case MenuState.ABOUT:
                         if (userKey == ConsoleKey.Escape)
                         {
-                            Menu.Main(menuState == MenuState.MAIN);
-                            Game.CurrentGame?.Close();
+                            Menu.Main();
+                            CloseCurrentGame();
+                            
                             menuState = MenuState.MAIN;
                         }
                         else
@@ -91,8 +92,8 @@ namespace CalibanMenu
                     case MenuState.HELP:
                         if (userKey == ConsoleKey.Escape)
                         {
-                            Menu.Main(menuState == MenuState.MAIN);
-                            Game.CurrentGame?.Close();
+                            Menu.Main();
+                            CloseCurrentGame();
                             menuState = MenuState.MAIN;
                         }
                         else
@@ -104,8 +105,8 @@ namespace CalibanMenu
                     case MenuState.STANDBY:
                         if (userKey == ConsoleKey.Escape)
                         {
-                            Menu.Main(menuState == MenuState.MAIN);
-                            Game.CurrentGame?.Close();
+                            Menu.Main();
+                            CloseCurrentGame();
                             menuState = MenuState.MAIN;
                         }
                         else
@@ -121,21 +122,27 @@ namespace CalibanMenu
             }
         }
 
+        private static void CloseCurrentGame()
+        {
+            Game.CurrentGame?.Close();
+            Game.CurrentGame = null;
+        }
+
         private static void OnGameStateChange(GameState _state)
         {
             switch (_state)
             {
                 case GameState.WON:
                     Menu.Win();
-                    Game.CurrentGame?.Close();
+                    CloseCurrentGame();
                     break;
                 case GameState.LOST:
                     Menu.Lose();
-                    Game.CurrentGame?.Close();
+                    CloseCurrentGame();
                     break;
                 case GameState.CHEATED:
                     Menu.Cheat();
-                    Game.CurrentGame?.Close();
+                    CloseCurrentGame();
                     break;
                 case GameState.IN_PROGRESS:
                     Menu.Standby();
@@ -157,7 +164,7 @@ namespace CalibanMenu
                 return;
             }
 
-            Game.CurrentGame?.Close();
+            CloseCurrentGame();
 
             ModuleLoader.Clear();
             Game.CurrentGame = new Game(_debug);
@@ -168,7 +175,7 @@ namespace CalibanMenu
         {
             D.Close();
             Menu.Close();
-            Game.CurrentGame?.Close();
+            CloseCurrentGame();
             closeFlag = true;
         }
     }

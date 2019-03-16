@@ -65,15 +65,16 @@
         </e>
       </e>
       <e p="Caliban.sln" t="IncludeFlat" />
-      <e p="CalibanMenu" t="IncludeRecursive">
-        <e p="CalibanMenu.csproj" t="IncludeRecursive" />
-        <e p="MenuProgram.cs" t="Include" />
+      <e p="CalibanApp" t="IncludeRecursive">
+        <e p="CalibanApp.csproj" t="IncludeRecursive" />
+        <e p="CalibanProgram.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
       <e p="DebugLog" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="DebugLog.csproj" t="IncludeRecursive" />
         <e p="DebugLogProgram.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
@@ -82,6 +83,7 @@
         </e>
       </e>
       <e p="Note" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="blip.wav" t="Include" />
         <e p="Note.csproj" t="IncludeRecursive" />
         <e p="NoteForm.cs" t="Include" />
@@ -100,6 +102,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Resources" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
@@ -117,6 +120,7 @@
         <e p="Resources.csproj" t="IncludeRecursive" />
       </e>
       <e p="Scratch" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -125,6 +129,7 @@
         <e p="Scratch.csproj" t="IncludeRecursive" />
       </e>
       <e p="SimpleVictory" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="merge.bat" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
@@ -134,6 +139,7 @@
         <e p="SimpleVictoryProgram.cs" t="Include" />
       </e>
       <e p="TornMap" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="merge.bat" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
@@ -143,6 +149,7 @@
         <e p="TornMapProgram.cs" t="Include" />
       </e>
       <e p="WaterMeter" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Properties" t="Include">
@@ -153,6 +160,7 @@
         <e p="WaterMeterProgram.cs" t="Include" />
       </e>
       <e p="WaterPuddle" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="merge.bat" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">

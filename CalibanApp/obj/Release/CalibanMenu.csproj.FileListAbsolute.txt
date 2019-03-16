@@ -1,0 +1,12 @@
+D:\Caliban\CalibanMenu\obj\Release\CalibanMenu.csprojResolveAssemblyReference.cache
+D:\Caliban\Builds\CALIBAN.exe
+D:\Caliban\Builds\CALIBAN.pdb
+D:\Caliban\CalibanMenu\obj\Release\CALIBAN.exe
+D:\Caliban\CalibanMenu\obj\Release\CALIBAN.pdb
+A:\Caliban\Builds\CALIBAN.exe
+A:\Caliban\Builds\CALIBAN.pdb
+A:\Caliban\CalibanMenu\obj\Release\CalibanMenu.csprojAssemblyReference.cache
+A:\Caliban\CalibanMenu\obj\Release\CalibanMenu.csproj.CoreCompileInputs.cache
+A:\Caliban\CalibanMenu\obj\Release\CalibanMenu.csproj.CopyComplete
+A:\Caliban\CalibanMenu\obj\Release\CALIBAN.exe
+A:\Caliban\CalibanMenu\obj\Release\CALIBAN.pdb

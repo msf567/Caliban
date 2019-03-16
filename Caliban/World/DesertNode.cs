@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Caliban.Core.Treasures;
+using Caliban.Core.Utility;
 
 namespace Caliban.Core.World
 {
@@ -24,6 +26,19 @@ namespace Caliban.Core.World
         }
         
     }
+
+    [Serializable]
+    public class NodeTreasure
+    {
+        public TreasureType type;
+        public string fileName;
+
+        public NodeTreasure(TreasureType _type, string _fileName)
+        {
+            type = _type;
+            fileName = _fileName;
+        }
+    }
     
     [Serializable]
     public class DesertNode
@@ -32,7 +47,7 @@ namespace Caliban.Core.World
         public DesertNode ParentNode;
         public int Depth;
         public List<DesertNode> ChildNodes = new List<DesertNode>();
-        public List<Tuple<string, string>> Treasures = new List<Tuple<string,string>>();        
+        public List<NodeTreasure> Treasures = new List<NodeTreasure>();        
         public DesertNode(DesertNode _parentNode, string _name)
         {
             Name = _name;
@@ -60,14 +75,14 @@ namespace Caliban.Core.World
 
         }
 
-        public void AddTreasure(string _treasureName, string _treasureArgs = "")
+        public void AddTreasure(TreasureType _type ,string _fileName)
         {
-            Treasures.Add(new Tuple<string, string>(_treasureName, _treasureArgs));
+            Treasures.Add(new NodeTreasure(_type,_fileName));
         }
 
-        public void DeleteTreasure(string _treasureName)
+        public void DeleteTreasure(string _treasureFileName)
         {
-            var foundItem = Treasures.Find(e => e.Item1 == _treasureName);
+            var foundItem = Treasures.Find(e => e.fileName == _treasureFileName);
             if (foundItem != null)
                 Treasures.Remove(foundItem);
         }
@@ -76,7 +91,7 @@ namespace Caliban.Core.World
         {
             DesertNode returnNode = null;
             DesertNode currentNode = this;
-
+            
             if (currentNode.Name.Contains(_name))
             {
                 return currentNode;

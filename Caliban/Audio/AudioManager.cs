@@ -22,8 +22,7 @@ namespace Caliban.Core.Audio
             output.Init(mixer);
             output.Play();
         }
-        
-        
+
         public static void LoadFile(string _filename, string _soundName)
         {
             if (Sounds.ContainsKey(_soundName))

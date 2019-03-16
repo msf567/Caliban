@@ -1,0 +1,7 @@
+A:\Caliban\Builds\CALIBAN.exe
+A:\Caliban\Builds\CALIBAN.pdb
+A:\Caliban\CalibanApp\obj\Release\CalibanApp.csprojAssemblyReference.cache
+A:\Caliban\CalibanApp\obj\Release\CalibanApp.csproj.CoreCompileInputs.cache
+A:\Caliban\CalibanApp\obj\Release\CalibanApp.csproj.CopyComplete
+A:\Caliban\CalibanApp\obj\Release\CALIBAN.exe
+A:\Caliban\CalibanApp\obj\Release\CALIBAN.pdb

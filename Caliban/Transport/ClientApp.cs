@@ -35,7 +35,7 @@ namespace Caliban.Core.Transport
         {
             clientName = _clientName;
             ShouldRegister = _shouldRegister;
-           InitClient();
+            InitClient();
         }
 
         private void InitClient()
@@ -45,18 +45,27 @@ namespace Caliban.Core.Transport
             client.Disconncted += ClientOnDisconncted;
             client.MessageRecived += (_s, _e) => ClientOnMessageReceived(_e);
 
-            client.Connect(5678);
-            client.StartListen();
+            try
+            {
+                client.Connect(5678);
+                client.StartListen();
+
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Cound not connect to server!");
+            }
+            
         }
 
-        protected void KillSelf()
+        protected void KillSelf(string _treasureName)
         {
             var pid = Process.GetCurrentProcess().Id;
             var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var exeName = AppDomain.CurrentDomain.FriendlyName;
             if (assemblyPath == null) return;
             var fullPath = Path.Combine(assemblyPath, exeName);
-            SendMessageToHost(Messages.Build(MessageType.CONSUME_TREASURE, fullPath + " " + pid));
+            SendMessageToHost(Messages.Build(MessageType.CONSUME_TREASURE,_treasureName+ " " + fullPath + " " + pid));
         }
         
         protected virtual void ClientOnMessageReceived(byte[] _message)

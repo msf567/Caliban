@@ -17,6 +17,13 @@ namespace Caliban.Core.ConsoleOutput
             Console.WriteLine(new string(' ', gap / 2) + _s,_color);
         }
         
+        public static void WriteLine(string _s, Color _color = default(Color))
+        {
+            if (_color == default(Color))
+                _color = Color.Azure;       
+            Console.WriteLine(_s,_color);
+        }
+        
         public static void CenterWriteWithGradient(string _s, Color _colorBegin, Color _colorEnd)
         {
           

@@ -21,7 +21,6 @@ namespace Caliban.Core.Menu
     public static class Menu
     {
         private static int width = 96;
-        private static int height = 5;
         private static RenderingWindow window;
         private static RenderingBuffer buffer;
 
@@ -54,121 +53,84 @@ namespace Caliban.Core.Menu
             Thread.Sleep(14_754);
             //Thread.Sleep(29_500);
             OS.Windows.ShowWindow(handle, OS.Windows.SW_SHOW);
-            Main(false);
+            Main();
         }
 
-        public static void Main(bool fastDraw)
+        public static void Main()
         {
             Console.Clear();
-            int height = 1;
-            if (fastDraw)
-            {
-                height = 12 + titleGraphic.Length - 1;
-            }
+            int height = 22;
 
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+            
+            Version version = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
+            string displayableVersion = $"Alpha Version: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            ConsoleFormat.WriteLine(displayableVersion, Color.DarkGray);
 
-            ConsoleFormat.CenterWrite("~~~", Color.Yellow);
-            if (!fastDraw) IncreaseWindow(ref height);
-            if (!fastDraw) IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
             ConsoleFormat.CenterWrite("C Presents", Color.Yellow);
-            if (!fastDraw) IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("~~~", Color.Yellow);
-            if (!fastDraw) IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("~~~~", Color.Yellow);
             ConsoleFormat.CenterWrite("A File System Survival Game", Color.Yellow);
-            if (!fastDraw) IncreaseWindow(ref height);
-            if (!fastDraw) IncreaseWindow(ref height);
-            if (!fastDraw) IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", Color.Yellow);
+            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+                Color.Yellow);
             ConsoleFormat.CenterWrite("");
-
             foreach (var s in titleGraphic)
             {
                 ConsoleFormat.CenterWrite(s, Color.Gold);
-                if (!fastDraw) IncreaseWindow(ref height);
             }
 
             ConsoleFormat.CenterWrite("");
-            if (!fastDraw) IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", Color.Yellow);
-            if (!fastDraw) IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+                Color.Yellow);
             ConsoleFormat.CenterWrite("");
-            if (!fastDraw) IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            if (!fastDraw) IncreaseWindow(ref height);
-
             ConsoleFormat.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
-            if (!fastDraw) IncreaseWindow(ref height);
-            // return Console.ReadKey().Key;
         }
 
         public static void About()
         {
-            int height = 1;
+            int height = 13;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();
+
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
+
+            ConsoleFormat.CenterWrite("Will, I left this here for you.");
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite("Made with the assistance of");
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
-            
+
             ConsoleFormat.CenterWrite("☼ Gentle_Virus ☼", Color.Gold);
-            IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("");  
-            
+            ConsoleFormat.CenterWrite("");
+
             ConsoleFormat.CenterWrite("♫ Wallhax ♫", Color.Coral);
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            
-            IncreaseWindow(ref height);
+
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
-            IncreaseWindow(ref height);
         }
 
         public static void Help()
         {
-            int height = 1;
+            int height = 12;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("Find SimpleVictory.exe. Be sure to drink water.");
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
-            IncreaseWindow(ref height);
-            ConsoleFormat.CenterWrite("Mouse actions are taxing. Key presses are deadly. Don't even think about a CLI.");
-            IncreaseWindow(ref height);
+            ConsoleFormat.CenterWrite(
+                "Mouse actions are taxing. Key presses are deadly. Don't even think about a CLI.");
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("There may be some clues for you along the way. Stay vigilant.");
-            IncreaseWindow(ref height);
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
-            IncreaseWindow(ref height);
         }
-        
+
         public static void Standby()
         {
             int height = D.debugMode ? 80 : 6;
@@ -183,83 +145,63 @@ namespace Caliban.Core.Menu
 
         public static void Lose()
         {
-            int height = 1;
-            Console.SetWindowSize(width, 40);
-            Console.SetBufferSize(width, 40);
+            int height = 13;
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
             Console.Clear();
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             foreach (var line in deathGraphic)
             {
-                ConsoleFormat.CenterWrite(line,Color.Red);
-                IncreaseWindow(ref height);
+                ConsoleFormat.CenterWrite(line, Color.Red);
             }
 
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
-            IncreaseWindow(ref height);
         }
 
         public static void Win()
         {
-            int cHeight = 1;
-            Console.SetWindowSize(width, 40);
-            Console.SetBufferSize(width, 40);
+            const int height = 14;
+            Console.SetWindowSize(width, height);
+            Console.SetBufferSize(width, height);
             Console.Clear();
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref cHeight);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref cHeight);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref cHeight);
             foreach (var line in victoryGraphic)
             {
-                ConsoleFormat.CenterWrite(line,Color.Green);
-                IncreaseWindow(ref cHeight);
+                ConsoleFormat.CenterWrite(line, Color.Green);
             }
 
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref cHeight);
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.",Color.Green);
-            IncreaseWindow(ref cHeight);
+            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Green);
         }
 
         public static void Cheat()
         {
-            int height = 1;
-            Console.SetWindowSize(width, 40);
-            Console.SetBufferSize(width, 40);
+            Console.SetWindowSize(width, 17);
+            Console.SetBufferSize(width, 17);
             Console.Clear();
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             foreach (var line in cheaterGraphic)
             {
                 ConsoleFormat.CenterWrite(line, Color.Red);
-                IncreaseWindow(ref height);
             }
+
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("LOL Will, Did you think I wouldn't notice?", Color.Red);
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("");
-            IncreaseWindow(ref height);
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
-            IncreaseWindow(ref height);
         }
 
         private static void ConfigureWindow()
         {
-            window = new RenderingWindow("CALIBAN", width, height);
-            buffer = new RenderingBuffer(width, height);
+            window = new RenderingWindow("CALIBAN", width, 20);
+            buffer = new RenderingBuffer(width, 20);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             Console.Title = "CALIBAN";
@@ -272,12 +214,6 @@ namespace Caliban.Core.Menu
 
             OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
                 OS.Windows.Swp.NOSIZE);
-        }
-
-        private static void IncreaseWindow(ref int _height)
-        {
-            Console.SetWindowSize(width, ++_height);
-            Console.SetBufferSize(width, _height);
         }
 
         private static readonly string[] titleGraphic =
@@ -319,15 +255,15 @@ namespace Caliban.Core.Menu
 
         private static readonly string[] cheaterGraphic =
         {
-         "▄████████    ▄█    █▄       ▄████████    ▄████████     ███        ▄████████    ▄████████ ",
-         "███    ███   ███    ███     ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███",
-         "███    █▀    ███    ███     ███    █▀    ███    ███    ▀███▀▀██   ███    █▀    ███    ███",
-         "███         ▄███▄▄▄▄███▄▄  ▄███▄▄▄       ███    ███     ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀",
-         "███        ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀     ▀███████████     ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀  ",
-         "███    █▄    ███    ███     ███    █▄    ███    ███     ███       ███    █▄  ▀███████████",
-         "███    ███   ███    ███     ███    ███   ███    ███     ███       ███    ███   ███    ███",
-         "████████▀    ███    █▀      ██████████   ███    █▀     ▄████▀     ██████████   ███    ███",
-         "                                                                               ███    ███"
+            "▄████████    ▄█    █▄       ▄████████    ▄████████     ███        ▄████████    ▄████████ ",
+            "███    ███   ███    ███     ███    ███   ███    ███ ▀█████████▄   ███    ███   ███    ███",
+            "███    █▀    ███    ███     ███    █▀    ███    ███    ▀███▀▀██   ███    █▀    ███    ███",
+            "███         ▄███▄▄▄▄███▄▄  ▄███▄▄▄       ███    ███     ███   ▀  ▄███▄▄▄      ▄███▄▄▄▄██▀",
+            "███        ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀     ▀███████████     ███     ▀▀███▀▀▀     ▀▀███▀▀▀▀▀  ",
+            "███    █▄    ███    ███     ███    █▄    ███    ███     ███       ███    █▄  ▀███████████",
+            "███    ███   ███    ███     ███    ███   ███    ███     ███       ███    ███   ███    ███",
+            "████████▀    ███    █▀      ██████████   ███    █▀     ▄████▀     ██████████   ███    ███",
+            "                                                                               ███    ███"
         };
     }
 }

@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuProgram.cs" />
+    <Compile Include="CalibanProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,10 +53,10 @@
       <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
       <Name>Caliban</Name>
     </ProjectReference>
-      <ProjectReference Include="..\Resources\Resources.csproj">
-          <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
-          <Name>Resources</Name>
-      </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

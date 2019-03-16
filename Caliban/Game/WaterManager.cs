@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
+using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
 using Caliban.Core.World;
@@ -32,7 +33,6 @@ namespace Caliban.Core.Game
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)
         {
             var m = Messages.Parse(_message);
-            D.Write("Water Level received " + m);
             switch (m.Type)
             {
                 case MessageType.WATERLEVEL_ADD:
@@ -69,7 +69,7 @@ namespace Caliban.Core.Game
         {
             string newID = UIDFactory.GetNewUID(8, waterIDs);
             string waterName = "WaterPuddle_" + newID + ".exe";
-            _node.AddTreasure("WaterPuddle.exe", waterName);
+            _node.AddTreasure(TreasureType.WATER_PUDDLE, waterName);
         }
 
         public void Update()
