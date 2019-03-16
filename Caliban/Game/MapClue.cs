@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 using Caliban.Core.World;
 
@@ -17,7 +18,7 @@ namespace Caliban.Core.Game
             var mapLocation = spawnNode[random].FullName();
             string trimmedLoc =mapLocation.Replace(DesertParameters.DesertRoot.FullName, "");
             ClueManager.AddMapLocation(trimmedLoc, clueLocation.FullName);
-            spawnNode[random].AddTreasure("TornMap.exe");
+            spawnNode[random].AddTreasure(TreasureType.TORN_MAP,"TornMap.exe");
             D.Write("Spawning map in " + trimmedLoc);
         }
 

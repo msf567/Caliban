@@ -1,14 +1,34 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 
 // ReSharper disable once CheckNamespace
 namespace Caliban.Core.Treasures
 {
+    public enum TreasureType
+    {
+        WATER_PUDDLE,
+        TORN_MAP,
+        SIMPLE_VICTORY,
+        SIMPLE
+    }
+
     public static class Treasures
     {
-        public static void Spawn(string _destFolder, string _resName, string _destName = "")
+        private static readonly Dictionary<TreasureType, string> TreasureNames = new Dictionary<TreasureType, string>()
         {
-            WriteEmbeddedResource("Treasures", _resName, _destFolder, _destName);
+            {TreasureType.WATER_PUDDLE, "WaterPuddle.exe"},
+            {TreasureType.TORN_MAP, "TornMap.exe"},
+            {TreasureType.SIMPLE_VICTORY, "SimpleVictory.exe"},
+            {TreasureType.SIMPLE, ""},
+        };
+        
+        public static void Spawn(string _destFolder, TreasureType _type, string _destName = "")
+        {
+            string resName = _type == TreasureType.SIMPLE ?  _destName : TreasureNames[_type];
+            
+            WriteEmbeddedResource("Treasures", resName, _destFolder, _destName);
         }
 
         private static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder,

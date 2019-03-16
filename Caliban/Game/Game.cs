@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
@@ -38,7 +39,7 @@ namespace Caliban.Core.Game
             server = new ServerTerminal();
             server.MessageReceived += ServerOnMessageReceived;
             server.StartListen(5678);
-          
+
             if (_debug)
                 D.Init(server);
             SetState(GameState.NOT_STARTED);
@@ -53,8 +54,22 @@ namespace Caliban.Core.Game
             updateLoop = new Thread(Update);
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
-            // DM ME YOUR EMAIL TO RECEIVE DEMO
+            OpenExplorer();
+        }
+
+        private void OpenExplorer()
+        {
             Process.Start(DesertParameters.DesertRoot.FullName);
+        }
+
+        private void CloseExplorers()
+        {
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                OS.Windows.EnumWindowsDelegate childProc = OS.Windows.CloseExplorerWindowsCallback;
+                OS.Windows.EnumWindows(childProc, IntPtr.Zero);
+            }).Start();
         }
 
         private void Update()
@@ -67,7 +82,6 @@ namespace Caliban.Core.Game
                 Thread.Sleep(50);
             }
         }
-
 
         private void Win()
         {
@@ -83,16 +97,19 @@ namespace Caliban.Core.Game
         {
             SetState(GameState.CHEATED);
         }
-        
+
         public void Close()
         {
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
+            D.Write("Closing Game");
             Thread.Sleep(500);
             SetState(GameState.NOT_STARTED);
             closeFlag = true;
-            desert?.Dispose();     
             waterManager?.Dispose();
             server.Close();
+            desert?.Dispose();
+            CloseExplorers();
+            D.Write("Closed Game");
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)

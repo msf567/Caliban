@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Caliban.Core.Game;
+using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 using Newtonsoft.Json;
 
@@ -42,7 +43,7 @@ namespace Caliban.Core.World
         {
             var deepestNodes = _rootNode.GetAllNodesAtDepth(DesertParameters.DesertDepth);
             int random = r.Next(0, deepestNodes.Count);
-            deepestNodes[random].AddTreasure("SimpleVictory.exe");
+            deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY,"SimpleVictory.exe");
            D.Write("Adding victory to " + deepestNodes[random].FullName());
         }
 
@@ -58,14 +59,12 @@ namespace Caliban.Core.World
             var nodes = _rootNode.GetAllNodesAtDepth(d);
             if (nodes == null) return;
          
-            D.Write("There are " + nodes.Count + " nodes at depth " + d);
 
             if (!DesertParameters.WaterLevels.ContainsKey(d))
                 return;
             
             int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
             //int amt = nodes.Count-1;
-            D.Write("Adding " + amt + " water to depth " + d);
             List<int> waterNodes = new List<int>();
             int number;
             for (int i = 0; i < amt; i++)

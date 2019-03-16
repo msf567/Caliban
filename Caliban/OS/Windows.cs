@@ -83,7 +83,36 @@ namespace Caliban.Core.OS
 
         public const int MF_BYCOMMAND = 0x00000000;
         public const int SC_CLOSE = 0xF060;
+        
+        public delegate bool EnumWindowsDelegate(IntPtr hwnd, IntPtr lParam);
+        
+        [DllImport("user32.dll")]
+        public static extern bool EnumWindows(EnumWindowsDelegate lpEnumFunc, IntPtr lParam);
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out IntPtr lpdwProcessId);
+        [DllImport("user32.dll")]
+        private static extern uint RealGetWindowClass(IntPtr hwnd, StringBuilder pszType, uint cchType);
+        [DllImport("user32.dll")]
+        static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
 
+        static uint WM_CLOSE = 0x10;
+        
+        public static bool CloseExplorerWindowsCallback(IntPtr hwnd, IntPtr lParam)
+        {
+            IntPtr pid = new IntPtr();
+            GetWindowThreadProcessId(hwnd, out pid);
+            var wndProcess = System.Diagnostics.Process.GetProcessById(pid.ToInt32());
+            var wndClass = new StringBuilder(255);
+            RealGetWindowClass(hwnd, wndClass, 255);
+            if (wndProcess.ProcessName == "explorer" && wndClass.ToString() == "CabinetWClass")
+            {
+                //hello file explorer window...
+
+                SendMessage(hwnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero); // ... bye file explorer window
+            }
+            return (true);
+        }
+        
         [DllImport("user32.dll")]
         public static extern int DeleteMenu(IntPtr _hMenu, int _nPosition, int _wFlags);
 

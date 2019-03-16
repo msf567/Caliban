@@ -25,7 +25,7 @@ namespace WaterPuddle
 
                 SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString() + " " + myID));
 
-                KillSelf();
+                KillSelf("WaterPuddle.exe");
                 Deconstruct();
             }
         }
