@@ -56,7 +56,7 @@ namespace Caliban.Core.Windows
         public delegate void GlobalMouseMoveEvent(MouseArgs _key);
 
         public static GlobalKeyPressEvent OnGlobalKeyPress;
-        public static GlobalMouseMoveEvent OnGlobalMouseMove;
+        public static GlobalMouseMoveEvent OnGlobalMouseAction;
 
         static GlobalInput()
         {
@@ -85,7 +85,7 @@ namespace Caliban.Core.Windows
 
         private static void GlobalMouse(object _s, MouseEventArgs _e)
         {
-            OnGlobalMouseMove?.Invoke(new MouseArgs(_e));
+            OnGlobalMouseAction?.Invoke(new MouseArgs(_e));
         }
     }
 }

@@ -13,9 +13,6 @@ namespace Caliban.Core.Game
         private static ServerTerminal server;
         private static List<Clue> currentClues = new List<Clue>();
         private static readonly Dictionary<string, string> MapLocations = new Dictionary<string, string>();
-        //i need to keep a dictionary here with a reference to map spawn locations and their clue locations
-        //a map will spawn and will send a "get clue location" message and its own exe location to the server which will respond with the clue location from this dictionary.
-
 
         public ClueManager(ServerTerminal _server)
         {
@@ -32,6 +29,11 @@ namespace Caliban.Core.Game
                 string trimmedLoc = m.Value.Replace(trimmedBaseLoc, "").TrimEnd(Path.DirectorySeparatorChar);
                 if (MapLocations.ContainsKey(trimmedLoc))
                     server.SendMessageToClient(m.Value, Messages.Build(MessageType.MAP_LOCAITON,MapLocations[trimmedLoc]));
+            }
+            
+            if (m.Type == MessageType.MAP_REVEAL)
+            {
+               D.Write("Recieved a Map Revel!");
             }
         }
         
