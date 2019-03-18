@@ -24,16 +24,17 @@ namespace Caliban.Core.World
         public Desert(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
-            Clear();
+            ClearNode(DesertParameters.DesertRoot.FullName);
             DesertRoot = generator.GenerateDataNodes();
             var victoryPath = DesertRoot.GetAllNodes()
                 .Find(_e => _e.Treasures.Find(_nodeTreasure => _nodeTreasure.type == TreasureType.SIMPLE_VICTORY) !=
                             null)
-                .FullName();
+                .FullName;
 
             clueManager = new ClueManager(_s);
             // clueManager.AddClue(new SoundClue(victoryPath));
-            //clueManager.AddClue(new MapClue("corrupted_map", victoryPath, this));
+
+            clueManager.AddClue(new MapClue(victoryPath, this));
 
             InitWatchers();
         }
@@ -63,40 +64,33 @@ namespace Caliban.Core.World
 
         private void OnChanged(object _sender, FileSystemEventArgs _e)
         {
-            if (_e.ChangeType == WatcherChangeTypes.Deleted)
-            {
-                // D.Write(_e.Name + " was deleted. Rebuilding...");
-                var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
-                var deletedNode = DesertRoot.GetNode(folder);
-                RenderNode(deletedNode?.ParentNode);
-            }
-
-            if (_e.ChangeType == WatcherChangeTypes.Changed)
+            if (_e.ChangeType == WatcherChangeTypes.Deleted || _e.ChangeType == WatcherChangeTypes.Changed)
             {
                 var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
-
-                var changedNode = DesertRoot.GetNode(folder);
-                RenderNode(changedNode?.ParentNode);
-                //   D.Write(_e.Name + " was changed. Rebuilding...");
+                var node = DesertRoot.GetNode(folder);
+                RenderNode(node?.ParentNode);
             }
         }
 
         private void OnNewExplorerNav(string _newfolder)
         {
-            if (Game.Game.CurrentGame.state != GameState.IN_PROGRESS)
+            if (Game.Game.CurrentGame.State != GameState.IN_PROGRESS)
                 return;
 
             var folder = Path.GetFileName(_newfolder.TrimEnd(Path.DirectorySeparatorChar));
-            
+
             var currentNode = DesertRoot.GetNode(folder);
-            D.Write((currentNode == null).ToString());
             if (currentNode == null)
             {
-                D.Write(folder + " is null");
                 return;
             }
 
-            D.Write("Rendering current node " + currentNode.FullName());
+            foreach (var sibling in currentNode.GetSiblings())
+            {
+                //  D.Write("Clearing Sibling " + sibling.FullName);
+                //   DeleteDirectory(sibling.FullName);
+            }
+
             RenderNode(currentNode);
             foreach (var node in currentNode.ChildNodes)
             {
@@ -108,18 +102,13 @@ namespace Caliban.Core.World
 
         private void RenderNode(DesertNode _node)
         {
-            if (Game.Game.CurrentGame.state != GameState.IN_PROGRESS || _node == null)
+            if (Game.Game.CurrentGame.State != GameState.IN_PROGRESS || _node == null)
                 return;
-            var dir = new DirectoryInfo(_node.FullName());
-
-            foreach (var f in dir.GetDirectories())
-            {
-                //dir.Delete(true);
-            }
+            var dir = new DirectoryInfo(_node.FullName);
 
             foreach (var c in _node.ChildNodes)
             {
-                var ci = new DirectoryInfo(c.FullName());
+                var ci = new DirectoryInfo(c.FullName);
                 if (!dir.GetDirectories().Contains(ci))
                 {
                     Directory.CreateDirectory(ci.FullName);
@@ -128,7 +117,7 @@ namespace Caliban.Core.World
 
             foreach (var t in _node.Treasures)
             {
-                Treasures.Treasures.Spawn(_node.FullName(), t.type, t.fileName);
+                Treasures.Treasures.Spawn(_node.FullName, t.type, t.fileName);
             }
         }
 
@@ -154,26 +143,33 @@ namespace Caliban.Core.World
             }
         }
 
-        private void Clear()
+        private void ClearNode(string _fullPath)
         {
-            var folderCount = DesertParameters.DesertRoot.GetDirectories().Length;
+            var dInfo = new DirectoryInfo(_fullPath);
+            var folderCount = dInfo.GetDirectories().Length;
             while (folderCount > 0)
             {
-                DeleteFolders();
-                folderCount = DesertParameters.DesertRoot.GetDirectories().Length;
+                DeleteNode(_fullPath);
+                folderCount = dInfo.GetDirectories().Length;
             }
         }
 
-        private void DeleteFolders()
+        private void DeleteNode(string _fullPath)
         {
-            DesertRoot = null;
-
-            if (Directory.Exists(DesertParameters.DesertRoot.FullName))
+            if (Directory.Exists(_fullPath))
             {
-                var count = DesertParameters.DesertRoot.GetDirectories().Length;
+                var dInfo = new DirectoryInfo(_fullPath);
+                var count = dInfo.GetDirectories().Length;
                 var fullCount = count;
                 var deletedCount = 0;
-                foreach (var subdir in DesertParameters.DesertRoot.GetDirectories())
+
+                foreach (var file in dInfo.GetFiles())
+                {
+                    File.SetAttributes(file.FullName, FileAttributes.Normal);
+                    File.Delete(file.FullName);
+                }
+
+                foreach (var subdir in dInfo.GetDirectories())
                 {
                     try
                     {
@@ -190,20 +186,13 @@ namespace Caliban.Core.World
                         D.Write("DELETION ERROR: " + e);
                     }
                 }
-
-                foreach (var file in DesertParameters.DesertRoot.GetFiles())
-                {
-                    File.SetAttributes(file.FullName, FileAttributes.Normal);
-
-                    File.Delete(file.FullName);
-                }
             }
         }
 
-        private static void DeleteDirectory(string target_dir)
+        private static void DeleteDirectory(string _targetDir)
         {
-            string[] files = Directory.GetFiles(target_dir);
-            string[] dirs = Directory.GetDirectories(target_dir);
+            string[] files = Directory.GetFiles(_targetDir);
+            string[] dirs = Directory.GetDirectories(_targetDir);
 
             foreach (string file in files)
             {
@@ -219,15 +208,15 @@ namespace Caliban.Core.World
 
             try
             {
-                Directory.Delete(target_dir, false);
+                Directory.Delete(_targetDir, false);
             }
             catch (IOException)
             {
-               // Directory.Delete(target_dir, false);
+                // Directory.Delete(target_dir, false);
             }
             catch (UnauthorizedAccessException)
             {
-               // Directory.Delete(target_dir, false);
+                // Directory.Delete(target_dir, false);
             }
         }
 
@@ -269,7 +258,8 @@ namespace Caliban.Core.World
             ClueManager.Dispose();
             explorerWatcher.Dispose();
             fileSystemWatcher.Dispose();
-            Clear();
+            ClearNode(DesertParameters.DesertRoot.FullName);
+            DesertRoot = null;
         }
     }
 }

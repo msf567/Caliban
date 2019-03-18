@@ -18,8 +18,6 @@ Section
     SetOutPath $INSTDIR
 	
 	File CALIBAN.exe
-	File Note.exe
-	File WaterMeter.exe
 	File Caliban.Core.dll
 	File CLIGL.dll
 	File CSCore.dll

@@ -60,5 +60,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\demoClue.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Note.exe" />
+    <EmbeddedResource Include="Resources\WaterMeter.exe" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

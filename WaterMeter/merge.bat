@@ -1,0 +1,1 @@
+ilmerge /out:../Resources/Resources/WaterMeter.exe ../Builds/WaterMeter.exe ../Builds/CLIGL.dll ../Builds/Caliban.Core.dll /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1" /targetplatform:v4

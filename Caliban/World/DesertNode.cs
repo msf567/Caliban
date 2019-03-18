@@ -17,14 +17,14 @@ namespace Caliban.Core.World
             {
                 result.AddRange(child.GetAllNodes());
             }
+
             return result;
         }
-        
+
         public static List<DesertNode> GetAllNodesAtDepth(this DesertNode _self, int _depth)
         {
-            return new List<DesertNode>( _self.GetAllNodes().Where(_n => _n.Depth == _depth));
+            return new List<DesertNode>(_self.GetAllNodes().Where(_n => _n.Depth == _depth));
         }
-        
     }
 
     [Serializable]
@@ -39,22 +39,27 @@ namespace Caliban.Core.World
             fileName = _fileName;
         }
     }
-    
+
     [Serializable]
     public class DesertNode
     {
         public string Name;
+        public string FullName = "";
+
         public DesertNode ParentNode;
+
         public int Depth;
         public List<DesertNode> ChildNodes = new List<DesertNode>();
-        public List<NodeTreasure> Treasures = new List<NodeTreasure>();        
+        public List<NodeTreasure> Treasures = new List<NodeTreasure>();
+
         public DesertNode(DesertNode _parentNode, string _name)
         {
             Name = _name;
             ParentNode = _parentNode;
             Depth = GetDepth();
+            FullName = GetFullName();
         }
-        
+
         private int GetDepth()
         {
             int depth = 0;
@@ -68,16 +73,23 @@ namespace Caliban.Core.World
             return depth;
         }
 
-        public void AddChild(DesertNode _n)
+        public List<DesertNode> GetSiblings()
         {
-            if (!ChildNodes.Contains(_n)) 
-                ChildNodes.Add(_n);
+            if (ParentNode == null)
+                return new List<DesertNode>();
 
+            return ParentNode.ChildNodes.Where(_i => _i.FullName != FullName).ToList();
         }
 
-        public void AddTreasure(TreasureType _type ,string _fileName)
+        public void AddChild(DesertNode _n)
         {
-            Treasures.Add(new NodeTreasure(_type,_fileName));
+            if (!ChildNodes.Contains(_n))
+                ChildNodes.Add(_n);
+        }
+
+        public void AddTreasure(TreasureType _type, string _fileName)
+        {
+            Treasures.Add(new NodeTreasure(_type, _fileName));
         }
 
         public void DeleteTreasure(string _treasureFileName)
@@ -91,7 +103,7 @@ namespace Caliban.Core.World
         {
             DesertNode returnNode = null;
             DesertNode currentNode = this;
-            
+
             if (currentNode.Name.Contains(_name))
             {
                 return currentNode;
@@ -114,7 +126,7 @@ namespace Caliban.Core.World
         }
 
 
-        public string FullName()
+        private string GetFullName()
         {
             DesertNode currentNode = this;
             string path = currentNode.Name;

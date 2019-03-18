@@ -51,7 +51,7 @@ namespace Caliban.Core.Transport
                 client.StartListen();
 
             }
-            catch (SocketException e)
+            catch (SocketException)
             {
                 Console.WriteLine("Cound not connect to server!");
             }

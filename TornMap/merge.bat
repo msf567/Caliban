@@ -1,1 +1,1 @@
-ilmerge /out:../Resources/Resources/TornMap.exe ../Builds/TornMap.exe ../Builds/Caliban.Core.dll /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1" /targetplatform:v4
+ilmerge /out:../Resources/Resources/TornMap.exe ../Builds/TornMap.exe ../Builds/Caliban.Core.dll ../Builds/CLIGL.dll ../Builds/EventHook.dll /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1" /targetplatform:v4

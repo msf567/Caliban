@@ -18,7 +18,7 @@ namespace CLIGL_Tutorial
         // Main() does not necessarily have to be marked with the attribute [STAThread],
         // but if CLIGL ever incorporates Windows Forms features, it will be required.
         [STAThread]
-        public static void Main(string[] args)
+        public static void Main(string[] _args)
         {
             // Create the rendering window. All buffers we use will have to be rendered to this created
             // window here.

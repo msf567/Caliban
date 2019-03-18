@@ -9,11 +9,9 @@ namespace WaterPuddle
     {
         class WaterPuddle : ClientApp
         {
-            private int amount = 0;
 
             public WaterPuddle(int amount) : base("WaterPuddle", false)
             {
-                this.amount = amount;
                 int timeout = 10;
                 while (!IsConnected && timeout > 0)
                 {
@@ -23,7 +21,7 @@ namespace WaterPuddle
 
                 string myID = AppDomain.CurrentDomain.FriendlyName.Replace(".exe","").Split('_')[1];
 
-                SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount.ToString() + " " + myID));
+                SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount + " " + myID));
 
                 KillSelf("WaterPuddle.exe");
                 Deconstruct();

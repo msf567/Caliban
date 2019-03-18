@@ -24,7 +24,7 @@ namespace Caliban.Core.Game
             server.MessageReceived += ServerOnMessageReceived;
             //D.Write("Subscribed...");
             CurrentLevel = 80;
-            GlobalInput.OnGlobalMouseMove += OnGlobalMouseMove;
+            GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
             GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
 
             ModuleLoader.LoadModuleAndWait(@"WaterMeter.exe", "WaterMeter");
@@ -75,7 +75,7 @@ namespace Caliban.Core.Game
         public void Update()
         {
             CurrentLevel.Clamp(0, 100);
-            if (CurrentLevel < 0 && Game.CurrentGame.state == GameState.IN_PROGRESS)
+            if (CurrentLevel < 0 && Game.CurrentGame.State == GameState.IN_PROGRESS)
                 server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
 
             server.SendMessageToClient("WaterMeter",
@@ -85,7 +85,7 @@ namespace Caliban.Core.Game
 
 //        public
 
-        private void OnGlobalMouseMove(MouseArgs _e)
+        private void OnGlobalMouseAction(MouseArgs _e)
         {
             if (_e.Message == MouseMessages.WM_LBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_RBUTTONDOWN ||

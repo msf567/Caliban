@@ -27,12 +27,11 @@ namespace Caliban.Core.Game
         private Desert desert;
 
         public static Game CurrentGame = new Game(false);
-        public GameState state = GameState.NOT_STARTED;
+        public GameState State = GameState.NOT_STARTED;
 
-        public delegate void GameStateChange(GameState state);
+        public delegate void GameStateChange(GameState _state);
 
         public static GameStateChange OnGameStateChange;
-        private static bool closeFlag;
 
         public Game(bool _debug)
         {
@@ -45,7 +44,6 @@ namespace Caliban.Core.Game
             SetState(GameState.NOT_STARTED);
         }
 
-
         public void Start()
         {
             SetState(GameState.IN_PROGRESS);
@@ -55,27 +53,12 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-        }
-
-        private void OpenExplorer()
-        {
-            Process.Start(DesertParameters.DesertRoot.FullName);
-        }
-
-        private void CloseExplorers()
-        {
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
-                OS.Windows.EnumWindowsDelegate childProc = OS.Windows.CloseExplorerWindowsCallback;
-                OS.Windows.EnumWindows(childProc, IntPtr.Zero);
-            }).Start();
+            //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity");
         }
 
         private void Update()
         {
-            closeFlag = false;
-            while (!closeFlag)
+            while (State == GameState.IN_PROGRESS)
             {
                 desert?.Update();
                 waterManager.Update();
@@ -98,18 +81,20 @@ namespace Caliban.Core.Game
             SetState(GameState.CHEATED);
         }
 
-        public void Close()
+        public void Close(bool _closeExplorers)
         {
-            server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
-            D.Write("Closing Game");
-            Thread.Sleep(500);
             SetState(GameState.NOT_STARTED);
-            closeFlag = true;
+
+            server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
+            Thread.Sleep(500);
+
             waterManager?.Dispose();
-            server.Close();
             desert?.Dispose();
-            CloseExplorers();
-            D.Write("Closed Game");
+
+            ModuleLoader.DeleteModuleFiles();
+            server.Close();
+            if (_closeExplorers)
+                CloseExplorers();
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)
@@ -130,10 +115,25 @@ namespace Caliban.Core.Game
             }
         }
 
+        private void OpenExplorer()
+        {
+            Process.Start(DesertParameters.DesertRoot.FullName);
+        }
+
+        private void CloseExplorers()
+        {
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                OS.Windows.EnumWindowsDelegate childProc = OS.Windows.CloseExplorerWindowsCallback;
+                OS.Windows.EnumWindows(childProc, IntPtr.Zero);
+            }).Start();
+        }
+
         private void SetState(GameState _state)
         {
-            state = _state;
-            OnGameStateChange?.Invoke(state);
+            State = _state;
+            OnGameStateChange?.Invoke(State);
         }
     }
 }

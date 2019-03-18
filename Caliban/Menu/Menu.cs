@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Caliban.Core.ConsoleOutput;
 using Caliban.Core.Audio;
+using Caliban.Core.Game;
 using Caliban.Core.Utility;
 using CLIGL;
 

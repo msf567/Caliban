@@ -122,9 +122,9 @@ namespace CalibanMenu
             }
         }
 
-        private static void CloseCurrentGame()
+        private static void CloseCurrentGame(bool _closeExplorers = true)
         {
-            Game.CurrentGame?.Close();
+            Game.CurrentGame?.Close(_closeExplorers);
             Game.CurrentGame = null;
         }
 
@@ -164,7 +164,7 @@ namespace CalibanMenu
                 return;
             }
 
-            CloseCurrentGame();
+            CloseCurrentGame(false);
 
             ModuleLoader.Clear();
             Game.CurrentGame = new Game(_debug);

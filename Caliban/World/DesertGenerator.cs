@@ -44,7 +44,7 @@ namespace Caliban.Core.World
             var deepestNodes = _rootNode.GetAllNodesAtDepth(DesertParameters.DesertDepth);
             int random = r.Next(0, deepestNodes.Count);
             deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY,"SimpleVictory.exe");
-           D.Write("Adding victory to " + deepestNodes[random].FullName());
+           D.Write("Adding victory to " + deepestNodes[random].FullName);
         }
 
         private void DistributeWater(DesertNode _rootNode)

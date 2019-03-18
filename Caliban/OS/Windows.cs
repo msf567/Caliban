@@ -122,6 +122,9 @@ namespace Caliban.Core.OS
         [DllImport("kernel32.dll", ExactSpelling = true)]
         public static extern IntPtr GetConsoleWindow();
 
+        [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
+        public static extern IntPtr FindWindowByCaption(IntPtr zeroOnly, string lpWindowName);
+        
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
 
