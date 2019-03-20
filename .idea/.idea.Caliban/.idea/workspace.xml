@@ -2,21 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff49ae5-25e0-4342-866d-f994a9f624af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/dictionaries/MARK.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CalibanApp/merge.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Note/merge.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TornMap/Map.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TornMap/MapPiece.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WaterMeter/merge.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/riderModule.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Resources/Notes/fist.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Resources/Notes/mouse.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Resources/Notes/rhino.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Resources/Notes/when.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CLIGL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CLIGL.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CLIGL.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CLIGL.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CSCore.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/CU.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CU.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/DebugLog.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/DebugLog.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/DebugLog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/DebugLog.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Note.exe" afterDir="false" />
@@ -29,69 +33,91 @@
       <change beforePath="$PROJECT_DIR$/Builds/TornMap.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/TornMap.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Treasures.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Treasures.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Treasures.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterMeter.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterMeter.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterPuddle.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/WaterPuddle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterPuddle.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/caliban-setup.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/caliban-setup.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/caliban.nsi" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/caliban.nsi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Caliban.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Game/ClueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/ClueManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/Game.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Game/MapClue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/MapClue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/OS/GlobalInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/OS/GlobalInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/OS/Windows.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/OS/Windows.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/ClientApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/ClientApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/Desert.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/Desert.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/DesertNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/DesertNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/Desert.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/DesertNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/DesertParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.Core.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/obj/Release/Caliban.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanApp/CalibanApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/CalibanApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanApp/CalibanProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/CalibanProgram.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CalibanApp/obj/Release/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/obj/Release/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CalibanApp/obj/Release/CALIBAN.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/obj/Release/CALIBAN.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CalibanApp/obj/Release/CalibanApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/obj/Release/CalibanApp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/CurrentLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/LastBuild.buildreport" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/ScriptLayoutHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/PlayerDataCache/ScriptLayoutHashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/metadata/00/00000000000000004000000000000000" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/metadata/00/00000000000000004000000000000000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/metadata/00/0000000000000000c000000000000000" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/metadata/00/0000000000000000c000000000000000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe10.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe10.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe11.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe11.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe12.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe12.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe13.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe13.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe14.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe14.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe15.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe15.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe8.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe8.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe9.log" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Library/shadercompiler-UnityShaderCompiler.exe9.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DebugLog/obj/Release/DebugLog.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Note/Note.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Note/Note.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Note/obj/Debug/Note.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Note/obj/Debug/Note.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Note/obj/Release/Note.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Note/obj/Release/Note.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Note/obj/Release/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Note/obj/Release/Note.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Note/obj/Release/Note.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Note/obj/Release/Note.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Resources/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/Note.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Resources/Note.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/Note.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/TornMap.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/TornMap.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/TornMap.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterMeter.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterMeter.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterMeter.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/obj/Release/Treasures.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/obj/Release/Treasures.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scratch/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scratch/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scratch/obj/Debug/Scratch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Scratch/obj/Debug/Scratch.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Scratch/obj/Release/Scratch.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleVictory/obj/Release/SimpleVictory.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/TornMap.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/TornMap.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/TornMapProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/TornMapProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/merge.bat" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/merge.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TornMap/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/Map.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/obj/Release/TornMap.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaterMeter/WaterMeter.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WaterMeter/WaterMeter.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WaterMeter/obj/Release/WaterMeter.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaterPuddle/WaterPuddleProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WaterPuddle/WaterPuddleProgram.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WaterPuddle/obj/Release/WaterPuddle.pdb" afterDir="false" />
@@ -106,48 +132,49 @@
     <session id="-1962121770">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="9" />
+          <entry key="project.open.time.4" value="11" />
           <entry key="project.open.time.5" value="11" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="13" />
           <entry key="config" value="2" />
-          <entry key="cs" value="328" />
-          <entry key="csproj" value="25" />
+          <entry key="cs" value="347" />
+          <entry key="csproj" value="26" />
           <entry key="targets" value="1" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bat" value="12" />
-          <entry key="C#" value="328" />
+          <entry key="C#" value="347" />
           <entry key="Config" value="2" />
-          <entry key="Csproj" value="25" />
+          <entry key="Csproj" value="26" />
           <entry key="MsBuild targets file" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="bat" value="278" />
-          <entry key="cs" value="26202" />
-          <entry key="csproj" value="62" />
-          <entry key="txt" value="153" />
+          <entry key="cs" value="26876" />
+          <entry key="csproj" value="130" />
+          <entry key="txt" value="341" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bat" value="252" />
-          <entry key="C#" value="26202" />
-          <entry key="Csproj" value="62" />
-          <entry key="PLAIN_TEXT" value="179" />
+          <entry key="C#" value="26876" />
+          <entry key="Csproj" value="130" />
+          <entry key="PLAIN_TEXT" value="367" />
         </counts>
       </usages-collector>
     </session>
@@ -155,34 +182,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CalibanApp/CalibanProgram.cs">
+        <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="764">
-              <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+            <state relative-caret-position="230">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding>
-                <marker date="1552936699977" expanded="false" signature="6:217" ph="..." />
-                <marker date="1552936699977" expanded="true" signature="240:5503" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="283:5501" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="360:474" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="605:3856" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="1304:3846" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="1353:3746" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="1465:1616" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="1674:1823" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="1881:1977" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="2036:2166" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="2195:2288" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="2420:2646" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="2675:2769" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="2900:3097" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="3126:3219" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="3353:3550" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="3931:4042" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="4107:4939" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="4145:4929" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="4990:5324" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="5041:5154" ph="{...}" />
-                <marker date="1552936699977" expanded="true" signature="5364:5495" ph="{...}" />
+                <marker date="1553095046353" expanded="true" signature="54:199" ph="{...}" />
+                <marker date="1553095046353" expanded="true" signature="99:197" ph="{...}" />
+                <marker date="1553095046353" expanded="true" signature="158:191" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <folding>
+                <marker date="1553095040759" expanded="false" signature="6:137" ph="..." />
+                <marker date="1553095040759" expanded="true" signature="162:480" ph="{...}" />
+                <marker date="1553095040759" expanded="true" signature="217:478" ph="{...}" />
+                <marker date="1553095040759" expanded="true" signature="267:419" ph="{...}" />
+                <marker date="1553095040759" expanded="true" signature="435:474" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -191,8 +214,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Caliban/Transport/ClientApp.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="92">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding>
                 <marker date="1552936708937" expanded="false" signature="6:107" ph="..." />
                 <marker date="1552936708937" expanded="true" signature="141:2817" ph="{...}" />
@@ -216,78 +239,63 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Caliban/Game/Game.cs">
+        <entry file="file://$PROJECT_DIR$/Caliban/Caliban.csproj">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
-              <folding>
-                <marker date="1552936681717" expanded="false" signature="6:227" ph="..." />
-                <marker date="1552936681717" expanded="true" signature="256:3619" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="284:381" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="404:3617" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="839:1105" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1134:1532" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1563:1769" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1624:1759" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1797:1854" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1883:1941" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="1974:2035" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="2084:2473" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="2552:2998" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="2640:2988" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="3035:3120" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="3159:3468" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="3198:3448" ph="{...}" />
-                <marker date="1552936681717" expanded="true" signature="3517:3611" ph="{...}" />
-              </folding>
+            <state relative-caret-position="1073">
+              <caret line="126" column="86" selection-start-line="126" selection-start-column="86" selection-end-line="126" selection-end-column="86" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TornMap/TornMapProgram.cs">
+        <entry file="file://$PROJECT_DIR$/Caliban/World/World.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            <state relative-caret-position="759">
+              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
               <folding>
-                <marker date="1552936762747" expanded="false" signature="6:178" ph="..." />
-                <marker date="1552936762747" expanded="true" signature="197:500" ph="{...}" />
-                <marker date="1552936762747" expanded="true" signature="240:498" ph="{...}" />
-                <marker date="1552936762747" expanded="true" signature="330:492" ph="{...}" />
+                <marker date="1553017144146" expanded="false" signature="6:276" ph="..." />
+                <marker date="1553017144146" expanded="true" signature="345:8620" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="689:1338" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="1375:2243" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="2312:2383" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="2455:2804" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="2573:2794" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="2862:3634" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="3154:3206" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="3270:3423" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="3301:3409" ph="/* D.Write(&quot;Clearing Sibling &quot; + sibling.FullName); ... */" />
+                <marker date="1553017144146" expanded="true" signature="3518:3580" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="3684:4312" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="3911:4147" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4037:4133" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4195:4302" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4342:4551" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4408:4501" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4630:4982" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="4714:4972" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5032:5331" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5193:5321" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5382:6524" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5437:6514" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5701:5863" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5927:6500" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="5969:6341" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="6211:6319" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="6381:6482" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="6588:7362" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="6769:6898" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="6940:7006" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7023:7104" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7136:7220" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7268:7352" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7434:8300" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7545:7818" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7835:7955" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="7993:8059" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="8126:8194" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="8226:8290" ph="{...}" />
+                <marker date="1553017144146" expanded="true" signature="8331:8614" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TornMap/Map.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="63" column="98" selection-start-line="63" selection-start-column="98" selection-end-line="63" selection-end-column="98" />
-              <folding>
-                <marker date="1552939159652" expanded="false" signature="6:202" ph="..." />
-                <marker date="1552939159652" expanded="true" signature="221:3664" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="256:3662" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="730:1902" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="847:1084" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="1561:1892" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="1692:1786" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="1961:2394" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="2034:2384" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="2549:3014" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="2616:3004" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="3081:3289" ph="{...}" />
-                <marker date="1552939159652" expanded="true" signature="3363:3656" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TornMap/merge.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="136" selection-start-column="136" selection-end-column="136" />
             </state>
           </provider>
         </entry>
@@ -298,20 +306,19 @@
             <state relative-caret-position="2254">
               <caret line="106" selection-start-line="106" selection-end-line="106" />
               <folding>
-                <marker date="1552938137991" expanded="false" signature="6:251" ph="..." />
-                <marker date="1552938137991" expanded="true" signature="280:3589" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="312:3587" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="630:1017" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="1097:1950" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="1181:1940" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="1400:1529" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="1997:2211" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="2079:2175" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="2272:2487" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="2517:2917" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="2991:3395" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="3447:3500" ph="{...}" />
-                <marker date="1552938137991" expanded="true" signature="3531:3581" ph="{...}" />
+                <marker date="1553014215684" expanded="false" signature="6:251" ph="..." />
+                <marker date="1553014215684" expanded="true" signature="312:3586" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="630:1017" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="1097:1950" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="1181:1940" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="1400:1529" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="1997:2211" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="2079:2175" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="2271:2486" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="2516:2916" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="2990:3394" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="3446:3499" ph="{...}" />
+                <marker date="1553014215684" expanded="true" signature="3530:3580" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -323,18 +330,17 @@
             <state relative-caret-position="943">
               <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
               <folding>
-                <marker date="1552936146957" expanded="false" signature="6:174" ph="..." />
-                <marker date="1552936146957" expanded="true" signature="203:2143" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="234:2141" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="513:626" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="712:1389" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="820:1239" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="1302:1379" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="1435:1554" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="1640:1719" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="1781:2009" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="1872:1999" ph="{...}" />
-                <marker date="1552936146957" expanded="true" signature="2047:2135" ph="{...}" />
+                <marker date="1553016161361" expanded="false" signature="6:174" ph="..." />
+                <marker date="1553016161361" expanded="true" signature="234:2139" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="513:626" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="712:1387" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="820:1237" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="1300:1377" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="1433:1552" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="1638:1717" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="1779:2007" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="1870:1997" ph="{...}" />
+                <marker date="1553016161361" expanded="true" signature="2045:2133" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -343,25 +349,67 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            <state relative-caret-position="2139">
+              <caret line="100" column="47" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
               <folding>
-                <marker date="1552776457465" expanded="false" signature="6:173" ph="..." />
-                <marker date="1552776457465" expanded="true" signature="202:3151" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="241:3149" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="478:608" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="677:1515" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="808:908" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="1631:2229" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="1657:2123" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2155:2219" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2274:2330" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2378:2582" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2437:2536" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2645:3039" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2712:2856" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="2951:3029" ph="{...}" />
-                <marker date="1552776457465" expanded="true" signature="3077:3143" ph="{...}" />
+                <marker date="1553093721352" expanded="false" signature="6:197" ph="..." />
+                <marker date="1553093721352" expanded="true" signature="265:3931" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="568:698" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="767:1600" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="898:995" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="1709:2366" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="1735:2260" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2115:2246" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2292:2356" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2402:2458" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2496:2580" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2627:3109" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2681:2951" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2715:2823" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="2859:2937" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3158:3364" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3217:3317" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3427:3821" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3494:3638" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3733:3811" ph="{...}" />
+                <marker date="1553093721352" expanded="true" signature="3859:3925" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+              <folding>
+                <marker date="1552413910656" expanded="false" signature="6:90" ph="..." />
+                <marker date="1552413910656" expanded="true" signature="151:685" ph="{...}" />
+                <marker date="1552413910656" expanded="true" signature="205:679" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeter.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+              <folding>
+                <marker date="1552571996361" expanded="false" signature="6:259" ph="..." />
+                <marker date="1552571996361" expanded="true" signature="323:3894" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="737:969" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="1009:1535" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="1572:1898" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="1613:1888" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="1939:2997" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="2058:2791" ph="{...}" />
+                <marker date="1552571996361" expanded="false" signature="3007:3888" ph="networking" />
+                <marker date="1552571996361" expanded="true" signature="3092:3267" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="3341:3868" ph="{...}" />
+                <marker date="1552571996361" expanded="true" signature="3429:3858" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -452,10 +500,10 @@
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/LoopStream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/WavePlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban/World/DesertParameters.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban/World/DesertNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban/World/Desert.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Caliban/World/WorldParameters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Caliban/World/WorldNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Caliban/World/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/World/UIDFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Utility/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Resources/Resources/Treasures.cs" root0="FORCE_HIGHLIGHTING" />
@@ -481,7 +529,9 @@
     <setting file="file://$PROJECT_DIR$/Scratch/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Note/NoteProgram.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WaterPuddle/WaterPuddleProgram.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Note/NoteForm.resx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://A:/vs_dev_lib/CLIGL/CLIGL/Source/RenderingBuffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8F21BE57-5349-4DFD-9DBD-271007D31850/b9/0a9ebce9/WaveFileReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Note/NoteForm.cs" root0="FORCE_HIGHLIGHTING" />
@@ -493,22 +543,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Caliban/Game/MapManager.cs" />
-        <option value="$PROJECT_DIR$/TornMap/TornMap.csproj" />
-        <option value="$PROJECT_DIR$/SimpleVictory/SimpleVictory.csproj" />
-        <option value="$PROJECT_DIR$/Caliban/Game/SoundClue.cs" />
-        <option value="$PROJECT_DIR$/Caliban/Audio/WavePlayer.cs" />
-        <option value="$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs" />
-        <option value="$PROJECT_DIR$/WaterMeter/WaterMeter.cs" />
-        <option value="$PROJECT_DIR$/CalibanMenu/CalibanMenu.csproj" />
-        <option value="$PROJECT_DIR$/Caliban/Cinematics/Cinematic.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/DesertParameters.cs" />
-        <option value="$PROJECT_DIR$/Caliban/ConsoleOutput/ConsoleColors.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/DesertNameGenerator.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/UIDGenerator.cs" />
-        <option value="$PROJECT_DIR$/Caliban/Game/WaterLevel.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/UIDManager.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/UIDFactory.cs" />
         <option value="$PROJECT_DIR$/CalibanMenu/AssemblyInfo.cs" />
         <option value="$PROJECT_DIR$/Caliban/ConsoleOutput/ConsoleFormat.cs" />
         <option value="$PROJECT_DIR$/Note/NoteProgram.cs" />
@@ -524,8 +558,6 @@
         <option value="$PROJECT_DIR$/Caliban/Menu/Menu.cs" />
         <option value="$PROJECT_DIR$/Note/Note.csproj" />
         <option value="$PROJECT_DIR$/Note/merge.bat" />
-        <option value="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" />
-        <option value="$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" />
         <option value="$PROJECT_DIR$/Caliban/World/DesertNode.cs" />
         <option value="A:/vs_dev_lib/CLIGL/CLIGL/Source/RenderingWindow.cs" />
         <option value="$PROJECT_DIR$/Caliban/Transport/Messages.cs" />
@@ -536,7 +568,6 @@
         <option value="$PROJECT_DIR$/Caliban/Game/MapClue.cs" />
         <option value="$PROJECT_DIR$/Caliban/Game/ClueManager.cs" />
         <option value="$PROJECT_DIR$/Caliban/World/Desert.cs" />
-        <option value="$PROJECT_DIR$/Caliban/Game/Game.cs" />
         <option value="$PROJECT_DIR$/CalibanApp/CalibanProgram.cs" />
         <option value="$PROJECT_DIR$/Caliban/Transport/ClientApp.cs" />
         <option value="$PROJECT_DIR$/TornMap/TornMapProgram.cs" />
@@ -544,6 +575,25 @@
         <option value="$PROJECT_DIR$/TornMap/merge.bat" />
         <option value="$PROJECT_DIR$/Caliban/OS/Windows.cs" />
         <option value="$PROJECT_DIR$/TornMap/Map.cs" />
+        <option value="$PROJECT_DIR$/Resources/Resources/Notes/mouse.txt" />
+        <option value="$PROJECT_DIR$/Resources/Resources/Notes/rhino.txt" />
+        <option value="$PROJECT_DIR$/Resources/Resources/Notes/when.txt" />
+        <option value="$PROJECT_DIR$/Resources/Resources/Notes/fist.txt" />
+        <option value="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" />
+        <option value="$PROJECT_DIR$/Caliban/World/World.cs" />
+        <option value="$PROJECT_DIR$/Caliban/World/DesertGenerator.cs" />
+        <option value="$PROJECT_DIR$/Caliban/World/WorldNode.cs" />
+        <option value="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" />
+        <option value="$PROJECT_DIR$/Caliban/Game/Game.cs" />
+        <option value="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/SimpleQuit.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/CalibanClient.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/CalibanClientBehaviour.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Core/CalibanClientBehaviour.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Core/CalibanClient.cs" />
+        <option value="$PROJECT_DIR$/Caliban/Caliban.csproj" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" />
+        <option value="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs" />
       </list>
     </option>
   </component>
@@ -554,10 +604,13 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-124" />
-    <option name="y" value="-7" />
-    <option name="width" value="1549" />
-    <option name="height" value="845" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="SolutionExplorer" proportions="" version="1">
@@ -575,41 +628,38 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assembly-CSharp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Scripts" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Game" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Unity" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="OS" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Transport" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="World" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TornMap" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Caliban" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="WaterPuddle" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WaterMeter" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -634,11 +684,11 @@
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://A:/Caliban/Note/NoteForm.cs" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Resources/Resources/CalibanUnity.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CalibanUnity/Assembly-CSharp.csproj" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -662,7 +712,7 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/CalibanApp/CalibanApp.csproj" />
-      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="0" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="0" />
       <option name="PROJECT_KIND" value="Console" />
@@ -761,10 +811,22 @@
         <option name="Build" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue=".NET Project.Caliban Debug" />
       <item itemvalue=".NET Project.TornMap Debug" />
       <item itemvalue=".NET Project.Note Debug" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
       <item itemvalue=".NET Project.Scratch" />
       <item itemvalue=".NET Project.WaterMeter" />
       <item itemvalue=".NET Project.SimpleMixerSample" />
@@ -836,7 +898,10 @@
       <workItem from="1552696912267" duration="4457000" />
       <workItem from="1552736991307" duration="11518000" />
       <workItem from="1552818217281" duration="9867000" />
-      <workItem from="1552918703314" duration="6295000" />
+      <workItem from="1552918703314" duration="7125000" />
+      <workItem from="1553010847740" duration="4923000" />
+      <workItem from="1553092580012" duration="1721000" />
+      <workItem from="1553094591110" duration="499000" />
     </task>
     <task id="LOCAL-00001" summary="Renamed">
       <created>1549843127522</created>
@@ -968,7 +1033,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387829000" />
+    <option name="totallyTimeSpent" value="395802000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -983,7 +1048,7 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09976152" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12718602" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -991,7 +1056,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.25276938" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45709828" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23088923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1083,76 +1148,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Note/NoteForm.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SimpleVictory/SimpleVictory.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Game/SoundClue.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TornMap/TornMap.csproj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="69" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Cinematics/Cinematic.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/ConsoleOutput/ConsoleColors.cs" />
-    <entry file="file://$PROJECT_DIR$/Caliban/Audio/WavePlayer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DebugLog/DebugLogProgram.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CalibanMenu/CalibanMenu.csproj" />
-    <entry file="file://$PROJECT_DIR$/CalibanMenu/AssemblyInfo.cs" />
-    <entry file="file://$PROJECT_DIR$/Caliban/ConsoleOutput/ConsoleFormat.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Caliban/Audio/AudioManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/World/DesertParameters.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1171,20 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
           <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1936">
-          <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1279,89 +1264,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/World/DesertNode.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
-          <folding>
-            <marker date="1552821603923" expanded="false" signature="6:141" ph="..." />
-            <marker date="1552821603923" expanded="true" signature="208:784" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="288:570" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="450:532" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="664:778" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="834:1059" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="973:1053" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="1107:3755" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="1450:1604" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="1636:1911" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="1767:1874" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="1958:2150" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="2195:2293" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="2364:2447" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="2509:2691" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="2740:3372" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="2886:2950" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="3093:3330" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="3207:3316" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="3411:3749" ph="{...}" />
-            <marker date="1552821603923" expanded="true" signature="3559:3713" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Caliban/Menu/Menu.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <marker date="1552759103736" expanded="false" signature="6:239" ph="..." />
-            <marker date="1552759103736" expanded="true" signature="289:360" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="390:11547" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="552:780" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="816:1052" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="904:1042" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="1088:1587" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="1622:3070" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="2613:2699" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="3106:3907" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="3942:4789" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="4827:5256" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="5291:5866" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="5635:5723" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="5900:6487" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="6252:6342" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="6523:7202" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="6832:6920" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="7249:8017" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="8083:8813" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="8880:9634" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="9703:10516" ph="{...}" />
-            <marker date="1552759103736" expanded="true" signature="10585:11540" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/World/DesertGenerator.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2553">
-          <caret line="119" column="23" selection-start-line="119" selection-start-column="23" selection-end-line="119" selection-end-column="23" />
-          <folding>
-            <marker date="1552821560924" expanded="false" signature="6:250" ph="..." />
-            <marker date="1552821560924" expanded="true" signature="315:4540" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="468:559" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="686:1189" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="1246:1582" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="1642:1785" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="1856:2759" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="2316:2513" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="2569:2749" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="2825:3572" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="2978:3070" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="3351:3562" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="3654:4220" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="4007:4210" ph="{...}" />
-            <marker date="1552821560924" expanded="true" signature="4263:4534" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,67 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
           <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding>
-            <marker date="1552935261859" expanded="false" signature="6:93" ph="..." />
-            <marker date="1552935261859" expanded="true" signature="116:1123" ph="{...}" />
-            <marker date="1552935261859" expanded="true" signature="156:1121" ph="{...}" />
-            <marker date="1552935261859" expanded="true" signature="200:792" ph="{...}" />
-            <marker date="1552935261859" expanded="true" signature="283:782" ph="{...}" />
-            <marker date="1552935261859" expanded="true" signature="383:488" ph="{...}" />
-            <marker date="1552935261859" expanded="true" signature="840:1115" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/World/Desert.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <marker date="1552936293567" expanded="false" signature="6:276" ph="..." />
-            <marker date="1552936293567" expanded="true" signature="306:8689" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="346:8687" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="760:1396" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="1433:2303" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="2372:2443" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="2515:2865" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="2633:2855" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="2923:3696" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="3216:3268" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="3332:3485" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="3363:3471" ph="/* D.Write(&quot;Clearing Sibling &quot; + sibling.FullName); ... */" />
-            <marker date="1552936293567" expanded="true" signature="3580:3642" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="3747:4375" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="3974:4210" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4100:4196" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4258:4365" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4405:4614" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4471:4564" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4693:5045" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="4777:5035" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5095:5394" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5256:5384" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5445:6587" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5500:6577" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5764:5926" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="5990:6563" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="6032:6404" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="6274:6382" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="6444:6545" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="6651:7425" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="6832:6961" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7003:7069" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7086:7167" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7199:7283" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7331:7415" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7497:8364" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7608:7882" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="7899:8019" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="8057:8123" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="8190:8258" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="8290:8354" ph="{...}" />
-            <marker date="1552936293567" expanded="true" signature="8395:8681" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1437,13 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
-          <folding>
-            <marker date="1552935171309" expanded="true" signature="6:53" ph="..." />
-            <marker date="1552935171309" expanded="true" signature="72:537" ph="{...}" />
-            <marker date="1552935171309" expanded="true" signature="112:535" ph="{...}" />
-            <marker date="1552935171309" expanded="true" signature="189:529" ph="{...}" />
-            <marker date="1552935171309" expanded="true" signature="277:366" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1451,17 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <marker date="1552919204900" expanded="false" signature="6:60" ph="..." />
-            <marker date="1552919204900" expanded="true" signature="94:1607" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="125:496" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="523:867" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="667:741" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="784:861" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="901:1605" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="978:1311" ph="{...}" />
-            <marker date="1552919204900" expanded="true" signature="1363:1599" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1469,141 +1296,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding>
-            <marker date="1552936108538" expanded="false" signature="6:148" ph="..." />
-            <marker date="1552936108538" expanded="true" signature="177:955" ph="{...}" />
-            <marker date="1552936108538" expanded="true" signature="211:953" ph="{...}" />
-            <marker date="1552936108538" expanded="true" signature="378:887" ph="{...}" />
-            <marker date="1552936108538" expanded="true" signature="927:947" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Game/ClueManager.cs">
+    <entry file="file://$PROJECT_DIR$/Caliban/World/UIDFactory.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding>
-            <marker date="1552936146957" expanded="false" signature="6:174" ph="..." />
-            <marker date="1552936146957" expanded="true" signature="203:2143" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="234:2141" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="513:626" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="712:1389" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="820:1239" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="1302:1379" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="1435:1554" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="1640:1719" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="1781:2009" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="1872:1999" ph="{...}" />
-            <marker date="1552936146957" expanded="true" signature="2047:2135" ph="{...}" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs">
+    <entry file="file://$PROJECT_DIR$/Caliban/OS/Windows.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-          <folding>
-            <marker date="1552776457465" expanded="false" signature="6:173" ph="..." />
-            <marker date="1552776457465" expanded="true" signature="202:3151" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="241:3149" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="478:608" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="677:1515" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="808:908" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="1631:2229" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="1657:2123" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2155:2219" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2274:2330" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2378:2582" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2437:2536" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2645:3039" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2712:2856" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="2951:3029" ph="{...}" />
-            <marker date="1552776457465" expanded="true" signature="3077:3143" ph="{...}" />
-          </folding>
+        <state relative-caret-position="856">
+          <caret line="125" column="55" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Game/Game.cs">
+    <entry file="file://$PROJECT_DIR$/TornMap/TornMapProgram.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="95" column="31" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
-          <folding>
-            <marker date="1552936681717" expanded="false" signature="6:227" ph="..." />
-            <marker date="1552936681717" expanded="true" signature="256:3619" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="284:381" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="404:3617" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="839:1105" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1134:1532" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1563:1769" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1624:1759" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1797:1854" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1883:1941" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="1974:2035" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="2084:2473" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="2552:2998" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="2640:2988" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="3035:3120" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="3159:3468" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="3198:3448" ph="{...}" />
-            <marker date="1552936681717" expanded="true" signature="3517:3611" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CalibanApp/CalibanProgram.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="764">
-          <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
-          <folding>
-            <marker date="1552936699977" expanded="false" signature="6:217" ph="..." />
-            <marker date="1552936699977" expanded="true" signature="240:5503" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="283:5501" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="360:474" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="605:3856" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="1304:3846" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="1353:3746" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="1465:1616" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="1674:1823" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="1881:1977" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="2036:2166" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="2195:2288" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="2420:2646" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="2675:2769" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="2900:3097" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="3126:3219" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="3353:3550" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="3931:4042" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="4107:4939" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="4145:4929" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="4990:5324" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="5041:5154" ph="{...}" />
-            <marker date="1552936699977" expanded="true" signature="5364:5495" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/Game/WaterManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2254">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-          <folding>
-            <marker date="1552938137991" expanded="false" signature="6:251" ph="..." />
-            <marker date="1552938137991" expanded="true" signature="280:3589" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="312:3587" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="630:1017" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="1097:1950" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="1181:1940" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="1400:1529" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="1997:2211" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="2079:2175" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="2272:2487" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="2517:2917" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="2991:3395" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="3447:3500" ph="{...}" />
-            <marker date="1552938137991" expanded="true" signature="3531:3581" ph="{...}" />
-          </folding>
+        <state relative-caret-position="322">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1614,10 +1327,284 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resources/Notes/fist.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resources/Notes/mouse.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resources/Notes/rhino.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resources/Notes/when.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TornMap/Map.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/World/WorldNode.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3082">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/World/WorldParameters.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalibanApp/CalibanProgram.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="994">
+          <caret line="168" column="25" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/CalibanClient.cs" />
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/CalibanClientBehaviour.cs" />
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Core/CalibanClientBehaviour.cs" />
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Core/CalibanClient.cs" />
+    <entry file="file://$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1127">
+          <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
+          <folding>
+            <marker date="1553018086522" expanded="false" signature="6:250" ph="..." />
+            <marker date="1553018086522" expanded="true" signature="280:4519" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="321:4517" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="490:581" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="731:1225" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="1288:1623" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="1689:1823" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="1900:2789" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="2318:2543" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="2599:2779" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="2854:3601" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="3007:3099" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="3380:3591" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="3689:4252" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="4040:4242" ph="{...}" />
+            <marker date="1553018086522" expanded="true" signature="4302:4511" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/Game/Game.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1955">
+          <caret line="93" column="35" selection-start-line="93" selection-start-column="35" selection-end-line="93" selection-end-column="35" />
+          <folding>
+            <marker date="1553093485752" expanded="false" signature="6:227" ph="..." />
+            <marker date="1553093485752" expanded="true" signature="284:381" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="404:3609" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="843:1109" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1138:1538" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1569:1774" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1630:1764" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1802:1859" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1888:1946" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="1979:2040" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="2089:2467" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="2546:2992" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="2634:2982" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="3029:3112" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="3151:3460" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="3190:3440" ph="{...}" />
+            <marker date="1553093485752" expanded="true" signature="3509:3603" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/World/World.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+          <folding>
+            <marker date="1553017144146" expanded="false" signature="6:276" ph="..." />
+            <marker date="1553017144146" expanded="true" signature="345:8620" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="689:1338" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="1375:2243" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="2312:2383" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="2455:2804" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="2573:2794" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="2862:3634" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="3154:3206" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="3270:3423" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="3301:3409" ph="/* D.Write(&quot;Clearing Sibling &quot; + sibling.FullName); ... */" />
+            <marker date="1553017144146" expanded="true" signature="3518:3580" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="3684:4312" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="3911:4147" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4037:4133" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4195:4302" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4342:4551" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4408:4501" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4630:4982" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="4714:4972" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5032:5331" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5193:5321" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5382:6524" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5437:6514" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5701:5863" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5927:6500" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="5969:6341" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="6211:6319" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="6381:6482" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="6588:7362" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="6769:6898" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="6940:7006" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7023:7104" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7136:7220" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7268:7352" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7434:8300" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7545:7818" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7835:7955" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="7993:8059" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="8126:8194" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="8226:8290" ph="{...}" />
+            <marker date="1553017144146" expanded="true" signature="8331:8614" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/Game/WaterManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2254">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <marker date="1553014215684" expanded="false" signature="6:251" ph="..." />
+            <marker date="1553014215684" expanded="true" signature="312:3586" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="630:1017" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="1097:1950" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="1181:1940" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="1400:1529" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="1997:2211" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="2079:2175" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="2271:2486" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="2516:2916" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="2990:3394" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="3446:3499" ph="{...}" />
+            <marker date="1553014215684" expanded="true" signature="3530:3580" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/Game/ClueManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding>
+            <marker date="1553016161361" expanded="false" signature="6:174" ph="..." />
+            <marker date="1553016161361" expanded="true" signature="234:2139" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="513:626" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="712:1387" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="820:1237" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="1300:1377" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="1433:1552" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="1638:1717" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="1779:2007" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="1870:1997" ph="{...}" />
+            <marker date="1553016161361" expanded="true" signature="2045:2133" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2139">
+          <caret line="100" column="47" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+          <folding>
+            <marker date="1553093721352" expanded="false" signature="6:197" ph="..." />
+            <marker date="1553093721352" expanded="true" signature="265:3931" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="568:698" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="767:1600" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="898:995" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="1709:2366" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="1735:2260" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2115:2246" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2292:2356" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2402:2458" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2496:2580" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2627:3109" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2681:2951" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2715:2823" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="2859:2937" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3158:3364" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3217:3317" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3427:3821" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3494:3638" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3733:3811" ph="{...}" />
+            <marker date="1553093721352" expanded="true" signature="3859:3925" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding>
+            <marker date="1552413910656" expanded="false" signature="6:90" ph="..." />
+            <marker date="1552413910656" expanded="true" signature="151:685" ph="{...}" />
+            <marker date="1552413910656" expanded="true" signature="205:679" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WaterMeter/WaterMeter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding>
+            <marker date="1552571996361" expanded="false" signature="6:259" ph="..." />
+            <marker date="1552571996361" expanded="true" signature="323:3894" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="737:969" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="1009:1535" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="1572:1898" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="1613:1888" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="1939:2997" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="2058:2791" ph="{...}" />
+            <marker date="1552571996361" expanded="false" signature="3007:3888" ph="networking" />
+            <marker date="1552571996361" expanded="true" signature="3092:3267" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="3341:3868" ph="{...}" />
+            <marker date="1552571996361" expanded="true" signature="3429:3858" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Caliban/Caliban.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="126" column="86" selection-start-line="126" selection-start-column="86" selection-end-line="126" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Caliban/Transport/ClientApp.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="92">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding>
             <marker date="1552936708937" expanded="false" signature="6:107" ph="..." />
             <marker date="1552936708937" expanded="true" signature="141:2817" ph="{...}" />
@@ -1639,95 +1626,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TornMap/TornMapProgram.cs">
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        <state relative-caret-position="230">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding>
-            <marker date="1552936762747" expanded="false" signature="6:178" ph="..." />
-            <marker date="1552936762747" expanded="true" signature="197:500" ph="{...}" />
-            <marker date="1552936762747" expanded="true" signature="240:498" ph="{...}" />
-            <marker date="1552936762747" expanded="true" signature="330:492" ph="{...}" />
+            <marker date="1553095046353" expanded="true" signature="54:199" ph="{...}" />
+            <marker date="1553095046353" expanded="true" signature="99:197" ph="{...}" />
+            <marker date="1553095046353" expanded="true" signature="158:191" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/World/UIDFactory.cs">
+    <entry file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-end-line="11" />
+        <state relative-caret-position="299">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding>
-            <marker date="1552578432291" expanded="false" signature="6:66" ph="..." />
-            <marker date="1552578432291" expanded="true" signature="136:831" ph="{...}" />
-            <marker date="1552578432291" expanded="true" signature="173:829" ph="{...}" />
-            <marker date="1552578432291" expanded="true" signature="404:823" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Caliban/OS/Windows.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="856">
-          <caret line="125" column="55" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="55" />
-          <folding>
-            <marker date="1552938975923" expanded="false" signature="6:70" ph="..." />
-            <marker date="1552938975923" expanded="true" signature="97:10930" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="131:10928" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="484:504" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="554:1405" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="751:1297" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="854:1283" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="1317:1395" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="1459:1698" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="1976:2192" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="2225:2841" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="3699:4305" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="4088:4268" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="6355:9583" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="6485:6637" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="6736:6764" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="6790:6990" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="6861:6976" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7016:7214" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7086:7200" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7245:7364" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7394:7513" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7563:7781" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7665:7767" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7826:8065" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="7931:8051" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8144:8263" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8342:8407" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8471:8539" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8603:8672" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8713:8842" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="8896:9173" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="9220:9320" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="9367:9573" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="9641:10562" ph="{...}" />
-            <marker date="1552938975923" expanded="true" signature="10618:10922" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TornMap/Map.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="63" column="98" selection-start-line="63" selection-start-column="98" selection-end-line="63" selection-end-column="98" />
-          <folding>
-            <marker date="1552939159652" expanded="false" signature="6:202" ph="..." />
-            <marker date="1552939159652" expanded="true" signature="221:3664" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="256:3662" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="730:1902" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="847:1084" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="1561:1892" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="1692:1786" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="1961:2394" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="2034:2384" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="2549:3014" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="2616:3004" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="3081:3289" ph="{...}" />
-            <marker date="1552939159652" expanded="true" signature="3363:3656" ph="{...}" />
+            <marker date="1553095040759" expanded="false" signature="6:137" ph="..." />
+            <marker date="1553095040759" expanded="true" signature="162:480" ph="{...}" />
+            <marker date="1553095040759" expanded="true" signature="217:478" ph="{...}" />
+            <marker date="1553095040759" expanded="true" signature="267:419" ph="{...}" />
+            <marker date="1553095040759" expanded="true" signature="435:474" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -39,9 +39,9 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 576
-    height: 796
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+    height: 844
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -64,9 +64,9 @@ MonoBehaviour:
     x: 1729
     y: 0
     width: 831
-    height: 796
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+    height: 844
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -92,7 +92,7 @@ MonoBehaviour:
     x: 0
     y: 0
     width: 2560
-    height: 796
+    height: 844
   m_MinSize: {x: 483, y: 121}
   m_MaxSize: {x: 12008, y: 4021}
   vertical: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
     x: 576
     y: 0
     width: 1153
-    height: 796
+    height: 844
   m_MinSize: {x: 104, y: 121}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 13}
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 796
+    y: 844
     width: 2560
-    height: 511
+    height: 463
   m_MinSize: {x: 230, y: 271}
   m_MaxSize: {x: 10000, y: 10021}
   m_ActualView: {fileID: 16}
@@ -194,7 +194,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1357
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 442}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &9
 MonoBehaviour:
@@ -404,7 +404,7 @@ MonoBehaviour:
     x: 578
     y: 92
     width: 1149
-    height: 775
+    height: 823
   m_SceneLighting: 1
   lastFramingTime: 2182.5749539060694
   m_2DMode: 0
@@ -475,11 +475,11 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: -30269
-    y: -31951
+    x: 1731
+    y: 92
     width: 829
-    height: 775
-  m_ScrollPosition: {x: 0, y: 0}
+    height: 823
+  m_ScrollPosition: {x: 0, y: 200.95508}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 266
@@ -511,12 +511,12 @@ MonoBehaviour:
     x: 0
     y: 92
     width: 574
-    height: 775
+    height: 823
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: eaffffff
+    m_SelectedIDs: 40010000
     m_LastClickedID: 0
-    m_ExpandedIDs: f6ecffff98edffffa8eeffff6cfbffff00000000
+    m_ExpandedIDs: 62f6ffff04f7ffff10f8ffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -532,7 +532,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 2}
     m_SearchString: 
   m_ExpandedScenes:
   - SampleScene
@@ -562,9 +562,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 888
+    y: 936
     width: 2560
-    height: 490
+    height: 442
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -577,19 +577,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Plugins
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Plugins
   m_LastFoldersGridSize: 16
   m_LastProjectPath: A:\Caliban\CalibanUnity
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 32260000
-    m_LastClickedID: 9778
-    m_ExpandedIDs: 3226000000ca9a3bffffff7f
+    m_SelectedIDs: b2260000
+    m_LastClickedID: 9906
+    m_ExpandedIDs: 000000000e260000ca260000d026000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -617,7 +617,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000000e260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000a62b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -771,6 +771,6 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 618
+    y: 936
     width: 2560
-    height: 760
+    height: 442

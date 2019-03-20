@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 
 namespace Caliban.Core.World
 {
-    public class DesertGenerator
+    public static class ChunkGenerator
     {        
-        private List<string> folderIDs = new List<string>();
+        private static readonly List<string> folderIDs = new List<string>();
         private static readonly string[] DesertNames = new string[4]
         {
             "sand",
@@ -21,15 +21,15 @@ namespace Caliban.Core.World
             "dust"
         };
         
-        readonly Random r = new Random(Guid.NewGuid().GetHashCode());
+        static readonly Random r = new Random(Guid.NewGuid().GetHashCode());
 
-        public DesertNode GenerateDataNodes()
+        public static WorldNode GenerateChunk(ChunkType type)
         {
-            if (!Directory.Exists(DesertParameters.DesertRoot.FullName))
-                Directory.CreateDirectory(DesertParameters.DesertRoot.FullName);
+            if (!Directory.Exists(WorldParameters.WorldRoot.FullName))
+                Directory.CreateDirectory(WorldParameters.WorldRoot.FullName);
 
-            DesertNode rootNode = new DesertNode(null,DesertParameters.DesertRoot.FullName);
-            GenerateDesertNodeData(rootNode, DesertParameters.DesertDepth);
+            WorldNode rootNode = new WorldNode(null,WorldParameters.WorldRoot.FullName);
+            GenerateDesertNodeData(rootNode, WorldParameters.DesertDepth);
 
             DistributeWater(rootNode);
             SpawnVictory(rootNode);
@@ -39,36 +39,34 @@ namespace Caliban.Core.World
             return rootNode;
         }
 
-        private void SpawnVictory(DesertNode _rootNode)
+        private static void SpawnVictory(WorldNode _rootNode)
         {
-            var deepestNodes = _rootNode.GetAllNodesAtDepth(DesertParameters.DesertDepth);
+            var deepestNodes = _rootNode.GetAllNodesAtDepth(WorldParameters.DesertDepth);
             int random = r.Next(0, deepestNodes.Count);
             deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY,"SimpleVictory.exe");
            D.Write("Adding victory to " + deepestNodes[random].FullName);
         }
 
-        private void DistributeWater(DesertNode _rootNode)
+        private static void DistributeWater(WorldNode _rootNode)
         {
-          for(int x = 0; x <= DesertParameters.DesertDepth; x ++)
-            AddWaterLevelAtDepth(_rootNode,x);
-         
+          for(int x = 0; x <= WorldParameters.DesertDepth; x ++)
+            AddWaterLevelAtDepth(_rootNode,x);  
         }
 
-        private void AddWaterLevelAtDepth(DesertNode _rootNode,int d)
+        private static void AddWaterLevelAtDepth(WorldNode _rootNode,int d)
         {
             var nodes = _rootNode.GetAllNodesAtDepth(d);
             if (nodes == null) return;
-         
 
-            if (!DesertParameters.WaterLevels.ContainsKey(d))
+            if (!WorldParameters.WaterLevels.ContainsKey(d))
                 return;
             
-            int amt = (int) Math.Floor(nodes.Count * DesertParameters.WaterLevels[d]);
+            int amt = (int) Math.Floor(nodes.Count * WorldParameters.WaterLevels[d]);
             //int amt = nodes.Count-1;
-            List<int> waterNodes = new List<int>();
-            int number;
+            var waterNodes = new List<int>();
             for (int i = 0; i < amt; i++)
             {
+                int number;
                 do {
                     number = r.Next(1, nodes.Count);
                 } while (waterNodes.Contains(number));
@@ -82,7 +80,7 @@ namespace Caliban.Core.World
             }
         }
 
-        private static void PrintDebugInfo(DesertNode _rootNode)
+        private static void PrintDebugInfo(WorldNode _rootNode)
         {
             var json = JsonConvert.SerializeObject(_rootNode, Formatting.Indented,
                 new JsonSerializerSettings
@@ -101,25 +99,24 @@ namespace Caliban.Core.World
             }
         }
 
-        private void GenerateDesertNodeData(DesertNode _parent, int _myMaxDepth)
+        private static void GenerateDesertNodeData(WorldNode _parent, int _myMaxDepth)
         {
             if (_myMaxDepth == 0)
                 return;
 
             int lowEnd = (_myMaxDepth - 1).Clamp(0, int.MaxValue);
             var newDepth = _myMaxDepth - 1;
-            var numberOfChildren = Math.Abs( r.Next(DesertParameters.DesertWidth - 2, DesertParameters.DesertWidth));
+            var numberOfChildren = Math.Abs( r.Next(WorldParameters.DesertWidth - 2, WorldParameters.DesertWidth));
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var newDir = new DesertNode(_parent, GetNewFolderName());
+                var newDir = new WorldNode(_parent, GetNewFolderName());
                 _parent.AddChild(newDir);
                  GenerateDesertNodeData(newDir, newDepth);
             }
         }
 
-        private string GetNewFolderName()
+        private static string GetNewFolderName()
         {
-            var r = new Random(Guid.NewGuid().GetHashCode());
             var baseName = DesertNames[r.Next(DesertNames.Length)];
             var newFolderName = baseName + "_" +  UIDFactory.GetNewUID(8, folderIDs);
 
