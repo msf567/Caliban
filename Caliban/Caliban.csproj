@@ -74,11 +74,11 @@
     <Compile Include="Utility\Singleton.cs" />
     <Compile Include="OS\ExplorerWatcher.cs" />
     <Compile Include="Utility\Wallpaper.cs" />
-    <Compile Include="World\DesertGenerator.cs" />
-    <Compile Include="World\Desert.cs" />
+      <Compile Include="World\ChunkGenerator.cs"/>
+      <Compile Include="World\World.cs"/>
       <Compile Include="World\UIDFactory.cs"/>
-    <Compile Include="World\DesertNode.cs" />
-    <Compile Include="World\DesertParameters.cs" />
+      <Compile Include="World\WorldNode.cs"/>
+      <Compile Include="World\WorldParameters.cs"/>
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\ModuleLoader.cs" />
       <Compile Include="Game\WaterManager.cs"/>
@@ -122,7 +122,8 @@
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
     </Target>
-    <Target Name="AfterBuild">
-    </Target>
     -->
+    <Target Name="AfterBuild">
+        <Exec Command="copy /y ..\Builds\Caliban.Core.dll ..\CalibanUnity\Assets\Plugins"/>
+    </Target>
 </Project>

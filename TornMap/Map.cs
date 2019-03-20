@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -16,9 +15,9 @@ namespace TornMap
         private Random r = new Random(Guid.NewGuid().GetHashCode());
         private string baseClueLoc = "";
 
-        private readonly int WindowWidth;
+        private readonly int windowWidth;
         private const int WindowHeight = 1;
-        private float DecayLevel = 0.98f;
+        private float decayLevel = 0.98f;
         private const string Title = "░or█upt░d █ap - █ig█t Cl░ck t█ Dec░d█";
 
 
@@ -36,9 +35,9 @@ namespace TornMap
                 Thread.Sleep(50);
             Console.Title = "░or█upt░d █ap";
 
-            WindowWidth = baseClueLoc.Length;
-            var renderingWindow = new RenderingWindow(Title, WindowWidth, WindowHeight);
-            var renderingBuffer = new RenderingBuffer(WindowWidth, WindowHeight);
+            windowWidth = baseClueLoc.Length;
+            var renderingWindow = new RenderingWindow(Title, windowWidth, WindowHeight);
+            var renderingBuffer = new RenderingBuffer(windowWidth, WindowHeight);
             Console.OutputEncoding = Encoding.UTF8;
 
             //Console.WriteLine(GetString(baseClueLoc));
@@ -60,28 +59,27 @@ namespace TornMap
         {
             if (_m.Message == MouseMessages.WM_RBUTTONDOWN)
             {
-                Windows.RECT myRect = new Windows.RECT();
-                Windows.GetWindowRect(Windows.GetConsoleWindow(), out myRect);
+                Windows.GetWindowRect(Windows.GetConsoleWindow(), out var myRect);
 
                 if (_m.Point.X > myRect.Left && _m.Point.X < myRect.Right && _m.Point.Y > myRect.Top &&
                     _m.Point.Y < myRect.Bottom)
                 {
-                    DecayLevel -= 0.0075f;
-                    if (DecayLevel < 0.1f)
-                        DecayLevel = 0.1f;
+                    decayLevel -= 0.0075f;
+                    if (decayLevel < 0.1f)
+                        decayLevel = 0.1f;
                 }
             }
         }
 
-        private static string Chars = "abcdefghijklmnopqrstuvwxyz0987654321";
+        private static readonly string _chars = "abcdefghijklmnopqrstuvwxyz0987654321";
 
         private void DrawCorruptedString(RenderingBuffer _renderingBuffer)
         {
             for (var x = 0; x < baseClueLoc.Length; x++)
             {
-                var myChar = r.NextDouble() < 0.5 ? Chars[r.Next(0, Chars.Length)] : baseClueLoc[x];
+                var myChar = r.NextDouble() < 0.5 ? _chars[r.Next(0, _chars.Length)] : baseClueLoc[x];
                 _renderingBuffer.SetPixel(x, 0,
-                    r.NextDouble() < DecayLevel
+                    r.NextDouble() < decayLevel
                         ? new RenderingPixel(' ', ConsoleColor.Black, ConsoleColor.Black)
                         : new RenderingPixel(myChar, ConsoleColor.White, ConsoleColor.Black));
             }

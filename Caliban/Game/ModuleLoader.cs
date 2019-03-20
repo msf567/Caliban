@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 
@@ -12,8 +13,9 @@ namespace Caliban.Core.Game
     {
         private static readonly List<string> LoadingClients = new List<string>();
         private static List<string> SpawnedModules = new List<string>();
-        
-        public static void WaitForClientApp(string _clientAppName)
+        private static List<Process> SpawnedProcs = new List<Process>();
+
+        private static void WaitForClientApp(string _clientAppName)
         {
             if (!LoadingClients.Contains(_clientAppName))
                 LoadingClients.Add(_clientAppName);
@@ -24,7 +26,7 @@ namespace Caliban.Core.Game
             Stream resourceStream = Treasures.Treasures.GetStream(_processName);
             if (resourceStream == null)
             {
-                Console.WriteLine("No exe");   
+                Console.WriteLine("No exe");
                 return;
             }
 
@@ -38,22 +40,25 @@ namespace Caliban.Core.Game
             Assembly exeAssembly = Assembly.Load(resourcesBuffer);
             MethodInfo method = exeAssembly.EntryPoint;
             if (method == null) return;
-            object[] parameters = method.GetParameters().Length == 0 ? null : new object[] { new string[0] };
+            object[] parameters = method.GetParameters().Length == 0 ? null : new object[] {new string[0]};
             method.Invoke(null, parameters);
         }
-        
-        public static void LoadModuleAndWait(string _processName, string _clientAppName,string _args = "")
+
+        public static void LoadModuleAndWait(string _processName, string _clientAppName, string _args = "")
         {
             try
             {
-                Treasures.Treasures.Spawn(AppContext.BaseDirectory,TreasureType.SIMPLE, _processName);
+                Treasures.Treasures.Spawn(AppContext.BaseDirectory, TreasureType.SIMPLE, _processName);
                 SpawnedModules.Add(Path.Combine(AppContext.BaseDirectory, _processName));
-                
+
                 if (!File.Exists(_processName))
                     return;
-                    Process p = Process.Start(_processName,_args);
+                Process p = Process.Start(_processName, _args);
                 if (p != null)
+                {
                     WaitForClientApp(_clientAppName);
+                    SpawnedProcs.Add(p);
+                }
             }
             catch (Exception e)
             {
@@ -61,19 +66,46 @@ namespace Caliban.Core.Game
             }
         }
 
-        
         public static void Clear()
         {
             LoadingClients.Clear();
         }
 
-        public static void DeleteModuleFiles()
+        public static void Dispose()
+        {
+            KillModuleProcs();
+            DeleteModuleFiles();
+        }
+
+        private static void KillModuleProcs()
+        {
+            foreach (var p in SpawnedProcs)
+            {
+                try
+                {
+                    if (!p.HasExited)
+                        p.Kill();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            while(SpawnedProcs.Find(_e => !_e.HasExited) != null)
+                Thread.Sleep(50);
+            
+            SpawnedProcs.Clear();
+        }
+
+        private static void DeleteModuleFiles()
         {
             foreach (string s in SpawnedModules)
             {
-                if(File.Exists(s))
+                if (File.Exists(s))
                     File.Delete(s);
             }
+
             SpawnedModules.Clear();
         }
 

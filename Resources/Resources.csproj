@@ -64,5 +64,12 @@
     <EmbeddedResource Include="Resources\Note.exe" />
     <EmbeddedResource Include="Resources\WaterMeter.exe" />
   </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\CU.exe"/>
+        <Content Include="Resources\Notes\fist.txt"/>
+        <Content Include="Resources\Notes\mouse.txt"/>
+        <Content Include="Resources\Notes\rhino.txt"/>
+        <Content Include="Resources\Notes\when.txt"/>
+    </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

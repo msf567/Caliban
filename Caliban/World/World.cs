@@ -12,21 +12,20 @@ using Caliban.Core.Utility;
 
 namespace Caliban.Core.World
 {
-    public class Desert : IDisposable
+    public class World : IDisposable
     {
         private List<Tuple<string, string, int>> consumedTreasures = new List<Tuple<string, string, int>>();
-        private DesertGenerator generator = new DesertGenerator();
         private ExplorerWatcher explorerWatcher;
         private FileSystemWatcher fileSystemWatcher;
-        public DesertNode DesertRoot;
+        public WorldNode WorldRoot;
         private readonly ClueManager clueManager;
 
-        public Desert(ServerTerminal _s)
+        public World(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
-            ClearNode(DesertParameters.DesertRoot.FullName);
-            DesertRoot = generator.GenerateDataNodes();
-            var victoryPath = DesertRoot.GetAllNodes()
+            ClearNode(WorldParameters.WorldRoot.FullName);
+            WorldRoot = ChunkGenerator.GenerateChunk(ChunkType.DESERT);
+            var victoryPath = WorldRoot.GetAllNodes()
                 .Find(_e => _e.Treasures.Find(_nodeTreasure => _nodeTreasure.type == TreasureType.SIMPLE_VICTORY) !=
                             null)
                 .FullName;
@@ -44,7 +43,7 @@ namespace Caliban.Core.World
             explorerWatcher = new ExplorerWatcher();
             explorerWatcher.OnNewExplorerFolder += OnNewExplorerNav;
 
-            fileSystemWatcher = new FileSystemWatcher(DesertParameters.DesertRoot.FullName.Replace(@"\\?\", ""));
+            fileSystemWatcher = new FileSystemWatcher(WorldParameters.WorldRoot.FullName.Replace(@"\\?\", ""));
             fileSystemWatcher.IncludeSubdirectories = true;
             fileSystemWatcher.NotifyFilter = NotifyFilters.LastAccess
                                              | NotifyFilters.LastWrite
@@ -67,7 +66,7 @@ namespace Caliban.Core.World
             if (_e.ChangeType == WatcherChangeTypes.Deleted || _e.ChangeType == WatcherChangeTypes.Changed)
             {
                 var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
-                var node = DesertRoot.GetNode(folder);
+                var node = WorldRoot.GetNode(folder);
                 RenderNode(node?.ParentNode);
             }
         }
@@ -79,7 +78,7 @@ namespace Caliban.Core.World
 
             var folder = Path.GetFileName(_newfolder.TrimEnd(Path.DirectorySeparatorChar));
 
-            var currentNode = DesertRoot.GetNode(folder);
+            var currentNode = WorldRoot.GetNode(folder);
             if (currentNode == null)
             {
                 return;
@@ -100,7 +99,7 @@ namespace Caliban.Core.World
             ClueManager.FolderNav(folder);
         }
 
-        private void RenderNode(DesertNode _node)
+        private void RenderNode(WorldNode _node)
         {
             if (Game.Game.CurrentGame.State != GameState.IN_PROGRESS || _node == null)
                 return;
@@ -227,7 +226,7 @@ namespace Caliban.Core.World
             {
                 var nodeName = Path.GetFileName(fileInfo.Directory.Name.TrimEnd(Path.DirectorySeparatorChar));
                 string fileName = Path.GetFileName(_filePath);
-                DesertRoot.GetNode(nodeName)?.DeleteTreasure(fileName);
+                WorldRoot.GetNode(nodeName)?.DeleteTreasure(fileName);
             }
 
             try
@@ -258,8 +257,8 @@ namespace Caliban.Core.World
             ClueManager.Dispose();
             explorerWatcher.Dispose();
             fileSystemWatcher.Dispose();
-            ClearNode(DesertParameters.DesertRoot.FullName);
-            DesertRoot = null;
+            ClearNode(WorldParameters.WorldRoot.FullName);
+            WorldRoot = null;
         }
     }
 }

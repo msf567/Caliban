@@ -65,7 +65,7 @@ namespace Caliban.Core.Game
             return legal;
         }
 
-        public static void AddWaterPuddle(DesertNode _node)
+        public static void AddWaterPuddle(WorldNode _node)
         {
             string newID = UIDFactory.GetNewUID(8, waterIDs);
             string waterName = "WaterPuddle_" + newID + ".exe";

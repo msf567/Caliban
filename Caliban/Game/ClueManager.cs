@@ -25,7 +25,7 @@ namespace Caliban.Core.Game
             var m = Messages.Parse(_message);
             if (m.Type == MessageType.MAP_LOCAITON)
             {
-                string trimmedBaseLoc = DesertParameters.DesertRoot.FullName.Replace(@"\\?\", "");
+                string trimmedBaseLoc = WorldParameters.WorldRoot.FullName.Replace(@"\\?\", "");
                 string trimmedLoc = m.Value.Replace(trimmedBaseLoc, "").TrimEnd(Path.DirectorySeparatorChar);
                 if (MapLocations.ContainsKey(trimmedLoc))
                     server.SendMessageToClient(m.Value, Messages.Build(MessageType.MAP_LOCAITON,MapLocations[trimmedLoc]));

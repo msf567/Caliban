@@ -4,7 +4,15 @@ using System.IO;
 
 namespace Caliban.Core.World
 {
-    public static class DesertParameters
+    public enum ChunkType
+    {
+        DESERT,
+        CITY,
+        CAVE,
+        OCEAN,
+        OASIS
+    }
+    public static class WorldParameters
     {
         public static readonly IDictionary<int, float> WaterLevels = new Dictionary<int, float>
         {
@@ -17,14 +25,14 @@ namespace Caliban.Core.World
             {6, 0.5f}
         };
 
-        public static readonly DirectoryInfo DesertRoot;
+        public static readonly DirectoryInfo WorldRoot;
         public static int DesertWidth = 5;
         public static int DesertDepth = 5;
 
-        static DesertParameters()
+        static WorldParameters()
         {
             string path =@"\\?\" +  Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            DesertRoot = new DirectoryInfo(Path.Combine(path, "Desert"));
+            WorldRoot = new DirectoryInfo(Path.Combine(path, "Desert"));
         }
     }
 }

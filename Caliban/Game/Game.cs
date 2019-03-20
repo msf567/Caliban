@@ -24,7 +24,7 @@ namespace Caliban.Core.Game
         private readonly ServerTerminal server;
         private Thread updateLoop;
         private WaterManager waterManager;
-        private Desert desert;
+        private World.World world;
 
         public static Game CurrentGame = new Game(false);
         public GameState State = GameState.NOT_STARTED;
@@ -48,19 +48,19 @@ namespace Caliban.Core.Game
         {
             SetState(GameState.IN_PROGRESS);
             waterManager = new WaterManager(server);
-            desert = new Desert(server);
+            world = new World.World(server);
             updateLoop = new Thread(Update);
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-            //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity");
+            ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity");
         }
 
         private void Update()
         {
             while (State == GameState.IN_PROGRESS)
             {
-                desert?.Update();
+                world?.Update();
                 waterManager.Update();
                 Thread.Sleep(50);
             }
@@ -89,9 +89,9 @@ namespace Caliban.Core.Game
             Thread.Sleep(500);
 
             waterManager?.Dispose();
-            desert?.Dispose();
+            world?.Dispose();
 
-            ModuleLoader.DeleteModuleFiles();
+            ModuleLoader.Dispose();
             server.Close();
             if (_closeExplorers)
                 CloseExplorers();
@@ -117,7 +117,7 @@ namespace Caliban.Core.Game
 
         private void OpenExplorer()
         {
-            Process.Start(DesertParameters.DesertRoot.FullName);
+            Process.Start(WorldParameters.WorldRoot.FullName);
         }
 
         private void CloseExplorers()
