@@ -74,19 +74,6 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
       </e>
-      <e p="CalibanUnity" t="IncludeRecursive">
-        <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
-        <e p="Assets\Scripts" t="Include">
-          <e p="Caliban" t="Include">
-            <e p="Unity" t="Include">
-              <e p="CalibanClient.cs" t="Include" />
-              <e p="CalibanClientBehaviour.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="Temp\bin" t="ExcludeRecursive" />
-      </e>
       <e p="DebugLog" t="IncludeRecursive">
         <e p="DebugLog.csproj" t="IncludeRecursive" />
         <e p="DebugLogProgram.cs" t="Include" />
@@ -139,6 +126,7 @@
           <e p="WaterPuddle.exe" t="Include" />
         </e>
         <e p="Resources.csproj" t="IncludeRecursive" />
+        <e p="unitypack.bat" t="Include" />
       </e>
       <e p="Scratch" t="IncludeRecursive">
         <e p="obj" t="ExcludeRecursive" />

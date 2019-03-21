@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Caliban.Core.Utility;
+using System.Text;
 
 namespace Caliban.Core.Transport
 {
@@ -44,7 +44,7 @@ namespace Caliban.Core.Transport
         public static byte[] Build(MessageType _type, string _message)
         {
             var typeData = BitConverter.GetBytes((uint) _type);
-            var messageData = System.Text.Encoding.ASCII.GetBytes(_message);
+            var messageData = Encoding.ASCII.GetBytes(_message);
             byte[] retMsg = new byte[4 + messageData.Length];
             typeData.CopyTo(retMsg, 0);
             messageData.CopyTo(retMsg, 4);
@@ -54,8 +54,18 @@ namespace Caliban.Core.Transport
         public static Message Parse(byte[] _bytes)
         {
             var type = (MessageType) BitConverter.ToInt32(_bytes.Take(4).ToArray(), 0);
-            var param = _bytes.Skip(4).Take(_bytes.Length - 4).ToArray().String();
+            var param = String( _bytes.Skip(4).Take(_bytes.Length - 4).ToArray());
             return new Message(type, param);
+        }
+        
+        private static string String(byte[] _bytes)
+        {
+            var chars = new char[_bytes.Length];
+            var d = Encoding.UTF8.GetDecoder();
+            d.GetChars(_bytes, 0, _bytes.Length, chars, 0);
+            var szData = new string(chars);
+
+            return szData;
         }
     }
 }

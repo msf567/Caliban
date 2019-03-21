@@ -13,7 +13,6 @@ namespace Caliban.Core.Game
     {
         private static readonly List<string> LoadingClients = new List<string>();
         private static List<string> SpawnedModules = new List<string>();
-        private static List<Process> SpawnedProcs = new List<Process>();
 
         private static void WaitForClientApp(string _clientAppName)
         {
@@ -57,7 +56,6 @@ namespace Caliban.Core.Game
                 if (p != null)
                 {
                     WaitForClientApp(_clientAppName);
-                    SpawnedProcs.Add(p);
                 }
             }
             catch (Exception e)
@@ -71,31 +69,11 @@ namespace Caliban.Core.Game
             LoadingClients.Clear();
         }
 
-        public static void Dispose()
+        public static void Clean()
         {
-            KillModuleProcs();
+            // KillModuleProcs();
             DeleteModuleFiles();
-        }
-
-        private static void KillModuleProcs()
-        {
-            foreach (var p in SpawnedProcs)
-            {
-                try
-                {
-                    if (!p.HasExited)
-                        p.Kill();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            }
-
-            while(SpawnedProcs.Find(_e => !_e.HasExited) != null)
-                Thread.Sleep(50);
             
-            SpawnedProcs.Clear();
         }
 
         private static void DeleteModuleFiles()
@@ -103,7 +81,14 @@ namespace Caliban.Core.Game
             foreach (string s in SpawnedModules)
             {
                 if (File.Exists(s))
-                    File.Delete(s);
+                    try
+                    {
+                        File.Delete(s);
+                    }
+                    catch (Exception e)
+                    {
+                       D.Write(e.Message);
+                    }
             }
 
             SpawnedModules.Clear();

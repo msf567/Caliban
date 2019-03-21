@@ -6,5 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SampleScene.unity
+    path: Assets/Caliban.unity
     guid: 43e92c2d2cd23d04096b3d6e07024054
+  m_configObjects: {}

@@ -26,20 +26,21 @@ namespace Caliban.Core.Game
         private WaterManager waterManager;
         private World.World world;
 
-        public static Game CurrentGame = new Game(false);
+        public static Game CurrentGame = new Game();
         public GameState State = GameState.NOT_STARTED;
 
         public delegate void GameStateChange(GameState _state);
 
         public static GameStateChange OnGameStateChange;
 
-        public Game(bool _debug)
+        public Game()
         {
+            
             server = new ServerTerminal();
             server.MessageReceived += ServerOnMessageReceived;
             server.StartListen(5678);
 
-            if (_debug)
+            if (D.debugMode)
                 D.Init(server);
             SetState(GameState.NOT_STARTED);
         }
@@ -53,7 +54,9 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-            ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity");
+            if(D.debugMode)
+                D.Write("Unity Debug Mode!");
+            ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
         }
 
         private void Update()
@@ -86,12 +89,12 @@ namespace Caliban.Core.Game
             SetState(GameState.NOT_STARTED);
 
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
 
             waterManager?.Dispose();
             world?.Dispose();
 
-            ModuleLoader.Dispose();
+            ModuleLoader.Clean();
             server.Close();
             if (_closeExplorers)
                 CloseExplorers();

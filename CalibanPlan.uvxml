@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Body CheckboxesVisible="False" OddBackgroundColor="#FFFFFFFF" EvenBackgroundColor="#FFFFFFFF" UseRowSeparator="false" RowSeparatorColor="#FFD0D0D0">
+  <Styles>
+    <Style Type="Level" Level="-1" />
+    <Style Type="Inline" FontSize="10" FontColor="#FF777777" />
+    <Style Type="Level" Level="1" />
+    <Style Type="Level" Level="2" />
+    <Style Type="Level" Level="3" />
+    <Style Type="Level" Level="4" />
+    <Style Type="Level" Level="5" />
+    <Style Type="Level" Level="6" />
+  </Styles>
+  <ColumnDefinitions Order="0">
+    <ColumnDefinition Name="Topic" Type="0" Width="2344.8" />
+  </ColumnDefinitions>
+  <Outline IsExpanded="True" IsChecked="False">
+    <Columns>
+      <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>04042981-d968-48a7-8c7b-cccc370069a7</s:Guid></FlowDocument.Tag><Paragraph>Worlds</Paragraph></FlowDocument></Note>
+    </Columns>
+    <Outline IsExpanded="True" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>aa0956d1-b500-44fb-ade1-e59b90155711</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Zones</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>c9f32c10-56e3-401c-96ae-b5332bf786c5</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Desert</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>960801f6-457a-487f-831c-19d609b908a3</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Locked Folder to Cave</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>e93e3e59-c3f5-468f-ad14-757dbd8e5aab</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sandstorms</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>f8635eb8-7487-4fae-b1b3-df96ef9469ed</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Water Depletion very quickly</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>bf462324-76c6-4b9d-8776-51d26132fcd0</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Cave</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>90d380de-d9e1-4675-8cce-dc511815e568</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">OS Darkness</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>71aafc0c-be2d-4fee-bbcf-0f3dd8b44f25</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Flashlight</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>617bae61-15b8-422a-bb2c-455370ceea68</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Ocean</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>de69a9e8-16fe-4442-a176-ae3d0eeb037d</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sailing</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>4efcf79b-5332-465b-a8e9-76b19deb72ec</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Navigational Chart</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>37fbee76-e0ff-4008-af71-5951b9f6ca6b</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">City</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>cc3652e1-38ab-4153-99db-ed3bdcbbc61e</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Notes</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>77d4a8b6-1297-4fd1-bc90-5af96ad93ffb</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Buildings</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>d183cdf6-c099-484f-8846-dd3b89d10b6e</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Combat</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>2bbb7489-d1c9-4937-98d0-8324222483aa</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Music Club</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>c40ba320-ea48-44c6-8cd6-af3205604bab</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Garden</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>e74d8dc6-1b79-42df-8f20-fb3c2035a2d0</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Flower Garden</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>4289aa9c-7901-43c0-ad20-e8cf25dc2934</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Music Box</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>20042c60-14f7-489c-a0a3-898311ffda76</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">CALIBAN'S Room</Paragraph></FlowDocument></Note>
+        </Columns>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>8c87d971-bc0a-4ed6-b334-7dad59a34511</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Final Level</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+        <Outline IsExpanded="False" IsChecked="False">
+          <Columns>
+            <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>0452202d-9cc4-4a46-9024-6b8a48db0fb7</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Delete CALIBAN</Paragraph></FlowDocument></Note>
+          </Columns>
+        </Outline>
+      </Outline>
+    </Outline>
+  </Outline>
+  <Outline IsExpanded="True" IsChecked="False">
+    <Columns>
+      <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>b450291b-63a2-4a64-a078-25d87fbf3bb1</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Features</Paragraph></FlowDocument></Note>
+    </Columns>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>9f522ef5-c240-4572-9fd3-19b50fc2aad2</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Trinkets</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>1f8e905e-32ea-48ed-80fa-214045fe004a</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sellable trinkets in the desert that belong in your inventory</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>a0d1ec7a-97dd-408a-8a7d-f0765e05a7bd</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Notes</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>94c2a1e2-1f9a-4013-a669-9525c3a18102</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Images</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>651fddfe-4b2b-40f3-bfea-8b1bdf071432</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Marketplace</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>9b088fdb-fc9e-4371-bc27-499ec9864b88</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Little merchant chat bot</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>487dc310-e5a8-4544-a418-5d2c1a809f87</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sell trinkets in your inventory</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>ee49b5b6-ecf5-4894-a8ff-41fd094283aa</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Buy Map Pieces and Increased Water Capacity</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>c629aba4-8d9e-448f-9dce-e9bed9707275</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Inventory</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>a7dc29f4-ba6d-4837-bbcc-dc4000fa907d</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Folder untouched by game</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>4f58ddba-1759-4a59-900b-c990a4b7d389</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Doesn't reset (but water will dissapear)</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>b583e4ce-f6c6-419b-b545-ab32fac9d34e</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Combat</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>65a30e17-47c6-4fc1-9bcb-d8a0fbbfc3c0</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Defeat this exe or lose water</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+  </Outline>
+  <Outline IsExpanded="True" IsChecked="False">
+    <Columns>
+      <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>bc6469ee-4ed7-48a2-8024-01a9a581662b</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Graphics</Paragraph></FlowDocument></Note>
+    </Columns>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>45615a12-e65f-4f74-8976-16d187d8bd83</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Unity Layers</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>8f0ed894-6d9c-4c2c-b010-5b2ed9e7de1d</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Darkness</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>9dc28c75-2467-4147-be87-3bc9c70c8d62</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sandstorm</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>f48fb993-d2b5-4d09-847d-0cab76be27a7</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Mouse Moving during Storms</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+  </Outline>
+  <Outline IsExpanded="False" IsChecked="False">
+    <Columns>
+      <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>f23ddf0b-68b7-434f-b1dd-49727b3cc250</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12" /></FlowDocument></Note>
+    </Columns>
+  </Outline>
+</Body>

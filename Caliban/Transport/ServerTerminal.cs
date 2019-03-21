@@ -8,7 +8,7 @@ using Caliban.Core.Utility;
 
 namespace Caliban.Core.Transport
 {
-    public class ServerTerminal 
+    public class ServerTerminal
     {
         public ServerTerminal()
         {
@@ -105,7 +105,7 @@ namespace Caliban.Core.Transport
             }
             else
             {
-                D.Log("Unknown client " + key + " has been disconncted!");
+                D.Write("Unknown client " + key + " has been disconncted!");
             }
 
             RaiseClientDisconnected(_socket);
@@ -113,14 +113,15 @@ namespace Caliban.Core.Transport
 
         private void RegisterClient(Socket _socket, string _name)
         {
-            D.Log("Registering " + _name);
             ConnectedClient c = MClients[_socket.Handle.ToInt64()];
             if (namedClients.ContainsKey(_name))
             {
+                D.Write("Registering another " + _name);
                 namedClients[_name].Add(c);
             }
             else
             {
+                D.Write("Registering " + _name);
                 namedClients.Add(_name, new List<ConnectedClient>());
                 namedClients[_name].Add(c);
             }
@@ -194,7 +195,7 @@ namespace Caliban.Core.Transport
             }
             catch (ObjectDisposedException)
             {
-                D.Log("Stop failed");
+                D.Write("Stop failed");
             }
         }
 
