@@ -124,6 +124,9 @@
     </Target>
     -->
     <Target Name="AfterBuild">
-        <Exec Command="copy /y ..\Builds\Caliban.Core.dll ..\CalibanUnity\Assets\Plugins"/>
+        <Exec Command="copy /y Transport ..\CalibanUnity\Assets\Scripts\Caliban\Transport"/>
+        <Exec Command="del ..\CalibanUnity\Assets\Scripts\Caliban\Transport\ServerTerminal.cs"/>
+        <Exec Command="copy /y Utility\StringEx.cs ..\CalibanUnity\Assets\Scripts\Caliban\Transport"/>
+
     </Target>
 </Project>

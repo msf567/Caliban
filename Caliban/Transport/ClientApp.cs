@@ -18,8 +18,9 @@ namespace Caliban.Core.Transport
 
         protected bool ShouldRegister = true;
 
-        protected bool IsConnected = false;
+        public bool IsConnected = false;
         protected bool IsReady = false;
+        public bool Registered = false;
 
         protected void SetClientReady()
         {
@@ -27,7 +28,11 @@ namespace Caliban.Core.Transport
             IsReady = true;
             if (ShouldRegister && IsConnected)
             {
-                SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
+                if (!Registered)
+                {
+                    SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
+                    Registered = true;
+                }
             }
         }
 
@@ -49,13 +54,11 @@ namespace Caliban.Core.Transport
             {
                 client.Connect(5678);
                 client.StartListen();
-
             }
             catch (SocketException)
             {
-                Console.WriteLine("Cound not connect to server!");
+                Console.WriteLine("Could not connect to server!");
             }
-            
         }
 
         protected void KillSelf(string _treasureName)
@@ -65,9 +68,9 @@ namespace Caliban.Core.Transport
             var exeName = AppDomain.CurrentDomain.FriendlyName;
             if (assemblyPath == null) return;
             var fullPath = Path.Combine(assemblyPath, exeName);
-            SendMessageToHost(Messages.Build(MessageType.CONSUME_TREASURE,_treasureName+ " " + fullPath + " " + pid));
+            SendMessageToHost(Messages.Build(MessageType.CONSUME_TREASURE, _treasureName + " " + fullPath + " " + pid));
         }
-        
+
         protected virtual void ClientOnMessageReceived(byte[] _message)
         {
             ////D.Write("Received Message " + Messages.Parse(message));
@@ -91,8 +94,11 @@ namespace Caliban.Core.Transport
         protected virtual void ClientOnConnected(Socket _socket)
         {
             IsConnected = true;
-            if (ShouldRegister)
+            if (ShouldRegister && !Registered)
+            {
                 SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
+                Registered = true;
+            }
         }
     }
 }

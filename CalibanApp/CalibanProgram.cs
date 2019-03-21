@@ -61,7 +61,7 @@ namespace CalibanMenu
                         }
                         else if (userKey == ConsoleKey.E)
                         {
-                            NewGame(false);
+                            NewGame();
                         }
 
                         else if (userKey == ConsoleKey.Q)
@@ -156,24 +156,25 @@ namespace CalibanMenu
         }
 
 
-        private static void NewGame(bool _debug)
+        private static void NewGame()
         {
             if (!ModuleLoader.IsReady())
             {
-                //D.Write("Waiting for modules to load...");
-                return;
+               // D.Write("Waiting for modules to load...");
+                //return;
             }
 
             CloseCurrentGame(false);
 
             ModuleLoader.Clear();
-            Game.CurrentGame = new Game(_debug);
+            D.Write("Modules Clear");
+            Game.CurrentGame = new Game();
+            D.Write("Game Created");
             Game.CurrentGame.Start();
         }
 
         private static void CloseApp()
         {
-            D.Close();
             Menu.Close();
             CloseCurrentGame();
             closeFlag = true;
