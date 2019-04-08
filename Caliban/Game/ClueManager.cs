@@ -29,6 +29,8 @@ namespace Caliban.Core.Game
                 string trimmedLoc = m.Value.Replace(trimmedBaseLoc, "").TrimEnd(Path.DirectorySeparatorChar);
                 if (MapLocations.ContainsKey(trimmedLoc))
                     server.SendMessageToClient(m.Value, Messages.Build(MessageType.MAP_LOCAITON,MapLocations[trimmedLoc]));
+                
+                server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START,""));
             }
             
             if (m.Type == MessageType.MAP_REVEAL)

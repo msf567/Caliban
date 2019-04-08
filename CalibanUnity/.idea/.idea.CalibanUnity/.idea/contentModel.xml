@@ -2,217 +2,11 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="A:\Caliban\CalibanUnity" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="FLStudioMania.txt" t="Include" />
-        <e p="MidiPlayer" t="Include">
-          <e p="Resources" t="Include">
-            <e p="MidiSet.txt" t="Include" />
-            <e p="SoundfontsDB" t="Include">
-              <e p="Fantasy Piano" t="Include">
-                <e p="Fantasy Piano.txt" t="Include" />
-              </e>
-              <e p="Masterpiece" t="Include">
-                <e p="Masterpiece.txt" t="Include" />
-              </e>
-              <e p="Moog1" t="Include">
-                <e p="Moog1.txt" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="Scenes For Demo" t="Include">
-            <e p="Demo CatchMusic" t="Include">
-              <e p="Script" t="Include">
-                <e p="Collide.cs" t="Include" />
-                <e p="ControlView.cs" t="Include" />
-                <e p="MusicView.cs" t="Include" />
-                <e p="NoteView.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Others Demos" t="Include">
-              <e p="Script" t="Include">
-                <e p="ExternalComponents" t="Include">
-                  <e p="FlyingCamera.cs" t="Include" />
-                  <e p="iTween.cs" t="Include" />
-                </e>
-                <e p="FlyOrMoveController.cs" t="Include" />
-                <e p="GUISelectSoundFont.cs" t="Include" />
-                <e p="HelperDemo.cs" t="Include" />
-                <e p="MainMenu.cs" t="Include" />
-                <e p="RotateObject.cs" t="Include" />
-                <e p="SceneHandler.cs" t="Include" />
-                <e p="TestMidiFilePlayerMulti" t="Include">
-                  <e p="LookPoint.cs" t="Include" />
-                  <e p="LookTarget.cs" t="Include" />
-                  <e p="MovePoint.cs" t="Include" />
-                </e>
-                <e p="TestMidiFilePlayerScripting.cs" t="Include" />
-                <e p="TestMidiStream.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Pro Demos" t="Include">
-              <e p="Script" t="Include">
-                <e p="TestMidiExternalPlayer.cs" t="Include" />
-                <e p="TestMidiListPlayer.cs" t="Include" />
-                <e p="TestMidiWriter.cs" t="Include" />
-                <e p="TestPopup.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Water" t="Include">
-              <e p="Water" t="Include">
-                <e p="Scripts" t="Include">
-                  <e p="Displace.cs" t="Include" />
-                  <e p="GerstnerDisplace.cs" t="Include" />
-                  <e p="MeshContainer.cs" t="Include" />
-                  <e p="PlanarReflection.cs" t="Include" />
-                  <e p="SpecularLighting.cs" t="Include" />
-                  <e p="Water.cs" t="Include" />
-                  <e p="WaterBase.cs" t="Include" />
-                  <e p="WaterTile.cs" t="Include" />
-                </e>
-                <e p="Shaders" t="Include">
-                  <e p="FXWaterPro.shader" t="Include" />
-                </e>
-              </e>
-              <e p="Water4" t="Include">
-                <e p="Shaders" t="Include">
-                  <e p="FXWater4Advanced.shader" t="Include" />
-                  <e p="FXWater4Simple.shader" t="Include" />
-                  <e p="WaterInclude.cginc" t="Include" />
-                </e>
-              </e>
-            </e>
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="Editor" t="Include">
-              <e p="AboutMPTK.cs" t="Include" />
-              <e p="GetFullVersion.cs" t="Include" />
-              <e p="MenuShortcut.cs" t="Include" />
-              <e p="MessagesEditor.cs" t="Include" />
-              <e p="MidiCommonEditor.cs" t="Include" />
-              <e p="MidiFilePlayerEditor.cs" t="Include" />
-              <e p="MidiFileSetupWindow.cs" t="Include" />
-              <e p="MidiStreamPlayerEditor.cs" t="Include" />
-              <e p="PopupListPatchs.cs" t="Include" />
-              <e p="Pro" t="Include">
-                <e p="ExtensionPro.cs" t="Include" />
-                <e p="MakeWave.cs" t="Include" />
-                <e p="MidiExternalPlayerEditor.cs" t="Include" />
-                <e p="MidiListPlayerEditor.cs" t="Include" />
-                <e p="MidiOptim.cs" t="Include" />
-                <e p="MidiPlayerGlobalEditor.cs" t="Include" />
-                <e p="SoundFontOptim.cs" t="Include" />
-              </e>
-              <e p="SelectMidiWindow.cs" t="Include" />
-              <e p="SoundFontSetupWindow.cs" t="Include" />
-              <e p="TextArea.cs" t="Include" />
-              <e p="ToolsEditor.cs" t="Include" />
-            </e>
-            <e p="MPTKGameObject" t="Include">
-              <e p="MidiFilePlayer.cs" t="Include" />
-              <e p="MidiPlayer.cs" t="Include" />
-              <e p="MidiPlayerGlobal.cs" t="Include" />
-              <e p="MidiStreamPlayer.cs" t="Include" />
-              <e p="MidiSynth.cs" t="Include" />
-              <e p="MPTKEvent.cs" t="Include" />
-              <e p="MPTKListItem.cs" t="Include" />
-              <e p="ToolsUnityEvent.cs" t="Include" />
-            </e>
-            <e p="MPTKMidi" t="Include">
-              <e p="MidiLoad.cs" t="Include" />
-              <e p="MidiScan.cs" t="Include" />
-              <e p="MidiSet.cs" t="Include" />
-              <e p="SoundFontInfo.cs" t="Include" />
-              <e p="TrackMidiEvent.cs" t="Include" />
-            </e>
-            <e p="MPTKSoundFont" t="Include">
-              <e p="fluid_channel.cs" t="Include" />
-              <e p="fluid_conv.cs" t="Include" />
-              <e p="fluid_env_data.cs" t="Include" />
-              <e p="fluid_gen_info.cs" t="Include" />
-              <e p="fluid_global.cs" t="Include" />
-              <e p="fluid_midi.cs" t="Include" />
-              <e p="fluid_tuning.cs" t="Include" />
-              <e p="fluid_voice.cs" t="Include" />
-              <e p="fluidsynth_LICENSE.txt" t="Include" />
-              <e p="fluisynth_AUTHORS.txt" t="Include" />
-              <e p="HiGen.cs" t="Include" />
-              <e p="HiInstrument.cs" t="Include" />
-              <e p="HiMod.cs" t="Include" />
-              <e p="HiPreset.cs" t="Include" />
-              <e p="HiSample.cs" t="Include" />
-              <e p="HiZone.cs" t="Include" />
-              <e p="ImBank.cs" t="Include" />
-              <e p="ImSoundFont.cs" t="Include" />
-              <e p="Pro" t="Include">
-                <e p="ImSoundFont.cs" t="Include" />
-                <e p="SFSave.cs" t="Include" />
-              </e>
-              <e p="SFFile.cs" t="Include" />
-              <e p="SFLoad.cs" t="Include" />
-            </e>
-            <e p="MPTKUtil" t="Include">
-              <e p="BuilderInfo.cs" t="Include" />
-              <e p="CustomStyle.cs" t="Include" />
-              <e p="DicAudioClip.cs" t="Include" />
-              <e p="HelperNote.cs" t="Include" />
-              <e p="PopupListItem.cs" t="Include" />
-            </e>
-            <e p="NAudio License.txt" t="Include" />
-            <e p="NAudio Midi" t="Include">
-              <e p="ChannelAfterTouchEvent.cs" t="Include" />
-              <e p="ControlChangeEvent.cs" t="Include" />
-              <e p="KeySignatureEvent.cs" t="Include" />
-              <e p="MergeSort.cs" t="Include" />
-              <e p="MetaEvent.cs" t="Include" />
-              <e p="MetaEventType.cs" t="Include" />
-              <e p="MidiCommandCode.cs" t="Include" />
-              <e p="MidiController.cs" t="Include" />
-              <e p="MidiEvent.cs" t="Include" />
-              <e p="MidiEventCollection.cs" t="Include" />
-              <e p="MidiEventComparer.cs" t="Include" />
-              <e p="MidiFile.cs" t="Include" />
-              <e p="MidiInMessageEventArgs.cs" t="Include" />
-              <e p="MidiMessage.cs" t="Include" />
-              <e p="NAudio License.txt" t="Include" />
-              <e p="NoteEvent.cs" t="Include" />
-              <e p="NoteOnEvent.cs" t="Include" />
-              <e p="PatchChangeEvent.cs" t="Include" />
-              <e p="PitchWheelChangeEvent.cs" t="Include" />
-              <e p="RawMetaEvent.cs" t="Include" />
-              <e p="SequencerSpecificEvent.cs" t="Include" />
-              <e p="SmpteOffsetEvent.cs" t="Include" />
-              <e p="SysexEvent.cs" t="Include" />
-              <e p="TempoEvent.cs" t="Include" />
-              <e p="TextEvent.cs" t="Include" />
-              <e p="TimeSignatureEvent.cs" t="Include" />
-              <e p="TrackSequenceNumberEvent.cs" t="Include" />
-            </e>
-            <e p="NAudio Utils" t="Include">
-              <e p="ByteEncoding.cs" t="Include" />
-            </e>
-            <e p="Pro" t="Include">
-              <e p="MidiExternalPlayer.cs" t="Include" />
-              <e p="MidiFileWriter.cs" t="Include" />
-              <e p="MidiListPlayer.cs" t="Include" />
-            </e>
-            <e p="Trinary Software" t="Include">
-              <e p="Timing.cs" t="Include" />
-            </e>
-          </e>
-          <e p="TutorialInfo" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="ReadmeEditor.cs" t="Include" />
-              </e>
-              <e p="Readme.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Caliban" t="Include">
-            <e p="Standstorm.cs" t="Include" />
+            <e p="Sandstorm.cs" t="Include" />
             <e p="Transport" t="Include">
               <e p="ClientApp.cs" t="Include" />
               <e p="ClientTerminal.cs" t="Include" />
@@ -225,7 +19,6 @@
             <e p="Unity" t="Include">
               <e p="CalibanClient.cs" t="Include" />
               <e p="CalibanClientBehaviour.cs" t="Include" />
-              <e p="D.cs" t="Include" />
             </e>
           </e>
           <e p="GlobalHook" t="Include">
@@ -238,15 +31,21 @@
           </e>
           <e p="GlobalInput.cs" t="Include" />
           <e p="MonoSingleton.cs" t="Include" />
+          <e p="PixelParticles.cs" t="Include" />
           <e p="ScreenScaler.cs" t="Include" />
           <e p="TransparentWindow.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="PixelParticle.shader" t="Include" />
         </e>
       </e>
       <e p="CalibanUnity.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
     <e p="C:\Users\CASE\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\CASE\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_CalibanUnity.-807124565.00" t="ExcludeRecursive" />

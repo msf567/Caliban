@@ -112,8 +112,6 @@ namespace WaterMeter
                     initialized = true;
                     waterLevel = (float) Math.Floor(float.Parse(m.Value)).Clamp(0, 100);
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 

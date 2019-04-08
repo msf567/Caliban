@@ -73,10 +73,8 @@
     <Content Include="Resources\Notes\when.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    
   <Target Name="BeforeBuild">
-      <Exec Command="unitypack.bat">
-      </Exec>
+    <Exec Command="unitypack.bat">
+    </Exec>
   </Target>
-    
 </Project>

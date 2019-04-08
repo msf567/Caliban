@@ -88,7 +88,7 @@ namespace GlobalHook
             if (nCode >= 0)
             {
                 //Marshall the data from callback.
-                HookManager.MouseLLHookStruct mouseHookStruct = (HookManager.MouseLLHookStruct)Marshal.PtrToStructure(lParam, typeof(HookManager.MouseLLHookStruct));
+                MouseLLHookStruct mouseHookStruct = (MouseLLHookStruct)Marshal.PtrToStructure(lParam, typeof(MouseLLHookStruct));
 
                 //detect button clicked
                 MouseButtons button = MouseButtons.None;
@@ -99,35 +99,35 @@ namespace GlobalHook
 
                 switch (wParam)
                 {
-                    case HookManager.WM_LBUTTONDOWN:
+                    case WM_LBUTTONDOWN:
                         mouseDown = true;
                         button = MouseButtons.Left;
                         clickCount = 1;
                         break;
-                    case HookManager.WM_LBUTTONUP:
+                    case WM_LBUTTONUP:
                         mouseUp = true;
                         button = MouseButtons.Left;
                         clickCount = 1;
                         break;
-                    case HookManager.WM_LBUTTONDBLCLK: 
+                    case WM_LBUTTONDBLCLK: 
                         button = MouseButtons.Left;
                         clickCount = 2;
                         break;
-                    case HookManager.WM_RBUTTONDOWN:
+                    case WM_RBUTTONDOWN:
                         mouseDown = true;
                         button = MouseButtons.Right;
                         clickCount = 1;
                         break;
-                    case HookManager.WM_RBUTTONUP:
+                    case WM_RBUTTONUP:
                         mouseUp = true;
                         button = MouseButtons.Right;
                         clickCount = 1;
                         break;
-                    case HookManager.WM_RBUTTONDBLCLK: 
+                    case WM_RBUTTONDBLCLK: 
                         button = MouseButtons.Right;
                         clickCount = 2;
                         break;
-                    case HookManager.WM_MOUSEWHEEL:
+                    case WM_MOUSEWHEEL:
                         //If the message is WM_MOUSEWHEEL, the high-order word of MouseData member is the wheel delta. 
                         //One wheel click is defined as WHEEL_DELTA, which is 120. 
                         //(value >> 16) & 0xffff; retrieves the high-order word from the given 32-bit value
@@ -150,54 +150,54 @@ namespace GlobalHook
                                                    mouseDelta);
 
                 //Mouse up
-                if (HookManager.s_MouseUp!=null && mouseUp)
+                if (s_MouseUp!=null && mouseUp)
                 {
-                    HookManager.s_MouseUp.Invoke(null, e);
+                    s_MouseUp.Invoke(null, e);
                 }
 
                 //Mouse down
-                if (HookManager.s_MouseDown != null && mouseDown)
+                if (s_MouseDown != null && mouseDown)
                 {
-                    HookManager.s_MouseDown.Invoke(null, e);
+                    s_MouseDown.Invoke(null, e);
                 }
 
                 //If someone listens to click and a click is heppened
-                if (HookManager.s_MouseClick != null && clickCount>0)
+                if (s_MouseClick != null && clickCount>0)
                 {
-                    HookManager.s_MouseClick.Invoke(null, e);
+                    s_MouseClick.Invoke(null, e);
                 }
 
                 //If someone listens to click and a click is heppened
-                if (HookManager.s_MouseClickExt != null && clickCount > 0)
+                if (s_MouseClickExt != null && clickCount > 0)
                 {
-                    HookManager.s_MouseClickExt.Invoke(null, e);
+                    s_MouseClickExt.Invoke(null, e);
                 }
 
                 //If someone listens to double click and a click is heppened
-                if (HookManager.s_MouseDoubleClick != null && clickCount == 2)
+                if (s_MouseDoubleClick != null && clickCount == 2)
                 {
-                    HookManager.s_MouseDoubleClick.Invoke(null, e);
+                    s_MouseDoubleClick.Invoke(null, e);
                 }
 
                 //Wheel was moved
-                if (HookManager.s_MouseWheel!=null && mouseDelta!=0)
+                if (s_MouseWheel!=null && mouseDelta!=0)
                 {
-                    HookManager.s_MouseWheel.Invoke(null, e);
+                    s_MouseWheel.Invoke(null, e);
                 }
 
                 //If someone listens to move and there was a change in coordinates raise move event
-                if ((HookManager.s_MouseMove!=null || HookManager.s_MouseMoveExt!=null) && (m_OldX != mouseHookStruct.Point.X || m_OldY != mouseHookStruct.Point.Y))
+                if ((s_MouseMove!=null || s_MouseMoveExt!=null) && (m_OldX != mouseHookStruct.Point.X || m_OldY != mouseHookStruct.Point.Y))
                 {
                     m_OldX = mouseHookStruct.Point.X;
                     m_OldY = mouseHookStruct.Point.Y;
-                    if (HookManager.s_MouseMove != null)
+                    if (s_MouseMove != null)
                     {
-                        HookManager.s_MouseMove.Invoke(null, e);
+                        s_MouseMove.Invoke(null, e);
                     }
 
-                    if (HookManager.s_MouseMoveExt != null)
+                    if (s_MouseMoveExt != null)
                     {
-                        HookManager.s_MouseMoveExt.Invoke(null, e);
+                        s_MouseMoveExt.Invoke(null, e);
                     }
                 }
 
@@ -208,7 +208,7 @@ namespace GlobalHook
             }
 
             //call next hook
-            return HookManager.CallNextHookEx(s_MouseHookHandle, nCode, wParam, lParam);
+            return CallNextHookEx(s_MouseHookHandle, nCode, wParam, lParam);
         }
 
         private static void EnsureSubscribedToGlobalMouseEvents()
@@ -219,12 +219,16 @@ namespace GlobalHook
                 //See comment of this field. To avoid GC to clean it up.
                 s_MouseDelegate = MouseHookProc;
                 //install hook
-                s_MouseHookHandle = HookManager.SetWindowsHookEx(
-                    HookManager.WH_MOUSE_LL,
-                    s_MouseDelegate,
-                    Marshal.GetHINSTANCE(
-                        Assembly.GetExecutingAssembly().GetModules()[0]),
-                    0);
+                using (System.Diagnostics.Process curProcess = System.Diagnostics.Process.GetCurrentProcess())
+                using (System.Diagnostics.ProcessModule curModule = curProcess.MainModule)
+                {
+                    s_MouseHookHandle = SetWindowsHookEx(
+                        WH_MOUSE_LL,
+                        s_MouseDelegate,
+                        GetModuleHandle(curModule.ModuleName),
+                        0);
+                }
+
                 //If SetWindowsHookEx fails.
                 if (s_MouseHookHandle == 0)
                 {
@@ -241,13 +245,13 @@ namespace GlobalHook
         private static void TryUnsubscribeFromGlobalMouseEvents()
         {
             //if no subsribers are registered unsubsribe from hook
-            if (HookManager.s_MouseClick == null &&
-                HookManager.s_MouseDown == null &&
-                HookManager.s_MouseMove == null &&
-                HookManager.s_MouseUp == null &&
-                HookManager.s_MouseClickExt == null &&
-                HookManager.s_MouseMoveExt == null &&
-                HookManager.s_MouseWheel == null)
+            if (s_MouseClick == null &&
+                s_MouseDown == null &&
+                s_MouseMove == null &&
+                s_MouseUp == null &&
+                s_MouseClickExt == null &&
+                s_MouseMoveExt == null &&
+                s_MouseWheel == null)
             {
                 ForceUnsunscribeFromGlobalMouseEvents();
             }
@@ -258,7 +262,7 @@ namespace GlobalHook
             if (s_MouseHookHandle != 0)
             {
                 //uninstall hook
-                int result = HookManager.UnhookWindowsHookEx(s_MouseHookHandle);
+                int result = UnhookWindowsHookEx(s_MouseHookHandle);
                 //reset invalid handle
                 s_MouseHookHandle = 0;
                 //Free up for GC
@@ -324,26 +328,26 @@ namespace GlobalHook
             if (nCode >= 0)
             {
                 //read structure KeyboardHookStruct at lParam
-                HookManager.KeyboardHookStruct MyKeyboardHookStruct = (HookManager.KeyboardHookStruct)Marshal.PtrToStructure(lParam, typeof(HookManager.KeyboardHookStruct));
+                KeyboardHookStruct MyKeyboardHookStruct = (KeyboardHookStruct)Marshal.PtrToStructure(lParam, typeof(KeyboardHookStruct));
                 //raise KeyDown
-                if (HookManager.s_KeyDown != null && (wParam == HookManager.WM_KEYDOWN || wParam == HookManager.WM_SYSKEYDOWN))
+                if (s_KeyDown != null && (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN))
                 {
                     Keys keyData = (Keys)MyKeyboardHookStruct.VirtualKeyCode;
                     KeyEventArgs e = new KeyEventArgs(keyData);
-                    HookManager.s_KeyDown.Invoke(null, e);
+                    s_KeyDown.Invoke(null, e);
                     handled = e.Handled;
                 }
 
                 // raise KeyPress
-                if (HookManager.s_KeyPress != null && wParam == HookManager.WM_KEYDOWN)
+                if (s_KeyPress != null && wParam == WM_KEYDOWN)
                 {
-                    bool isDownShift = ((HookManager.GetKeyState(HookManager.VK_SHIFT) & 0x80) == 0x80 ? true : false);
-                    bool isDownCapslock = (HookManager.GetKeyState(HookManager.VK_CAPITAL) != 0 ? true : false);
+                    bool isDownShift = ((GetKeyState(VK_SHIFT) & 0x80) == 0x80 ? true : false);
+                    bool isDownCapslock = (GetKeyState(VK_CAPITAL) != 0 ? true : false);
 
                     byte[] keyState = new byte[256];
-                    HookManager.GetKeyboardState(keyState);
+                    GetKeyboardState(keyState);
                     byte[] inBuffer = new byte[2];
-                    if (HookManager.ToAscii(MyKeyboardHookStruct.VirtualKeyCode,
+                    if (ToAscii(MyKeyboardHookStruct.VirtualKeyCode,
                               MyKeyboardHookStruct.ScanCode,
                               keyState,
                               inBuffer,
@@ -352,17 +356,17 @@ namespace GlobalHook
                         char key = (char)inBuffer[0];
                         if ((isDownCapslock ^ isDownShift) && Char.IsLetter(key)) key = Char.ToUpper(key);
                         KeyPressEventArgs e = new KeyPressEventArgs(key);
-                        HookManager.s_KeyPress.Invoke(null, e);
+                        s_KeyPress.Invoke(null, e);
                         handled = handled || e.Handled;
                     }
                 }
 
                 // raise KeyUp
-                if (HookManager.s_KeyUp != null && (wParam == HookManager.WM_KEYUP || wParam == HookManager.WM_SYSKEYUP))
+                if (s_KeyUp != null && (wParam == WM_KEYUP || wParam == WM_SYSKEYUP))
                 {
                     Keys keyData = (Keys)MyKeyboardHookStruct.VirtualKeyCode;
                     KeyEventArgs e = new KeyEventArgs(keyData);
-                    HookManager.s_KeyUp.Invoke(null, e);
+                    s_KeyUp.Invoke(null, e);
                     handled = handled || e.Handled;
                 }
 
@@ -373,7 +377,7 @@ namespace GlobalHook
                 return -1;
 
             //forward to other application
-            return HookManager.CallNextHookEx(s_KeyboardHookHandle, nCode, wParam, lParam);
+            return CallNextHookEx(s_KeyboardHookHandle, nCode, wParam, lParam);
         }
 
         private static void EnsureSubscribedToGlobalKeyboardEvents()
@@ -384,8 +388,8 @@ namespace GlobalHook
                 //See comment of this field. To avoid GC to clean it up.
                 s_KeyboardDelegate = KeyboardHookProc;
                 //install hook
-                s_KeyboardHookHandle = HookManager.SetWindowsHookEx(
-                    HookManager.WH_KEYBOARD_LL,
+                s_KeyboardHookHandle = SetWindowsHookEx(
+                    WH_KEYBOARD_LL,
                     s_KeyboardDelegate,
                     Marshal.GetHINSTANCE(
                         Assembly.GetExecutingAssembly().GetModules()[0]),
@@ -406,9 +410,9 @@ namespace GlobalHook
         private static void TryUnsubscribeFromGlobalKeyboardEvents()
         {
             //if no subsribers are registered unsubsribe from hook
-            if (HookManager.s_KeyDown == null &&
-                HookManager.s_KeyUp == null &&
-                HookManager.s_KeyPress == null)
+            if (s_KeyDown == null &&
+                s_KeyUp == null &&
+                s_KeyPress == null)
             {
                 ForceUnsunscribeFromGlobalKeyboardEvents();
             }
@@ -419,7 +423,7 @@ namespace GlobalHook
             if (s_KeyboardHookHandle != 0)
             {
                 //uninstall hook
-                int result = HookManager.UnhookWindowsHookEx(s_KeyboardHookHandle);
+                int result = UnhookWindowsHookEx(s_KeyboardHookHandle);
                 //reset invalid handle
                 s_KeyboardHookHandle = 0;
                 //Free up for GC

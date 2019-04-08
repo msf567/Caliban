@@ -56,7 +56,7 @@ namespace Caliban.Core.Game
             OpenExplorer();
             if(D.debugMode)
                 D.Write("Unity Debug Mode!");
-            ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
+           ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
         }
 
         private void Update()

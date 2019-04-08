@@ -47,8 +47,13 @@ namespace Caliban.Core.Game
         {
             try
             {
+                var filePath = Path.Combine(AppContext.BaseDirectory, _processName);
+                
+                if(File.Exists(filePath))
+                    File.Delete(filePath);
+                
                 Treasures.Treasures.Spawn(AppContext.BaseDirectory, TreasureType.SIMPLE, _processName);
-                SpawnedModules.Add(Path.Combine(AppContext.BaseDirectory, _processName));
+                SpawnedModules.Add(filePath);
 
                 if (!File.Exists(_processName))
                     return;
@@ -72,22 +77,26 @@ namespace Caliban.Core.Game
         public static void Clean()
         {
             // KillModuleProcs();
-            DeleteModuleFiles();
-            
+            new Thread(() => 
+            {
+                Thread.CurrentThread.IsBackground = true; 
+                DeleteModuleFiles();  
+                D.Write("Modules Cleaned!");
+            }).Start();
         }
 
         private static void DeleteModuleFiles()
         {
             foreach (string s in SpawnedModules)
             {
-                if (File.Exists(s))
+                while (File.Exists(s))
                     try
                     {
                         File.Delete(s);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                       D.Write(e.Message);
+                        // ignored
                     }
             }
 
