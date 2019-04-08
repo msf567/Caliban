@@ -134,7 +134,7 @@ namespace Caliban.Core.Menu
 
         public static void Standby()
         {
-            int height = D.debugMode ? 80 : 6;
+            int height = D.debugMode ? 10 : 6;
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.Clear();

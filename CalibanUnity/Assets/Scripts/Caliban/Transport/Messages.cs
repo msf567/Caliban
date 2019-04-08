@@ -19,7 +19,9 @@ namespace Caliban.Core.Transport
         WATERLEVEL_ADD = 0x0103,
         
         MAP_LOCAITON = 0x0104,
-        MAP_REVEAL = 0x0105
+        MAP_REVEAL = 0x0105,
+        
+        SANDSTORM_START = 0x010A
     }
 
     public struct Message

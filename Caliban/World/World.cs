@@ -24,6 +24,9 @@ namespace Caliban.Core.World
         {
             _s.MessageReceived += ServerOnMessageReceived;
             ClearNode(WorldParameters.WorldRoot.FullName);
+            if (Directory.Exists(WorldParameters.WorldRoot.FullName))
+                DeleteDirectory(WorldParameters.WorldRoot.FullName);
+
             WorldRoot = ChunkGenerator.GenerateChunk(ChunkType.DESERT);
             var victoryPath = WorldRoot.GetAllNodes()
                 .Find(_e => _e.Treasures.Find(_nodeTreasure => _nodeTreasure.type == TreasureType.SIMPLE_VICTORY) !=
@@ -144,6 +147,9 @@ namespace Caliban.Core.World
 
         private void ClearNode(string _fullPath)
         {
+            if (!Directory.Exists(_fullPath))
+                return;
+
             var dInfo = new DirectoryInfo(_fullPath);
             var folderCount = dInfo.GetDirectories().Length;
             while (folderCount > 0)

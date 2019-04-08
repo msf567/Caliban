@@ -18,11 +18,11 @@ namespace Caliban.Core.World
         {
             {0, 0.0f},
             {1, 0.0f},
-            {2, 0.0f},
-            {3, 0.1f},
-            {4, 0.2f},
-            {5, 0.3f},
-            {6, 0.5f}
+            {2, 0.1f},
+            {3, 0.2f},
+            {4, 0.3f},
+            {5, 0.4f},
+            {6, 0.6f}
         };
 
         public static readonly DirectoryInfo WorldRoot;
@@ -32,7 +32,7 @@ namespace Caliban.Core.World
         static WorldParameters()
         {
             string path =@"\\?\" +  Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            WorldRoot = new DirectoryInfo(Path.Combine(path, "Desert"));
+            WorldRoot = new DirectoryInfo(Path.Combine(path, "DESERT"));
         }
     }
 }

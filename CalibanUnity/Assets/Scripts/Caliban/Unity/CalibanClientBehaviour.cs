@@ -11,17 +11,21 @@ namespace Caliban.Unity
 		private CalibanClient client;
 		void Awake()
 		{
+			if (Application.isEditor)
+				return;
+			
 			Process[] pname = Process.GetProcessesByName("CALIBAN");
 			if (pname.Length == 0)
 				Application.Quit();
 
 			client = new CalibanClient();
-			D.Write("Created client!");
 		}
 
 		private void Update()
 		{
-			if(!client.IsConnected && client.Ready)
+			if (Application.isEditor)
+				return;
+			if(!client.IsConnected)
 				Application.Quit();
 		}
 	}

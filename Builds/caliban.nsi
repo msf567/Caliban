@@ -18,7 +18,9 @@ Section
     SetOutPath $INSTDIR
 	
 	File CALIBAN.exe
+	File Note.exe
 	File Caliban.Core.dll
+	File Colorful.Console.dll
 	File CLIGL.dll
 	File CSCore.dll
 	File EventHook.dll

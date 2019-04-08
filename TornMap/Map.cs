@@ -64,7 +64,7 @@ namespace TornMap
                 if (_m.Point.X > myRect.Left && _m.Point.X < myRect.Right && _m.Point.Y > myRect.Top &&
                     _m.Point.Y < myRect.Bottom)
                 {
-                    decayLevel -= 0.0075f;
+                    decayLevel -= 0.01f;
                     if (decayLevel < 0.1f)
                         decayLevel = 0.1f;
                 }

@@ -24,10 +24,12 @@ namespace Caliban.Unity
             switch (m.Type)
             {
                 case MessageType.GAME_CLOSE:
+                    Debug.Log("Closing App");
                     Application.Quit();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                case MessageType.SANDSTORM_START:
+                    Sandstorm.instance.StartSandstorm();
+                    break;
             }
         }
     }
