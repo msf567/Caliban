@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Text;
+using Mono.Cecil;
 
 // ReSharper disable once CheckNamespace
 namespace Caliban.Core.Treasures
@@ -14,7 +17,7 @@ namespace Caliban.Core.Treasures
         SIMPLE
     }
 
-    public static class Treasures
+    public static class TreasureManager
     {
         private static readonly Dictionary<TreasureType, string> TreasureNames = new Dictionary<TreasureType, string>()
         {
@@ -23,11 +26,11 @@ namespace Caliban.Core.Treasures
             {TreasureType.SIMPLE_VICTORY, "SimpleVictory.exe"},
             {TreasureType.SIMPLE, ""},
         };
-        
-        public static void Spawn(string _destFolder, TreasureType _type, string _destName = "")
+
+        public static void Spawn(string _destFolder, Treasure _t, string _destName = "")
         {
-            string resName = _type == TreasureType.SIMPLE ?  _destName : TreasureNames[_type];
-            
+            string resName = _t.type == TreasureType.SIMPLE ? _destName : TreasureNames[_t.type];
+
             WriteEmbeddedResource("Treasures", resName, _destFolder, _destName);
         }
 
@@ -41,11 +44,19 @@ namespace Caliban.Core.Treasures
                 _destName = _resourceName;
             using (var stream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + _resourceName))
             {
-                if (!File.Exists(Path.Combine(_destFolder, _destName)))
-                    using (Stream file = File.Create(Path.Combine(_destFolder, _destName)))
-                    {
-                        CopyStream(stream, file);
-                    }
+                try
+                {
+                    var assy = AssemblyDefinition.ReadAssembly(stream);
+                    assy.MainModule.Resources.Add(new EmbeddedResource("name", ManifestResourceAttributes.Public,
+                        Encoding.Default.GetBytes("totally works")));
+
+                    if (!File.Exists(Path.Combine(_destFolder, _destName)))
+                        assy.Write(Path.Combine(_destFolder, _destName));
+                }
+                catch (Exception e)
+                {
+                    // Console.WriteLine(e);
+                }
             }
         }
 

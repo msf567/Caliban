@@ -27,19 +27,7 @@ namespace Caliban.Core.World
         }
     }
 
-    [Serializable]
-    public class NodeTreasure
-    {
-        public TreasureType type;
-        public string fileName;
-
-        public NodeTreasure(TreasureType _type, string _fileName)
-        {
-            type = _type;
-            fileName = _fileName;
-        }
-    }
-
+   
     [Serializable]
     public class WorldNode
     {
@@ -50,7 +38,7 @@ namespace Caliban.Core.World
 
         public int Depth;
         public List<WorldNode> ChildNodes = new List<WorldNode>();
-        public List<NodeTreasure> Treasures = new List<NodeTreasure>();
+        public List<Treasure> Treasures = new List<Treasure>();
 
         public WorldNode(WorldNode _parentNode, string _name)
         {
@@ -87,9 +75,14 @@ namespace Caliban.Core.World
                 ChildNodes.Add(_n);
         }
 
-        public void AddTreasure(TreasureType _type, string _fileName)
+        public void AddTreasure(TreasureType _type, string _fileName, Dictionary<string, object> Resources = null)
         {
-            Treasures.Add(new NodeTreasure(_type, _fileName));
+            Treasure treasure = new Treasure(_type, _fileName);
+            if (Resources != null)
+                foreach (string s in Resources.Keys)
+                    treasure.AddResource(s, Resources[s]);
+            
+            Treasures.Add(treasure);
         }
 
         public void DeleteTreasure(string _treasureFileName)

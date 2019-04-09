@@ -52,7 +52,7 @@ namespace Note
         void WriteText()
         {
            // var lines = File.ReadLines(notePath);
-           var lines = Treasures.GetResourceText(notePath).Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+           var lines = TreasureManager.GetResourceText(notePath).Split(new[] { Environment.NewLine }, StringSplitOptions.None);
             bool titleSet = false;
             bool sizeSet = false;
             foreach (var line in lines)
