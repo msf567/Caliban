@@ -22,7 +22,7 @@ namespace Caliban.Core.Game
 
         public static void RunModuleFromMemory(string _processName)
         {
-            Stream resourceStream = Treasures.Treasures.GetStream(_processName);
+            Stream resourceStream = Treasures.TreasureManager.GetStream(_processName);
             if (resourceStream == null)
             {
                 Console.WriteLine("No exe");
@@ -48,11 +48,11 @@ namespace Caliban.Core.Game
             try
             {
                 var filePath = Path.Combine(AppContext.BaseDirectory, _processName);
-                
-                if(File.Exists(filePath))
+
+                if (File.Exists(filePath))
                     File.Delete(filePath);
-                
-                Treasures.Treasures.Spawn(AppContext.BaseDirectory, TreasureType.SIMPLE, _processName);
+
+                TreasureManager.Spawn(AppContext.BaseDirectory, new Treasure(_processName));
                 SpawnedModules.Add(filePath);
 
                 if (!File.Exists(_processName))
@@ -77,10 +77,10 @@ namespace Caliban.Core.Game
         public static void Clean()
         {
             // KillModuleProcs();
-            new Thread(() => 
+            new Thread(() =>
             {
-                Thread.CurrentThread.IsBackground = true; 
-                DeleteModuleFiles();  
+                Thread.CurrentThread.IsBackground = true;
+                DeleteModuleFiles();
                 D.Write("Modules Cleaned!");
             }).Start();
         }

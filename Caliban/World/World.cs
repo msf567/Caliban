@@ -119,7 +119,7 @@ namespace Caliban.Core.World
 
             foreach (var t in _node.Treasures)
             {
-                Treasures.Treasures.Spawn(_node.FullName, t.type, t.fileName);
+                TreasureManager.Spawn(_node.FullName, t, t.fileName);
             }
         }
 

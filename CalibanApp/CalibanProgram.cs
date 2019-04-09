@@ -29,7 +29,7 @@ namespace CalibanMenu
         public static void Main(string[] _args)
         {
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
-            Treasures.Spawn(folderLoc, TreasureType.SIMPLE, "desert.jpg");
+            TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
             Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
