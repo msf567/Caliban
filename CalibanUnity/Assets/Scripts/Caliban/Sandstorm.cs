@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using GlobalHook;
 using UnityEngine;
 using UnityEngine.Audio;
+using Application = UnityEngine.Application;
 using Cursor = System.Windows.Forms.Cursor;
 
 public class Sandstorm : MonoSingleton<Sandstorm>
@@ -13,9 +14,10 @@ public class Sandstorm : MonoSingleton<Sandstorm>
     public float MaxParticles = 500;
     public Vector2 Direction;
 
-    public float MaxStrength = 6;
+    public float MaxStrength = 1;
 
-    private Transform windTrans;
+    public Transform windTrans;
+    public ParticleSystem particles;
     private ParticleSystem.EmissionModule emission;
     [SerializeField]
     private float Strength;
@@ -26,11 +28,10 @@ public class Sandstorm : MonoSingleton<Sandstorm>
     public override void Init()
     {
         HookManager.MouseDown += HookManagerOnMouseDown;
-        emission = transform.GetComponentInChildren<ParticleSystem>().emission;
-        windTrans = transform.Find("Wind");
+        emission = particles.emission;
     }
 
-    private void OnApplicationQuit()
+    private void OnDestroy()
     {
         HookManager.MouseDown -= HookManagerOnMouseDown;
     }
@@ -65,7 +66,7 @@ public class Sandstorm : MonoSingleton<Sandstorm>
 
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q") && Application.isEditor)
             StartSandstorm();
 
         if (HoldOn > 0)
@@ -91,7 +92,7 @@ public class Sandstorm : MonoSingleton<Sandstorm>
 
         float dif = (TargetStrength - Strength) * 0.0005f;
         Strength += dif;
-
+        emission = particles.emission;
         emission.rateOverTime = new ParticleSystem.MinMaxCurve(Strength * MaxParticles);
     }
     

@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Caliban.Core.Treasures
+namespace Treasures.Resources
 {
     [Serializable]
     public class Treasure
     {
         public TreasureType type;
         public string fileName;
-        public Dictionary<string, object> Resources = new Dictionary<string, object>();
+        public Dictionary<string, string> Resources = new Dictionary<string, string>();
 
         public Treasure(TreasureType _type, string _fileName)
         {
@@ -22,7 +22,7 @@ namespace Caliban.Core.Treasures
             fileName = _fileName;
         }
 
-        public void AddResource(string resName, object val)
+        public void AddResource(string resName, string val)
         {
             Resources.Add(resName, val);
         }

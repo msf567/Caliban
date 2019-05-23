@@ -2,6 +2,7 @@ Win64
 PlayerPath?
 A:/Caliban/Builds/CalibanUnity.exe
 SceneListBegin?
+Assets/CalibanLoader.unity
 Assets/Caliban.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -115,11 +116,13 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 634953fa73bbe30cb4bc22ae62f3a830 Assembly-CSharp.dll:.TransparentWindow
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
-4738c87f7e3b08c3c4ff77071962ed2b Assembly-CSharp.dll:.Sandstorm
+9722519b594120ad1018b857b23ea301 Assembly-CSharp.dll:.Sandstorm
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Caliban.Unity.CalibanClientBehaviour
+1191a02294e4460771742269d7eaa621 Assembly-CSharp.dll:.WindowControl
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
+6d4536488c5f2e9979b7d5212cce2fd4 Assembly-CSharp.dll:.WindowActivityChecker
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 8ebb618e2d134aea8b268bcfb31e2fc5 Assembly-CSharp.dll:.ScreenScaler
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -156,6 +159,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 b3f17f1c428fc1467ec7b21b16365492 Assembly-CSharp.dll:.PixelParticles
+49316ed1ce26410966ed5c502bcda94e Assembly-CSharp.dll:.WindowQuad
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient

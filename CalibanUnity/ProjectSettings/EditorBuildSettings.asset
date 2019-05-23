@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/CalibanLoader.unity
+    guid: dcac6f89db0c49a42993369733fa54d7
+  - enabled: 1
     path: Assets/Caliban.unity
     guid: 43e92c2d2cd23d04096b3d6e07024054
   m_configObjects: {}

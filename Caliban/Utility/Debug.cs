@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using Caliban.Core.Transport;
 
 namespace Caliban.Core.Utility

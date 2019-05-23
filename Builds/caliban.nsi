@@ -26,6 +26,7 @@ Section
 	File EventHook.dll
 	File NAudio.dll
 	File Newtonsoft.Json.dll
+	File Mono.Cecil.dll
 	File Treasures.dll
 	File demoClue.wav
 	File town_dusk_short.wav

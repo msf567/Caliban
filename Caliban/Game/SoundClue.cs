@@ -1,14 +1,11 @@
 using System;
-using System.Media;
-using System.Net.Configuration;
 using Caliban.Core.Audio;
-using Caliban.Core.Utility;
 
 namespace Caliban.Core.Game
 {
     public class SoundClue : Clue
     {
-        public SoundClue(string _clueLocation) : base(_clueLocation)
+        public SoundClue(string _locationToPointTo) : base(_locationToPointTo)
         {
             AudioManager.LoadFile("demoClue.wav", "DemoClue");
            // AudioManager.LoadFile(Treasures.Treasures.GetStream("demoClue.wav"), "DemoClue");

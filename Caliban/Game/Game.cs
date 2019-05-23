@@ -2,8 +2,6 @@ using System;
 using System.Diagnostics;
 using System.Net.Sockets;
 using System.Threading;
-using System.Windows.Forms;
-using Caliban.Core.Audio;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Caliban.Core.World;
@@ -26,19 +24,19 @@ namespace Caliban.Core.Game
         private WaterManager waterManager;
         private World.World world;
 
-        public static Game CurrentGame = new Game();
+        public static Game CurrentGame;
         public GameState State = GameState.NOT_STARTED;
 
         public delegate void GameStateChange(GameState _state);
 
         public static GameStateChange OnGameStateChange;
 
-        public Game()
+        public Game(ServerTerminal _server)
         {
             
-            server = new ServerTerminal();
+            server = _server;
             server.MessageReceived += ServerOnMessageReceived;
-            server.StartListen(5678);
+           
 
             if (D.debugMode)
                 D.Init(server);
@@ -47,6 +45,7 @@ namespace Caliban.Core.Game
 
         public void Start()
         {
+            server.BroadcastMessage(Messages.Build(MessageType.GAME_START,""));
             SetState(GameState.IN_PROGRESS);
             waterManager = new WaterManager(server);
             world = new World.World(server);
@@ -54,9 +53,7 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-            if(D.debugMode)
-                D.Write("Unity Debug Mode!");
-           ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
+            //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
         }
 
         private void Update()
@@ -95,7 +92,7 @@ namespace Caliban.Core.Game
             world?.Dispose();
 
             ModuleLoader.Clean();
-            server.Close();
+           
             if (_closeExplorers)
                 CloseExplorers();
         }
@@ -105,6 +102,9 @@ namespace Caliban.Core.Game
             var msg = Messages.Parse(_message);
             switch (msg.Type)
             {
+                case MessageType.MAP_REVEAL:
+                    server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
+                    break;
                 case MessageType.GAME_CLOSE:
                     break;
                 case MessageType.GAME_WIN:
@@ -112,8 +112,6 @@ namespace Caliban.Core.Game
                     break;
                 case MessageType.GAME_LOSE:
                     Lose();
-                    break;
-                default:
                     break;
             }
         }

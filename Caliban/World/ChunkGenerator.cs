@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Caliban.Core.Game;
-using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 using Newtonsoft.Json;
+using Treasures.Resources;
 
 namespace Caliban.Core.World
 {
@@ -22,29 +21,15 @@ namespace Caliban.Core.World
         };
         
         static readonly Random r = new Random(Guid.NewGuid().GetHashCode());
-
-        public static WorldNode GenerateChunk(ChunkType type)
+        private static ChunkType CurrentChunkType;
+        
+        public static WorldNode GenerateChunk(WorldNode root, ChunkType type)
         {
-            if (!Directory.Exists(WorldParameters.WorldRoot.FullName))
-                Directory.CreateDirectory(WorldParameters.WorldRoot.FullName);
-
-            WorldNode rootNode = new WorldNode(null,WorldParameters.WorldRoot.FullName);
-            GenerateDesertNodeData(rootNode, WorldParameters.DesertDepth);
-
-            DistributeWater(rootNode);
-            SpawnVictory(rootNode);
             
-         //   PrintDebugInfo(rootNode);
-
-            return rootNode;
-        }
-
-        private static void SpawnVictory(WorldNode _rootNode)
-        {
-            var deepestNodes = _rootNode.GetAllNodesAtDepth(WorldParameters.DesertDepth);
-            int random = r.Next(0, deepestNodes.Count);
-            deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY,"SimpleVictory.exe");
-           D.Write("Adding victory to " + deepestNodes[random].FullName);
+            GenerateDesertNodeData(root, WorldParameters.DesertDepth);
+            CurrentChunkType = type;
+            DistributeWater(root);
+            return root;
         }
 
         private static void DistributeWater(WorldNode _rootNode)
@@ -109,9 +94,9 @@ namespace Caliban.Core.World
             var numberOfChildren = Math.Abs( r.Next(WorldParameters.DesertWidth - 2, WorldParameters.DesertWidth));
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var newDir = new WorldNode(_parent, GetNewFolderName());
-                _parent.AddChild(newDir);
-                 GenerateDesertNodeData(newDir, newDepth);
+                var newNode = new WorldNode(_parent, GetNewFolderName(), CurrentChunkType);
+                _parent.AddChild(newNode);
+                 GenerateDesertNodeData(newNode, newDepth);
             }
         }
 

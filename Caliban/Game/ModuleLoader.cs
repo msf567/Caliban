@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
+using Treasures.Resources;
 
 namespace Caliban.Core.Game
 {
@@ -22,7 +22,7 @@ namespace Caliban.Core.Game
 
         public static void RunModuleFromMemory(string _processName)
         {
-            Stream resourceStream = Treasures.TreasureManager.GetStream(_processName);
+            Stream resourceStream = TreasureManager.GetStream(_processName);
             if (resourceStream == null)
             {
                 Console.WriteLine("No exe");
@@ -81,7 +81,6 @@ namespace Caliban.Core.Game
             {
                 Thread.CurrentThread.IsBackground = true;
                 DeleteModuleFiles();
-                D.Write("Modules Cleaned!");
             }).Start();
         }
 

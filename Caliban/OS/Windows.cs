@@ -99,18 +99,28 @@ namespace Caliban.Core.OS
         
         public static bool CloseExplorerWindowsCallback(IntPtr hwnd, IntPtr lParam)
         {
-            IntPtr pid = new IntPtr();
+            if (IsExplorerWindow(hwnd))
+                SendMessage(hwnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+            return (true);
+        }
+
+        public static bool IsExplorerWindow(IntPtr hwnd)
+        {
+            IntPtr pid;
             GetWindowThreadProcessId(hwnd, out pid);
             var wndProcess = System.Diagnostics.Process.GetProcessById(pid.ToInt32());
             var wndClass = new StringBuilder(255);
             RealGetWindowClass(hwnd, wndClass, 255);
-            if (wndProcess.ProcessName == "explorer" && wndClass.ToString() == "CabinetWClass")
-            {
-                //hello file explorer window...
-
-                SendMessage(hwnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero); // ... bye file explorer window
-            }
-            return (true);
+            
+           return wndProcess.ProcessName == "explorer" && wndClass.ToString() == "CabinetWClass";
+        }
+        
+        public static string GetWindowTitle(IntPtr hWnd)
+        {
+            int size = GetWindowTextLength(hWnd) + 1;
+            StringBuilder sb = new StringBuilder(size);
+            GetWindowText(hWnd, sb, size);
+            return sb.ToString();
         }
         
         [DllImport("user32.dll")]
@@ -137,6 +147,16 @@ namespace Caliban.Core.OS
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
 
+        public delegate bool EnumWindowsProc(IntPtr _hWnd, IntPtr _lParam);
+        [DllImport("user32.dll")]
+        public static extern bool EnumWindows(EnumWindowsProc _enumProc, IntPtr _lParam);
+        
+        [DllImport("user32.dll")]
+        public static extern bool IsWindowVisible(IntPtr _hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        public static extern int GetWindowTextLength(IntPtr _hWnd);
+        
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 

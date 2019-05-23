@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using Caliban.Core.Game;
@@ -109,6 +110,18 @@ namespace Caliban.Core.Transport
             }
 
             RaiseClientDisconnected(_socket);
+        }
+
+        public void Clean()
+        {
+            for (int x = namedClients.Keys.Count - 1; x >= 0; x--)
+            {
+                string keyToTest = namedClients.Keys.ToList()[x];
+                if (namedClients[keyToTest].Count == 0)
+                {
+                    namedClients.Remove(keyToTest);
+                }
+            }
         }
 
         private void RegisterClient(Socket _socket, string _name)

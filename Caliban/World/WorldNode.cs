@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Caliban.Core.Treasures;
-using Caliban.Core.Utility;
+using Treasures.Resources;
 
 namespace Caliban.Core.World
 {
@@ -33,17 +32,19 @@ namespace Caliban.Core.World
     {
         public string Name;
         public string FullName = "";
-
+        public ChunkType Zone;
+        
         public WorldNode ParentNode;
 
         public int Depth;
         public List<WorldNode> ChildNodes = new List<WorldNode>();
         public List<Treasure> Treasures = new List<Treasure>();
 
-        public WorldNode(WorldNode _parentNode, string _name)
+        public WorldNode(WorldNode _parentNode, string _name, ChunkType _zone)
         {
             Name = _name;
             ParentNode = _parentNode;
+            Zone = _zone;
             Depth = GetDepth();
             FullName = GetFullName();
         }
@@ -75,7 +76,7 @@ namespace Caliban.Core.World
                 ChildNodes.Add(_n);
         }
 
-        public void AddTreasure(TreasureType _type, string _fileName, Dictionary<string, object> Resources = null)
+        public void AddTreasure(TreasureType _type, string _fileName, Dictionary<string, string> Resources = null)
         {
             Treasure treasure = new Treasure(_type, _fileName);
             if (Resources != null)
@@ -85,6 +86,11 @@ namespace Caliban.Core.World
             Treasures.Add(treasure);
         }
 
+        public Treasure FindTreasure(TreasureType _t)
+        {
+            return Treasures.Find(e => e.type == _t);
+        }
+        
         public void DeleteTreasure(string _treasureFileName)
         {
             var foundItem = Treasures.Find(e => e.fileName == _treasureFileName);
