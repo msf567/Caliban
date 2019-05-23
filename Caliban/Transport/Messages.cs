@@ -6,19 +6,20 @@ namespace Caliban.Core.Transport
 {
     public enum MessageType 
     {
-        GAME_CLOSE = 0x0000,
+        APP_CLOSE = 0x0000,
+        GAME_CLOSE = 0x1000,
+        GAME_START = 0x9999,
         DEBUG_LOG = 0x0001,
         REGISTER = 0x0002,
         
         GAME_WIN = 0x0003,
         GAME_LOSE = 0x0004,
         CONSUME_TREASURE = 0x0005,
+        ZONE_SWITCH = 0x0006,
         
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,
         WATERLEVEL_ADD = 0x0103,
-        
-        MAP_LOCAITON = 0x0104,
         MAP_REVEAL = 0x0105,
         
         SANDSTORM_START = 0x010A

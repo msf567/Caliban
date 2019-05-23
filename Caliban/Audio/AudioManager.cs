@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Caliban.Core.Utility;
-using NAudio;
 using NAudio.Wave;
 
 namespace Caliban.Core.Audio
@@ -11,6 +10,7 @@ namespace Caliban.Core.Audio
         private static DirectSoundOut output = new DirectSoundOut();
         private static MixingWaveProvider32 mixer;
         private static Dictionary<string, WavePlayer> Sounds = new Dictionary<string, WavePlayer>();
+     
         static AudioManager()
         {
             mixer = new MixingWaveProvider32();

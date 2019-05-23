@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net.Sockets;
 using Caliban.Core.Transport;
-using Caliban.Core.Utility;
-using Caliban.Core.World;
 
 namespace Caliban.Core.Game
 {
@@ -12,7 +8,6 @@ namespace Caliban.Core.Game
     {
         private static ServerTerminal server;
         private static List<Clue> currentClues = new List<Clue>();
-        private static readonly Dictionary<string, string> MapLocations = new Dictionary<string, string>();
 
         public ClueManager(ServerTerminal _server)
         {
@@ -22,21 +17,6 @@ namespace Caliban.Core.Game
 
         private static void ServerOnMessageReceived(Socket _socket, byte[] _message)
         {
-            var m = Messages.Parse(_message);
-            if (m.Type == MessageType.MAP_LOCAITON)
-            {
-                string trimmedBaseLoc = WorldParameters.WorldRoot.FullName.Replace(@"\\?\", "");
-                string trimmedLoc = m.Value.Replace(trimmedBaseLoc, "").TrimEnd(Path.DirectorySeparatorChar);
-                if (MapLocations.ContainsKey(trimmedLoc))
-                    server.SendMessageToClient(m.Value, Messages.Build(MessageType.MAP_LOCAITON,MapLocations[trimmedLoc]));
-                
-                server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START,""));
-            }
-            
-            if (m.Type == MessageType.MAP_REVEAL)
-            {
-               D.Write("Recieved a Map Revel!");
-            }
         }
         
 
@@ -45,11 +25,6 @@ namespace Caliban.Core.Game
             if (currentClues.Contains(c))
                 return;
             currentClues.Add(c);
-        }
-
-        public static void AddMapLocation(string _mapLocation, string _clueLocation)
-        {
-            MapLocations.Add(_mapLocation, _clueLocation);
         }
         
         public static void FolderNav(string _folder)
@@ -65,7 +40,6 @@ namespace Caliban.Core.Game
         public static void Dispose()
         {
             currentClues.Clear();
-            MapLocations.Clear();
         }
     }
 }

@@ -4,11 +4,12 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
 using Caliban.Core.Game;
 using Caliban.Core.Transport;
-using Caliban.Core.Treasures;
 using Caliban.Core.Windows;
 using Caliban.Core.Utility;
+using Treasures.Resources;
 
 namespace Caliban.Core.World
 {
@@ -20,6 +21,9 @@ namespace Caliban.Core.World
         public WorldNode WorldRoot;
         private readonly ClueManager clueManager;
 
+        private readonly List<IntPtr> OpenWindows = new List<IntPtr>();
+        private readonly List<IntPtr> NewWindows = new List<IntPtr>();
+
         public World(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
@@ -27,17 +31,16 @@ namespace Caliban.Core.World
             if (Directory.Exists(WorldParameters.WorldRoot.FullName))
                 DeleteDirectory(WorldParameters.WorldRoot.FullName);
 
-            WorldRoot = ChunkGenerator.GenerateChunk(ChunkType.DESERT);
-            var victoryPath = WorldRoot.GetAllNodes()
-                .Find(_e => _e.Treasures.Find(_nodeTreasure => _nodeTreasure.type == TreasureType.SIMPLE_VICTORY) !=
-                            null)
-                .FullName;
+            //generate
+            WorldRoot = WorldGenerator.GenerateWorld();
+            var allNodes = WorldRoot.GetAllNodes();
+            var victoryPath = allNodes.Find(_e => _e.FindTreasure(TreasureType.SIMPLE_VICTORY) !=null)?.FullName;
 
             clueManager = new ClueManager(_s);
             // clueManager.AddClue(new SoundClue(victoryPath));
 
             clueManager.AddClue(new MapClue(victoryPath, this));
-
+            
             InitWatchers();
         }
 
@@ -68,9 +71,9 @@ namespace Caliban.Core.World
         {
             if (_e.ChangeType == WatcherChangeTypes.Deleted || _e.ChangeType == WatcherChangeTypes.Changed)
             {
-                var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
-                var node = WorldRoot.GetNode(folder);
-                RenderNode(node?.ParentNode);
+                //var folder = Path.GetFileName(_e.Name.TrimEnd(Path.DirectorySeparatorChar));
+                //var node = WorldRoot.GetNode(folder);
+                //RenderNode(node?.ParentNode);
             }
         }
 
@@ -87,16 +90,20 @@ namespace Caliban.Core.World
                 return;
             }
 
-            foreach (var sibling in currentNode.GetSiblings())
-            {
-                //  D.Write("Clearing Sibling " + sibling.FullName);
-                //   DeleteDirectory(sibling.FullName);
-            }
+            //foreach (var sibling in currentNode.GetSiblings())
+            //{
+            //  D.Write("Clearing Sibling " + sibling.FullName);
+            //   DeleteDirectory(sibling.FullName);
+            //}
 
             RenderNode(currentNode);
             foreach (var node in currentNode.ChildNodes)
             {
-                RenderNode(node);
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    RenderNode(node);
+                }).Start();
             }
 
             ClueManager.FolderNav(folder);
@@ -106,6 +113,7 @@ namespace Caliban.Core.World
         {
             if (Game.Game.CurrentGame.State != GameState.IN_PROGRESS || _node == null)
                 return;
+
             var dir = new DirectoryInfo(_node.FullName);
 
             foreach (var c in _node.ChildNodes)
@@ -124,6 +132,43 @@ namespace Caliban.Core.World
         }
 
         public void Update()
+        {
+           // TrackOpenWindows();
+            ConsumeTreasures();
+        }
+
+        private void TrackOpenWindows()
+        {
+            NewWindows.Clear();
+            //eOS.Windows.EnumWindows(new OS.Windows.EnumWindowsProc(GetExplorerWindows), IntPtr.Zero);
+            var closedWindows = OpenWindows.Where(_p => NewWindows.All(_p2 => _p2 != _p));
+
+            var intPtrs = closedWindows.ToList();
+            for (var x = intPtrs.Count() - 1; x >= 0; x--)
+            {
+                IntPtr w = intPtrs[x];
+                OpenWindows.Remove(w);
+            }
+
+            foreach (var win in OpenWindows)
+            {
+                D.Write(OS.Windows.GetWindowTitle(win));
+            }
+        }
+
+        private bool GetExplorerWindows(IntPtr _hWnd, IntPtr _lParam)
+        {
+            var size = OS.Windows.GetWindowTextLength(_hWnd);
+            if (size <= 0 || !OS.Windows.IsWindowVisible(_hWnd)) return true;
+            if (OS.Windows.IsExplorerWindow(_hWnd))
+            {
+                NewWindows.Add(_hWnd);
+            }
+
+            return true;
+        }
+
+        private void ConsumeTreasures()
         {
             foreach (var treasure in consumedTreasures)
             {

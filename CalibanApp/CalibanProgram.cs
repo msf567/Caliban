@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Caliban.Core.Game;
 using Caliban.Core.OS;
+using Caliban.Core.Transport;
 using Caliban.Core.Utility;
-using Caliban.Core.Treasures;
+using Treasures.Resources;
 using Menu = Caliban.Core.Menu.Menu;
 
-namespace CalibanMenu
+namespace CALIBAN
 {
     internal static class CalibanProgram
     {
@@ -24,18 +25,22 @@ namespace CalibanMenu
         }
 
         private static MenuState menuState = MenuState.MAIN;
+        private static readonly ServerTerminal server = new ServerTerminal();
 
         [STAThread]
         public static void Main(string[] _args)
         {
+            D.debugMode = _args.Contains("debug");
+            server.StartListen(5678);
+            RunUnity();
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
             TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
-            Windows.ConfigureMenuWindow();
             Game.OnGameStateChange += OnGameStateChange;
-            var userKey = ConsoleKey.M;
-            D.debugMode = _args.Contains("debug");
+
+            Windows.ConfigureMenuWindow();
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
+
 
             if (D.debugMode)
                 Menu.Main();
@@ -44,88 +49,121 @@ namespace CalibanMenu
 
             menuState = MenuState.MAIN;
 
+            var userKey = ConsoleKey.M;
             while (!closeFlag)
             {
-                switch (menuState)
-                {
-                    case MenuState.MAIN:
-                        if (userKey == ConsoleKey.A)
-                        {
-                            Menu.About();
-                            menuState = MenuState.ABOUT;
-                        }
-                        else if (userKey == ConsoleKey.H)
-                        {
-                            Menu.Help();
-                            menuState = MenuState.HELP;
-                        }
-                        else if (userKey == ConsoleKey.E)
-                        {
-                            NewGame();
-                        }
-
-                        else if (userKey == ConsoleKey.Q)
-                        {
-                            CloseApp();
-                            continue;
-                        }
-                        else
-                        {
-                            Menu.Main();
-                        }
-
-                        break;
-                    case MenuState.ABOUT:
-                        if (userKey == ConsoleKey.Escape)
-                        {
-                            Menu.Main();
-                            CloseCurrentGame();
-                            
-                            menuState = MenuState.MAIN;
-                        }
-                        else
-                        {
-                            Menu.About();
-                        }
-
-                        break;
-                    case MenuState.HELP:
-                        if (userKey == ConsoleKey.Escape)
-                        {
-                            Menu.Main();
-                            CloseCurrentGame();
-                            menuState = MenuState.MAIN;
-                        }
-                        else
-                        {
-                            Menu.Help();
-                        }
-
-                        break;
-                    case MenuState.STANDBY:
-                        if (userKey == ConsoleKey.Escape)
-                        {
-                            Menu.Main();
-                            CloseCurrentGame();
-                            menuState = MenuState.MAIN;
-                        }
-                        else
-                            Menu.Standby();
-
-                        break;
-                    case MenuState.INTRO:
-                        break;
-                }
+                if (MenuLoop(userKey)) continue;
 
                 if (!closeFlag)
                     userKey = Console.ReadKey().Key;
             }
         }
 
+        private static void RunUnity()
+        {
+            var filePath = Path.Combine(AppContext.BaseDirectory, "CU.exe");
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            TreasureManager.Spawn(AppContext.BaseDirectory, new Treasure("CU.exe"));
+            if (!File.Exists("CU.exe"))
+                return;
+            Process.Start("CU.exe", D.debugMode ? "debug" : "");
+        }
+
+        private static void ClearUnity()
+        {
+            while (File.Exists("CU.exe"))
+                try
+                {
+                    File.Delete("CU.exe");
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+        }
+        
+        private static bool MenuLoop(ConsoleKey userKey)
+        {
+            switch (menuState)
+            {
+                case MenuState.MAIN:
+                    if (userKey == ConsoleKey.A)
+                    {
+                        Menu.About();
+                        menuState = MenuState.ABOUT;
+                    }
+                    else if (userKey == ConsoleKey.H)
+                    {
+                        Menu.Help();
+                        menuState = MenuState.HELP;
+                    }
+                    else if (userKey == ConsoleKey.E)
+                    {
+                        NewGame();
+                    }
+
+                    else if (userKey == ConsoleKey.Q)
+                    {
+                        CloseApp();
+                        return true;
+                    }
+                    else
+                    {
+                        Menu.Main();
+                    }
+
+                    break;
+                case MenuState.ABOUT:
+                    if (userKey == ConsoleKey.Escape)
+                    {
+                        Menu.Main();
+                        CloseCurrentGame();
+
+                        menuState = MenuState.MAIN;
+                    }
+                    else
+                    {
+                        Menu.About();
+                    }
+
+                    break;
+                case MenuState.HELP:
+                    if (userKey == ConsoleKey.Escape)
+                    {
+                        Menu.Main();
+                        CloseCurrentGame();
+                        menuState = MenuState.MAIN;
+                    }
+                    else
+                    {
+                        Menu.Help();
+                    }
+
+                    break;
+                case MenuState.STANDBY:
+                    if (userKey == ConsoleKey.Escape)
+                    {
+                        Menu.Main();
+                        CloseCurrentGame();
+                        menuState = MenuState.MAIN;
+                    }
+                    else
+                        Menu.Standby();
+
+                    break;
+                case MenuState.INTRO:
+                    break;
+            }
+
+            return false;
+        }
+
         private static void CloseCurrentGame(bool _closeExplorers = true)
         {
             Game.CurrentGame?.Close(_closeExplorers);
             Game.CurrentGame = null;
+            server.Clean();
         }
 
         private static void OnGameStateChange(GameState _state)
@@ -155,28 +193,28 @@ namespace CalibanMenu
             }
         }
 
-
         private static void NewGame()
         {
             if (!ModuleLoader.IsReady())
             {
-               // D.Write("Waiting for modules to load...");
-                //return;
             }
 
             CloseCurrentGame(false);
 
             ModuleLoader.Clear();
             D.Write("Modules Clear");
-            Game.CurrentGame = new Game();
+            Game.CurrentGame = new Game(server);
             D.Write("Game Created");
             Game.CurrentGame.Start();
         }
 
         private static void CloseApp()
         {
-            Menu.Close();
+            server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE,""));
             CloseCurrentGame();
+            ClearUnity();
+            Menu.Close();
+            server.Close();
             closeFlag = true;
         }
     }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using Caliban.Core.OS;
@@ -31,9 +33,10 @@ namespace TornMap
                     @"A:\Caliban\Desert\sand_234f43\dune_234d\ridge_3248jf\dune_234wfe3\sand_32849ur\dune_234wfe3\sand_32849ur";
             }
 
-            while (baseClueLoc == "")
-                Thread.Sleep(50);
+            baseClueLoc = StreamToString(Assembly.GetExecutingAssembly().GetManifestResourceStream("location"));
+
             Console.Title = "░or█upt░d █ap";
+
 
             windowWidth = baseClueLoc.Length;
             var renderingWindow = new RenderingWindow(Title, windowWidth, WindowHeight);
@@ -55,6 +58,12 @@ namespace TornMap
             }
         }
 
+        protected override void ClientOnConnected(Socket _socket)
+        {
+            base.ClientOnConnected(_socket);
+            client.SendMessage(Messages.Build(MessageType.MAP_REVEAL,""));
+        }
+        
         private void OnGlobalMouseAction(MouseArgs _m)
         {
             if (_m.Message == MouseMessages.WM_RBUTTONDOWN)
@@ -85,21 +94,21 @@ namespace TornMap
             }
         }
 
-        protected override void ClientOnConnected(Socket _socket)
-        {
-            base.ClientOnConnected(_socket);
-            Thread.Sleep(100);
-            SendMessageToHost(Messages.Build(MessageType.MAP_LOCAITON, AppDomain.CurrentDomain.BaseDirectory));
-        }
-
         protected override void ClientOnMessageReceived(byte[] _message)
         {
             base.ClientOnMessageReceived(_message);
             var m = Messages.Parse(_message);
             if (m.Type == MessageType.GAME_CLOSE)
                 closeFlag = true;
-            if (m.Type == MessageType.MAP_LOCAITON)
-                baseClueLoc = m.Value;
+        }
+
+        private string StreamToString(Stream stream)
+        {
+            stream.Position = 0;
+            using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            {
+                return reader.ReadToEnd();
+            }
         }
     }
 }

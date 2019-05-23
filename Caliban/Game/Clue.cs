@@ -6,12 +6,13 @@ namespace Caliban.Core.Game
 {
     public class Clue : IDisposable
     {
-        protected DirectoryInfo clueLocation;
-        protected List<string> clueSteps;
-        public Clue(string _clueLocation)
+        protected readonly DirectoryInfo locationToPointTo;
+        protected readonly List<string> clueSteps;
+
+        protected Clue(string _locationToPointTo)
         {
-            clueLocation = new DirectoryInfo(_clueLocation);
-            clueSteps = new List<string>(clueLocation.FullName.Split(Path.DirectorySeparatorChar));
+            locationToPointTo = new DirectoryInfo(_locationToPointTo);
+            clueSteps = new List<string>(locationToPointTo.FullName.Split(Path.DirectorySeparatorChar));
         }
 
         public virtual void Dispose()

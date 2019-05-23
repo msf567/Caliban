@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Body CheckboxesVisible="False" OddBackgroundColor="#FFFFFFFF" EvenBackgroundColor="#FFFFFFFF" UseRowSeparator="false" RowSeparatorColor="#FFD0D0D0">
+  <Styles>
+    <Style Type="Level" Level="-1" />
+    <Style Type="Inline" FontSize="10" FontColor="#FF777777" />
+    <Style Type="Level" Level="1" />
+    <Style Type="Level" Level="2" />
+    <Style Type="Level" Level="3" />
+    <Style Type="Level" Level="4" />
+    <Style Type="Level" Level="5" />
+    <Style Type="Level" Level="6" />
+  </Styles>
+  <ColumnDefinitions Order="0">
+    <ColumnDefinition Name="Topic" Type="0" Width="1704.8" />
+  </ColumnDefinitions>
+  <Outline IsExpanded="True" IsChecked="False">
+    <Columns>
+      <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>47308770-276e-4896-b160-2988edd4c10e</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">lecture - 60 min</Paragraph></FlowDocument></Note>
+    </Columns>
+    <Outline IsExpanded="True" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>647c16c1-e916-4b48-89b7-1dca6e7a2dff</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">who am i ? - 5 min</Paragraph></FlowDocument></Note>
+      </Columns>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>00492a62-74c0-4df7-ad98-2f74d97071df</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">CALIBAN - 10/15 min</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>9aff0b99-a8e8-46f2-a3c5-f159f6dfdcf9</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Capitalism</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>cbcc1eb3-5a59-4660-9e27-c922c57a24b4</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Gameplay</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>f6e8aaaa-4f06-4c3a-939c-a00048ef45bc</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Gameifying the OS</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>33c76625-c511-41a7-9c7b-a6122d33b201</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Comp USA Live - 15 min</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>d9f87652-a3f3-455e-828b-b36505cddd31</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Walkin' here</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>80d9a2ee-d3ba-4dbb-b2fc-8738e98ecefa</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">First 10 min of trust no one</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>e151179f-2142-4a9a-a456-cd313a856693</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Computer theater</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>c857492d-c9ba-49c5-bb59-3bb790054cba</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Working in a group</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>06f650c8-0830-4b18-a049-f2577d79aed1</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Custom software = Custom show</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>54c1d37b-93c9-4de4-938c-a4586d8d7322</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Liam's Local Variables - 10 min</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>3cec0d81-68a8-437a-9e00-860043837656</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">OS as extension of body</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>dd826450-3be0-42ad-b99d-a77546e39c41</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Custom software made for quick expression</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>dae1958f-a4b2-47b9-b694-fcfe7ca3fe9b</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">DESCENT - 10 min</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>3397cf41-9079-48ab-9731-53b46ac5b928</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Malware + video art</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>8deff95d-1eb5-40fe-819c-c12f842255fa</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Unquittable</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>cfd67b82-b82e-4128-8486-84e804b229db</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Unskippable</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>55d38a28-6c82-47bc-98ec-fecb6ab5ffea</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Forces you to watch the whole thing</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+    <Outline IsExpanded="False" IsChecked="False">
+      <Columns>
+        <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>50923a6f-ed2d-4dd6-8973-1935bca2dce8</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Artdisks - 10 min</Paragraph></FlowDocument></Note>
+      </Columns>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>77ab0b62-ea7e-4f5e-9c22-50e97867f5bb</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Sculptural</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>d61d1d57-d1fa-4f95-a7a0-c37f3224cad7</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Personal</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>2d8f1136-e32c-4c14-bebc-b43b488c553f</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Offline</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>52e2ab5e-c53e-462d-843e-97f3897fcf37</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Singular purpose</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+      <Outline IsExpanded="False" IsChecked="False">
+        <Columns>
+          <Note><FlowDocument PagePadding="5,0,5,0" AllowDrop="False" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:s="clr-namespace:System;assembly=mscorlib"><FlowDocument.Tag><s:Guid>473f69f9-f88e-483d-93cc-cc27ee83fc63</s:Guid></FlowDocument.Tag><Paragraph FontFamily="Segoe UI" FontSize="12">Malware</Paragraph></FlowDocument></Note>
+        </Columns>
+      </Outline>
+    </Outline>
+  </Outline>
+</Body>

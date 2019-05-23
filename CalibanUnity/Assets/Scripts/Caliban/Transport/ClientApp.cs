@@ -13,7 +13,7 @@ namespace Caliban.Core.Transport
             client.Close();
         }
 
-        private ClientTerminal client;
+        protected ClientTerminal client;
         protected readonly string clientName;
 
         protected bool ShouldRegister = true;

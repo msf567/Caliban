@@ -19,6 +19,9 @@
             <e p="Unity" t="Include">
               <e p="CalibanClient.cs" t="Include" />
               <e p="CalibanClientBehaviour.cs" t="Include" />
+              <e p="WindowActivityChecker.cs" t="Include" />
+              <e p="WindowControl.cs" t="Include" />
+              <e p="WindowQuad.cs" t="Include" />
             </e>
           </e>
           <e p="GlobalHook" t="Include">

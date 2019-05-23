@@ -64,6 +64,9 @@
     <Compile Include="Assets\Scripts\Caliban\Transport\StringEx.cs" />
     <Compile Include="Assets\Scripts\Caliban\Unity\CalibanClient.cs" />
     <Compile Include="Assets\Scripts\Caliban\Unity\CalibanClientBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Caliban\Unity\WindowActivityChecker.cs" />
+    <Compile Include="Assets\Scripts\Caliban\Unity\WindowControl.cs" />
+    <Compile Include="Assets\Scripts\Caliban\Unity\WindowQuad.cs" />
     <Compile Include="Assets\Scripts\GlobalHook\GlobalEventProvider.cs" />
     <Compile Include="Assets\Scripts\GlobalHook\HookManager.Callbacks.cs" />
     <Compile Include="Assets\Scripts\GlobalHook\HookManager.cs" />

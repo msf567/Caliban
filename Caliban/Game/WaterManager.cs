@@ -1,12 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
-using Caliban.Core.Treasures;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
 using Caliban.Core.World;
+using Treasures.Resources;
 
 namespace Caliban.Core.Game
 {

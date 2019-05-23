@@ -1,5 +1,3 @@
-using System.Threading;
-
 namespace Caliban.Core.Cinematics
 {
     public class Cinematic

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Media;
 using System.Threading;
 using System.Windows.Forms;
-using Caliban.Core.Treasures;
 using System.Drawing.Text;
+using Treasures.Resources;
+
 namespace Note
 {
     public partial class NoteForm : Form

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Mono.Cecil;
 
 // ReSharper disable once CheckNamespace
-namespace Caliban.Core.Treasures
+namespace Treasures.Resources
 {
     public enum TreasureType
     {
@@ -29,33 +30,46 @@ namespace Caliban.Core.Treasures
 
         public static void Spawn(string _destFolder, Treasure _t, string _destName = "")
         {
-            string resName = _t.type == TreasureType.SIMPLE ? _destName : TreasureNames[_t.type];
-
-            WriteEmbeddedResource("Treasures", resName, _destFolder, _destName);
+            WriteTreasure("Treasures", _t, _destFolder, _destName);
         }
 
-        private static void WriteEmbeddedResource(string _assemblyName, string _resourceName, string _destFolder,
-            string _destName = "")
+        private static void WriteTreasure(string _assemblyName, Treasure _t, string _destFolder,
+            string _destFileName = "")
         {
+            string resName = _t.type == TreasureType.SIMPLE ? _t.fileName : TreasureNames[_t.type];
+
+      
+            
             if (!Directory.Exists(_destFolder))
                 Directory.CreateDirectory(_destFolder);
             var thisAssembly = Assembly.GetExecutingAssembly();
-            if (_destName == "")
-                _destName = _resourceName;
-            using (var stream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + _resourceName))
-            {
-                try
-                {
-                    var assy = AssemblyDefinition.ReadAssembly(stream);
-                    assy.MainModule.Resources.Add(new EmbeddedResource("name", ManifestResourceAttributes.Public,
-                        Encoding.Default.GetBytes("totally works")));
+            if (_destFileName == "")
+                _destFileName = resName;
 
-                    if (!File.Exists(Path.Combine(_destFolder, _destName)))
-                        assy.Write(Path.Combine(_destFolder, _destName));
-                }
-                catch (Exception e)
+            string fullPath = Path.Combine(_destFolder, _destFileName);
+
+
+            using (var resourceStream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + resName))
+            {
+                if (_t.Resources.Keys.Count > 0)
                 {
-                    // Console.WriteLine(e);
+                    var managedAssy = AssemblyDefinition.ReadAssembly(resourceStream);
+                    foreach (var res in _t.Resources.Keys)
+                    {
+                        managedAssy.MainModule.Resources.Add(
+                            new EmbeddedResource(res,
+                                ManifestResourceAttributes.Public,
+                                Encoding.ASCII.GetBytes(_t.Resources[res])));
+                    }
+
+                    if (!File.Exists(fullPath))
+                        managedAssy.Write(fullPath);
+                }
+                else // not a c# exe
+                {
+                    if (!File.Exists(fullPath))
+                        using (Stream file = File.Create(fullPath))
+                            CopyStream(resourceStream, file);
                 }
             }
         }
@@ -89,6 +103,16 @@ namespace Caliban.Core.Treasures
             while ((len = _input.Read(buffer, 0, buffer.Length)) > 0)
             {
                 _output.Write(buffer, 0, len);
+            }
+        }
+
+        private static byte[] ObjectToByteArray(Object obj)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            using (var ms = new MemoryStream())
+            {
+                bf.Serialize(ms, obj);
+                return ms.ToArray();
             }
         }
     }
