@@ -16,7 +16,7 @@ namespace Caliban.Core.Transport
         GAME_LOSE = 0x0004,
         CONSUME_TREASURE = 0x0005,
         ZONE_SWITCH = 0x0006,
-        
+        CHOREO = 0x0007,
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,
         WATERLEVEL_ADD = 0x0103,

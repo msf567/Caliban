@@ -11,6 +11,10 @@ namespace Caliban.Core.Game
 {
     public static class ModuleLoader
     {
+        public delegate void ModuleLoadedDelegate(string _processName);
+
+        public static event ModuleLoadedDelegate ModuleLoaded;
+
         private static readonly List<string> LoadingClients = new List<string>();
         private static List<string> SpawnedModules = new List<string>();
 
@@ -39,7 +43,7 @@ namespace Caliban.Core.Game
             Assembly exeAssembly = Assembly.Load(resourcesBuffer);
             MethodInfo method = exeAssembly.EntryPoint;
             if (method == null) return;
-            object[] parameters = method.GetParameters().Length == 0 ? null : new object[] {new string[0]};
+            object[] parameters = method.GetParameters().Length == 0 ? null : new object[] { new string[0] };
             method.Invoke(null, parameters);
         }
 
@@ -104,16 +108,20 @@ namespace Caliban.Core.Game
 
         public static void ReadyClient(string _clientAppName)
         {
+            D.Write("Client " + _clientAppName + " is ready!");
             if (LoadingClients.Contains(_clientAppName))
             {
-                //D.Write(_clientAppName + " is ready!");   
+                D.Write(_clientAppName + " is ready!");
                 LoadingClients.Remove(_clientAppName);
             }
 
-            if (LoadingClients.Count == 0 && Game.CurrentGame.State != GameState.NOT_STARTED)
+            if (LoadingClients.Count == 0 && Game.CurrentGame != null &&
+                Game.CurrentGame.State != GameState.NOT_STARTED)
             {
-                //D.Write("All clients loaded!");
+                D.Write("All clients loaded!");
             }
+
+            ModuleLoaded?.Invoke(_clientAppName);
         }
 
         public static bool IsReady()

@@ -1,21 +1,32 @@
 using System;
+using System.Net;
+using System.Net.Sockets;
 using Caliban.Core.Transport;
 
 namespace Caliban.Core.Utility
 {
     public static class D
     {
-        private static ServerTerminal server;
+        private static UdpClient udpClient;
         public static bool debugMode = false;
-        public static void Init(ServerTerminal _server)
+        static bool inited = false;
+
+        public static void Init()
         {
-            server = _server;
+            udpClient = new UdpClient();
+            udpClient.EnableBroadcast = true;
+            inited = true;
         }
-        
+
         public static void Write(string m)
         {
-            if(debugMode)
-              Console.WriteLine(m);
+            if (!inited)
+                Init();
+            if (debugMode)
+                Console.WriteLine(m);
+
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(m);
+            udpClient.Send(bytes, bytes.Length, new IPEndPoint(IPAddress.Loopback, 7778));
         }
     }
 }

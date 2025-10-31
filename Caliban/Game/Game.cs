@@ -34,21 +34,17 @@ namespace Caliban.Core.Game
 
         public Game(ServerTerminal _server)
         {
-            
             server = _server;
             server.MessageReceived += ServerOnMessageReceived;
-           
 
-            if (D.debugMode)
-                D.Init(server);
             SetState(GameState.NOT_STARTED);
-            
+
             GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
         }
 
         public void Start()
         {
-            server.BroadcastMessage(Messages.Build(MessageType.GAME_START,""));
+            server.BroadcastMessage(Messages.Build(MessageType.GAME_START, ""));
             SetState(GameState.IN_PROGRESS);
             waterManager = new WaterManager(server);
             world = new World.World(server);
@@ -56,7 +52,7 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-            
+
             //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
         }
 
@@ -104,10 +100,9 @@ namespace Caliban.Core.Game
             world?.Dispose();
 
             ModuleLoader.Clean();
-           
+
             if (_closeExplorers)
                 CloseExplorers();
-                
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)

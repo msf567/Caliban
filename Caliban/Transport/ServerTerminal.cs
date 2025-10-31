@@ -44,7 +44,6 @@ namespace Caliban.Core.Transport
             }
 
             socket.Listen(4);
-            //D.Write("Started Server...");
             socket.BeginAccept(OnClientConnection, null);
         }
 
@@ -221,11 +220,14 @@ namespace Caliban.Core.Transport
                 Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
 
                 Message m = Messages.Parse(trimmedMessage);
+                D.Write($"Got Message: [{m.ToString()}]");
                 if (m.Type == MessageType.REGISTER)
+                {
                     RegisterClient(_socket, m.Value);
+                }
                 else
                 {
-                    MessageReceived(_socket, trimmedMessage);
+                    MessageReceived?.Invoke(_socket, trimmedMessage);
                 }
             }
         }

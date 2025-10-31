@@ -1,12 +1,14 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using Caliban.Core.ConsoleOutput;
 using Caliban.Core.Audio;
 using Caliban.Core.Utility;
 using CLIGL;
+using Treasures.Resources;
 
 namespace Caliban.Core.Menu
 {
@@ -43,17 +45,35 @@ namespace Caliban.Core.Menu
 
         public static void Intro()
         {
+            HideMenu();
+        }
+
+        public static void Intro_Legacy()
+        {
+            HideMenu();
+            AudioManager.PlaySound("IntroMusic", true);
+            Thread.Sleep(14_754);
+            TriggerIntoNote();
+            Thread.Sleep(14_754);
+            ShowMenu();
+            Main();
+        }
+
+        public static void TriggerIntoNote()
+        {
+            Process.Start("Note.exe", "Intro.txt");
+        }
+
+        public static void HideMenu()
+        {
             var handle = OS.Windows.GetConsoleWindow();
             OS.Windows.ShowWindow(handle, OS.Windows.SW_HIDE);
             Console.Clear();
-            AudioManager.PlaySound("IntroMusic", true);
-            Thread.Sleep(14_754);
-            //Thread.Sleep(22_100);
-            Process.Start("Note.exe", "Intro.txt");
-            Thread.Sleep(14_754);
-            //Thread.Sleep(29_500);
-            OS.Windows.ShowWindow(handle, OS.Windows.SW_SHOW);
-            Main();
+        }
+
+        public static void ShowMenu()
+        {
+            OS.Windows.ShowWindow(OS.Windows.GetConsoleWindow(), OS.Windows.SW_SHOW);
         }
 
         public static void Main()
@@ -64,9 +84,10 @@ namespace Caliban.Core.Menu
             Console.SetWindowSize(width, height);
             Console.SetBufferSize(width, height);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            
+
             Version version = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
-            string displayableVersion = $"Alpha Version: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+            string displayableVersion =
+                $"Alpha Version: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
             ConsoleFormat.WriteLine(displayableVersion, Color.DarkGray);
 
             ConsoleFormat.CenterWrite("C Presents", Color.Yellow);

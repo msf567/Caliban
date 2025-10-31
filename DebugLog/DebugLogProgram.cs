@@ -2,60 +2,60 @@
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
+using Caliban.Core.Utility;
 
 namespace DebugLog
 {
     internal class DebugLogProgram
     {
-        class DebugLog : ClientApp
+        class DebugLog
         {
             private bool closeFlag;
+            private UdpClient udpClient;
 
-            public DebugLog() : base("DEBUG")
+            public DebugLog()
             {
-                Thread t = new Thread(UpdateThread);
+                udpClient = new UdpClient(7778);
+                Thread t = new Thread(ListenThread);
                 t.Start();
             }
 
             private void WriteLine(string s)
             {
-                //D.Write(s);
+                Console.WriteLine(s);
             }
 
-            private void UpdateThread()
+            private void ListenThread()
             {
                 while (!closeFlag)
                 {
-                    Thread.Sleep(100);
+                    try
+                    {
+                        var endPoint = new System.Net.IPEndPoint(System.Net.IPAddress.Any, 7778);
+                        byte[] receivedData = udpClient.Receive(ref endPoint);
+                        string message = System.Text.Encoding.ASCII.GetString(receivedData);
+                        WriteLine(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteLine($"Error: {ex.Message}");
+                    }
                 }
             }
 
-            protected override void ClientOnDisconncted(Socket _socket)
+            public void Stop()
             {
-                base.ClientOnDisconncted(_socket);
-                Environment.Exit(-1);
-            }
-
-            protected override void ClientOnMessageReceived(byte[] message)
-            {
-                Message m = Messages.Parse(message);
-                switch (m.Type)
-                {
-                    case MessageType.GAME_CLOSE:
-                        closeFlag = true;
-                        break;
-                    case MessageType.DEBUG_LOG:
-                        WriteLine(Messages.Parse(message).Value);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                closeFlag = true;
+                udpClient.Close();
             }
         }
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Debug Log Listener started on port 7778. Press any key to exit.");
             DebugLog d = new DebugLog();
+            Console.ReadKey();
+            d.Stop();
         }
     }
 }

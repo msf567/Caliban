@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Caliban.Core.Game;
@@ -23,7 +24,7 @@ namespace CALIBAN
             ABOUT,
             HELP,
             INTRO,
-            STANDBY
+            STANDBY,
         }
 
         private static MenuState menuState = MenuState.MAIN;
@@ -33,23 +34,31 @@ namespace CALIBAN
         public static void Main(string[] _args)
         {
             D.debugMode = _args.Contains("debug");
+            D.Init();
             server.StartListen(5678);
-            RunUnity();
-   
+            server.MessageReceived += ServerOnMessageReceived;
+            ModuleLoader.ModuleLoaded += ModuleLoaderOnModuleLoaded;
+
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
             TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
+
+            //RunPackagedUnity();
             Game.OnGameStateChange += OnGameStateChange;
 
             Windows.ConfigureMenuWindow();
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
 
+            RunUnity();
             if (D.debugMode)
+            {
                 Menu.Main();
+                menuState = MenuState.MAIN;
+            }
             else
-                Menu.Intro();
-
-            menuState = MenuState.MAIN;
+            {
+                menuState = MenuState.INTRO;
+            }
 
             var userKey = ConsoleKey.M;
             while (!closeFlag)
@@ -61,7 +70,55 @@ namespace CALIBAN
             }
         }
 
+        private static void ModuleLoaderOnModuleLoaded(string processName)
+        {
+            D.Write("Module Loaded: " + processName);
+            switch (processName)
+            {
+                case "Unity":
+                    if (!D.debugMode)
+                    {
+                        Menu.Intro();
+                        server.SendMessageToClient("Unity", Messages.Build(MessageType.CHOREO, "StartIntro"));
+                    }
+
+                    break;
+            }
+        }
+
+        private static void ServerOnMessageReceived(Socket socket, byte[] message)
+        {
+            Caliban.Core.Transport.Message m = Messages.Parse(message);
+            switch (m.Type)
+            {
+                case MessageType.CHOREO:
+                    D.Write(m.ToString());
+                    switch (m.Value)
+                    {
+                        case "DESKTOP_BG":
+                            D.Write("Switching Desktop");
+                            break;
+                        case "SHOW_MENU":
+                            Menu.ShowMenu();
+                            menuState = MenuState.MAIN;
+                            Menu.Main();
+                            break;
+                        case "INTRO_NOTE":
+                            Menu.TriggerIntoNote();
+                            break;
+                    }
+
+                    break;
+            }
+        }
+
         private static void RunUnity()
+        {
+            var filePath = Path.Combine(AppContext.BaseDirectory, "CalibanUnity.exe");
+            Process.Start(filePath, D.debugMode ? "debug" : "");
+        }
+
+        private static void RunPackagedUnity()
         {
             var filePath = Path.Combine(AppContext.BaseDirectory, "CU.exe");
             if (File.Exists(filePath))

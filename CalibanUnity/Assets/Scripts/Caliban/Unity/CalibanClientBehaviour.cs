@@ -2,16 +2,27 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 namespace Caliban.Unity
 {
-	
-	public class CalibanClientBehaviour : MonoBehaviour
+
+    public class CalibanClientBehaviour : MonoBehaviour, INotificationReceiver
 	{
-		private CalibanClient client;
-		void Awake()
+		public static CalibanClient client;
+
+        public void OnNotify(Playable origin,INotification notification,object context)
+        {
+			if (notification is ChoreoMarker)
+			{
+				string command = (notification as ChoreoMarker).Command;
+                client.SendMessageToHost(Core.Transport.MessageType.CHOREO,command);
+            }
+        }
+
+        void Awake()
 		{
 			DontDestroyOnLoad(this);
 

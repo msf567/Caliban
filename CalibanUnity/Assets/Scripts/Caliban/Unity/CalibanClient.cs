@@ -2,6 +2,7 @@ using System;
 using System.Net.Sockets;
 using Caliban.Core.Transport;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 namespace Caliban.Unity
@@ -29,6 +30,7 @@ namespace Caliban.Unity
         protected override void ClientOnMessageReceived(byte[] _message)
         {
             Message m = Messages.Parse(_message);
+            DCon.Log("Received message from host: " + m.Type + " | " + m.Value);
             switch (m.Type)
             {
                 case MessageType.APP_CLOSE:
@@ -53,8 +55,21 @@ namespace Caliban.Unity
                 case MessageType.HOOKS_L_CLICK:
                     Sandstorm.GlobalMouseDown();
                     break;
+                case MessageType.CHOREO:
+                    string trigger = m.Value;
+                    if (trigger == "StartIntro")
+                    {
+                        GameObject.Find("IntroTimeline").GetComponent<PlayableDirector>().Play();
+                    }
+                    break;
                 
             }
+        }
+
+        public void SendMessageToHost(MessageType _type,string _message)
+        {
+            DCon.Log("Sending message to host: " + _type + " | " + _message);
+            base.SendMessageToHost(Messages.Build(_type,_message));
         }
     }
 }

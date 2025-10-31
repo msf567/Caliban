@@ -10,13 +10,14 @@ namespace Caliban.Unity
         private void Awake()
         {
             textBox = GetComponent<Text>();
+            textBox.text = "DCon Log Initialized";
         }
 
         private static Text textBox;
 
         public static void Log(string m)
         {
-           // textBox.text += Environment.NewLine + m;
+            textBox.text += Environment.NewLine + m;
         }
     }
 }
