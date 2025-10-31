@@ -8,8 +8,15 @@ A:\Caliban\DebugLog\bin\Debug\Caliban.Core.pdb
 A:\Caliban\DebugLog\bin\Debug\CLIGL.pdb
 A:\Caliban\DebugLog\bin\Debug\CLIGL.dll.config
 A:\Caliban\DebugLog\bin\Debug\Treasures.pdb
-A:\Caliban\DebugLog\obj\Debug\DebugLog.csprojAssemblyReference.cache
 A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.CoreCompileInputs.cache
-A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.CopyComplete
 A:\Caliban\DebugLog\obj\Debug\DebugLog.exe
 A:\Caliban\DebugLog\obj\Debug\DebugLog.pdb
+A:\Caliban\DebugLog\bin\Debug\Colorful.Console.dll
+A:\Caliban\DebugLog\bin\Debug\NAudio.dll
+A:\Caliban\DebugLog\bin\Debug\Newtonsoft.Json.dll
+A:\Caliban\DebugLog\bin\Debug\Mono.Cecil.dll
+A:\Caliban\DebugLog\bin\Debug\NAudio.xml
+A:\Caliban\DebugLog\bin\Debug\Newtonsoft.Json.pdb
+A:\Caliban\DebugLog\bin\Debug\Newtonsoft.Json.xml
+A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.AssemblyReference.cache
+A:\Caliban\DebugLog\obj\Debug\DebugLog.csproj.Up2Date

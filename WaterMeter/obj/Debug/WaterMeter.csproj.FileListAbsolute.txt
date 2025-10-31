@@ -19,8 +19,15 @@ A:\Caliban\WaterMeter\bin\Debug\Caliban.Core.pdb
 A:\Caliban\WaterMeter\bin\Debug\CLIGL.pdb
 A:\Caliban\WaterMeter\bin\Debug\CLIGL.dll.config
 A:\Caliban\WaterMeter\bin\Debug\Treasures.pdb
-A:\Caliban\WaterMeter\obj\Debug\WaterMeter.csprojAssemblyReference.cache
 A:\Caliban\WaterMeter\obj\Debug\WaterMeter.csproj.CoreCompileInputs.cache
-A:\Caliban\WaterMeter\obj\Debug\WaterMeter.csproj.CopyComplete
 A:\Caliban\WaterMeter\obj\Debug\WaterMeter.exe
 A:\Caliban\WaterMeter\obj\Debug\WaterMeter.pdb
+A:\Caliban\WaterMeter\bin\Debug\Newtonsoft.Json.dll
+A:\Caliban\WaterMeter\bin\Debug\Colorful.Console.dll
+A:\Caliban\WaterMeter\bin\Debug\NAudio.dll
+A:\Caliban\WaterMeter\bin\Debug\Mono.Cecil.dll
+A:\Caliban\WaterMeter\bin\Debug\Newtonsoft.Json.pdb
+A:\Caliban\WaterMeter\bin\Debug\Newtonsoft.Json.xml
+A:\Caliban\WaterMeter\bin\Debug\NAudio.xml
+A:\Caliban\WaterMeter\obj\Debug\WaterMeter.csproj.AssemblyReference.cache
+A:\Caliban\WaterMeter\obj\Debug\WaterMeter.csproj.Up2Date

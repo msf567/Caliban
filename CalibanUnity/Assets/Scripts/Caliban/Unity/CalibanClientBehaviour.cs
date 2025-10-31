@@ -35,6 +35,10 @@ namespace Caliban.Unity
 				return;
 			if(!client.IsConnected)
 				Application.Quit();
+			
+			Process[] pname = Process.GetProcessesByName("CALIBAN");
+			if (pname.Length == 0)
+				Application.Quit();
 		}
 	}
 }

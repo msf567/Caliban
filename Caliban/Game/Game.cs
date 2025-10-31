@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
+using Caliban.Core.Windows;
 using Caliban.Core.World;
 
 namespace Caliban.Core.Game
@@ -41,6 +42,8 @@ namespace Caliban.Core.Game
             if (D.debugMode)
                 D.Init(server);
             SetState(GameState.NOT_STARTED);
+            
+            GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
         }
 
         public void Start()
@@ -53,7 +56,16 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
+            
             //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
+        }
+
+        private void OnGlobalMouseAction(MouseArgs _e)
+        {
+            if (_e.Message == MouseMessages.WM_LBUTTONDOWN)
+            {
+                server.BroadcastMessage(Messages.Build(MessageType.HOOKS_L_CLICK, ""));
+            }
         }
 
         private void Update()
@@ -95,6 +107,7 @@ namespace Caliban.Core.Game
            
             if (_closeExplorers)
                 CloseExplorers();
+                
         }
 
         private void ServerOnMessageReceived(Socket _socket, byte[] _message)
@@ -102,6 +115,9 @@ namespace Caliban.Core.Game
             var msg = Messages.Parse(_message);
             switch (msg.Type)
             {
+                case MessageType.HOOKS_L_CLICK:
+                    D.Write("CLick!");
+                    break;
                 case MessageType.MAP_REVEAL:
                     server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
                     break;

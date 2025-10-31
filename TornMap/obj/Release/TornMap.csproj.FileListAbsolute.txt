@@ -1,7 +1,7 @@
 A:\Caliban\Builds\TornMap.exe
 A:\Caliban\Builds\TornMap.pdb
-A:\Caliban\TornMap\obj\Release\TornMap.csprojAssemblyReference.cache
 A:\Caliban\TornMap\obj\Release\TornMap.csproj.CoreCompileInputs.cache
-A:\Caliban\TornMap\obj\Release\TornMap.csproj.CopyComplete
 A:\Caliban\TornMap\obj\Release\TornMap.exe
 A:\Caliban\TornMap\obj\Release\TornMap.pdb
+A:\Caliban\TornMap\obj\Release\TornMap.csproj.AssemblyReference.cache
+A:\Caliban\TornMap\obj\Release\TornMap.csproj.Up2Date

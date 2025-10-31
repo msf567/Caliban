@@ -1,7 +1,9 @@
 A:\Caliban\Builds\Caliban.Core.dll
 A:\Caliban\Builds\Caliban.Core.pdb
-A:\Caliban\Caliban\obj\Debug\Caliban.csprojAssemblyReference.cache
 A:\Caliban\Caliban\obj\Debug\Caliban.csproj.CoreCompileInputs.cache
-A:\Caliban\Caliban\obj\Debug\Caliban.csproj.CopyComplete
 A:\Caliban\Caliban\obj\Debug\Caliban.Core.dll
 A:\Caliban\Caliban\obj\Debug\Caliban.Core.pdb
+A:\Caliban\Caliban\obj\Debug\Caliban.csproj.AssemblyReference.cache
+A:\Caliban\Caliban\obj\Debug\Interop.SHDocVw.dll
+A:\Caliban\Caliban\obj\Debug\Caliban.csproj.ResolveComReference.cache
+A:\Caliban\Caliban\obj\Debug\Caliban.csproj.Up2Date

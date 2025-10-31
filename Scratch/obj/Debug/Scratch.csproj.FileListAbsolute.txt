@@ -11,8 +11,8 @@ A:\Caliban\Scratch\bin\Debug\Scratch.pdb
 A:\Caliban\Scratch\bin\Debug\CLIGL.dll
 A:\Caliban\Scratch\bin\Debug\CLIGL.pdb
 A:\Caliban\Scratch\bin\Debug\CLIGL.dll.config
-A:\Caliban\Scratch\obj\Debug\Scratch.csprojAssemblyReference.cache
 A:\Caliban\Scratch\obj\Debug\Scratch.csproj.CoreCompileInputs.cache
-A:\Caliban\Scratch\obj\Debug\Scratch.csproj.CopyComplete
 A:\Caliban\Scratch\obj\Debug\Scratch.exe
 A:\Caliban\Scratch\obj\Debug\Scratch.pdb
+A:\Caliban\Scratch\obj\Debug\Scratch.csproj.AssemblyReference.cache
+A:\Caliban\Scratch\obj\Debug\Scratch.csproj.Up2Date

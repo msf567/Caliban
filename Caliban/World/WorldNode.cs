@@ -124,7 +124,6 @@ namespace Caliban.Core.World
             return returnNode;
         }
 
-
         private string GetFullName()
         {
             WorldNode currentNode = this;

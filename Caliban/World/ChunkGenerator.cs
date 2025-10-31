@@ -25,7 +25,6 @@ namespace Caliban.Core.World
         
         public static WorldNode GenerateChunk(WorldNode root, ChunkType type)
         {
-            
             GenerateDesertNodeData(root, WorldParameters.DesertDepth);
             CurrentChunkType = type;
             DistributeWater(root);

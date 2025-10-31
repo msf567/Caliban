@@ -8,8 +8,15 @@ A:\Caliban\WaterPuddle\bin\Debug\Caliban.Core.pdb
 A:\Caliban\WaterPuddle\bin\Debug\CLIGL.pdb
 A:\Caliban\WaterPuddle\bin\Debug\CLIGL.dll.config
 A:\Caliban\WaterPuddle\bin\Debug\Treasures.pdb
-A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csprojAssemblyReference.cache
 A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csproj.CoreCompileInputs.cache
-A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csproj.CopyComplete
 A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.exe
 A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.pdb
+A:\Caliban\WaterPuddle\bin\Debug\Colorful.Console.dll
+A:\Caliban\WaterPuddle\bin\Debug\NAudio.dll
+A:\Caliban\WaterPuddle\bin\Debug\Newtonsoft.Json.dll
+A:\Caliban\WaterPuddle\bin\Debug\Mono.Cecil.dll
+A:\Caliban\WaterPuddle\bin\Debug\NAudio.xml
+A:\Caliban\WaterPuddle\bin\Debug\Newtonsoft.Json.pdb
+A:\Caliban\WaterPuddle\bin\Debug\Newtonsoft.Json.xml
+A:\Caliban\WaterPuddle\obj\Debug\WaterPuddle.csproj.AssemblyReference.cache
+A:\Caliban\WaterPuddle\obj\Debug\WaterPud.D09FE968.Up2Date

@@ -22,6 +22,8 @@ namespace Caliban.Core.Transport
         WATERLEVEL_ADD = 0x0103,
         MAP_REVEAL = 0x0105,
         
+        HOOKS_L_CLICK = 0x10AAA,
+        
         SANDSTORM_START = 0x010A
     }
 

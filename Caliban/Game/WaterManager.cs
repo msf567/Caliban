@@ -37,14 +37,15 @@ namespace Caliban.Core.Game
                 case MessageType.WATERLEVEL_ADD:
                     string amount = m.Value.Split(' ')[0];
                     string id = m.Value.Split(' ')[1];
-                   if (!IsLegalWater(id))
+                    if (!IsLegalWater(id))
                     {
                         Game.CurrentGame.CheatFlag();
                         break;
                     }
+
                     CurrentLevel += int.Parse(amount);
                     CurrentLevel = CurrentLevel.Clamp(0, 100);
-                    
+
                     break;
                 case MessageType.WATERLEVEL_GET:
                     server.SendMessageToClient("WaterMeter",
@@ -61,6 +62,7 @@ namespace Caliban.Core.Game
                 legal = true;
                 waterIDs.Remove(_id);
             }
+
             return legal;
         }
 
@@ -86,6 +88,8 @@ namespace Caliban.Core.Game
 
         private void OnGlobalMouseAction(MouseArgs _e)
         {
+          
+
             if (_e.Message == MouseMessages.WM_LBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_RBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_XBUTTONDOWN ||

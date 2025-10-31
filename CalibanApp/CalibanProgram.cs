@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using Caliban.Core.Game;
 using Caliban.Core.OS;
 using Caliban.Core.Transport;
@@ -33,6 +35,7 @@ namespace CALIBAN
             D.debugMode = _args.Contains("debug");
             server.StartListen(5678);
             RunUnity();
+   
             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
             TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
@@ -40,7 +43,6 @@ namespace CALIBAN
 
             Windows.ConfigureMenuWindow();
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
-
 
             if (D.debugMode)
                 Menu.Main();
@@ -67,12 +69,16 @@ namespace CALIBAN
             TreasureManager.Spawn(AppContext.BaseDirectory, new Treasure("CU.exe"));
             if (!File.Exists("CU.exe"))
                 return;
+
             Process.Start("CU.exe", D.debugMode ? "debug" : "");
         }
 
         private static void ClearUnity()
         {
-            while (File.Exists("CU.exe"))
+            foreach (var process in Process.GetProcessesByName("CU.exe"))
+                process.Kill();
+
+            if (File.Exists("CU.exe"))
                 try
                 {
                     File.Delete("CU.exe");
@@ -82,7 +88,7 @@ namespace CALIBAN
                     // ignored
                 }
         }
-        
+
         private static bool MenuLoop(ConsoleKey userKey)
         {
             switch (menuState)
@@ -210,7 +216,7 @@ namespace CALIBAN
 
         private static void CloseApp()
         {
-            server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE,""));
+            server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE, ""));
             CloseCurrentGame();
             ClearUnity();
             Menu.Close();

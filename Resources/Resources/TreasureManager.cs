@@ -37,8 +37,6 @@ namespace Treasures.Resources
             string _destFileName = "")
         {
             string resName = _t.type == TreasureType.SIMPLE ? _t.fileName : TreasureNames[_t.type];
-
-      
             
             if (!Directory.Exists(_destFolder))
                 Directory.CreateDirectory(_destFolder);

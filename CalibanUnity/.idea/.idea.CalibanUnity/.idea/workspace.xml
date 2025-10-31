@@ -2,58 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26409450-451b-4a5a-89cb-64d4218ea5f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Caliban/World/WorldGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hooks/HooksClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hooks/UserActivityHook.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hooks/merge.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/Caliban/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/Caliban/v15/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/Caliban/v15/Server/sqlite3/storage.ide-wal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Caliban.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity.evb" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity.evb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/globalgamemanagers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level0.resS" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level0.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/level1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets0.assets.resS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets0.resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CalibanUnity_Data/sharedassets1.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/DebugLog.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/DebugLog.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Note.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/Scratch.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Scratch.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/SimpleVictory.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/TornMap.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Treasures.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Builds/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/WaterMeter.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/WaterMeter.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Builds/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/WaterPuddle.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Audio/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Caliban.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Cinematics/Cinematic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Cinematics/Cinematic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Game/Clue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/Clue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Game/ClueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/ClueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/caliban-setup.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/caliban-setup.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Game/MapClue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/MapClue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Game/ModuleLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/ModuleLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Game/SoundClue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/SoundClue.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/Game/WaterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/WaterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Menu/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Menu/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/OS/Windows.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/OS/Windows.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Transport/ClientApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Transport/ClientApp.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/Transport/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Transport/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Transport/ServerTerminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Transport/ServerTerminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Utility/Debug.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Utility/Debug.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/Utility/StringEx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Utility/StringEx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/World/ChunkGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/World/ChunkGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/World/World.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/World/WorldNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/World/WorldNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Debug/Caliban.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Debug/Caliban.csproj.ResolveComReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Debug/Caliban.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Debug/Caliban.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Debug/Interop.SHDocVw.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Debug/Interop.SHDocVw.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.Core.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.Core.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csproj.ResolveComReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csproj.ResolveComReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Caliban.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Caliban/obj/Release/Interop.SHDocVw.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/obj/Release/Interop.SHDocVw.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CalibanApp/CalibanProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../CalibanApp/CalibanProgram.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CalibanApp/obj/Release/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../CalibanApp/obj/Release/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CalibanApp/obj/Release/CALIBAN.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../CalibanApp/obj/Release/CALIBAN.pdb" afterDir="false" />
@@ -62,23 +43,37 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CalibanUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CalibanUnity/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Caliban.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Caliban.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/RenderTextures/SandstormTex.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RenderTextures/SandstormTex.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/StringEx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/StringEx.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/WindowQuad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/WindowQuad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/GlobalEventProvider.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/GlobalEventProvider.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Structures.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Structures.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/MouseEventExtArgs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalHook/MouseEventExtArgs.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastBuild.buildreport" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/globalgamemanagers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/level0.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/level0.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/Data/sharedassets0.assets.resS" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/ScriptLayoutHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win64/ScriptLayoutHashes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
@@ -95,12 +90,30 @@
       <change beforePath="$PROJECT_DIR$/Library/StateCache/Hierarchy/275491-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/Hierarchy/275491-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/3d4077-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/3d4077-mainStage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/08/08b661850aa7ceb489df8477a745ba73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/08/08b661850aa7ceb489df8477a745ba73.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/11/1104439fbee6b9c4f83cadbf816276fa" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/11/1104439fbee6b9c4f83cadbf816276fa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/11/11a3e935f7e6d4741a3621991186d608" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/11/11a3e935f7e6d4741a3621991186d608.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/12/120b1627b5c22e94cb314c5cf16d3011" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/12/120b1627b5c22e94cb314c5cf16d3011" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2c/2c294623a05bb594781655a647883d44" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2c/2c294623a05bb594781655a647883d44.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/30/308fd05ef7eb3fd43986a515b8286283" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/30/308fd05ef7eb3fd43986a515b8286283.info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/39/39410c917912485cb98718f7ac39b176" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/39/39410c917912485cb98718f7ac39b176" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/48/4826d66c7848435418e126ff1332d3b5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/48/4826d66c7848435418e126ff1332d3b5.info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/55/55ccc1154c5c58b4092309a44a3f5eef" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/55/55ccc1154c5c58b4092309a44a3f5eef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/55/55ccc1154c5c58b4092309a44a3f5eef.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/55/55ccc1154c5c58b4092309a44a3f5eef.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/5a/5ad715885928ee34f82ce004111b5d7c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5a/5ad715885928ee34f82ce004111b5d7c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/60/6012d3953ec88d447923e65c82490100" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/60/6012d3953ec88d447923e65c82490100" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/65/653d918c6480fed4ba056a22550a9a43" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/65/653d918c6480fed4ba056a22550a9a43" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/68/68f7ba05e73ab3649a7a4a8c11e46af3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/68/68f7ba05e73ab3649a7a4a8c11e46af3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/metadata/88/88f3e3e53c8a7834abe1c47fa0eba32a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/88/88f3e3e53c8a7834abe1c47fa0eba32a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/6c/6ca921a4de6f6414eb53b993030d84fb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/6c/6ca921a4de6f6414eb53b993030d84fb.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c6/c66f6f2ec63670543832b68efb366186" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c6/c66f6f2ec63670543832b68efb366186" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c6/c66f6f2ec63670543832b68efb366186.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c6/c66f6f2ec63670543832b68efb366186.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/cc/cc95e82e1a5226745a18b12a37d33112" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/cc/cc95e82e1a5226745a18b12a37d33112.info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe10.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe10.log" afterDir="false" />
@@ -118,9 +131,8 @@
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe8.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe8.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe9.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe9.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Note/NoteForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Note/NoteForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/CU.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/CU.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/Note.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/Note.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/Note.pdb" afterDir="false" />
@@ -128,20 +140,12 @@
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/SimpleVictory.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/SimpleVictory.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/TornMap.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/TornMap.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/TornMap.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/Resources/Treasure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/Treasure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/Resources/TreasureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/TreasureManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/WaterMeter.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/WaterMeter.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/WaterMeter.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/WaterPuddle.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/Resources/WaterPuddle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/WaterPuddle.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/Resources/desert.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/Resources/desert.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/obj/Debug/Resources.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Debug/Resources.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Release/Resources.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/obj/Release/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Release/Treasures.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Resources/obj/Release/Treasures.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Resources/obj/Release/Treasures.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TornMap/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../TornMap/Map.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,175 +153,88 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-815457833">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="10" />
-          <entry key="project.open.time.0" value="8" />
-          <entry key="project.open.time.1" value="4" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="15" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Transport" value="1" />
-          <entry key="cs" value="30" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="C#" value="30" />
-          <entry key="PLAIN_TEXT" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cs" value="2792" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="C#" value="2792" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="38" selection-start-line="38" selection-end-line="39" />
-              <folding>
-                <marker date="1555635241150" expanded="true" signature="6:123" ph="..." />
-                <marker date="1555635241150" expanded="true" signature="148:1643" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="193:1641" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="282:302" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="369:460" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="529:628" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="702:1635" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="790:1625" ph="{...}" />
-                <marker date="1555635241150" expanded="true" signature="1124:1295" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="20" column="31" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="31" />
-              <folding>
-                <marker date="1554956986455" expanded="false" signature="6:107" ph="..." />
-                <marker date="1554956986455" expanded="true" signature="141:3026" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="170:3024" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="210:258" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="556:918" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="683:908" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="730:894" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="993:1123" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="1158:1657" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="1412:1516" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="1552:1647" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="1712:2177" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2250:2342" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2410:2463" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2522:2584" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2643:2705" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2771:3018" ph="{...}" />
-                <marker date="1554956986455" expanded="true" signature="2860:3008" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/DCon.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="923">
-              <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state relative-caret-position="345">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
-                <marker date="1555635825663" expanded="false" signature="6:260" ph="..." />
-                <marker date="1555635825663" expanded="true" signature="311:3039" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="735:843" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="873:942" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1018:1054" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1088:1185" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1233:1550" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1274:1378" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1583:1595" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1614:2646" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="1734:1812" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="2270:2427" ph="{...}" />
-                <marker date="1555635825663" expanded="true" signature="2744:3037" ph="{...}" />
+                <marker date="1560093179897" expanded="false" signature="6:73" ph="..." />
+                <marker date="1560093179897" expanded="true" signature="98:400" ph="{...}" />
+                <marker date="1560093179897" expanded="true" signature="138:398" ph="{...}" />
+                <marker date="1560093179897" expanded="true" signature="173:237" ph="{...}" />
+                <marker date="1560093179897" expanded="true" signature="317:392" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5060">
-              <caret line="224" column="40" selection-start-line="224" selection-start-column="40" selection-end-line="224" selection-end-column="40" />
+            <state relative-caret-position="1403">
+              <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
               <folding>
-                <marker date="1553294536330" expanded="false" signature="6:133" ph="..." />
-                <marker date="1553294536330" expanded="true" signature="155:20289" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="201:20287" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="216:2191" ph="/// The CallWndProc hook procedure is an application-defined or library-defined callback  ... " />
-                <marker date="1553294536330" expanded="true" signature="2367:12800" ph="Mouse hook processing" />
-                <marker date="1553294536330" expanded="true" signature="2406:2791" ph="/// This field is not objectively needed but we need to keep a reference on a delegate which will be  ... " />
-                <marker date="1553294536330" expanded="true" signature="2850:2945" ph="/// Stores the handle to the mouse hook procedure. ... " />
-                <marker date="1553294536330" expanded="true" signature="3072:4583" ph="/// A callback function which will be called every Time a mouse activity detected. ... " />
-                <marker date="1553294536330" expanded="true" signature="4662:9888" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="4700:9771" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="5178:7366" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="6414:6701" ph="/* If the message is WM_MOUSEWHEEL, the high-order word of MouseData member is the wheel delta. ... */" />
-                <marker date="1553294536330" expanded="true" signature="6836:7317" ph="/* TODO: X BUTTONS (I havent them so was unable to test) ... */" />
-                <marker date="1553294536330" expanded="true" signature="7876:7959" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="8043:8128" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="8257:8343" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="8477:8566" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="8711:8803" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="8895:8981" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="9223:9658" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="9394:9491" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="9540:9640" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="9690:9757" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="9955:11312" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="10089:11302" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="10458:10721" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="10811:11288" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="11085:11213" ph="/* do cleanup ... */" />
-                <marker date="1553294536330" expanded="true" signature="11379:11829" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="11734:11819" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="11898:12772" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="11948:12762" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="12305:12748" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="12899:20280" ph="Keyboard hook processing" />
-                <marker date="1553294536330" expanded="true" signature="12941:13326" ph="/// This field is not objectively needed but we need to keep a reference on a delegate which will be  ... " />
-                <marker date="1553294536330" expanded="true" signature="13388:13486" ph="/// Stores the handle to the Keyboard hook procedure. ... " />
-                <marker date="1553294536330" expanded="true" signature="13545:15059" ph="/// A callback function which will be called every Time a keyboard activity detected. ... " />
-                <marker date="1553294536330" expanded="true" signature="15143:17700" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="15287:17433" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="15625:15891" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="15990:17025" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="16620:17007" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="17143:17418" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="17770:18949" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="17910:18939" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="18448:18925" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="18722:18850" ph="/* do cleanup ... */" />
-                <marker date="1553294536330" expanded="true" signature="19019:19302" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="19204:19292" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="19374:20260" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="19427:20250" ph="{...}" />
-                <marker date="1553294536330" expanded="true" signature="19793:20236" ph="{...}" />
+                <marker date="1558639653637" expanded="false" signature="6:99" ph="..." />
+                <marker date="1558639653637" expanded="true" signature="101:445" ph="/// Mono singleton Class. Extend this class to make singleton component. ... " />
+                <marker date="1558639653637" expanded="true" signature="527:2867" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="598:1722" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="616:1716" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="731:1675" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="923:1506" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="1346:1488" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="1543:1661" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="1835:1969" ph="/* If no other monobehaviour request the instance in an awake function ... */" />
+                <marker date="1558639653637" expanded="true" signature="1994:2475" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="2032:2088" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="2125:2309" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="2338:2469" ph="{...}" />
+                <marker date="1558639653637" expanded="true" signature="2482:2663" ph="/// This function is called when the instance is used the first time ... " />
+                <marker date="1558639653637" expanded="true" signature="2826:2865" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/Sandstorm.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+              <folding>
+                <marker date="1559757859911" expanded="true" signature="6:208" ph="..." />
+                <marker date="1559757859911" expanded="true" signature="233:3429" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="278:3427" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="802:944" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="978:998" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1044:1124" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1163:1276" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1328:1685" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1377:1497" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1722:1742" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1765:3020" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="1900:1997" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="2026:2120" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="2604:2781" ph="{...}" />
+                <marker date="1559757859911" expanded="true" signature="3116:3421" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/HookTest.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <marker date="1559757795121" expanded="true" signature="6:106" ph="..." />
+                <marker date="1559757795121" expanded="true" signature="145:386" ph="{...}" />
+                <marker date="1559757795121" expanded="true" signature="190:202" ph="{...}" />
+                <marker date="1559757795121" expanded="true" signature="235:329" ph="{...}" />
+                <marker date="1559757795121" expanded="true" signature="372:384" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -326,14 +243,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="30" column="77" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+            <state relative-caret-position="524">
+              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding>
-                <marker date="1555635424698" expanded="false" signature="6:172" ph="..." />
-                <marker date="1555635424698" expanded="true" signature="197:832" ph="{...}" />
-                <marker date="1555635424698" expanded="true" signature="254:830" ph="{...}" />
-                <marker date="1555635424698" expanded="true" signature="304:530" ph="{...}" />
-                <marker date="1555635424698" expanded="true" signature="555:827" ph="{...}" />
+                <marker date="1558644476270" expanded="false" signature="6:172" ph="..." />
+                <marker date="1558644476270" expanded="true" signature="197:946" ph="{...}" />
+                <marker date="1558644476270" expanded="true" signature="254:944" ph="{...}" />
+                <marker date="1558644476270" expanded="true" signature="304:530" ph="{...}" />
+                <marker date="1558644476270" expanded="true" signature="555:941" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1373">
+              <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+              <folding>
+                <marker date="1558722641660" expanded="false" signature="6:98" ph="..." />
+                <marker date="1558722641660" expanded="true" signature="168:4002" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="996:1052" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1135:1285" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1303:1395" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1425:1517" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1573:1908" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1765:1902" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="1964:2296" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="2156:2290" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="2379:2936" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="2442:2621" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="2681:2864" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="3019:3301" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="3049:3229" ph="{...}" />
+                <marker date="1558722641660" expanded="true" signature="3109:3215" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+              <folding>
+                <marker date="1559757852635" expanded="false" signature="6:123" ph="..." />
+                <marker date="1559757852635" expanded="true" signature="148:1774" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="193:1772" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="282:302" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="369:460" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="529:628" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="702:1766" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="790:1756" ph="{...}" />
+                <marker date="1559757852635" expanded="true" signature="1123:1294" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -341,28 +305,34 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SetWindowsHookEx</find>
+      <find>s_MouseHookHandle</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Globals.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TransparentWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PixelParticles.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Case/Unity/UnitySinker/Assets/Scripts/GlobalInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/WindowQuad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Case/Libraries/GlobalInput/GlobalKeyboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/DCon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientTerminal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/Sandstorm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Globals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ConnectedClient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Messages.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PixelParticles.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/GlobalEventProvider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TransparentWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Structures.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/MouseEventExtArgs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HookTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -371,10 +341,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientTerminal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ConnectedClient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Globals.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/Messages.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TransparentWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Debug.cs" />
         <option value="$PROJECT_DIR$/Assets/D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs" />
         <option value="$PROJECT_DIR$/Assets/Standstorm.cs" />
@@ -383,82 +351,38 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Structures.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalHook/MouseEventExtArgs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PixelParticles.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Standstorm.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/Debug.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/WindowQuad.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs" />
+        <option value="$PROJECT_DIR$/Assets/UserActivityHook.cs" />
+        <option value="C:/Case/Unity/UnitySinker/Assets/Scripts/GlobalInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/HookTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/Sandstorm.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/DCon.cs" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1300" />
-    <option name="height" value="930" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1416" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="UnityExplorer" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="FileSystemExplorer" />
-      <pane id="UnityExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-              <item name="Caliban" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-              <item name="Caliban" type="1045f7f1:UnityExplorerNode" />
-              <item name="Transport" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-              <item name="Caliban" type="1045f7f1:UnityExplorerNode" />
-              <item name="Unity" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="Project" type="e068e287:UnityExplorerRootNode" />
-              <item name="Assets" type="48f920db:UnityExplorerNode$AssetsRoot" />
-              <item name="Scripts" type="1045f7f1:UnityExplorerNode" />
-              <item name="GlobalHook" type="1045f7f1:UnityExplorerNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-hidden-items" value="false" />
-      </pane>
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
@@ -479,11 +403,13 @@
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="2384">
+      <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" value="2384" />
       <method v="2" />
@@ -518,11 +444,14 @@
       <workItem from="1554674378683" duration="2052000" />
       <workItem from="1555610814342" duration="2708000" />
       <workItem from="1555633501200" duration="2218000" />
+      <workItem from="1558634654523" duration="4271000" />
+      <workItem from="1558709419237" duration="10066000" />
+      <workItem from="1559663210764" duration="1920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33498000" />
+    <option name="totallyTimeSpent" value="49755000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -537,13 +466,15 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.041335452" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.020667726" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.19251753" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997986" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997986" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -555,22 +486,49 @@
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Unity" order="14" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.15288612" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.15276696" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Errors In Solution" order="3" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.020667726" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.19251753" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997986" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Unity" order="14" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.15276696" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -591,7 +549,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Transport" />
-    <entry file="file://$PROJECT_DIR$/Assets/Debug.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/D.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientTerminal.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -614,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Standstorm.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/TransparentWindow.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -633,13 +583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -657,20 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" selection-start-line="70" selection-end-line="71" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PixelParticles.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -679,70 +608,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/D.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs">
+    <entry file="file://C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/Microsoft.Common.CurrentVersion.targets">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5060">
-          <caret line="224" column="40" selection-start-line="224" selection-start-column="40" selection-end-line="224" selection-end-column="40" />
-          <folding>
-            <marker date="1553294536330" expanded="false" signature="6:133" ph="..." />
-            <marker date="1553294536330" expanded="true" signature="155:20289" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="201:20287" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="216:2191" ph="/// The CallWndProc hook procedure is an application-defined or library-defined callback  ... " />
-            <marker date="1553294536330" expanded="true" signature="2367:12800" ph="Mouse hook processing" />
-            <marker date="1553294536330" expanded="true" signature="2406:2791" ph="/// This field is not objectively needed but we need to keep a reference on a delegate which will be  ... " />
-            <marker date="1553294536330" expanded="true" signature="2850:2945" ph="/// Stores the handle to the mouse hook procedure. ... " />
-            <marker date="1553294536330" expanded="true" signature="3072:4583" ph="/// A callback function which will be called every Time a mouse activity detected. ... " />
-            <marker date="1553294536330" expanded="true" signature="4662:9888" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="4700:9771" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="5178:7366" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="6414:6701" ph="/* If the message is WM_MOUSEWHEEL, the high-order word of MouseData member is the wheel delta. ... */" />
-            <marker date="1553294536330" expanded="true" signature="6836:7317" ph="/* TODO: X BUTTONS (I havent them so was unable to test) ... */" />
-            <marker date="1553294536330" expanded="true" signature="7876:7959" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="8043:8128" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="8257:8343" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="8477:8566" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="8711:8803" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="8895:8981" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="9223:9658" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="9394:9491" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="9540:9640" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="9690:9757" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="9955:11312" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="10089:11302" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="10458:10721" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="10811:11288" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="11085:11213" ph="/* do cleanup ... */" />
-            <marker date="1553294536330" expanded="true" signature="11379:11829" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="11734:11819" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="11898:12772" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="11948:12762" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="12305:12748" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="12899:20280" ph="Keyboard hook processing" />
-            <marker date="1553294536330" expanded="true" signature="12941:13326" ph="/// This field is not objectively needed but we need to keep a reference on a delegate which will be  ... " />
-            <marker date="1553294536330" expanded="true" signature="13388:13486" ph="/// Stores the handle to the Keyboard hook procedure. ... " />
-            <marker date="1553294536330" expanded="true" signature="13545:15059" ph="/// A callback function which will be called every Time a keyboard activity detected. ... " />
-            <marker date="1553294536330" expanded="true" signature="15143:17700" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="15287:17433" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="15625:15891" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="15990:17025" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="16620:17007" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="17143:17418" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="17770:18949" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="17910:18939" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="18448:18925" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="18722:18850" ph="/* do cleanup ... */" />
-            <marker date="1553294536330" expanded="true" signature="19019:19302" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="19204:19292" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="19374:20260" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="19427:20250" ph="{...}" />
-            <marker date="1553294536330" expanded="true" signature="19793:20236" ph="{...}" />
-          </folding>
+        <state relative-caret-position="346">
+          <caret line="2109" column="4" selection-start-line="2109" selection-start-column="4" selection-end-line="2109" selection-end-column="4" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Debug.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/ClientApp.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
+        <state relative-caret-position="368">
           <caret line="20" column="31" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="31" />
           <folding>
             <marker date="1554956986455" expanded="false" signature="6:107" ph="..." />
@@ -767,56 +644,248 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Transport/SocketListener.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="38" selection-start-line="38" selection-end-line="39" />
+        <state relative-caret-position="2553">
+          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
           <folding>
-            <marker date="1555635241150" expanded="true" signature="6:123" ph="..." />
-            <marker date="1555635241150" expanded="true" signature="148:1643" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="193:1641" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="282:302" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="369:460" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="529:628" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="702:1635" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="790:1625" ph="{...}" />
-            <marker date="1555635241150" expanded="true" signature="1124:1295" ph="{...}" />
+            <marker date="1550605503359" expanded="false" signature="6:65" ph="..." />
+            <marker date="1550605503359" expanded="true" signature="99:4005" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="133:4003" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="174:405" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="313:395" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="717:805" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="842:1181" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="865:976" ph="/* Incase connection has been established with remote client - ... */" />
+            <marker date="1550605503359" expanded="true" signature="1012:1171" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="1228:2124" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="1254:1874" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="1315:1426" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="1914:2114" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2181:3471" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2349:2401" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2418:3320" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2477:2565" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2605:2808" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2839:3164" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="2956:3069" ph="/* If client socket has been closed (but client still answers)- ... */" />
+            <marker date="1550605503359" expanded="true" signature="3353:3461" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="3529:3671" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="3580:3661" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="3725:3850" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="3773:3840" ph="{...}" />
+            <marker date="1550605503359" expanded="true" signature="3908:3997" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/WindowQuad.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2392">
+          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+          <folding>
+            <marker date="1558639666597" expanded="false" signature="6:291" ph="..." />
+            <marker date="1558639666597" expanded="true" signature="332:4970" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="848:1104" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="1193:1436" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="1480:2535" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="2577:2681" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="2608:2675" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="2700:2802" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="2741:2796" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="2853:3368" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="3413:4968" ph="{...}" />
+            <marker date="1558639666597" expanded="true" signature="3554:3653" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Case/Libraries/GlobalInput/GlobalKeyboard.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-644">
+          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Case/Unity/UnitySinker/Assets/Scripts/GlobalInput.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <marker date="1558721571453" expanded="false" signature="6:98" ph="..." />
+            <marker date="1558721571453" expanded="true" signature="140:2623" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="728:774" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="804:885" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="946:1282" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="1139:1276" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="1363:1914" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="1425:1603" ph="{...}" />
+            <marker date="1558721571453" expanded="true" signature="1662:1844" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MonoSingleton.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1403">
+          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <folding>
+            <marker date="1558639653637" expanded="false" signature="6:99" ph="..." />
+            <marker date="1558639653637" expanded="true" signature="101:445" ph="/// Mono singleton Class. Extend this class to make singleton component. ... " />
+            <marker date="1558639653637" expanded="true" signature="527:2867" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="598:1722" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="616:1716" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="731:1675" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="923:1506" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="1346:1488" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="1543:1661" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="1835:1969" ph="/* If no other monobehaviour request the instance in an awake function ... */" />
+            <marker date="1558639653637" expanded="true" signature="1994:2475" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="2032:2088" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="2125:2309" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="2338:2469" ph="{...}" />
+            <marker date="1558639653637" expanded="true" signature="2482:2663" ph="/// This function is called when the instance is used the first time ... " />
+            <marker date="1558639653637" expanded="true" signature="2826:2865" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Windows.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="55" selection-start-line="55" selection-end-line="56" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/UserActivityHook.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2507">
+          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalHook/HookManager.Callbacks.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5129">
+          <caret line="227" column="62" selection-start-line="227" selection-start-column="62" selection-end-line="227" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GlobalInput.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1373">
+          <caret line="108" column="33" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+          <folding>
+            <marker date="1558722641660" expanded="false" signature="6:98" ph="..." />
+            <marker date="1558722641660" expanded="true" signature="168:4002" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="996:1052" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1135:1285" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1303:1395" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1425:1517" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1573:1908" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1765:1902" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="1964:2296" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="2156:2290" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="2379:2936" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="2442:2621" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="2681:2864" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="3019:3301" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="3049:3229" ph="{...}" />
+            <marker date="1558722641660" expanded="true" signature="3109:3215" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/HookTest.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <marker date="1559757795121" expanded="true" signature="6:106" ph="..." />
+            <marker date="1559757795121" expanded="true" signature="145:386" ph="{...}" />
+            <marker date="1559757795121" expanded="true" signature="190:202" ph="{...}" />
+            <marker date="1559757795121" expanded="true" signature="235:329" ph="{...}" />
+            <marker date="1559757795121" expanded="true" signature="372:384" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="30" column="77" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+        <state relative-caret-position="524">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
           <folding>
-            <marker date="1555635424698" expanded="false" signature="6:172" ph="..." />
-            <marker date="1555635424698" expanded="true" signature="197:832" ph="{...}" />
-            <marker date="1555635424698" expanded="true" signature="254:830" ph="{...}" />
-            <marker date="1555635424698" expanded="true" signature="304:530" ph="{...}" />
-            <marker date="1555635424698" expanded="true" signature="555:827" ph="{...}" />
+            <marker date="1558644476270" expanded="false" signature="6:172" ph="..." />
+            <marker date="1558644476270" expanded="true" signature="197:946" ph="{...}" />
+            <marker date="1558644476270" expanded="true" signature="254:944" ph="{...}" />
+            <marker date="1558644476270" expanded="true" signature="304:530" ph="{...}" />
+            <marker date="1558644476270" expanded="true" signature="555:941" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Sandstorm.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/CalibanClient.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        <state relative-caret-position="1140">
+          <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding>
-            <marker date="1555635825663" expanded="false" signature="6:260" ph="..." />
-            <marker date="1555635825663" expanded="true" signature="311:3039" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="735:843" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="873:942" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1018:1054" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1088:1185" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1233:1550" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1274:1378" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1583:1595" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1614:2646" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="1734:1812" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="2270:2427" ph="{...}" />
-            <marker date="1555635825663" expanded="true" signature="2744:3037" ph="{...}" />
+            <marker date="1559757852635" expanded="false" signature="6:123" ph="..." />
+            <marker date="1559757852635" expanded="true" signature="148:1774" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="193:1772" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="282:302" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="369:460" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="529:628" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="702:1766" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="790:1756" ph="{...}" />
+            <marker date="1559757852635" expanded="true" signature="1123:1294" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/Sandstorm.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+          <folding>
+            <marker date="1559757859911" expanded="true" signature="6:208" ph="..." />
+            <marker date="1559757859911" expanded="true" signature="233:3429" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="278:3427" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="802:944" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="978:998" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1044:1124" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1163:1276" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1328:1685" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1377:1497" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1722:1742" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1765:3020" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="1900:1997" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="2026:2120" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="2604:2781" ph="{...}" />
+            <marker date="1559757859911" expanded="true" signature="3116:3421" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Caliban/Unity/DCon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <marker date="1560093179897" expanded="false" signature="6:73" ph="..." />
+            <marker date="1560093179897" expanded="true" signature="98:400" ph="{...}" />
+            <marker date="1560093179897" expanded="true" signature="138:398" ph="{...}" />
+            <marker date="1560093179897" expanded="true" signature="173:237" ph="{...}" />
+            <marker date="1560093179897" expanded="true" signature="317:392" ph="{...}" />
           </folding>
         </state>
       </provider>

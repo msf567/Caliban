@@ -32,7 +32,7 @@ namespace Caliban.Unity
             switch (m.Type)
             {
                 case MessageType.APP_CLOSE:
-                    Debug.Log("Closing App");
+                    DCon.Log("Closing App");
                     Application.Quit();
                     break;
                 case MessageType.GAME_CLOSE:
@@ -48,8 +48,12 @@ namespace Caliban.Unity
                     SceneManager.LoadSceneAsync("Caliban",LoadSceneMode.Additive);
                     break;
                 case MessageType.SANDSTORM_START:
-                    Sandstorm.instance.StartSandstorm();
+                    Sandstorm.StartFlag = true;
                     break;
+                case MessageType.HOOKS_L_CLICK:
+                    Sandstorm.GlobalMouseDown();
+                    break;
+                
             }
         }
     }

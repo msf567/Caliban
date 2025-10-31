@@ -13,11 +13,11 @@ D:\Caliban\Builds\Note.exe
 D:\Caliban\Builds\Note.pdb
 A:\Caliban\Builds\Note.exe
 A:\Caliban\Builds\Note.pdb
-A:\Caliban\Note\obj\Release\Note.csprojAssemblyReference.cache
 A:\Caliban\Note\obj\Release\Note.csproj.CoreCompileInputs.cache
-A:\Caliban\Note\obj\Release\Note.csproj.CopyComplete
 A:\Caliban\Note\obj\Release\Note.exe
 A:\Caliban\Note\obj\Release\Note.pdb
 A:\Caliban\Note\obj\Release\Note.NoteForm.resources
 A:\Caliban\Note\obj\Release\Note.csproj.GenerateResource.cache
 A:\Caliban\Note\obj\Release\Note.Properties.Resources.resources
+A:\Caliban\Note\obj\Release\Note.csproj.AssemblyReference.cache
+A:\Caliban\Note\obj\Release\Note.csproj.Up2Date

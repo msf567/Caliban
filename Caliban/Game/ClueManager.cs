@@ -19,7 +19,6 @@ namespace Caliban.Core.Game
         {
         }
         
-
         public void AddClue(Clue c)
         {
             if (currentClues.Contains(c))

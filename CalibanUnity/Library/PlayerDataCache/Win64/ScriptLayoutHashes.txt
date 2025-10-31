@@ -5,6 +5,7 @@ SceneListBegin?
 Assets/CalibanLoader.unity
 Assets/Caliban.unity
 SceneListEnd?
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Caliban.Unity.DCon
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -116,9 +117,10 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 634953fa73bbe30cb4bc22ae62f3a830 Assembly-CSharp.dll:.TransparentWindow
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
-9722519b594120ad1018b857b23ea301 Assembly-CSharp.dll:.Sandstorm
+9722519b594120ad1018b857b23ea301 Assembly-CSharp.dll:Caliban.Unity.Sandstorm
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Caliban.Unity.CalibanClientBehaviour
+68ff2bdb78a288947db4370f25b9e3dc Assembly-CSharp.dll:.HookTest
 1191a02294e4460771742269d7eaa621 Assembly-CSharp.dll:.WindowControl
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
