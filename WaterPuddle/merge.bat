@@ -1,1 +1,0 @@
-ilmerge /out:../Resources/Resources/WaterPuddle.exe ../Builds/WaterPuddle.exe ../Builds/Caliban.Core.dll /lib:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1" /targetplatform:v4

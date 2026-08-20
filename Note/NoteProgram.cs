@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Threading;
-using Caliban.Core.Utility;
 using System.Windows.Forms;
 using Caliban.Core.Transport;
+using Caliban.Core.Debug;
 
 namespace Note
 {
@@ -23,7 +23,7 @@ namespace Note
 
                 Application.EnableVisualStyles();
                 noteForm = new NoteForm(_clientName + ".txt");
-               
+
                 Application.Run(noteForm);
             }
 
@@ -32,7 +32,7 @@ namespace Note
                 base.ClientOnMessageReceived(_message);
                 if (Messages.Parse(_message).Type == MessageType.GAME_CLOSE)
                 {
-                    noteForm.Close();   
+                    noteForm.Close();
                 }
             }
         }
@@ -44,9 +44,6 @@ namespace Note
             if (pname.Length == 0)
                 return;
 
-            foreach (string s in args)
-                D.Write("arg:" + s);
-            
             var nc = new NoteClient("intro");
         }
     }
