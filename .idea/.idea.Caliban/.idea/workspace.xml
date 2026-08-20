@@ -20,141 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff49ae5-25e0-4342-866d-f994a9f624af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban/Debug/Debug.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban/Game/Backpack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban/Game/Player.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban/Game/SaveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban/World/Feature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/ScriptingAssemblies.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/ScriptingAssemblies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/boot.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/level1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CalibanUnity_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CalibanUnity_Data/sharedassets1.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Colorful.Console.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Colorful.Console.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/DebugLog.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/DebugLog.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/EventHook.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/EventHook.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Newtonsoft.Json.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Newtonsoft.Json.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Newtonsoft.Json.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Newtonsoft.Json.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Note.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Scratch.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Scratch.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/SimpleVictory.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/TornMap.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Treasures.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterMeter.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterPuddle.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/demoClue.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/town_dusk_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/town_dusk_short.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Audio/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Caliban.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/MapClue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/MapClue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/ModuleLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/OS/ExplorerWatcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/OS/ExplorerWatcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/ClientApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/ClientApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/ServerTerminal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/ServerTerminal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Transport/SocketListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Transport/SocketListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Utility/Debug.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/World.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanApp/CalibanProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanApp/CalibanProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Caliban.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Caliban.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/CalibanLoader.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/CalibanLoader.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/HookTest.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/HookTest.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/MessageTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/MessageTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Plugins/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Plugins/System.Windows.Forms.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Plugins/System.Windows.Forms.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/ClientApp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/ClientApp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/Messages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/Messages.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/SocketListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Transport/SocketListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClientBehaviour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/DCon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/DCon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/Sandstorm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/Sandstorm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/MonoSingleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/Scripts/MonoSingleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/CalibanUnity.sln" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/CalibanUnity.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CalibanUnity/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DebugLog/DebugLog.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DebugLog/DebugLog.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DebugLog/DebugLogProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DebugLog/DebugLogProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/Note.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/Note.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/Note.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/SimpleVictory.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/TornMap.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/TornMap.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/TornMap.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/Treasure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/Treasure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/TreasureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/TreasureManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterMeter.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterMeter.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterMeter.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Resources/WaterPuddle.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Mono.Cecil.Mdb.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Mono.Cecil.Pdb.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Mono.Cecil.Rocks.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Mono.Cecil.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Treasures.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/bin/Debug/Treasures.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Resources.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Treasures.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Treasures.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Treasures.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Treasures.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Debug/Treasures.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Resources.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Resources.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.csprojResolveAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/obj/Release/Treasures.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/Map.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TornMap/TornMapProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TornMap/TornMapProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WaterMeter/WaterMeterProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaterPuddle/WaterPuddleProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WaterPuddle/WaterPuddleProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lecture plan.uvxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -611,61 +479,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.049963174111681" />
-      <entry key="MS500" value="1.9584098260279528" />
-      <entry key="S2" value="3.564406602939347" />
-      <entry key="S5" value="4.332637925734936" />
-      <entry key="S10" value="4.827788448427393" />
-      <entry key="S30" value="6.353075184984602" />
-      <entry key="S60" value="9.677333948800342" />
-      <entry key="M2" value="19.17732415288541" />
-      <entry key="M5" value="44.91592042593503" />
-      <entry key="M10" value="67.43276584065057" />
-      <entry key="M15" value="78.79363721650104" />
-      <entry key="M30" value="93.41899145455181" />
-      <entry key="H1" value="102.44040398545641" />
-      <entry key="H2" value="107.50370725220706" />
-      <entry key="H4" value="110.19425784658836" />
-      <entry key="D1" value="112.52405848564818" />
-      <entry key="W1" value="112.93180033011927" />
+      <entry key="MS100" value="1.0010106366183025" />
+      <entry key="MS500" value="1.4877625000295427" />
+      <entry key="S2" value="4.786639180262611" />
+      <entry key="S5" value="8.246334070890537" />
+      <entry key="S10" value="10.318689385430595" />
+      <entry key="S30" value="13.942397702131494" />
+      <entry key="S60" value="19.29275010461761" />
+      <entry key="M2" value="28.199563457108386" />
+      <entry key="M5" value="41.000596005132834" />
+      <entry key="M10" value="55.57042847603082" />
+      <entry key="M15" value="69.67812958430748" />
+      <entry key="M30" value="99.47917379012011" />
+      <entry key="H1" value="126.21039425311973" />
+      <entry key="H2" value="144.42414846940898" />
+      <entry key="H4" value="155.10188687490952" />
+      <entry key="D1" value="164.92604604921675" />
+      <entry key="W1" value="166.701408168132" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="5.442095760058565E-109" />
-      <entry key="S2" value="8.588979078369554E-28" />
-      <entry key="S5" value="1.4913398334259375E-11" />
-      <entry key="S10" value="3.86178693537841E-6" />
-      <entry key="S30" value="0.015689102082069202" />
-      <entry key="S60" value="0.12552369784164397" />
-      <entry key="M2" value="0.3702808123144453" />
-      <entry key="M5" value="0.8530314800147659" />
-      <entry key="M10" value="1.2517448704928689" />
-      <entry key="M15" value="1.4485765443393845" />
-      <entry key="M30" value="1.6932987331863572" />
-      <entry key="H1" value="1.8378649671318643" />
-      <entry key="H2" value="1.9165909100933711" />
-      <entry key="H4" value="1.9576907827090169" />
-      <entry key="D1" value="1.9928627915313617" />
-      <entry key="W1" value="1.9989782782862089" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="5.611689314374821E-286" />
+      <entry key="S5" value="7.936653998730853E-115" />
+      <entry key="S10" value="8.908790040589597E-58" />
+      <entry key="S30" value="9.622211390714477E-20" />
+      <entry key="S60" value="3.10859487912661E-10" />
+      <entry key="M2" value="1.842682065855934E-5" />
+      <entry key="M5" value="0.016208123568403295" />
+      <entry key="M10" value="0.17254392005770997" />
+      <entry key="M15" value="0.38654258105050493" />
+      <entry key="M30" value="0.8747048412148537" />
+      <entry key="H1" value="1.320923214752599" />
+      <entry key="H2" value="1.6248430261739264" />
+      <entry key="H4" value="1.802540740946204" />
+      <entry key="D1" value="1.9656260425653946" />
+      <entry key="W1" value="1.9950523179731843" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.000251975463425" />
-      <entry key="MS500" value="1.939621777527632" />
-      <entry key="S2" value="3.555490844075694" />
-      <entry key="S5" value="4.328218546229161" />
-      <entry key="S10" value="4.825165080501774" />
-      <entry key="S30" value="6.366995477419174" />
-      <entry key="S60" value="9.799689195080525" />
-      <entry key="M2" value="19.54175872358415" />
-      <entry key="M5" value="45.76133158633397" />
-      <entry key="M10" value="68.67819627751258" />
-      <entry key="M15" value="80.23714002029465" />
-      <entry key="M30" value="95.10919360802541" />
-      <entry key="H1" value="104.27654813747029" />
-      <entry key="H2" value="109.41938946487788" />
-      <entry key="H4" value="112.15148147558114" />
-      <entry key="D1" value="114.51684157287275" />
-      <entry key="W1" value="114.93076717597742" />
+      <entry key="MS100" value="0.9669118380509188" />
+      <entry key="MS500" value="1.4768375110366536" />
+      <entry key="S2" value="4.777131322456411" />
+      <entry key="S5" value="8.239689831386267" />
+      <entry key="S10" value="10.314190625824105" />
+      <entry key="S30" value="13.93739323636137" />
+      <entry key="S60" value="19.284433422695415" />
+      <entry key="M2" value="28.186467824834516" />
+      <entry key="M5" value="41.004417963377726" />
+      <entry key="M10" value="55.73383981742275" />
+      <entry key="M15" value="70.05722168728084" />
+      <entry key="M30" value="100.34890279557534" />
+      <entry key="H1" value="127.52830363668926" />
+      <entry key="H2" value="146.0473094527956" />
+      <entry key="H4" value="156.90353574294576" />
+      <entry key="D1" value="166.89151568909605" />
+      <entry key="W1" value="168.6964379431203" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -1220,7 +1088,7 @@
       <workItem from="1767374768041" duration="1676000" />
       <workItem from="1767380104875" duration="275000" />
       <workItem from="1774043167295" duration="11000" />
-      <workItem from="1787256645586" duration="3333000" />
+      <workItem from="1787256645586" duration="4365000" />
     </task>
     <task id="LOCAL-00001" summary="Renamed">
       <created>1549843127522</created>
@@ -1403,7 +1271,55 @@
       <option name="project" value="LOCAL" />
       <updated>1787259060729</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary=".idea workspace">
+      <option name="closed" value="true" />
+      <created>1787260483449</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260483449</updated>
+    </task>
+    <task id="LOCAL-00027" summary="caliban unity updates">
+      <option name="closed" value="true" />
+      <created>1787260533952</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260533952</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Builds folder sync (will remove from git eventually) should be idempotent">
+      <option name="closed" value="true" />
+      <created>1787260593109</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260593109</updated>
+    </task>
+    <task id="LOCAL-00029" summary="debug log impl">
+      <option name="closed" value="true" />
+      <created>1787260691657</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260691657</updated>
+    </task>
+    <task id="LOCAL-00030" summary="resources bin and obj removal">
+      <option name="closed" value="true" />
+      <created>1787260707934</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260707934</updated>
+    </task>
+    <task id="LOCAL-00031" summary="rest of changes, final sync before revival">
+      <option name="closed" value="true" />
+      <created>1787260781115</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1787260781115</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1526,7 +1442,13 @@
     <MESSAGE value="removed merge.bats and csproj deps and added ilmerge files" />
     <MESSAGE value="removed packages" />
     <MESSAGE value="removed bin folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed bin folder" />
+    <MESSAGE value=".idea workspace" />
+    <MESSAGE value="caliban unity updates" />
+    <MESSAGE value="Builds folder sync (will remove from git eventually) should be idempotent" />
+    <MESSAGE value="debug log impl" />
+    <MESSAGE value="resources bin and obj removal" />
+    <MESSAGE value="rest of changes, final sync before revival" />
+    <option name="LAST_COMMIT_MESSAGE" value="rest of changes, final sync before revival" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
