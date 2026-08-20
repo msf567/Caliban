@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using Caliban.Core.Game;
 using Caliban.Core.Utility;
+using Caliban.Core.Debug;
 
 namespace Caliban.Core.Transport
 {
@@ -180,9 +181,8 @@ namespace Caliban.Core.Transport
                     connectedClient.Send(_message);
                 }
             }
-            catch (SocketException se)
+            catch (SocketException)
             {
-                Debug.Fail(se.ToString(), "Buffer could not be sent");
             }
         }
 
@@ -220,7 +220,7 @@ namespace Caliban.Core.Transport
                 Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
 
                 Message m = Messages.Parse(trimmedMessage);
-                D.Write($"Got Message: [{m.ToString()}]");
+                //D.Write($"Got Message: [{m.ToString()}]");
                 if (m.Type == MessageType.REGISTER)
                 {
                     RegisterClient(_socket, m.Value);

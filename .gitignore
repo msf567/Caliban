@@ -1,4 +1,5 @@
-[Ll]ibrary/
+CalibanUnity/Library
+**/.ai/
 [Tt]emp/
 [Oo]bj/
 [Ll]ogs/
@@ -14,6 +15,9 @@
 # Visual Studio cache directory
 .vs/
 
+**/obj/
+**/bin/
+/packages
 # Gradle cache directory
 .gradle/
 

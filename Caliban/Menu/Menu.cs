@@ -9,6 +9,7 @@ using Caliban.Core.Audio;
 using Caliban.Core.Utility;
 using CLIGL;
 using Treasures.Resources;
+using Caliban.Core.Debug;
 
 namespace Caliban.Core.Menu
 {
@@ -200,7 +201,7 @@ namespace Caliban.Core.Menu
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Green);
         }
 
-        public static void Cheat()
+        public static void Cheat(string cheatReason)
         {
             Console.SetWindowSize(width, 17);
             Console.SetBufferSize(width, 17);
@@ -214,7 +215,7 @@ namespace Caliban.Core.Menu
             }
 
             ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("LOL Will, Did you think I wouldn't notice?", Color.Red);
+            ConsoleFormat.CenterWrite($"LOL Will, did you really think I wouldn't notice that {cheatReason}?", Color.Red);
             ConsoleFormat.CenterWrite("");
             ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
         }

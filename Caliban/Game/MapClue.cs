@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Caliban.Core.Utility;
 using Caliban.Core.World;
 using Treasures.Resources;
+using Caliban.Core.Debug;
 
 namespace Caliban.Core.Game
 {
@@ -16,9 +17,9 @@ namespace Caliban.Core.Game
             int random = r.Next(0, spawnNode.Count);
             var mapLocation = spawnNode[random].FullName.Replace(WorldParameters.WorldRoot.FullName, "");
             D.Write("Spawning map in " + mapLocation);
-            spawnNode[random].AddTreasure(TreasureType.TORN_MAP,"TornMap.exe",new Dictionary<string, string>
+            spawnNode[random].AddTreasure(TreasureType.TORN_MAP, "TornMap.exe", new Dictionary<string, string>
             {
-                {"location", locationToPointTo.FullName}
+                { "location", locationToPointTo.FullName }
             });
         }
 

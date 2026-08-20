@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Caliban.Core.Transport
 {
-    public class ClientApp
+    public class ClientApp //TODO add heartbeat system to auto-close when caliban closes
     {
         public void Deconstruct()
         {
@@ -99,6 +99,14 @@ namespace Caliban.Core.Transport
                 SendMessageToHost(Messages.Build(MessageType.REGISTER, clientName));
                 Registered = true;
             }
+        }
+
+        protected void Log(string s)
+        {
+            if (!IsConnected)
+                return;
+
+            SendMessageToHost(Messages.Build(MessageType.DEBUG_LOG, $"[{clientName}] {s}"));
         }
     }
 }

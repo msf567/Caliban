@@ -9,6 +9,7 @@ using Caliban.Core.Game;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
 using Caliban.Core.Utility;
+using Caliban.Core.Debug;
 using Treasures.Resources;
 
 namespace Caliban.Core.World
@@ -21,9 +22,6 @@ namespace Caliban.Core.World
         public WorldNode WorldRoot;
         private readonly ClueManager clueManager;
 
-        private readonly List<IntPtr> OpenWindows = new List<IntPtr>();
-        private readonly List<IntPtr> NewWindows = new List<IntPtr>();
-
         public World(ServerTerminal _s)
         {
             _s.MessageReceived += ServerOnMessageReceived;
@@ -33,14 +31,16 @@ namespace Caliban.Core.World
 
             //generate
             WorldRoot = WorldGenerator.GenerateWorld();
+            if (D.debugMode)
+                File.WriteAllText("desert.txt", WorldRoot.Print());
             var allNodes = WorldRoot.GetAllNodes();
-            var victoryPath = allNodes.Find(_e => _e.FindTreasure(TreasureType.SIMPLE_VICTORY) !=null)?.FullName;
+            var victoryPath = allNodes.Find(_e => _e.FindFirstTreasureByType(TreasureType.SIMPLE_VICTORY) != null)?.FullName;
 
             clueManager = new ClueManager(_s);
             // clueManager.AddClue(new SoundClue(victoryPath));
 
             clueManager.AddClue(new MapClue(victoryPath, this));
-            
+
             InitWatchers();
         }
 
@@ -48,6 +48,7 @@ namespace Caliban.Core.World
         {
             explorerWatcher = new ExplorerWatcher();
             explorerWatcher.OnNewExplorerFolder += OnNewExplorerNav;
+            explorerWatcher.OnFileAddedToFolder += OnFileAddedToFolder;
 
             fileSystemWatcher = new FileSystemWatcher(WorldParameters.WorldRoot.FullName.Replace(@"\\?\", ""));
             fileSystemWatcher.IncludeSubdirectories = true;
@@ -60,6 +61,11 @@ namespace Caliban.Core.World
             fileSystemWatcher.Created += OnChanged;
             fileSystemWatcher.Deleted += OnChanged;
             fileSystemWatcher.Renamed += OnRenamed;
+        }
+
+        private void OnFileAddedToFolder(string directory, string filePath)
+        {
+            D.Write($"File ({filePath}) detected in folder '{directory}'");
         }
 
         private void OnRenamed(object _sender, RenamedEventArgs _e)
@@ -133,39 +139,8 @@ namespace Caliban.Core.World
 
         public void Update()
         {
-           // TrackOpenWindows();
+            // TrackOpenWindows();
             ConsumeTreasures();
-        }
-
-        private void TrackOpenWindows()
-        {
-            NewWindows.Clear();
-            //eOS.Windows.EnumWindows(new OS.Windows.EnumWindowsProc(GetExplorerWindows), IntPtr.Zero);
-            var closedWindows = OpenWindows.Where(_p => NewWindows.All(_p2 => _p2 != _p));
-
-            var intPtrs = closedWindows.ToList();
-            for (var x = intPtrs.Count() - 1; x >= 0; x--)
-            {
-                IntPtr w = intPtrs[x];
-                OpenWindows.Remove(w);
-            }
-
-            foreach (var win in OpenWindows)
-            {
-                D.Write(OS.Windows.GetWindowTitle(win));
-            }
-        }
-
-        private bool GetExplorerWindows(IntPtr _hWnd, IntPtr _lParam)
-        {
-            var size = OS.Windows.GetWindowTextLength(_hWnd);
-            if (size <= 0 || !OS.Windows.IsWindowVisible(_hWnd)) return true;
-            if (OS.Windows.IsExplorerWindow(_hWnd))
-            {
-                NewWindows.Add(_hWnd);
-            }
-
-            return true;
         }
 
         private void ConsumeTreasures()

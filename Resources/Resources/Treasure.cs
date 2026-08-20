@@ -8,8 +8,11 @@ namespace Treasures.Resources
     {
         public TreasureType type;
         public string fileName;
-        public Dictionary<string, string> Resources = new Dictionary<string, string>();
+        public string spawnLocation;
+        public bool removeIfMoved; //TODO do cheat detection in water to detect if player has moved it by registering spawn location
+        public Dictionary<string, string> InternalResources = new Dictionary<string, string>();
 
+        //TODO make treasure factory to simplify treasure generation
         public Treasure(TreasureType _type, string _fileName)
         {
             type = _type;
@@ -22,10 +25,9 @@ namespace Treasures.Resources
             fileName = _fileName;
         }
 
-        public void AddResource(string resName, string val)
+        public void AddInternalResource(string resName, string val)
         {
-            Resources.Add(resName, val);
+            InternalResources.Add(resName, val);
         }
     }
-
 }

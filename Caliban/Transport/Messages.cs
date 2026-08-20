@@ -21,6 +21,7 @@ namespace Caliban.Core.Transport
         WATERLEVEL_GET = 0x0102,
         WATERLEVEL_ADD = 0x0103,
         MAP_REVEAL = 0x0105,
+        TEST_MESSAGE = 0x0106,
 
         HOOKS_L_CLICK = 0x10AAA,
 

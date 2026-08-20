@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Caliban.Core.Utility;
 using NAudio.Wave;
+using Caliban.Core.Debug;
 
 namespace Caliban.Core.Audio
 {
@@ -10,7 +11,7 @@ namespace Caliban.Core.Audio
         private static DirectSoundOut output = new DirectSoundOut();
         private static MixingWaveProvider32 mixer;
         private static Dictionary<string, WavePlayer> Sounds = new Dictionary<string, WavePlayer>();
-     
+
         static AudioManager()
         {
             mixer = new MixingWaveProvider32();
@@ -37,7 +38,7 @@ namespace Caliban.Core.Audio
             if (Sounds.ContainsKey(_soundName))
             {
                 Sounds[_soundName].Channel.Volume = _vol;
-            } 
+            }
         }
 
         public static void PlaySound(string _soundName, bool _looping)
@@ -45,7 +46,7 @@ namespace Caliban.Core.Audio
             if (Sounds.ContainsKey(_soundName))
             {
                 Sounds[_soundName].LoopStream.EnableLooping = _looping;
-                mixer.AddInputStream(Sounds[_soundName].Channel);               
+                mixer.AddInputStream(Sounds[_soundName].Channel);
                 output.Play();
             }
         }
@@ -55,7 +56,7 @@ namespace Caliban.Core.Audio
             if (Sounds.ContainsKey(_soundName))
                 mixer.RemoveInputStream(Sounds[_soundName].Channel);
         }
-        
+
         /*
         public static void LoadFile(Stream _stream, string _soundName)
         {

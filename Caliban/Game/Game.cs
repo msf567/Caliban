@@ -6,14 +6,15 @@ using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
 using Caliban.Core.World;
+using Caliban.Core.Debug;
 
 namespace Caliban.Core.Game
 {
-    public enum GameState
+    public enum GameState //TODO turn this into a struct for savestate & cheat reason etc
     {
         WON,
         LOST,
-        CHEATED,
+        CHEATED, //TODO implement cheat reason and display it
         IN_PROGRESS,
         NOT_STARTED
     }
@@ -22,13 +23,13 @@ namespace Caliban.Core.Game
     {
         private readonly ServerTerminal server;
         private Thread updateLoop;
-        private WaterManager waterManager;
+        private Player player;
         private World.World world;
 
         public static Game CurrentGame;
         public GameState State = GameState.NOT_STARTED;
 
-        public delegate void GameStateChange(GameState _state);
+        public delegate void GameStateChange(GameState _state, string cheatReason);
 
         public static GameStateChange OnGameStateChange;
 
@@ -46,7 +47,7 @@ namespace Caliban.Core.Game
         {
             server.BroadcastMessage(Messages.Build(MessageType.GAME_START, ""));
             SetState(GameState.IN_PROGRESS);
-            waterManager = new WaterManager(server);
+            player = new Player(server);
             world = new World.World(server);
             updateLoop = new Thread(Update);
             updateLoop.SetApartmentState(ApartmentState.STA);
@@ -69,7 +70,7 @@ namespace Caliban.Core.Game
             while (State == GameState.IN_PROGRESS)
             {
                 world?.Update();
-                waterManager.Update();
+                player?.Update();
                 Thread.Sleep(50);
             }
         }
@@ -84,9 +85,9 @@ namespace Caliban.Core.Game
             SetState(GameState.LOST);
         }
 
-        public void CheatFlag()
+        public void CheatFlag(string CheatMessage)
         {
-            SetState(GameState.CHEATED);
+            SetState(GameState.CHEATED, CheatMessage);
         }
 
         public void Close(bool _closeExplorers)
@@ -96,7 +97,7 @@ namespace Caliban.Core.Game
             server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
             Thread.Sleep(1000);
 
-            waterManager?.Dispose();
+            player?.Dispose();
             world?.Dispose();
 
             ModuleLoader.Clean();
@@ -114,7 +115,7 @@ namespace Caliban.Core.Game
                     D.Write("CLick!");
                     break;
                 case MessageType.MAP_REVEAL:
-                    server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
+                    //server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
                     break;
                 case MessageType.GAME_CLOSE:
                     break;
@@ -142,10 +143,10 @@ namespace Caliban.Core.Game
             }).Start();
         }
 
-        private void SetState(GameState _state)
+        private void SetState(GameState _state, string _cheatReason = "")
         {
             State = _state;
-            OnGameStateChange?.Invoke(State);
+            OnGameStateChange?.Invoke(State, _cheatReason);
         }
     }
 }

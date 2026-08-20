@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
+using Caliban.Core.Debug;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Caliban.Core.Windows;
@@ -23,8 +24,15 @@ namespace Caliban.Core.Game
             server.MessageReceived += ServerOnMessageReceived;
             //D.Write("Subscribed...");
             CurrentLevel = 80;
-            GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
-            GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
+            if (!D.debugMode)
+            {
+                GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
+                GlobalInput.OnGlobalKeyPress += OnGlobalKeyPress;
+            }
+            else
+            {
+                D.Write("Debug: Disabling water consumption");
+            }
 
             ModuleLoader.LoadModuleAndWait(@"WaterMeter.exe", "WaterMeter");
         }
@@ -39,7 +47,7 @@ namespace Caliban.Core.Game
                     string id = m.Value.Split(' ')[1];
                     if (!IsLegalWater(id))
                     {
-                        Game.CurrentGame.CheatFlag();
+                        Game.CurrentGame.CheatFlag("you moved the water puddle");
                         break;
                     }
 
@@ -70,7 +78,10 @@ namespace Caliban.Core.Game
         {
             string newID = UIDFactory.GetNewUID(8, waterIDs);
             string waterName = "WaterPuddle_" + newID + ".exe";
-            _node.AddTreasure(TreasureType.WATER_PUDDLE, waterName);
+            Treasure water = new Treasure(TreasureType.WATER_PUDDLE, waterName);
+            water.removeIfMoved = true;
+            water.spawnLocation = _node.FullName;
+            _node.AddTreasure(water);
         }
 
         public void Update()
@@ -84,12 +95,8 @@ namespace Caliban.Core.Game
             Thread.Sleep(70);
         }
 
-//        public
-
         private void OnGlobalMouseAction(MouseArgs _e)
         {
-          
-
             if (_e.Message == MouseMessages.WM_LBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_RBUTTONDOWN ||
                 _e.Message == MouseMessages.WM_XBUTTONDOWN ||

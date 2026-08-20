@@ -26,19 +26,20 @@ namespace Caliban.Core.World
         }
     }
 
-   
+
     [Serializable]
     public class WorldNode
     {
         public string Name;
         public string FullName = "";
         public ChunkType Zone;
-        
+
         public WorldNode ParentNode;
 
         public int Depth;
         public List<WorldNode> ChildNodes = new List<WorldNode>();
         public List<Treasure> Treasures = new List<Treasure>();
+        public List<Feature> Features = new List<Feature>();
 
         public WorldNode(WorldNode _parentNode, string _name, ChunkType _zone)
         {
@@ -76,21 +77,26 @@ namespace Caliban.Core.World
                 ChildNodes.Add(_n);
         }
 
-        public void AddTreasure(TreasureType _type, string _fileName, Dictionary<string, string> Resources = null)
+        public void AddTreasure(Treasure _t)
+        {
+            Treasures.Add(_t);
+        }
+
+        public void AddTreasure(TreasureType _type, string _fileName, Dictionary<string, string> InternalResources = null)
         {
             Treasure treasure = new Treasure(_type, _fileName);
-            if (Resources != null)
-                foreach (string s in Resources.Keys)
-                    treasure.AddResource(s, Resources[s]);
-            
+            if (InternalResources != null)
+                foreach (string s in InternalResources.Keys)
+                    treasure.AddInternalResource(s, InternalResources[s]);
+
             Treasures.Add(treasure);
         }
 
-        public Treasure FindTreasure(TreasureType _t)
+        public Treasure FindFirstTreasureByType(TreasureType _t)
         {
             return Treasures.Find(e => e.type == _t);
         }
-        
+
         public void DeleteTreasure(string _treasureFileName)
         {
             var foundItem = Treasures.Find(e => e.fileName == _treasureFileName);
@@ -135,6 +141,85 @@ namespace Caliban.Core.World
             }
 
             return path;
+        }
+
+        public string Print()
+        {
+            // Use StringBuilder for efficient string building.
+            // We fully qualify it here so you don't need to add 'using System.Text;'
+            var sb = new System.Text.StringBuilder();
+
+            // Call the recursive helper, starting with indentation level 0
+            PrintRecursive(sb, 0);
+
+            return sb.ToString();
+        }
+
+        // Private helper function to handle recursion and indentation
+        private void PrintRecursive(System.Text.StringBuilder sb, int indentLevel)
+        {
+            // 1. Create indentation strings
+            string indent = new string(' ', indentLevel * 4);
+            string propertyIndent = new string(' ', (indentLevel + 1) * 4);
+
+            // 2. Print this node's opening brace
+            sb.AppendLine(indent + "{");
+
+            // 3. Print this node's properties
+            sb.AppendLine(propertyIndent + $"\"Name\": \"{Name}\",");
+            sb.AppendLine(propertyIndent + $"\"FullName\": \"{FullName}\",");
+            sb.AppendLine(propertyIndent + $"\"Zone\": \"{Zone}\","); // Relies on Enum.ToString()
+            sb.AppendLine(propertyIndent + $"\"Depth\": {Depth},");
+
+            // 4. Print Treasures array
+            sb.AppendLine(propertyIndent + "\"Treasures\": [");
+            if (Treasures.Any())
+            {
+                string treasureIndent = new string(' ', (indentLevel + 2) * 4);
+                for (int i = 0; i < Treasures.Count; i++)
+                {
+                    Treasure t = Treasures[i];
+                    // Uses the .type and .fileName fields from your other methods
+                    sb.Append(treasureIndent + $"{{ \"Type\": \"{t.type}\", \"FileName\": \"{t.fileName}\" }}");
+
+                    // Add a comma if it's not the last one
+                    if (i < Treasures.Count - 1)
+                    {
+                        sb.Append(",");
+                    }
+
+                    sb.AppendLine();
+                }
+            }
+
+            sb.AppendLine(propertyIndent + "],"); // Close Treasures array
+
+            // 5. Print ChildNodes array
+            sb.AppendLine(propertyIndent + "\"ChildNodes\": [");
+            if (ChildNodes.Any())
+            {
+                for (int i = 0; i < ChildNodes.Count; i++)
+                {
+                    WorldNode child = ChildNodes[i];
+
+                    // --- RECURSIVE CALL ---
+                    // Tell the child to print itself, at one level deeper
+                    child.PrintRecursive(sb, indentLevel + 1);
+
+                    // Add a comma if it's not the last one
+                    if (i < ChildNodes.Count - 1)
+                    {
+                        sb.Append(",");
+                    }
+
+                    sb.AppendLine();
+                }
+            }
+
+            sb.AppendLine(propertyIndent + "]"); // Close ChildNodes array
+
+            // 6. Print this node's closing brace
+            sb.Append(indent + "}");
         }
     }
 }

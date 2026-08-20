@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Mono.Cecil;
+using Caliban.Core.Debug;
 
 // ReSharper disable once CheckNamespace
 namespace Treasures.Resources
@@ -22,10 +23,10 @@ namespace Treasures.Resources
     {
         private static readonly Dictionary<TreasureType, string> TreasureNames = new Dictionary<TreasureType, string>()
         {
-            {TreasureType.WATER_PUDDLE, "WaterPuddle.exe"},
-            {TreasureType.TORN_MAP, "TornMap.exe"},
-            {TreasureType.SIMPLE_VICTORY, "SimpleVictory.exe"},
-            {TreasureType.SIMPLE, ""},
+            { TreasureType.WATER_PUDDLE, "WaterPuddle.exe" },
+            { TreasureType.TORN_MAP, "TornMap.exe" },
+            { TreasureType.SIMPLE_VICTORY, "SimpleVictory.exe" },
+            { TreasureType.SIMPLE, "" },
         };
 
         public static void Spawn(string _destFolder, Treasure _t, string _destName = "")
@@ -37,7 +38,7 @@ namespace Treasures.Resources
             string _destFileName = "")
         {
             string resName = _t.type == TreasureType.SIMPLE ? _t.fileName : TreasureNames[_t.type];
-            
+
             if (!Directory.Exists(_destFolder))
                 Directory.CreateDirectory(_destFolder);
             var thisAssembly = Assembly.GetExecutingAssembly();
@@ -46,18 +47,20 @@ namespace Treasures.Resources
 
             string fullPath = Path.Combine(_destFolder, _destFileName);
 
-
+            //D.Write("Looking for " + _assemblyName + ".Resources." +resName);
             using (var resourceStream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + resName))
             {
-                if (_t.Resources.Keys.Count > 0)
+                if (resourceStream == null)
+                    return;
+                if (_t.InternalResources.Keys.Count > 0)
                 {
                     var managedAssy = AssemblyDefinition.ReadAssembly(resourceStream);
-                    foreach (var res in _t.Resources.Keys)
+                    foreach (var res in _t.InternalResources.Keys)
                     {
                         managedAssy.MainModule.Resources.Add(
                             new EmbeddedResource(res,
                                 ManifestResourceAttributes.Public,
-                                Encoding.ASCII.GetBytes(_t.Resources[res])));
+                                Encoding.ASCII.GetBytes(_t.InternalResources[res])));
                     }
 
                     if (!File.Exists(fullPath))

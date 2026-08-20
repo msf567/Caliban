@@ -62,17 +62,16 @@ namespace Caliban.Core.Transport
                     pfnWorkerCallBack,
                     theSocPkt);
             }
-            catch (SocketException sex)
+            catch (SocketException)
             {
                 Console.BackgroundColor = ConsoleColor.Red;
                 Environment.Exit(-1);
-                Debug.Fail(sex.ToString(), "WaitForData: Socket failed");
             }
         }
 
         private void OnDataReceived(IAsyncResult _asyn)
         {
-            CSocketPacket theSockId = (CSocketPacket) _asyn.AsyncState;
+            CSocketPacket theSockId = (CSocketPacket)_asyn.AsyncState;
             Socket socket = theSockId.ThisSocket;
 
             if (!socket.Connected)
@@ -89,7 +88,7 @@ namespace Caliban.Core.Transport
                 }
                 catch (SocketException)
                 {
-                    Debug.Write("Apperently client has been closed and connot answer.");
+                    //Debug.D.Write("Apperently client has been closed and connot answer.");
 
                     OnConnectionDropped(socket);
                     return;
@@ -97,7 +96,7 @@ namespace Caliban.Core.Transport
 
                 if (iRx == 0)
                 {
-                    Debug.Write("Apperently client socket has been closed.");
+                    //Debug.D.Write("Apperently client socket has been closed.");
                     // If client socket has been closed (but client still answers)- 
                     // EndReceive will return 0.
                     OnConnectionDropped(socket);
@@ -107,12 +106,10 @@ namespace Caliban.Core.Transport
                 byte[] bytes = theSockId.DataBuffer;
 
                 RaiseMessageReceived(bytes);
-
                 WaitForData(mSocWorker);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Debug.Fail(ex.ToString(), "OnClientConnection: Socket failed");
             }
         }
 

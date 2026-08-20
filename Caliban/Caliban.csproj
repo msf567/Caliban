@@ -35,21 +35,19 @@
     <Reference Include="CLIGL, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
     </Reference>
-    <Reference Include="Colorful.Console, Version=1.2.9.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Colorful.Console.1.2.9\lib\net461\Colorful.Console.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Colorful.Console, Version=1.2.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Colorful.Console.1.2.15\lib\net461\Colorful.Console.dll</HintPath>
     </Reference>
-    <Reference Include="EventHook, Version=1.4.105.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\EventHook.1.4.105\lib\net45\EventHook.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EventHook, Version=1.4.113.0, Culture=neutral, PublicKeyToken=2c14189d5ed28bd7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EventHook.1.4.113\lib\net45\EventHook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\NAudio.1.9.0-preview2\lib\net35\NAudio.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -66,15 +64,20 @@
     <Compile Include="Cinematics\Cinematic.cs" />
     <Compile Include="Cinematics\CinematicPlayer.cs" />
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
+    <Compile Include="Debug\Debug.cs"/>
+    <Compile Include="Game\Backpack.cs"/>
     <Compile Include="Game\Clue.cs" />
     <Compile Include="Game\MapClue.cs" />
     <Compile Include="Game\ClueManager.cs" />
+    <Compile Include="Game\Player.cs"/>
+    <Compile Include="Game\SaveState.cs"/>
     <Compile Include="Game\SoundClue.cs" />
     <Compile Include="Utility\FormsEx.cs" />
     <Compile Include="Utility\Singleton.cs" />
     <Compile Include="OS\ExplorerWatcher.cs" />
     <Compile Include="Utility\Wallpaper.cs" />
     <Compile Include="World\ChunkGenerator.cs" />
+    <Compile Include="World\Feature.cs"/>
     <Compile Include="World\World.cs" />
     <Compile Include="World\UIDFactory.cs" />
     <Compile Include="World\WorldGenerator.cs" />
@@ -92,7 +95,6 @@
     <Compile Include="Transport\Messages.cs" />
     <Compile Include="Transport\ServerTerminal.cs" />
     <Compile Include="Transport\SocketListener.cs" />
-    <Compile Include="Utility\Debug.cs" />
     <Compile Include="Utility\MathEx.cs" />
     <Compile Include="Utility\StringEx.cs" />
     <Compile Include="OS\GlobalInput.cs" />
@@ -100,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="CALIBAN"/>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="SHDocVw">
@@ -113,10 +118,15 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DebugLog\DebugLog.csproj">
+      <Project>{6a19fc3c-67f1-4f2c-8986-43957f1605e0}</Project>
+      <Name>DebugLog</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
       <Name>Resources</Name>
     </ProjectReference>
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
