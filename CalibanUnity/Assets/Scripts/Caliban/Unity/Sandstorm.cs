@@ -1,15 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using Application = UnityEngine.Application;
 using Cursor = System.Windows.Forms.Cursor;
+using Screen = UnityEngine.Screen;
 
 namespace Caliban.Unity
 {
     public class Sandstorm : MonoBehaviour
     {
+        public RawImage sandstormRenderImage;
+        public Camera sandstormCamera;
+        private RenderTexture sandstormDrawTexture;
+        public int SandstormTextureScale = 4;
         public AudioMixer mixer;
         public float MaxParticles = 500;
         public Vector2 Direction;
@@ -25,6 +32,22 @@ namespace Caliban.Unity
         private static float HoldOn;
 
         public static bool StartFlag = false;
+
+        private void Awake()
+        {
+            sandstormDrawTexture = new RenderTexture(Screen.width / SandstormTextureScale, Screen.height / SandstormTextureScale, 0);
+            //sandstormDrawTexture.format = RenderTextureFormat.RGBAUShort;
+            sandstormDrawTexture.filterMode = FilterMode.Point;
+            sandstormDrawTexture.useMipMap = false;
+            sandstormDrawTexture.wrapMode = TextureWrapMode.Clamp;
+            sandstormDrawTexture.anisoLevel = 0;
+            sandstormDrawTexture.autoGenerateMips = false;
+            sandstormDrawTexture.name = "SandstormDrawTexture";
+            sandstormDrawTexture.Create();
+            sandstormRenderImage.texture = sandstormDrawTexture;
+            sandstormCamera.targetTexture = sandstormDrawTexture;
+        }
+
         public void Start()
         {
             Debug.Log("Started");
@@ -39,7 +62,7 @@ namespace Caliban.Unity
 
         public static void GlobalMouseDown()
         {
-            DCon.Log("click!");
+            //DCon.Log("click!");
             HoldOn = 0.25f;
         }
 
@@ -95,6 +118,7 @@ namespace Caliban.Unity
             while (buildUp > 1)
             {
                 buildUp -= 1;
+                if (!Application.isEditor)
                     Cursor.Position = new Point(Cursor.Position.X + -(int)Mathf.Sign(Direction.x), Cursor.Position.Y);
             }
 

@@ -19,6 +19,6 @@ public class MessageTest : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         DCon.Log("Sending message to host...");
-        CalibanClientBehaviour.client.SendMessageToHost(MessageType.DEBUG_LOG,"Hello from Unity!");
+        Caliban.Unity.CalibanClientApp.client.SendMessageToHost(MessageType.DEBUG_LOG,"Hello from Unity!");
     }
 }

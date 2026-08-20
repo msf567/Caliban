@@ -9,7 +9,7 @@ using Debug = UnityEngine.Debug;
 namespace Caliban.Unity
 {
 
-    public class CalibanClientBehaviour : MonoBehaviour, INotificationReceiver
+    public class CalibanClientApp : MonoBehaviour, INotificationReceiver
 	{
 		public static CalibanClient client;
 

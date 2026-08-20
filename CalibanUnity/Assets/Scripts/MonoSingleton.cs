@@ -22,7 +22,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
             // Instance requiered for the first time, we look for it
             if (m_Instance == null)
             {
-                m_Instance = GameObject.FindObjectOfType(typeof(T)) as T;
+                m_Instance = GameObject.FindFirstObjectByType(typeof(T)) as T;
 
                 // Object not found, we create a temporary one
                 if (m_Instance == null)

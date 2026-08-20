@@ -247,7 +247,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384097304}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -559,9 +559,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972235646}
-  - component: {fileID: 1972235645}
   - component: {fileID: 1972235647}
   - component: {fileID: 1972235648}
+  - component: {fileID: 1972235649}
   m_Layer: 0
   m_Name: Client
   m_TagString: Untagged
@@ -569,18 +569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1972235645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972235644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6012d3953ec88d447923e65c82490100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1972235646
 Transform:
   m_ObjectHideFlags: 0
@@ -625,6 +613,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OverrideRes: {x: 0, y: 0}
   Override: 0
+--- !u!114 &1972235649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972235644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fbf944704752844a06377744ce8216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

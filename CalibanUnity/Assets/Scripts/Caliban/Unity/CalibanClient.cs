@@ -30,7 +30,7 @@ namespace Caliban.Unity
         protected override void ClientOnMessageReceived(byte[] _message)
         {
             Message m = Messages.Parse(_message);
-            DCon.Log("Received message from host: " + m.Type + " | " + m.Value);
+            //DCon.Log("Received message from host: " + m.Type + " | " + m.Value);
             switch (m.Type)
             {
                 case MessageType.APP_CLOSE:
@@ -43,6 +43,7 @@ namespace Caliban.Unity
                     {
                         asyncOp.completed += delegate (AsyncOperation op)
                         {
+                            DCon.Log("Caliban scene unloaded");
                         };
                     }
                     break;

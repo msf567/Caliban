@@ -17,7 +17,8 @@ namespace Caliban.Unity
 
         public static void Log(string m)
         {
-            textBox.text += Environment.NewLine + m;
+            if (textBox != null)
+                textBox.text += Environment.NewLine + m;
         }
     }
 }

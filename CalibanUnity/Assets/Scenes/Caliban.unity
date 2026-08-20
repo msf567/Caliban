@@ -5846,7 +5846,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10760,6 +10759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ccc1154c5c58b4092309a44a3f5eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sandstormRenderImage: {fileID: 1994693878}
+  sandstormCamera: {fileID: 29054880152276796}
+  SandstormTextureScale: 4
   mixer: {fileID: 24100000, guid: dd617c5c66d81624e925b01d14a6e128, type: 2}
   MaxParticles: 5000
   Direction: {x: 0, y: 0}
