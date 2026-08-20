@@ -24,12 +24,11 @@ namespace TornMap
         private const string Title = "░or█upt░d █ap - █ig█t Cl░ck t█ Dec░d█";
         private ConsoleColor MapBG = ConsoleColor.Black;
 
-        public Map(string _clientName) : base(_clientName)
+        public Map(string _clientName) : base(_clientName, false)
         {
-            GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction;
+            GlobalInput.OnGlobalMouseAction += OnGlobalMouseAction; //TODO not registering while game is running
             if (TornMapProgram._debug)
             {
-                Console.WriteLine("Debug Mode!");
                 baseClueLoc =
                     @"A:\Caliban\Desert\sand_234f43\dune_234d\ridge_3248jf\dune_234wfe3\sand_32849ur\dune_234wfe3\sand_32849ur";
             }
@@ -39,13 +38,11 @@ namespace TornMap
             }
 
             Console.Title = "░or█upt░d █ap";
-
-
             windowWidth = baseClueLoc.Length;
             var renderingWindow = new RenderingWindow(Title, windowWidth, WindowHeight);
             var renderingBuffer = new RenderingBuffer(windowWidth, WindowHeight);
             Console.OutputEncoding = Encoding.UTF8;
-
+            Log("hello!");
             //Console.WriteLine(GetString(baseClueLoc));
             while (!closeFlag)
             {
@@ -101,10 +98,10 @@ namespace TornMap
                 var myChar = r.NextDouble() < 0.5 ? _chars[r.Next(0, _chars.Length)] : baseClueLoc[x];
                 _renderingBuffer.SetPixel(x, 0,
                     r.NextDouble() < decayLevel
-                        ? new RenderingPixel(' ', ConsoleColor.Black,MapBG)
+                        ? new RenderingPixel(' ', ConsoleColor.Black, MapBG)
                         : new RenderingPixel(myChar, ConsoleColor.White, ConsoleColor.Black));
             }
-            
+
             MapBG = ConsoleColor.Black;
         }
 
@@ -118,6 +115,8 @@ namespace TornMap
 
         private string StreamToString(Stream stream)
         {
+            if (stream == null)
+                return "";
             stream.Position = 0;
             using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
             {

@@ -11,6 +11,7 @@ using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Treasures.Resources;
 using Menu = Caliban.Core.Menu.Menu;
+using Caliban.Core.Debug;
 
 namespace CALIBAN
 {
@@ -29,27 +30,42 @@ namespace CALIBAN
 
         private static MenuState menuState = MenuState.MAIN;
         private static readonly ServerTerminal server = new ServerTerminal();
+#pragma warning disable CS0169
+        private static string CheatReason;
+#pragma warning restore CS0169
 
         [STAThread]
         public static void Main(string[] _args)
         {
             D.debugMode = _args.Contains("debug");
+            if (D.debugMode)
+            {
+                if (!Process.GetProcessesByName("DebugLog").Any())
+                {
+                    Process.Start("DebugLog.exe");
+                }
+            }
+
             D.Init();
             server.StartListen(5678);
             server.MessageReceived += ServerOnMessageReceived;
             ModuleLoader.ModuleLoaded += ModuleLoaderOnModuleLoaded;
 
-            string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
-            TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
-            Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
-
-            //RunPackagedUnity();
             Game.OnGameStateChange += OnGameStateChange;
 
             Windows.ConfigureMenuWindow();
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
 
-            RunUnity();
+            if (!D.debugMode)
+            {
+                RunUnity();
+            }
+            else
+            {
+                D.Write("Skipping Unity");
+            }
+
+            //RunPackagedUnity();
             if (D.debugMode)
             {
                 Menu.Main();
@@ -96,7 +112,9 @@ namespace CALIBAN
                     switch (m.Value)
                     {
                         case "DESKTOP_BG":
-                            D.Write("Switching Desktop");
+                            string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
+                            TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
+                            Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
                             break;
                         case "SHOW_MENU":
                             Menu.ShowMenu();
@@ -108,6 +126,9 @@ namespace CALIBAN
                             break;
                     }
 
+                    break;
+                case MessageType.DEBUG_LOG:
+                    D.Write(m.Value);
                     break;
             }
         }
@@ -229,7 +250,7 @@ namespace CALIBAN
             server.Clean();
         }
 
-        private static void OnGameStateChange(GameState _state)
+        private static void OnGameStateChange(GameState _state, string cheatReason)
         {
             switch (_state)
             {
@@ -242,7 +263,7 @@ namespace CALIBAN
                     CloseCurrentGame();
                     break;
                 case GameState.CHEATED:
-                    Menu.Cheat();
+                    Menu.Cheat(cheatReason);
                     CloseCurrentGame();
                     break;
                 case GameState.IN_PROGRESS:

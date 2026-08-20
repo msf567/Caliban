@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Threading;
-using Caliban.Core.Transport;
-using Caliban.Core.Utility;
+using Caliban.Core.Debug;
 
-namespace DebugLog
+namespace Caliban.Core.Debug
 {
     internal class DebugLogProgram
     {

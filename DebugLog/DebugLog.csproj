@@ -41,12 +41,6 @@
     <Compile Include="DebugLogProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Caliban\Caliban.csproj">
-      <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
-      <Name>Caliban</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
            Other similar extension points exist, see Microsoft.Common.targets.

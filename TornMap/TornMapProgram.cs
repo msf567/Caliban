@@ -18,8 +18,7 @@ namespace TornMap
             if (_args.Contains("debug"))
                 _debug = true;
 
-
-            Map m = new Map(AppDomain.CurrentDomain.BaseDirectory);
+            Map m = new Map($"TornMap[{AppDomain.CurrentDomain.BaseDirectory}]");
         }
     }
 }
