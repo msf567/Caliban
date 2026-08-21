@@ -17,7 +17,7 @@ namespace Caliban.Core.Game
             int random = r.Next(0, spawnNode.Count);
             var mapLocation = spawnNode[random].FullName.Replace(WorldParameters.WorldRoot.FullName, "");
             D.Write("Spawning map in " + mapLocation);
-            spawnNode[random].AddTreasure(TreasureType.TORN_MAP, "Caliban.TornMap.exe", new Dictionary<string, string>
+            spawnNode[random].AddTreasure(TreasureType.TORN_MAP, "TornMap.exe", new Dictionary<string, string>
             {
                 { "location", locationToPointTo.FullName }
             });

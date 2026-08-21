@@ -1,0 +1,100 @@
+#version 430 core
+
+// GPU particle simulation for the sandstorm. Each invocation advances one
+// sand grain, replacing the old CPU for-loop: the grains flow along the wind,
+// drift/wobble vertically, respawn at the upwind edge when they blow off the
+// downwind edge and wrap around vertically. All particle state lives in a
+// shader-storage buffer that is also fed straight into the vertex shader for
+// rendering, so the data never has to come back to the CPU.
+
+layout(local_size_x = 64) in;
+
+// Must match the C# Particle struct and the vertex attribute layout:
+// x, y, speed, drift, phase, size, alpha, pad  (8 floats / 32 bytes).
+struct Particle
+{
+    float x;
+    float y;
+    float speed;
+    float drift;
+    float phase;
+    float size;
+    float alpha;
+    float pad;
+};
+
+layout(std430, binding = 0) buffer Particles
+{
+    Particle particles[];
+};
+
+uniform float uDt;
+uniform float uTime;
+uniform float uStrength;
+uniform float uWindDirX;
+uniform float uWindSpeed;
+uniform vec2  uResolution;
+uniform int   uCount;
+
+// Cheap integer hash -> [0,1). Good enough to randomise respawned grains.
+float hash(uint n)
+{
+    n = (n << 13U) ^ n;
+    n = n * (n * n * 15731U + 789221U) + 1376312589U;
+    return float(n & 0x7fffffffU) / float(0x7fffffff);
+}
+
+// Give a grain fresh, randomised attributes (mirrors the CPU Randomize()).
+void randomize(inout Particle p, uint seed)
+{
+    p.speed = 0.6  + hash(seed + 1U) * 0.9;   // 0.6 .. 1.5
+    p.drift = -25.0 + hash(seed + 2U) * 50.0; // -25 .. 25
+    p.phase = hash(seed + 3U) * 6.28318530718;
+    p.size  = 1.5  + hash(seed + 4U) * 2.0;   // 1.5 .. 3.5
+    p.alpha = 0.35 + hash(seed + 5U) * 0.55;  // 0.35 .. 0.9
+}
+
+void main()
+{
+    uint i = gl_GlobalInvocationID.x;
+    if (i >= uint(uCount))
+        return;
+
+    Particle p = particles[i];
+
+    float width  = uResolution.x;
+    float height = uResolution.y;
+
+    // Horizontal flow along the wind, slowed while the storm is weak.
+    p.x += uWindDirX * p.speed * uWindSpeed * uStrength * uDt;
+
+    // A steady drift plus a gentle wobble gives the sand a turbulent feel.
+    p.y += (p.drift + sin(uTime * 2.0 + p.phase) * 20.0) * uDt;
+
+    float margin = p.size + 4.0;
+
+    // Seed changes over time so recycled grains keep getting new attributes.
+    uint seed = i * 747796405U + uint(uTime * 1000.0);
+
+    // Recycle grains that leave the downwind edge back to the upwind edge.
+    if (uWindDirX > 0.0 && p.x > width + margin)
+    {
+        randomize(p, seed);
+        p.x = -hash(seed) * 40.0;
+        p.y = hash(seed + 6U) * height;
+    }
+    else if (uWindDirX < 0.0 && p.x < -margin)
+    {
+        randomize(p, seed);
+        p.x = width + hash(seed) * 40.0;
+        p.y = hash(seed + 6U) * height;
+    }
+
+    // Wrap vertically so grains never disappear off the top/bottom.
+    if (p.y < -margin)
+        p.y = height + margin;
+    else if (p.y > height + margin)
+        p.y = -margin;
+
+    particles[i] = p;
+}

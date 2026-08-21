@@ -53,8 +53,6 @@ namespace Caliban.Core.Game
             updateLoop.SetApartmentState(ApartmentState.STA);
             updateLoop.Start();
             OpenExplorer();
-
-            //ModuleLoader.LoadModuleAndWait("CU.exe", "CalibanUnity", D.debugMode ? "debug" : "");
         }
 
         private void OnGlobalMouseAction(MouseArgs _e)
@@ -115,7 +113,7 @@ namespace Caliban.Core.Game
                     D.Write("CLick!");
                     break;
                 case MessageType.MAP_REVEAL:
-                    //server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
+                    server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
                     break;
                 case MessageType.GAME_CLOSE:
                     break;

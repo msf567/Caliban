@@ -10,7 +10,56 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26409450-451b-4a5a-89cb-64d4218ea5f2" name="Default Changelist" comment="" />
+    <list default="true" id="26409450-451b-4a5a-89cb-64d4218ea5f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../App/CALIBAN.exe.manifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/CalibanProgram.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/ILMerge.props" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/ILMergeOrder.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/WaterMeter.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/dune.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/packages.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../App/town_dusk_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Caliban.Graphics/WinEx.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DebugLog/DebugLogProgram.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DebugLog/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/CALIBAN.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Caliban.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.DebugLog.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.Note.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.SimpleVictory.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.TornMap.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.WaterMeter.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Caliban.WaterPuddle.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/Treasures.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Builds/desert.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Builds/desert.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/CALIBAN.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/CalibanProgram.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/ILMerge.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/ILMergeOrder.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/WaterMeter.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/dune.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/packages.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.App/town_dusk_1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.DebugLog/DebugLogProgram.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.DebugLog/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.Graphics/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.Graphics/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.Resources/Resources/TreasureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.Resources/Resources/TreasureManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.TornMap/MapPiece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.TornMap/MapPiece.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.TornMap/TornMapProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.TornMap/TornMapProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.WaterMeter/WaterMeter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.WaterMeter/WaterMeter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.WaterPuddle/WaterPuddleProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.WaterPuddle/WaterPuddleProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Caliban.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Caliban/Game/WaterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Caliban/Game/WaterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CalibanUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CalibanUnity/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -252,6 +301,7 @@
     <commands />
     <urls />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -474,6 +524,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

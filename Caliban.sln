@@ -3,29 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.WaterMeter", "Caliban.WaterMeter\Caliban.WaterMeter.csproj", "{37909059-67BE-462A-80E4-6C6C2779BEEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterMeter", "WaterMeter\WaterMeter.csproj", "{37909059-67BE-462A-80E4-6C6C2779BEEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{C5237FAE-D8D0-4625-B330-29D3C25509D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban", "Caliban\Caliban.csproj", "{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.DebugLog", "Caliban.DebugLog\Caliban.DebugLog.csproj", "{6A19FC3C-67F1-4F2C-8986-43957F1605E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugLog", "DebugLog\DebugLog.csproj", "{6A19FC3C-67F1-4F2C-8986-43957F1605E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.WaterPuddle", "Caliban.WaterPuddle\Caliban.WaterPuddle.csproj", "{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterPuddle", "WaterPuddle\WaterPuddle.csproj", "{FE1C18A1-2E65-4A8D-8830-15C7FF51578B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.Note", "Caliban.Note\Caliban.Note.csproj", "{9025743F-CF9E-49C9-A138-383D2F2FA8B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Note", "Note\Note.csproj", "{9025743F-CF9E-49C9-A138-383D2F2FA8B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.SimpleVictory", "Caliban.SimpleVictory\Caliban.SimpleVictory.csproj", "{AB8A8347-53C6-4C64-A29B-5FD46E54291D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleVictory", "SimpleVictory\SimpleVictory.csproj", "{AB8A8347-53C6-4C64-A29B-5FD46E54291D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.Resources", "Caliban.Resources\Caliban.Resources.csproj", "{C3060E62-16C7-4B07-99C3-C6E791F5241C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{C3060E62-16C7-4B07-99C3-C6E791F5241C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.TornMap", "Caliban.TornMap\Caliban.TornMap.csproj", "{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TornMap", "TornMap\TornMap.csproj", "{34B2AED6-0A1F-483A-AF7B-707B1D8200A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.App", "Caliban.App\Caliban.App.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{16012FD9-8081-464B-A616-264D7F20DD06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.Image", "Caliban.Image\Caliban.Image.csproj", "{75C54F9F-10CD-4660-80F9-1D7BCC751313}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image", "Image\Image.csproj", "{75C54F9F-10CD-4660-80F9-1D7BCC751313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caliban.Graphics", "Caliban.Graphics\Caliban.Graphics.csproj", "{CC755B38-AA13-480C-A2AB-6E33BA575349}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics", "Graphics\Graphics.csproj", "{CC755B38-AA13-480C-A2AB-6E33BA575349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

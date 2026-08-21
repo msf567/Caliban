@@ -118,13 +118,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-      <ProjectReference Include="..\Caliban.DebugLog\Caliban.DebugLog.csproj">
+      <ProjectReference Include="..\DebugLog\DebugLog.csproj">
       <Project>{6a19fc3c-67f1-4f2c-8986-43957f1605e0}</Project>
-          <Name>Caliban.DebugLog</Name>
+          <Name>DebugLog</Name>
     </ProjectReference>
-      <ProjectReference Include="..\Caliban.Resources\Caliban.Resources.csproj">
+      <ProjectReference Include="..\Resources\Resources.csproj">
       <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
-          <Name>Caliban.Resources</Name>
+          <Name>Resources</Name>
     </ProjectReference>
 
   </ItemGroup>

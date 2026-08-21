@@ -32,7 +32,7 @@ namespace Caliban.Core.World
         {
             var deepestNodes = _rootNode.GetAllNodesAtDepth(WorldParameters.DesertDepth);
             int random = r.Next(0, deepestNodes.Count);
-            deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY, "Caliban.SimpleVictory.exe");
+            deepestNodes[random].AddTreasure(TreasureType.SIMPLE_VICTORY, "SimpleVictory.exe");
             D.Write("Adding victory to " + deepestNodes[random].FullName);
         }
     }

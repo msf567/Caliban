@@ -62,7 +62,7 @@ namespace Caliban.Core.Menu
 
         public static void TriggerIntoNote()
         {
-            Process.Start("Caliban.Note.exe", "Intro.txt");
+            Process.Start("Note.exe", "Intro.txt");
         }
 
         public static void HideMenu()
@@ -143,7 +143,7 @@ namespace Caliban.Core.Menu
             ConsoleFormat.CenterWrite("");
             ConsoleFormat.CenterWrite("");
             ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Find Caliban.SimpleVictory.exe. Be sure to drink water.");
+            ConsoleFormat.CenterWrite("Find SimpleVictory.exe. Be sure to drink water.");
             ConsoleFormat.CenterWrite("");
             ConsoleFormat.CenterWrite(
                 "Mouse actions are taxing. Key presses are deadly. Don't even think about a CLI.");
