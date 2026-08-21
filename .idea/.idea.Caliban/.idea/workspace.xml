@@ -21,54 +21,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff49ae5-25e0-4342-866d-f994a9f624af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/App/CALIBAN.exe.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/CalibanProgram.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/ILMerge.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/ILMergeOrder.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/WaterMeter.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/dune.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/packages.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/App/town_dusk_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban.Graphics/.idea/.idea.Caliban.dir/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Caliban.Graphics/WinEx.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DebugLog/DebugLogProgram.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DebugLog/Properties/AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/CalibanProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App/CalibanProgram.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.DebugLog.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.Note.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.SimpleVictory.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.TornMap.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.WaterMeter.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.WaterPuddle.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Graphics.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Graphics.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Graphics.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Treasures.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterMeter.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/desert.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/desert.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/CALIBAN.exe.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/CalibanProgram.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/ILMerge.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/ILMergeOrder.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/Properties/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/WaterMeter.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/dune.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/packages.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.App/town_dusk_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.DebugLog/DebugLogProgram.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.DebugLog/Properties/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.Graphics/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.Graphics/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.Resources/Resources/TreasureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.Resources/Resources/TreasureManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.TornMap/MapPiece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.TornMap/MapPiece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.TornMap/TornMapProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.TornMap/TornMapProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.WaterMeter/WaterMeter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.WaterMeter/WaterMeter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.WaterPuddle/WaterPuddleProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.WaterPuddle/WaterPuddleProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Caliban.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Game/WaterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/.idea/.idea.CalibanUnity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphics/App.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Graphics/App.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphics/Drawables/SandStorm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Graphics/Drawables/SandStorm.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +48,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="25" />
+    <option name="cachedIndexableFilesCount" value="12" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileEditorManager">
@@ -385,10 +348,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Caliban.App/CalibanProgram.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban.Graphics/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban.Graphics/WinEx.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Caliban.Image/MainWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/AudioManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/LoopStream.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/Audio/WavePlayer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -437,7 +396,9 @@
     <setting file="file://$PROJECT_DIR$/Hooks/HooksClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hooks/HooksProgram.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hooks/UserActivityHook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Note/NoteProgram.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scratch/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SimpleVictory/SimpleVictoryProgram.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Descent/Assets/Editor/CrossPlatformInput/CrossPlatformInputInitialize.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../vs_dev_lib/CLIGL/CLIGL/Source/RenderingBuffer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../vs_dev_lib/CLIGL/CLIGL/Source/RenderingWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -512,61 +473,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.025737219289611663" />
-      <entry key="MS500" value="0.4809637273323874" />
-      <entry key="S2" value="0.8327757708805489" />
-      <entry key="S5" value="0.9294183280083237" />
-      <entry key="S10" value="0.964063733506633" />
-      <entry key="S30" value="1.018502259845505" />
-      <entry key="S60" value="1.5473284426748801" />
-      <entry key="M2" value="3.351528938053984" />
-      <entry key="M5" value="7.11044649738171" />
-      <entry key="M10" value="12.74502046769023" />
-      <entry key="M15" value="18.733345597915555" />
-      <entry key="M30" value="34.58129023095362" />
-      <entry key="H1" value="57.02241514457052" />
-      <entry key="H2" value="80.69842002174839" />
-      <entry key="H4" value="107.94846629604366" />
-      <entry key="D1" value="281.6199642340722" />
-      <entry key="W1" value="387.8905664442626" />
+      <entry key="MS100" value="1.332998631693034" />
+      <entry key="MS500" value="4.584183324152809" />
+      <entry key="S2" value="8.556465908289287" />
+      <entry key="S5" value="9.922710200266723" />
+      <entry key="S10" value="10.443005864557367" />
+      <entry key="S30" value="10.810084922141897" />
+      <entry key="S60" value="10.904549259865744" />
+      <entry key="M2" value="10.975140468919596" />
+      <entry key="M5" value="12.15634954589171" />
+      <entry key="M10" value="16.600570018315832" />
+      <entry key="M15" value="22.04988670744618" />
+      <entry key="M30" value="38.15301846345819" />
+      <entry key="H1" value="62.684463968195644" />
+      <entry key="H2" value="89.7767234247648" />
+      <entry key="H4" value="119.93609809417651" />
+      <entry key="D1" value="297.0399794987832" />
+      <entry key="W1" value="405.38409093297804" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000000036" />
-      <entry key="S60" value="1.0000001290488703" />
-      <entry key="M2" value="1.0009682862126268" />
-      <entry key="M5" value="1.2343028797040836" />
-      <entry key="M10" value="2.610147727809956" />
-      <entry key="M15" value="4.1738955819475" />
-      <entry key="M30" value="7.605150504154006" />
-      <entry key="H1" value="11.082806632356242" />
-      <entry key="H2" value="13.86824439068045" />
-      <entry key="H4" value="15.809333380798241" />
-      <entry key="D1" value="19.274479666454518" />
-      <entry key="W1" value="20.703684943246973" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="1.659614349079495E-169" />
+      <entry key="S5" value="3.0761171602202534E-68" />
+      <entry key="S10" value="1.753886301964941E-34" />
+      <entry key="S30" value="5.597582185381885E-12" />
+      <entry key="S60" value="2.3659213068285393E-6" />
+      <entry key="M2" value="0.0015396444385366666" />
+      <entry key="M5" value="0.09251705291925529" />
+      <entry key="M10" value="0.7146034555407274" />
+      <entry key="M15" value="1.7598470700139441" />
+      <entry key="M30" value="4.938266093028809" />
+      <entry key="H1" value="8.930650492242322" />
+      <entry key="H2" value="12.449105717993769" />
+      <entry key="H4" value="14.978623070466465" />
+      <entry key="D1" value="19.10186266786837" />
+      <entry key="W1" value="20.677094628468666" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.02793944239319437" />
-      <entry key="MS500" value="0.6918699785413267" />
-      <entry key="S2" value="1.5078844559981663" />
-      <entry key="S5" value="1.7838154929496044" />
-      <entry key="S10" value="1.8883705638285104" />
-      <entry key="S30" value="1.9925504942372643" />
-      <entry key="S60" value="2.5338428782922757" />
-      <entry key="M2" value="4.344984191260787" />
-      <entry key="M5" value="8.339892768920373" />
-      <entry key="M10" value="15.348533249129162" />
-      <entry key="M15" value="22.899502382943783" />
-      <entry key="M30" value="42.178552593831974" />
-      <entry key="H1" value="68.09884324298376" />
-      <entry key="H2" value="94.56233721741515" />
-      <entry key="H4" value="123.75518510297853" />
-      <entry key="D1" value="300.89382635875637" />
-      <entry key="W1" value="408.59415076244244" />
+      <entry key="MS100" value="1.177580423420304" />
+      <entry key="MS500" value="4.420490344753957" />
+      <entry key="S2" value="8.463525966370572" />
+      <entry key="S5" value="9.877738357926466" />
+      <entry key="S10" value="10.419002464590227" />
+      <entry key="S30" value="10.801723543642945" />
+      <entry key="S60" value="10.900324339071124" />
+      <entry key="M2" value="10.974539548052174" />
+      <entry key="M5" value="12.247597102924964" />
+      <entry key="M10" value="17.312843290140872" />
+      <entry key="M15" value="23.80610000704555" />
+      <entry key="M30" value="43.085955989391636" />
+      <entry key="H1" value="71.60986421306362" />
+      <entry key="H2" value="102.22188752149951" />
+      <entry key="H4" value="134.9122148082128" />
+      <entry key="D1" value="316.1412252139575" />
+      <entry key="W1" value="426.0610843576769" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -1146,6 +1107,7 @@
       <workItem from="1774043167295" duration="11000" />
       <workItem from="1787256645586" duration="8030000" />
       <workItem from="1787328849430" duration="9093000" />
+      <workItem from="1787339082585" duration="2497000" />
     </task>
     <task id="LOCAL-00001" summary="Renamed">
       <created>1549843127522</created>
@@ -1392,7 +1354,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787321989418</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="rename and graphics bootstrap">
+      <option name="closed" value="true" />
+      <created>1787339210552</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1787339210552</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1523,7 +1493,8 @@
     <MESSAGE value="rest of changes, final sync before revival" />
     <MESSAGE value="little extras I guess" />
     <MESSAGE value="caliban project renames" />
-    <option name="LAST_COMMIT_MESSAGE" value="caliban project renames" />
+    <MESSAGE value="rename and graphics bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename and graphics bootstrap" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

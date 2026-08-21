@@ -21,7 +21,7 @@ public sealed class SandStorm : IDrawable
     /// eases toward its target. Larger values give slower, gentler wind
     /// changes that ramp up and down instead of snapping.
     /// </summary>
-    private const float WindDirectionSmoothTime = 3f;
+    private const float WindDirectionSmoothTime = 20f;
 
     private Shader? _shader;
     private Shader? _computeShader;
@@ -265,7 +265,6 @@ public sealed class SandStorm : IDrawable
         _computeShader = null;
     }
 
-
     /// <summary>
     /// Dispatches the compute shader that advances every sand grain on the
     /// GPU, replacing the old per-grain CPU for-loop. The grains blow the
@@ -323,7 +322,6 @@ public sealed class SandStorm : IDrawable
     {
         return min + (float)_random.NextDouble() * (max - min);
     }
-
 
     /// <summary>
     /// Moves the operating-system mouse cursor by the given pixel delta.

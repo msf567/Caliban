@@ -58,8 +58,8 @@ namespace CALIBAN
 
             if (!D.debugMode)
             {
-                //RunUnity();
                 RunGraphics();
+                //RunUnity();
             }
             else
             {

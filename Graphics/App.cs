@@ -93,8 +93,6 @@ internal sealed class App : GameWindow
         }
 
         _loaded = true;
-
-        ((SandStorm)_gameObjects["sandstorm"]).Begin();
     }
 
     protected override void OnResize(ResizeEventArgs e)
