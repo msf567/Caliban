@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
+
 namespace Caliban.Core.Transport
 {
     public class SocketListener
@@ -70,7 +71,7 @@ namespace Caliban.Core.Transport
 
         private void OnDataReceived(IAsyncResult _asyn)
         {
-            CSocketPacket theSockId = (CSocketPacket) _asyn.AsyncState;
+            CSocketPacket theSockId = (CSocketPacket)_asyn.AsyncState;
             Socket socket = theSockId.ThisSocket;
 
             if (!socket.Connected)

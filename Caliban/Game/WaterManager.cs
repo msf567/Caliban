@@ -34,7 +34,7 @@ namespace Caliban.Core.Game
                 D.Write("Debug: Disabling water consumption");
             }
 
-            ModuleLoader.LoadModuleAndWait(@"WaterMeter.exe", "WaterMeter");
+            ModuleLoader.LoadModuleAndWait(@"Caliban.WaterMeter.exe", "Caliban.WaterMeter");
         }
 
         private void ServerOnMessageReceived(Socket __socket, byte[] _message)
@@ -56,7 +56,7 @@ namespace Caliban.Core.Game
 
                     break;
                 case MessageType.WATERLEVEL_GET:
-                    server.SendMessageToClient("WaterMeter",
+                    server.SendMessageToClient("Caliban.WaterMeter",
                         Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
                     break;
             }
@@ -90,7 +90,7 @@ namespace Caliban.Core.Game
             if (CurrentLevel < 0 && Game.CurrentGame.State == GameState.IN_PROGRESS)
                 server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
 
-            server.SendMessageToClient("WaterMeter",
+            server.SendMessageToClient("Caliban.WaterMeter",
                 Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
             Thread.Sleep(70);
         }

@@ -9,7 +9,7 @@ namespace Caliban.Core.Audio
         /// <summary>
         /// Creates a new Loop stream
         /// </summary>
-        /// <param name="sourceStream">The stream to read from. Note: the Read method of this stream should return 0 when it reaches the end
+        /// <param name="sourceStream">The stream to read from. Caliban.Note: the Read method of this stream should return 0 when it reaches the end
         /// or else we will not loop to the start again.</param>
         public LoopStream(WaveStream sourceStream)
         {
@@ -61,11 +61,14 @@ namespace Caliban.Core.Audio
                         // something wrong with the source stream
                         break;
                     }
+
                     // loop
                     sourceStream.Position = 0;
                 }
+
                 totalBytesRead += bytesRead;
             }
+
             return totalBytesRead;
         }
     }
