@@ -62,7 +62,9 @@
     <Compile Include="Audio\LoopStream.cs" />
     <Compile Include="Audio\WavePlayer.cs" />
     <Compile Include="Cinematics\Cinematic.cs" />
+    <Compile Include="Cinematics\CinematicCue.cs"/>
     <Compile Include="Cinematics\CinematicPlayer.cs" />
+    <Compile Include="Cinematics\CinematicScriptParser.cs"/>
     <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
     <Compile Include="Debug\Debug.cs"/>
     <Compile Include="Game\Backpack.cs"/>
@@ -135,8 +137,5 @@
     </Target>
     -->
   <Target Name="AfterBuild">
-    <Exec Command="copy /y Transport ..\CalibanUnity\Assets\Scripts\Caliban\Transport" />
-    <Exec Command="del ..\CalibanUnity\Assets\Scripts\Caliban\Transport\ServerTerminal.cs" />
-    <Exec Command="copy /y Utility\StringEx.cs ..\CalibanUnity\Assets\Scripts\Caliban\Transport" />
   </Target>
 </Project>

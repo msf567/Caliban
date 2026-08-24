@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Caliban.Core.Cinematics;
 using Caliban.Core.Game;
 using Caliban.Core.OS;
 using Caliban.Core.Transport;
@@ -55,19 +56,6 @@ namespace CALIBAN
 
             Windows.ConfigureMenuWindow();
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
-
-            if (!D.debugMode)
-            {
-                RunGraphics();
-                //RunUnity();
-            }
-            else
-            {
-                D.Write("Skipping Graphics");
-                //D.Write("Skipping Unity");
-            }
-
-            //RunPackagedUnity();
             if (D.debugMode)
             {
                 Menu.Main();
@@ -75,8 +63,12 @@ namespace CALIBAN
             }
             else
             {
+                RunGraphics();
                 menuState = MenuState.INTRO;
+                Cinematic introCinematic = new Cinematic(server, "Intro");
+                CinematicPlayer.PlayCinematic(introCinematic);
             }
+
 
             var userKey = ConsoleKey.M;
             while (!closeFlag)
@@ -91,17 +83,6 @@ namespace CALIBAN
         private static void ModuleLoaderOnModuleLoaded(string processName)
         {
             D.Write("Module Loaded: " + processName);
-            switch (processName)
-            {
-                case "Unity":
-                    if (!D.debugMode)
-                    {
-                        Menu.Intro();
-                        server.SendMessageToClient("Unity", Messages.Build(MessageType.CHOREO, "StartIntro"));
-                    }
-
-                    break;
-            }
         }
 
         private static void ServerOnMessageReceived(Socket socket, byte[] message)
@@ -135,39 +116,21 @@ namespace CALIBAN
             }
         }
 
-        private static void RunUnity()
-        {
-            var filePath = Path.Combine(AppContext.BaseDirectory, "CalibanUnity.exe");
-            Process.Start(filePath, D.debugMode ? "debug" : "");
-        }
-
         private static void RunGraphics()
         {
             var filePath = Path.Combine(AppContext.BaseDirectory, "Graphics.exe");
             Process.Start(filePath, D.debugMode ? "debug" : "");
         }
 
-        private static void RunPackagedUnity()
+        private static void ClearGraphics()
         {
-            var filePath = Path.Combine(AppContext.BaseDirectory, "CU.exe");
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-            TreasureManager.Spawn(AppContext.BaseDirectory, new Treasure("CU.exe"));
-            if (!File.Exists("CU.exe"))
-                return;
-
-            Process.Start("CU.exe", D.debugMode ? "debug" : "");
-        }
-
-        private static void ClearUnity()
-        {
-            foreach (var process in Process.GetProcessesByName("CU.exe"))
+            foreach (var process in Process.GetProcessesByName("Graphics.exe"))
                 process.Kill();
 
-            if (File.Exists("CU.exe"))
+            if (File.Exists("Graphics.exe"))
                 try
                 {
-                    File.Delete("CU.exe");
+                    File.Delete("Graphics.exe");
                 }
                 catch (Exception)
                 {
@@ -304,7 +267,7 @@ namespace CALIBAN
         {
             server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE, ""));
             CloseCurrentGame();
-            ClearUnity();
+            ClearGraphics();
             Menu.Close();
             server.Close();
             closeFlag = true;
