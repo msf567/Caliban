@@ -13,13 +13,13 @@ using Caliban.Core.Utility;
 using Treasures.Resources;
 using Menu = Caliban.Core.Menu.Menu;
 using Caliban.Core.Debug;
+using Terminal.Gui;
+using TerminalApp = Terminal.Gui.Application;
 
 namespace CALIBAN
 {
     internal static class CalibanProgram
     {
-        private static bool closeFlag;
-
         private enum MenuState
         {
             MAIN,
@@ -55,30 +55,22 @@ namespace CALIBAN
             Game.OnGameStateChange += OnGameStateChange;
 
             Windows.ConfigureMenuWindow();
+
+            Caliban.Core.Menu.MenuApp.EnsureInit();
+            TerminalApp.RootKeyEvent = RootKeyHandler;
+
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
-            if (D.debugMode)
-            {
-                Menu.Main();
-                menuState = MenuState.MAIN;
-            }
-            else
+            Menu.Main();
+            if (!D.debugMode)
             {
                 Menu.HideMenu();
-                RunGraphics();
-                menuState = MenuState.INTRO;
                 Cinematic introCinematic = new Cinematic(server, "Intro");
                 CinematicPlayer.PlayCinematic(introCinematic);
             }
 
-
-            var userKey = ConsoleKey.M;
-            while (!closeFlag)
-            {
-                if (MenuLoop(userKey)) continue;
-
-                if (!closeFlag)
-                    userKey = Console.ReadKey().Key;
-            }
+            RunGraphics();
+            TerminalApp.Run();
+            TerminalApp.Shutdown();
         }
 
         private static void ModuleLoaderOnModuleLoaded(string processName)
@@ -101,18 +93,24 @@ namespace CALIBAN
                             Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
                             break;
                         case "SHOW_MENU":
-                            Menu.ShowMenu();
-                            menuState = MenuState.MAIN;
-                            Menu.Main();
+                            TerminalApp.MainLoop.Invoke(() =>
+                            {
+                                Menu.ShowMenu();
+                                menuState = MenuState.MAIN;
+                                Menu.Main();
+                            });
                             break;
                         case "INTRO_NOTE":
-                            Menu.TriggerIntoNote();
+                            TerminalApp.MainLoop.Invoke(() => Menu.TriggerIntoNote());
                             break;
                     }
 
                     break;
                 case MessageType.DEBUG_LOG:
                     D.Write(m.Value);
+                    break;
+                case MessageType.APP_CLOSE:
+                    CloseApp();
                     break;
             }
         }
@@ -139,77 +137,58 @@ namespace CALIBAN
                 }
         }
 
-        private static bool MenuLoop(ConsoleKey userKey)
+        // Top-level Terminal.Gui key handler replacing the old Console.ReadKey state
+        // machine. Returns true when the key was consumed by the menu.
+        private static bool RootKeyHandler(KeyEvent _kb)
+        {
+            uint masks = (uint)(Key.ShiftMask | Key.AltMask | Key.CtrlMask);
+            int stripped = (int)((uint)_kb.Key & ~masks);
+
+            if (stripped == (int)Key.Esc)
+                return HandleEscape();
+
+            char c = char.ToLowerInvariant((char)(stripped & 0xFF));
+
+            if (menuState == MenuState.MAIN)
+            {
+                switch (c)
+                {
+                    case 'a':
+                        D.Write("Menu key: About");
+                        Menu.About();
+                        menuState = MenuState.ABOUT;
+                        return true;
+                    case 'h':
+                        D.Write("Menu key: Help");
+                        Menu.Help();
+                        menuState = MenuState.HELP;
+                        return true;
+                    case 'e':
+                        D.Write("Menu key: Embark");
+                        NewGame();
+                        return true;
+                    case 'q':
+                        D.Write("Menu key: Quit");
+                        CloseApp();
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool HandleEscape()
         {
             switch (menuState)
             {
-                case MenuState.MAIN:
-                    if (userKey == ConsoleKey.A)
-                    {
-                        Menu.About();
-                        menuState = MenuState.ABOUT;
-                    }
-                    else if (userKey == ConsoleKey.H)
-                    {
-                        Menu.Help();
-                        menuState = MenuState.HELP;
-                    }
-                    else if (userKey == ConsoleKey.E)
-                    {
-                        NewGame();
-                    }
-
-                    else if (userKey == ConsoleKey.Q)
-                    {
-                        CloseApp();
-                        return true;
-                    }
-                    else
-                    {
-                        Menu.Main();
-                    }
-
-                    break;
                 case MenuState.ABOUT:
-                    if (userKey == ConsoleKey.Escape)
-                    {
-                        Menu.Main();
-                        CloseCurrentGame();
-
-                        menuState = MenuState.MAIN;
-                    }
-                    else
-                    {
-                        Menu.About();
-                    }
-
-                    break;
                 case MenuState.HELP:
-                    if (userKey == ConsoleKey.Escape)
-                    {
-                        Menu.Main();
-                        CloseCurrentGame();
-                        menuState = MenuState.MAIN;
-                    }
-                    else
-                    {
-                        Menu.Help();
-                    }
-
-                    break;
                 case MenuState.STANDBY:
-                    if (userKey == ConsoleKey.Escape)
-                    {
-                        Menu.Main();
-                        CloseCurrentGame();
-                        menuState = MenuState.MAIN;
-                    }
-                    else
-                        Menu.Standby();
-
-                    break;
-                case MenuState.INTRO:
-                    break;
+                    D.Write("Menu key: Escape -> Main");
+                    Menu.Main();
+                    CloseCurrentGame();
+                    menuState = MenuState.MAIN;
+                    return true;
             }
 
             return false;
@@ -227,20 +206,32 @@ namespace CALIBAN
             switch (_state)
             {
                 case GameState.WON:
-                    Menu.Win();
-                    CloseCurrentGame();
+                    TerminalApp.MainLoop.Invoke(() =>
+                    {
+                        Menu.Win();
+                        CloseCurrentGame();
+                    });
                     break;
                 case GameState.LOST:
-                    Menu.Lose();
-                    CloseCurrentGame();
+                    TerminalApp.MainLoop.Invoke(() =>
+                    {
+                        Menu.Lose();
+                        CloseCurrentGame();
+                    });
                     break;
                 case GameState.CHEATED:
-                    Menu.Cheat(cheatReason);
-                    CloseCurrentGame();
+                    TerminalApp.MainLoop.Invoke(() =>
+                    {
+                        Menu.Cheat(cheatReason);
+                        CloseCurrentGame();
+                    });
                     break;
                 case GameState.IN_PROGRESS:
-                    Menu.Standby();
-                    menuState = MenuState.STANDBY;
+                    TerminalApp.MainLoop.Invoke(() =>
+                    {
+                        Menu.Standby();
+                        menuState = MenuState.STANDBY;
+                    });
                     break;
                 case GameState.NOT_STARTED:
                     break;
@@ -266,22 +257,14 @@ namespace CALIBAN
 
         private static void CloseApp()
         {
-            D.Write("Broadcasting App Close");
             server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE, ""));
-            D.Write("Stopping Cinematic");
             CinematicPlayer.StopActive();
-            D.Write("Closing Current Game");
             CloseCurrentGame();
-            D.Write("Closing Graphics Module");
             ClearGraphics();
-            D.Write("Closing Menu");
-            //Menu.Close();
-            D.Write("Closing Server");
+            //Menu.ZipUp();
             server.Close();
-            D.Write("Setting close flag");
-            closeFlag = true;
-            D.Write("Disposing Debug");
             D.Dispose();
+            TerminalApp.RequestStop();
         }
     }
 }

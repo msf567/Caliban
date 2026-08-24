@@ -4,12 +4,15 @@ using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using Caliban.Core.Transport;
 using Treasures.Resources;
 
 namespace Note
 {
     public partial class NoteForm : Form
     {
+        private NoteProgram.NoteClient noteClient;
+
         static bool closeFlag;
         private static int count = 0;
         private string notePath = "";
@@ -25,9 +28,10 @@ namespace Note
 
         Font myFont;
 
-        public NoteForm(string _notePath)
+        public NoteForm(string _notePath, NoteProgram.NoteClient _noteClient)
         {
             InitializeComponent();
+            noteClient = _noteClient;
             byte[] fontData = Properties.Resources.font;
             IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
             System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
@@ -113,6 +117,7 @@ namespace Note
 
         private void NoteForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            noteClient.SendMessageToHost(Messages.Build(MessageType.APP_CLOSE, ""));
             closeFlag = true;
             writeThread.Abort();
         }

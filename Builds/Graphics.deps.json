@@ -160,6 +160,17 @@
           "Caliban.Core.dll": {
             "fileVersion": "0.0.0.0"
           }
+        },
+        "resources": {
+          "fr-FR/Terminal.Gui.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "ja-JP/Terminal.Gui.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "pt-PT/Terminal.Gui.resources.dll": {
+            "locale": "pt-PT"
+          }
         }
       },
       "DebugLog/1.0.0": {
@@ -180,11 +191,22 @@
           }
         }
       },
-      "CLIGL/1.0.1.0": {
+      "Terminal.Gui/1.7.1.0": {
         "runtime": {
-          "CLIGL.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+          "Terminal.Gui.dll": {
+            "assemblyVersion": "1.7.1.0",
+            "fileVersion": "1.7.1.0"
+          }
+        },
+        "resources": {
+          "fr-FR/Terminal.Gui.resources.dll": {
+            "locale": "fr-FR"
+          },
+          "ja-JP/Terminal.Gui.resources.dll": {
+            "locale": "ja-JP"
+          },
+          "pt-PT/Terminal.Gui.resources.dll": {
+            "locale": "pt-PT"
           }
         }
       },
@@ -209,6 +231,14 @@
           "NAudio.dll": {
             "assemblyVersion": "1.9.0.0",
             "fileVersion": "1.9.0.0"
+          }
+        }
+      },
+      "NStack/0.17.1.0": {
+        "runtime": {
+          "NStack.dll": {
+            "assemblyVersion": "0.17.1.0",
+            "fileVersion": "0.17.1.0"
           }
         }
       },
@@ -328,7 +358,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CLIGL/1.0.1.0": {
+    "Terminal.Gui/1.7.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -344,6 +374,11 @@
       "sha512": ""
     },
     "NAudio/1.9.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NStack/0.17.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

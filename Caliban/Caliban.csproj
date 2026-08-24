@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Caliban.Core</RootNamespace>
     <AssemblyName>Caliban.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,6 +48,12 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Terminal.Gui, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Terminal.Gui.1.7.1\lib\net472\Terminal.Gui.dll</HintPath>
+    </Reference>
+    <Reference Include="NStack, Version=0.17.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NStack.Core.0.17.1\lib\netstandard2.0\NStack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -89,6 +95,7 @@
     <Compile Include="Game\ModuleLoader.cs" />
     <Compile Include="Game\WaterManager.cs" />
     <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\MenuApp.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\ClientApp.cs" />
     <Compile Include="Transport\ClientTerminal.cs" />

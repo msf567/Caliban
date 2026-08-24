@@ -6,9 +6,9 @@ using Caliban.Core.Debug;
 
 namespace Note
 {
-    internal class NoteProgram
+    public class NoteProgram
     {
-        private class NoteClient : ClientApp
+        public class NoteClient : ClientApp
         {
             private NoteForm noteForm;
 
@@ -22,10 +22,13 @@ namespace Note
                 }
 
                 Application.EnableVisualStyles();
-                noteForm = new NoteForm(_clientName + ".txt");
+                noteForm = new NoteForm(_clientName + ".txt", this);
 
                 Application.Run(noteForm);
             }
+
+            public new void SendMessageToHost(byte[] message) => base.SendMessageToHost(message);
+
 
             protected override void ClientOnMessageReceived(byte[] _message)
             {

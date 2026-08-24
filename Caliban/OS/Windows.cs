@@ -105,6 +105,10 @@ namespace Caliban.Core.OS
         public static int WS_BORDER = 0x00800000; //window with border
         public static int WS_DLGFRAME = 0x00400000; //window with double border but no title
         public static int WS_CAPTION = WS_BORDER | WS_DLGFRAME; //window with a title bar
+        public static int WS_SYSMENU = 0x00080000; //window with a window menu on its title bar
+        public static int WS_THICKFRAME = 0x00040000; //window with a sizing border (resizable)
+        public static int WS_MINIMIZEBOX = 0x00020000; //window with a minimize button
+        public static int WS_MAXIMIZEBOX = 0x00010000; //window with a maximize button
         static uint WM_CLOSE = 0x10;
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;

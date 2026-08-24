@@ -1,14 +1,9 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using Caliban.Core.ConsoleOutput;
 using Caliban.Core.Audio;
-using Caliban.Core.Utility;
-using CLIGL;
-using Treasures.Resources;
 using Caliban.Core.Debug;
 
 namespace Caliban.Core.Menu
@@ -24,8 +19,6 @@ namespace Caliban.Core.Menu
     public static class Menu
     {
         private static int width = 96;
-        private static RenderingWindow window;
-        private static RenderingBuffer buffer;
 
         static Menu()
         {
@@ -34,7 +27,7 @@ namespace Caliban.Core.Menu
             //AudioManager.LoadFile(Treasures.Treasures.GetStream("town_dusk_short.wav"), "IntroMusic");
         }
 
-        public static void Close()
+        public static void ZipUp()
         {
             int height = Console.WindowHeight;
             while (height > 1)
@@ -87,157 +80,172 @@ namespace Caliban.Core.Menu
 
         public static void Main()
         {
-            Console.Clear();
-            int height = 22;
-
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            const int height = 22;
 
             Version version = System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
             string displayableVersion =
                 $"Alpha Version: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-            ConsoleFormat.WriteLine(displayableVersion, Color.DarkGray);
 
-            ConsoleFormat.CenterWrite("C Presents", Color.Yellow);
-            ConsoleFormat.CenterWrite("~~~~", Color.Yellow);
-            ConsoleFormat.CenterWrite("A File System Survival Game", Color.Yellow);
-            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            var screen = new MenuScreen();
+            screen.WriteLine(displayableVersion, Color.DarkGray);
+
+            screen.CenterWrite("C Presents", Color.Yellow);
+            screen.CenterWrite("~~~~", Color.Yellow);
+            screen.CenterWrite("A File System Survival Game", Color.Yellow);
+            screen.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                 Color.Yellow);
-            ConsoleFormat.CenterWrite("");
+            screen.CenterWrite("");
             foreach (var s in titleGraphic)
             {
-                ConsoleFormat.CenterWrite(s, Color.Gold);
+                screen.CenterWrite(s, Color.Gold);
             }
 
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            screen.CenterWrite("");
+            screen.CenterWrite("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
                 Color.Yellow);
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite(@"(E)mbark | (H)elp | (A)bout | (Q)uit");
+
+            MenuApp.Show(screen, height);
         }
 
         public static void About()
         {
-            int height = 13;
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.Clear();
+            const int height = 13;
 
-            ConsoleFormat.CenterWrite("");
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
 
-            ConsoleFormat.CenterWrite("Will, I left this here for you.");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Made with the assistance of");
-            ConsoleFormat.CenterWrite("");
+            screen.CenterWrite("Will, I left this here for you.");
+            screen.CenterWrite("");
+            screen.CenterWrite("Made with the assistance of");
+            screen.CenterWrite("");
 
-            ConsoleFormat.CenterWrite("☼ Gentle_Virus ☼", Color.Gold);
-            ConsoleFormat.CenterWrite("");
+            screen.CenterWrite("☼ Gentle_Virus ☼", Color.Gold);
+            screen.CenterWrite("");
 
-            ConsoleFormat.CenterWrite("♫ Wallhax ♫", Color.Coral);
-            ConsoleFormat.CenterWrite("");
+            screen.CenterWrite("♫ Wallhax ♫", Color.Coral);
+            screen.CenterWrite("");
 
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to return to Main Menu.");
+
+            MenuApp.Show(screen, height);
         }
 
         public static void Help()
         {
-            int height = 12;
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.Clear();
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Find SimpleVictory.exe. Be sure to drink water.");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite(
+            const int height = 12;
+
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite("Find SimpleVictory.exe. Be sure to drink water.");
+            screen.CenterWrite("");
+            screen.CenterWrite(
                 "Mouse actions are taxing. Key presses are deadly. Don't even think about a CLI.");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("There may be some clues for you along the way. Stay vigilant.");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.");
+            screen.CenterWrite("");
+            screen.CenterWrite("There may be some clues for you along the way. Stay vigilant.");
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to return to Main Menu.");
+
+            MenuApp.Show(screen, height);
         }
 
         public static void Standby()
         {
             int height = D.debugMode ? 10 : 6;
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.Clear();
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Game in progress.");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to quit and return to Main Menu.");
+
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
+            screen.CenterWrite("Game in progress.");
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to quit and return to Main Menu.");
+
+            MenuApp.Show(screen, height);
         }
 
         public static void Lose()
         {
-            int height = 13;
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.Clear();
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
+            const int height = 13;
+
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite("");
             foreach (var line in deathGraphic)
             {
-                ConsoleFormat.CenterWrite(line, Color.Red);
+                screen.CenterWrite(line, Color.Red);
             }
 
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
+
+            MenuApp.Show(screen, height);
         }
 
         public static void Win()
         {
             const int height = 14;
-            Console.SetWindowSize(width, height);
-            Console.SetBufferSize(width, height);
-            Console.Clear();
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
+
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite("");
             foreach (var line in victoryGraphic)
             {
-                ConsoleFormat.CenterWrite(line, Color.Green);
+                screen.CenterWrite(line, Color.Green);
             }
 
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Green);
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to return to Main Menu.", Color.Green);
+
+            MenuApp.Show(screen, height);
         }
 
         public static void Cheat(string cheatReason)
         {
-            Console.SetWindowSize(width, 17);
-            Console.SetBufferSize(width, 17);
-            Console.Clear();
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("");
+            const int height = 17;
+
+            var screen = new MenuScreen();
+            screen.CenterWrite("");
+            screen.CenterWrite("");
+            screen.CenterWrite("");
             foreach (var line in cheaterGraphic)
             {
-                ConsoleFormat.CenterWrite(line, Color.Red);
+                screen.CenterWrite(line, Color.Red);
             }
 
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite($"LOL Will, did you really think I wouldn't notice that {cheatReason}?", Color.Red);
-            ConsoleFormat.CenterWrite("");
-            ConsoleFormat.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
+            screen.CenterWrite("");
+            screen.CenterWrite($"LOL Will, did you really think I wouldn't notice that {cheatReason}?", Color.Red);
+            screen.CenterWrite("");
+            screen.CenterWrite("Press [Esc] to return to Main Menu.", Color.Red);
+
+            MenuApp.Show(screen, height);
         }
 
         private static void ConfigureWindow()
         {
-            window = new RenderingWindow("CALIBAN", width, 20);
-            buffer = new RenderingBuffer(width, 20);
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-
             Console.Title = "CALIBAN";
             var hwnd = Process.GetCurrentProcess().MainWindowHandle;
             var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
-            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, (style & ~ OS.Windows.WS_CAPTION));
+            // Strip the title/caption bar and everything that lets the user resize
+            // the window (sizing border, min/max/system-menu) so it is fixed size
+            // and chrome-less.
+            style &= ~OS.Windows.WS_CAPTION;
+            style &= ~OS.Windows.WS_SYSMENU;
+            style &= ~OS.Windows.WS_THICKFRAME;
+            style &= ~OS.Windows.WS_MINIMIZEBOX;
+            style &= ~OS.Windows.WS_MAXIMIZEBOX;
+            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, style);
+
+            // Apply the style change without moving/sizing/reordering the window.
+            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0,
+                OS.Windows.Swp.NOMOVE | OS.Windows.Swp.NOSIZE | OS.Windows.Swp.NOZORDER |
+                OS.Windows.Swp.FRAMECHANGED);
             DockToTop();
         }
 
