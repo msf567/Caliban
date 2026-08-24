@@ -53,6 +53,10 @@ internal sealed class App : GameWindow
             case MessageType.GAME_CLOSE:
                 ((SandStorm)_gameObjects["sandstorm"]).End();
                 break;
+
+            case MessageType.APP_CLOSE:
+                Close();
+                break;
         }
     }
 

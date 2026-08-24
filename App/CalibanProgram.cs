@@ -63,6 +63,7 @@ namespace CALIBAN
             }
             else
             {
+                Menu.HideMenu();
                 RunGraphics();
                 menuState = MenuState.INTRO;
                 Cinematic introCinematic = new Cinematic(server, "Intro");
@@ -265,12 +266,22 @@ namespace CALIBAN
 
         private static void CloseApp()
         {
+            D.Write("Broadcasting App Close");
             server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE, ""));
+            D.Write("Stopping Cinematic");
+            CinematicPlayer.StopActive();
+            D.Write("Closing Current Game");
             CloseCurrentGame();
+            D.Write("Closing Graphics Module");
             ClearGraphics();
-            Menu.Close();
+            D.Write("Closing Menu");
+            //Menu.Close();
+            D.Write("Closing Server");
             server.Close();
+            D.Write("Setting close flag");
             closeFlag = true;
+            D.Write("Disposing Debug");
+            D.Dispose();
         }
     }
 }

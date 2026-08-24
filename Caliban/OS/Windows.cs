@@ -7,8 +7,30 @@ namespace Caliban.Core.OS
     public static class Windows
     {
         #region Functions
+
         public static void ConfigureMenuWindow()
         {
+            DisableConsoleQuickEdit();
+        }
+
+        // Disables QuickEdit (mark/select) mode on the console so clicking the
+        // window only focuses it instead of entering selection mode, which
+        // would otherwise pause the app and swallow key presses.
+        public static void DisableConsoleQuickEdit()
+        {
+            IntPtr consoleHandle = GetStdHandle(STD_INPUT_HANDLE);
+            if (consoleHandle == IntPtr.Zero || consoleHandle == INVALID_HANDLE_VALUE)
+                return;
+
+            if (!GetConsoleMode(consoleHandle, out uint mode))
+                return;
+
+            // Must set ENABLE_EXTENDED_FLAGS to be able to clear QUICK_EDIT.
+            mode |= ENABLE_EXTENDED_FLAGS;
+            mode &= ~ENABLE_QUICK_EDIT_MODE;
+            mode &= ~ENABLE_MOUSE_INPUT;
+
+            SetConsoleMode(consoleHandle, mode);
         }
 
         private static void GetHighlightedFile()
@@ -22,8 +44,8 @@ namespace Caliban.Core.OS
                 for (var i = 0; i < ws.Count; i++)
                 {
                     var ie = ws.Item(i);
-                    if (ie == null || ie.hwnd != (long) myHwnd) continue;
-                    var path = System.IO.Path.GetFileName((string) ie.FullName);
+                    if (ie == null || ie.hwnd != (long)myHwnd) continue;
+                    var path = System.IO.Path.GetFileName((string)ie.FullName);
                     if (path == null || path.ToLower() != "explorer.exe") continue;
                     var explorepath = ie.document.focuseditem.path;
                     // D.Write(explorepath);
@@ -57,10 +79,10 @@ namespace Caliban.Core.OS
             var wndProcess = System.Diagnostics.Process.GetProcessById(pid.ToInt32());
             var wndClass = new StringBuilder(255);
             RealGetWindowClass(hwnd, wndClass, 255);
-            
+
             return wndProcess.ProcessName == "explorer" && wndClass.ToString() == "CabinetWClass";
         }
-        
+
         public static string GetWindowTitle(IntPtr hWnd)
         {
             int size = GetWindowTextLength(hWnd) + 1;
@@ -70,8 +92,9 @@ namespace Caliban.Core.OS
         }
 
         #endregion
-        
+
         #region Constants
+
         static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         static readonly IntPtr HWND_TOP = new IntPtr(0);
@@ -85,58 +108,98 @@ namespace Caliban.Core.OS
         static uint WM_CLOSE = 0x10;
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
+
+        private const int STD_INPUT_HANDLE = -10;
+        private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
+        private const uint ENABLE_MOUSE_INPUT = 0x0010;
+        private const uint ENABLE_QUICK_EDIT_MODE = 0x0040;
+        private const uint ENABLE_EXTENDED_FLAGS = 0x0080;
+
         #endregion
-        
+
         #region DLLImports
+
         [DllImport("user32.dll")]
         public static extern bool EnumWindows(EnumWindowsDelegate lpEnumFunc, IntPtr lParam);
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out IntPtr lpdwProcessId);
+
         [DllImport("user32.dll")]
         private static extern uint RealGetWindowClass(IntPtr hwnd, StringBuilder pszType, uint cchType);
+
         [DllImport("user32.dll")]
         static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+
         [DllImport("user32.dll")]
         public static extern int DeleteMenu(IntPtr _hMenu, int _nPosition, int _wFlags);
+
         [DllImport("user32.dll")]
         public static extern IntPtr GetSystemMenu(IntPtr _hWnd, bool _bRevert);
+
         [DllImport("kernel32.dll", ExactSpelling = true)]
         public static extern IntPtr GetConsoleWindow();
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern IntPtr GetStdHandle(int nStdHandle);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        private static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
         public static extern IntPtr FindWindowByCaption(IntPtr zeroOnly, string lpWindowName);
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetForegroundWindow();
+
         [DllImport("user32.dll")]
         private static extern int GetWindowText(IntPtr _hWnd, StringBuilder _text, int _count);
+
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr FindWindow(string _lpClassName, string _lpWindowName);
+
         public delegate bool EnumWindowsProc(IntPtr _hWnd, IntPtr _lParam);
+
         [DllImport("user32.dll")]
         public static extern bool EnumWindows(EnumWindowsProc _enumProc, IntPtr _lParam);
+
         [DllImport("user32.dll")]
         public static extern bool IsWindowVisible(IntPtr _hWnd);
+
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         public static extern int GetWindowTextLength(IntPtr _hWnd);
+
         [DllImport("user32.dll")]
         public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool SetWindowPos(IntPtr _hWnd, IntPtr _hWndInsertAfter, int _x, int _y, int _cx, int _cy,
             int _uFlags);
+
         [DllImport("user32.dll")]
         public static extern IntPtr GetActiveWindow();
+
         [DllImport("USER32.DLL")]
         public static extern int SetWindowLong(IntPtr _hWnd, int _nIndex, int _dwNewLong);
+
         [DllImport("USER32.DLL")]
         public static extern int GetWindowLong(IntPtr _hWnd, int _nIndex);
+
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool GetWindowRect(IntPtr _hwnd, out RECT _lpRect);
+
         [DllImport("shell32.dll")]
         public static extern void SHChangeNotify(HChangeNotifyEventId _wEventId, HChangeNotifyFlags _uFlags,
             IntPtr _dwItem1,
             IntPtr _dwItem2);
+
         #endregion
-        
+
         #region Classes, Structs, Delegates & Enums
+
         public delegate bool EnumWindowsDelegate(IntPtr hwnd, IntPtr lParam);
 
         public static class Hwnd
@@ -167,6 +230,7 @@ namespace Caliban.Core.OS
                 DEFERERASE = 0x2000,
                 ASYNCWINDOWPOS = 0x4000;
         }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
@@ -264,15 +328,15 @@ namespace Caliban.Core.OS
             public override bool Equals(object _obj)
             {
                 if (_obj is RECT)
-                    return Equals((RECT) _obj);
+                    return Equals((RECT)_obj);
                 else if (_obj is System.Drawing.Rectangle)
-                    return Equals(new RECT((System.Drawing.Rectangle) _obj));
+                    return Equals(new RECT((System.Drawing.Rectangle)_obj));
                 return false;
             }
 
             public override int GetHashCode()
             {
-                return ((System.Drawing.Rectangle) this).GetHashCode();
+                return ((System.Drawing.Rectangle)this).GetHashCode();
             }
 
             public override string ToString()
@@ -320,6 +384,7 @@ namespace Caliban.Core.OS
             SHCNF_FLUSH = 0x1000,
             SHCNF_FLUSHNOWAIT = 0x2000
         }
+
         #endregion
     }
 }

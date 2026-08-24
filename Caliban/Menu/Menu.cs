@@ -39,8 +39,15 @@ namespace Caliban.Core.Menu
             int height = Console.WindowHeight;
             while (height > 1)
             {
-                Console.SetWindowSize(width, --height);
-                Console.SetBufferSize(width, height);
+                try
+                {
+                    Console.SetWindowSize(width, --height);
+                    Console.SetBufferSize(width, height);
+                }
+                catch (Exception)
+                {
+                    break;
+                }
             }
         }
 
@@ -75,6 +82,7 @@ namespace Caliban.Core.Menu
         public static void ShowMenu()
         {
             OS.Windows.ShowWindow(OS.Windows.GetConsoleWindow(), OS.Windows.SW_SHOW);
+            DockToTop();
         }
 
         public static void Main()
@@ -230,11 +238,19 @@ namespace Caliban.Core.Menu
             var hwnd = Process.GetCurrentProcess().MainWindowHandle;
             var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
             OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, (style & ~ OS.Windows.WS_CAPTION));
-            var sWidth = Screen.PrimaryScreen.Bounds.Width;
-            OS.Windows.RECT r;
-            OS.Windows.GetWindowRect(hwnd, out r);
+            DockToTop();
+        }
 
-            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), -10, 0, 0,
+        private static void DockToTop()
+        {
+            var hwnd = OS.Windows.GetConsoleWindow();
+            if (hwnd == IntPtr.Zero)
+                hwnd = Process.GetCurrentProcess().MainWindowHandle;
+
+            var sWidth = Screen.PrimaryScreen.Bounds.Width;
+            OS.Windows.GetWindowRect(hwnd, out OS.Windows.RECT r);
+
+            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), 0, 0, 0,
                 OS.Windows.Swp.NOSIZE);
         }
 

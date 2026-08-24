@@ -23,7 +23,7 @@ namespace Caliban.Core.Debug
             udpClient = new UdpClient();
             udpClient.EnableBroadcast = true;
             isRunning = true;
-            sendThread = new Thread(SendThread);
+            sendThread = new Thread(SendThread) { IsBackground = true };
             sendThread.Start();
             inited = true;
         }
