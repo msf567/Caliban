@@ -90,6 +90,7 @@
     <Compile Include="World\UIDFactory.cs" />
     <Compile Include="World\WorldGenerator.cs" />
     <Compile Include="World\WorldNode.cs" />
+      <Compile Include="World\WorldNodeTreeRenderer.cs"/>
     <Compile Include="World\WorldParameters.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\ModuleLoader.cs" />

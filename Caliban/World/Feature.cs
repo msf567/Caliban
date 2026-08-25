@@ -13,7 +13,6 @@ namespace Caliban.Core.World
         public FeatureType Type;
         public double X;
         public double Y;
-        public int Seed;
     }
 
     public class CactusFeature : Feature
@@ -21,20 +20,23 @@ namespace Caliban.Core.World
         public CactusFeature()
         {
             Random r = new Random();
+            Type = FeatureType.CACTUS;
             X = r.NextDouble();
             Y = 0;
-            Seed = r.Next(100);
         }
     }
 
     public class RockFeature : Feature
     {
-        public RockFeature()
+        public Biome biome;
+
+        public RockFeature(Biome b)
         {
             Random r = new Random();
+            Type = FeatureType.ROCK;
             X = r.NextDouble();
             Y = 0;
-            Seed = r.Next(100);
+            biome = b;
         }
     }
 }

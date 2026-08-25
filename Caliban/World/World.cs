@@ -135,6 +135,8 @@ namespace Caliban.Core.World
             {
                 TreasureManager.Spawn(_node.FullName, t, t.fileName);
             }
+
+            //spawn features in graphics
         }
 
         public void Update()

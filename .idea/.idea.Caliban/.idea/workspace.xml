@@ -21,26 +21,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff49ae5-25e0-4342-866d-f994a9f624af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Caliban/World/WorldNodeTreeRenderer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphics/Drawables/Rock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/CalibanProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App/CalibanProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/App/packages.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/DebugLog.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/DebugLog.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Graphics.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Graphics.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Graphics.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Note.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/SimpleVictory.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/TornMap.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Treasures.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Treasures.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterMeter.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterPuddle.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/desert.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/desert.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Caliban.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Menu/Menu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/OS/Windows.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/OS/Windows.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Note/NoteForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Note/NoteForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Note/NoteProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Note/NoteProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/Feature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/Feature.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="20" />
+    <option name="cachedIndexableFilesCount" value="12" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileEditorManager">
@@ -396,11 +397,13 @@
     <setting file="file://$PROJECT_DIR$/Caliban/World/World.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/World/WorldNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Caliban/World/WorldNodeTreeRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/World/WorldParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Caliban/packages.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/Caliban/Unity/CalibanClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CalibanUnity/Assets/Scripts/PixelParticles.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CalibanUnity/Assets/Shaders/PixelParticle.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Graphics/Drawables/Rock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hooks/HookForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hooks/HooksClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Hooks/HooksProgram.cs" root0="FORCE_HIGHLIGHTING" />
@@ -482,61 +485,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6287113120110728E-31" />
-      <entry key="MS500" value="9.993008101791867E-7" />
-      <entry key="S2" value="0.0534918709223298" />
-      <entry key="S5" value="0.5893807178883016" />
-      <entry key="S10" value="1.5854084776766757" />
-      <entry key="S30" value="4.779520469494848" />
-      <entry key="S60" value="10.842389013025576" />
-      <entry key="M2" value="21.539878618560238" />
-      <entry key="M5" value="36.57305629678163" />
-      <entry key="M10" value="44.60587435342657" />
-      <entry key="M15" value="47.951246378468035" />
-      <entry key="M30" value="53.94863956305777" />
-      <entry key="H1" value="63.8639435784494" />
-      <entry key="H2" value="75.7419460620241" />
-      <entry key="H4" value="85.39643018289108" />
-      <entry key="D1" value="134.83780099507345" />
-      <entry key="W1" value="404.9093599845488" />
+      <entry key="MS100" value="1.3010175960814755E-5" />
+      <entry key="MS500" value="0.10541535699322441" />
+      <entry key="S2" value="0.6280021763818396" />
+      <entry key="S5" value="1.151009545222122" />
+      <entry key="S10" value="1.8890332218865322" />
+      <entry key="S30" value="4.4539750462472" />
+      <entry key="S60" value="6.203591819977931" />
+      <entry key="M2" value="7.758379575991661" />
+      <entry key="M5" value="11.171709210806384" />
+      <entry key="M10" value="18.38251735453957" />
+      <entry key="M15" value="27.230588837257848" />
+      <entry key="M30" value="54.72781675083409" />
+      <entry key="H1" value="95.3020232268746" />
+      <entry key="H2" value="138.27666751690927" />
+      <entry key="H4" value="173.01259824152882" />
+      <entry key="D1" value="250.57491876024133" />
+      <entry key="W1" value="526.6616006154264" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000725834420778" />
-      <entry key="S2" value="1.0923016341849652" />
-      <entry key="S5" value="1.3856753979841534" />
-      <entry key="S10" value="1.636521867613472" />
-      <entry key="S30" value="2.3003891844132895" />
-      <entry key="S60" value="3.2470736014838253" />
-      <entry key="M2" value="4.658986533381336" />
-      <entry key="M5" value="6.578444086520617" />
-      <entry key="M10" value="7.622006304274865" />
-      <entry key="M15" value="8.076981739604868" />
-      <entry key="M30" value="9.115734638869835" />
-      <entry key="H1" value="11.21109148694179" />
-      <entry key="H2" value="13.827393709303204" />
-      <entry key="H4" value="15.971666217831034" />
-      <entry key="D1" value="20.84022911481369" />
-      <entry key="W1" value="34.30819451589374" />
+      <entry key="MS500" value="1.0000892369048096" />
+      <entry key="S2" value="1.0971933128442501" />
+      <entry key="S5" value="1.3949593085761653" />
+      <entry key="S10" value="1.6726398094307566" />
+      <entry key="S30" value="2.4704280444035254" />
+      <entry key="S60" value="3.236232679532264" />
+      <entry key="M2" value="3.995809814091057" />
+      <entry key="M5" value="5.595078900175809" />
+      <entry key="M10" value="9.132274228606898" />
+      <entry key="M15" value="12.576682310933869" />
+      <entry key="M30" value="20.33514912748419" />
+      <entry key="H1" value="29.28134737662941" />
+      <entry key="H2" value="37.960014787701255" />
+      <entry key="H4" value="44.85747919619712" />
+      <entry key="D1" value="55.30616831647217" />
+      <entry key="W1" value="69.9905561762694" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="9.564651343622333E-4" />
-      <entry key="MS500" value="0.24897386984030268" />
-      <entry key="S2" value="0.8054363067777848" />
-      <entry key="S5" value="1.7142766942855232" />
-      <entry key="S10" value="2.998960169529001" />
-      <entry key="S30" value="6.930025631290417" />
-      <entry key="S60" value="13.972080740560292" />
-      <entry key="M2" value="26.10758701960661" />
-      <entry key="M5" value="43.09647667512584" />
-      <entry key="M10" value="52.19530117721559" />
-      <entry key="M15" value="56.00506947320126" />
-      <entry key="M30" value="63.051363353926945" />
-      <entry key="H1" value="75.0672427527756" />
-      <entry key="H2" value="89.56466629918076" />
-      <entry key="H4" value="101.36544491183854" />
-      <entry key="D1" value="155.67745003162315" />
-      <entry key="W1" value="439.2174054284862" />
+      <entry key="MS100" value="5.855271889562143E-5" />
+      <entry key="MS500" value="0.16320810111871406" />
+      <entry key="S2" value="1.1016330666366387" />
+      <entry key="S5" value="2.1495918264181224" />
+      <entry key="S10" value="3.290272422189047" />
+      <entry key="S30" value="6.765971993542196" />
+      <entry key="S60" value="9.33494409728751" />
+      <entry key="M2" value="11.690671966300192" />
+      <entry key="M5" value="16.731209877899133" />
+      <entry key="M10" value="27.483526946331896" />
+      <entry key="M15" value="39.7771592384058" />
+      <entry key="M30" value="75.03709784773744" />
+      <entry key="H1" value="124.5641322817521" />
+      <entry key="H2" value="176.22406702656681" />
+      <entry key="H4" value="217.8626086348585" />
+      <entry key="D1" value="305.87954362447897" />
+      <entry key="W1" value="596.6518651919826" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -598,37 +601,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.Caliban Debug.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.Caliban.Graphics.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.TornMap Debug.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.TornMap.executor&quot;: &quot;Debug&quot;,
-    &quot;Batch.merge.executor&quot;: &quot;Run&quot;,
-    &quot;Batch.unitypack.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.Caliban Debug.executor": "Run",
+    ".NET Project.Caliban.Graphics.executor": "Run",
+    ".NET Project.TornMap Debug.executor": "Run",
+    ".NET Project.TornMap.executor": "Debug",
+    "Batch.merge.executor": "Run",
+    "Batch.unitypack.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.Caliban Debug">
     <configuration name="merge" type="BatchConfigurationType" factoryName="Batch" temporary="true">
       <module name="rider.module" />
@@ -1116,7 +1119,8 @@
       <workItem from="1774043167295" duration="11000" />
       <workItem from="1787256645586" duration="8030000" />
       <workItem from="1787328849430" duration="9093000" />
-      <workItem from="1787339082585" duration="15452000" />
+      <workItem from="1787339082585" duration="19820000" />
+      <workItem from="1787606030190" duration="3177000" />
     </task>
     <task id="LOCAL-00001" summary="Renamed">
       <created>1549843127522</created>
@@ -1395,7 +1399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787592244876</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="note and menu cleanup, quitting note early now ends program">
+      <option name="closed" value="true" />
+      <created>1787599155941</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1787599155941</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1503,7 +1515,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="CalibanLib refactor" />
     <MESSAGE value="More" />
     <MESSAGE value="Debug Log and Game" />
     <MESSAGE value="Audio" />
@@ -1528,7 +1539,8 @@
     <MESSAGE value="graphics transport" />
     <MESSAGE value="cinematic system" />
     <MESSAGE value="app close fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="app close fix" />
+    <MESSAGE value="note and menu cleanup, quitting note early now ends program" />
+    <option name="LAST_COMMIT_MESSAGE" value="note and menu cleanup, quitting note early now ends program" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

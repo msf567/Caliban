@@ -14,28 +14,18 @@ namespace Caliban.Core.World
     {
         private static readonly List<string> folderIDs = new List<string>();
 
-        private static readonly string[] DesertNames = new string[4]
-        {
-            "sand",
-            "dune",
-            "ridge",
-            "dust"
-        };
-
         static readonly Random r = new Random(Guid.NewGuid().GetHashCode());
-        private static ChunkType CurrentChunkType;
 
-        public static WorldNode GenerateChunk(WorldNode root, ChunkType type)
+        public static WorldNode GenerateChunk(WorldNode root, Biome type)
         {
-            GenerateDesertNodeData(root, WorldParameters.DesertDepth);
-            CurrentChunkType = type;
+            GenerateNodeData(root, WorldParameters.BiomeSizes[type].Depth);
             DistributeWater(root);
             return root;
         }
 
         private static void DistributeWater(WorldNode _rootNode)
         {
-            for (int x = 0; x <= WorldParameters.DesertDepth; x++)
+            for (int x = 0; x <= WorldParameters.BiomeSizes[_rootNode.Biome].Depth; x++)
                 AddWaterLevelAtDepth(_rootNode, x);
         }
 
@@ -68,6 +58,10 @@ namespace Caliban.Core.World
             }
         }
 
+        private static void DistributeFeatures(WorldNode _rootNode)
+        {
+        }
+
         private static void PrintDebugInfo(WorldNode _rootNode)
         {
             var json = JsonConvert.SerializeObject(_rootNode, Formatting.Indented,
@@ -87,25 +81,25 @@ namespace Caliban.Core.World
             }
         }
 
-        private static void GenerateDesertNodeData(WorldNode _parent, int _myMaxDepth)
+        private static void GenerateNodeData(WorldNode _parent, int _myMaxDepth)
         {
             if (_myMaxDepth == 0)
                 return;
 
             int lowEnd = (_myMaxDepth - 1).Clamp(0, int.MaxValue);
             var newDepth = _myMaxDepth - 1;
-            var numberOfChildren = Math.Abs(r.Next(WorldParameters.DesertWidth - 2, WorldParameters.DesertWidth));
+            var numberOfChildren = Math.Abs(r.Next(WorldParameters.BiomeSizes[_parent.Biome].Width - 2, WorldParameters.BiomeSizes[_parent.Biome].Width));
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var newNode = new WorldNode(_parent, GetNewFolderName(), CurrentChunkType);
+                var newNode = new WorldNode(_parent, GetNewFolderName(), _parent.Biome);
                 _parent.AddChild(newNode);
-                GenerateDesertNodeData(newNode, newDepth);
+                GenerateNodeData(newNode, newDepth);
             }
         }
 
         private static string GetNewFolderName()
         {
-            var baseName = DesertNames[r.Next(DesertNames.Length)];
+            var baseName = WorldParameters.DesertNames[r.Next(WorldParameters.DesertNames.Length)];
             var newFolderName = baseName + "_" + UIDFactory.GetNewUID(8, folderIDs);
 
             return newFolderName;

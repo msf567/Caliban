@@ -32,7 +32,7 @@ namespace Caliban.Core.World
     {
         public string Name;
         public string FullName = "";
-        public ChunkType Zone;
+        public Biome Biome;
 
         public WorldNode ParentNode;
 
@@ -40,14 +40,16 @@ namespace Caliban.Core.World
         public List<WorldNode> ChildNodes = new List<WorldNode>();
         public List<Treasure> Treasures = new List<Treasure>();
         public List<Feature> Features = new List<Feature>();
+        public int RandomSeed;
 
-        public WorldNode(WorldNode _parentNode, string _name, ChunkType _zone)
+        public WorldNode(WorldNode _parentNode, string _name, Biome biome)
         {
             Name = _name;
             ParentNode = _parentNode;
-            Zone = _zone;
+            Biome = biome;
             Depth = GetDepth();
             FullName = GetFullName();
+            RandomSeed = Guid.NewGuid().GetHashCode();
         }
 
         private int GetDepth()
@@ -168,7 +170,7 @@ namespace Caliban.Core.World
             // 3. Print this node's properties
             sb.AppendLine(propertyIndent + $"\"Name\": \"{Name}\",");
             sb.AppendLine(propertyIndent + $"\"FullName\": \"{FullName}\",");
-            sb.AppendLine(propertyIndent + $"\"Zone\": \"{Zone}\","); // Relies on Enum.ToString()
+            sb.AppendLine(propertyIndent + $"\"Zone\": \"{Biome}\","); // Relies on Enum.ToString()
             sb.AppendLine(propertyIndent + $"\"Depth\": {Depth},");
 
             // 4. Print Treasures array
