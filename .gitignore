@@ -11,7 +11,7 @@ CalibanUnity/Library
 
 # TextMesh Pro files
 [Aa]ssets/TextMesh*Pro/
-
+.idea/
 # Visual Studio cache directory
 .vs/
 
