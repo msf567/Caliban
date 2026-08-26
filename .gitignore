@@ -3,6 +3,7 @@ CalibanUnity/Library
 [Tt]emp/
 [Oo]bj/
 [Ll]ogs/
+Builds/
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
