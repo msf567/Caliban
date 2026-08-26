@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <!-- Build as a Windows (GUI) executable so no console window spawns by
+             default. A console is only attached at runtime when the "debug"
+             launch parameter is present (see Program.cs). -->
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AssemblyName>Graphics</AssemblyName>
+        <!-- Build straight into the output folder without the per-framework
+             (e.g. "net10.0") subfolder that SDK projects add by default. -->
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <RootNamespace>Caliban.Graphics</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>..\Builds\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="OpenTK" Version="4.9.4"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Shaders\**\*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Caliban\Caliban.csproj"/>
+    </ItemGroup>
+
+</Project>

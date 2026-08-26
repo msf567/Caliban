@@ -21,27 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ff49ae5-25e0-4342-866d-f994a9f624af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Caliban/World/WorldNodeTreeRenderer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Graphics/Drawables/Rock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Caliban/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/CALIBAN.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/CALIBAN.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Caliban.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Caliban.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Graphics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Graphics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Note.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Note.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/SimpleVictory.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/SimpleVictory.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/TornMap.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/TornMap.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterMeter.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/WaterPuddle.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/WaterPuddle.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/desert.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/desert.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/Caliban.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/Caliban.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/ChunkGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/Feature.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/Feature.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/World.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Caliban/World/WorldParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/Assets/RenderTextures/SandLayerTex.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/CalibanUnity/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -485,61 +465,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.3010175960814755E-5" />
-      <entry key="MS500" value="0.10541535699322441" />
-      <entry key="S2" value="0.6280021763818396" />
-      <entry key="S5" value="1.151009545222122" />
-      <entry key="S10" value="1.8890332218865322" />
-      <entry key="S30" value="4.4539750462472" />
-      <entry key="S60" value="6.203591819977931" />
-      <entry key="M2" value="7.758379575991661" />
-      <entry key="M5" value="11.171709210806384" />
-      <entry key="M10" value="18.38251735453957" />
-      <entry key="M15" value="27.230588837257848" />
-      <entry key="M30" value="54.72781675083409" />
-      <entry key="H1" value="95.3020232268746" />
-      <entry key="H2" value="138.27666751690927" />
-      <entry key="H4" value="173.01259824152882" />
-      <entry key="D1" value="250.57491876024133" />
-      <entry key="W1" value="526.6616006154264" />
+      <entry key="MS100" value="1.0770988074635022" />
+      <entry key="MS500" value="2.1210276035207136" />
+      <entry key="S2" value="4.895304088167595" />
+      <entry key="S5" value="6.478406683218945" />
+      <entry key="S10" value="7.1819050476092094" />
+      <entry key="S30" value="7.713370333637635" />
+      <entry key="S60" value="7.854862780880723" />
+      <entry key="M2" value="7.926969478056076" />
+      <entry key="M5" value="7.970676113269947" />
+      <entry key="M10" value="7.985329511224917" />
+      <entry key="M15" value="7.992039834628846" />
+      <entry key="M30" value="8.443881401748886" />
+      <entry key="H1" value="16.62762168189085" />
+      <entry key="H2" value="49.609475947726125" />
+      <entry key="H4" value="102.90803646163542" />
+      <entry key="D1" value="234.7124723949162" />
+      <entry key="W1" value="527.1857773744805" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000892369048096" />
-      <entry key="S2" value="1.0971933128442501" />
-      <entry key="S5" value="1.3949593085761653" />
-      <entry key="S10" value="1.6726398094307566" />
-      <entry key="S30" value="2.4704280444035254" />
-      <entry key="S60" value="3.236232679532264" />
-      <entry key="M2" value="3.995809814091057" />
-      <entry key="M5" value="5.595078900175809" />
-      <entry key="M10" value="9.132274228606898" />
-      <entry key="M15" value="12.576682310933869" />
-      <entry key="M30" value="20.33514912748419" />
-      <entry key="H1" value="29.28134737662941" />
-      <entry key="H2" value="37.960014787701255" />
-      <entry key="H4" value="44.85747919619712" />
-      <entry key="D1" value="55.30616831647217" />
-      <entry key="W1" value="69.9905561762694" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="1.668177605742936E-125" />
+      <entry key="S60" value="8.409589134034968E-63" />
+      <entry key="M2" value="2.036912290671254E-31" />
+      <entry key="M5" value="1.7011915740381988E-12" />
+      <entry key="M10" value="5.0356141835468335E-6" />
+      <entry key="M15" value="8.456975906375376E-4" />
+      <entry key="M30" value="0.16675231156758136" />
+      <entry key="H1" value="2.651571286699385" />
+      <entry key="H2" value="11.42306106044396" />
+      <entry key="H4" value="24.607241246687703" />
+      <entry key="D1" value="50.03934098946742" />
+      <entry key="W1" value="68.9970605326734" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="5.855271889562143E-5" />
-      <entry key="MS500" value="0.16320810111871406" />
-      <entry key="S2" value="1.1016330666366387" />
-      <entry key="S5" value="2.1495918264181224" />
-      <entry key="S10" value="3.290272422189047" />
-      <entry key="S30" value="6.765971993542196" />
-      <entry key="S60" value="9.33494409728751" />
-      <entry key="M2" value="11.690671966300192" />
-      <entry key="M5" value="16.731209877899133" />
-      <entry key="M10" value="27.483526946331896" />
-      <entry key="M15" value="39.7771592384058" />
-      <entry key="M30" value="75.03709784773744" />
-      <entry key="H1" value="124.5641322817521" />
-      <entry key="H2" value="176.22406702656681" />
-      <entry key="H4" value="217.8626086348585" />
-      <entry key="D1" value="305.87954362447897" />
-      <entry key="W1" value="596.6518651919826" />
+      <entry key="MS100" value="1.0250819949232428" />
+      <entry key="MS500" value="2.096191370074823" />
+      <entry key="S2" value="4.874565017086892" />
+      <entry key="S5" value="6.466290334309398" />
+      <entry key="S10" value="7.174969884586471" />
+      <entry key="S30" value="7.710834860340952" />
+      <entry key="S60" value="7.853565071133852" />
+      <entry key="M2" value="7.926312971448339" />
+      <entry key="M5" value="7.97041165357296" />
+      <entry key="M10" value="7.9852019885059" />
+      <entry key="M15" value="7.992795077371843" />
+      <entry key="M30" value="8.610377340573192" />
+      <entry key="H1" value="19.277428709581528" />
+      <entry key="H2" value="61.028729705434195" />
+      <entry key="H4" value="127.51117504977479" />
+      <entry key="D1" value="284.75041599311254" />
+      <entry key="W1" value="596.1825503148153" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -1120,7 +1100,7 @@
       <workItem from="1787256645586" duration="8030000" />
       <workItem from="1787328849430" duration="9093000" />
       <workItem from="1787339082585" duration="19820000" />
-      <workItem from="1787606030190" duration="3177000" />
+      <workItem from="1787606030190" duration="3983000" />
     </task>
     <task id="LOCAL-00001" summary="Renamed">
       <created>1549843127522</created>
@@ -1407,7 +1387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1787599155941</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="about to do voronoi rocks">
+      <option name="closed" value="true" />
+      <created>1787620654936</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1787620654936</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1515,7 +1503,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="More" />
     <MESSAGE value="Debug Log and Game" />
     <MESSAGE value="Audio" />
     <MESSAGE value="Bugs" />
@@ -1540,7 +1527,8 @@
     <MESSAGE value="cinematic system" />
     <MESSAGE value="app close fix" />
     <MESSAGE value="note and menu cleanup, quitting note early now ends program" />
-    <option name="LAST_COMMIT_MESSAGE" value="note and menu cleanup, quitting note early now ends program" />
+    <MESSAGE value="about to do voronoi rocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="about to do voronoi rocks" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
