@@ -8,6 +8,7 @@ namespace Caliban.Core.World
         ROCK,
     }
 
+    [Serializable]
     public abstract class Feature
     {
         public FeatureType Type;

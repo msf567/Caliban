@@ -92,6 +92,11 @@ public sealed class Shader : IDisposable
         GL.Uniform2(GetUniformLocation(name), value.X, value.Y);
     }
 
+    public void SetVector3(string name, Vector3 value)
+    {
+        GL.Uniform3(GetUniformLocation(name), value.X, value.Y, value.Z);
+    }
+
     public void SetFloat(string name, float value)
     {
         GL.Uniform1(GetUniformLocation(name), value);

@@ -80,6 +80,7 @@
     <Compile Include="Game\Player.cs"/>
     <Compile Include="Game\SaveState.cs"/>
     <Compile Include="Game\SoundClue.cs" />
+      <Compile Include="Transport\GraphicsSceneDescription.cs"/>
     <Compile Include="Utility\FormsEx.cs" />
     <Compile Include="Utility\Singleton.cs" />
     <Compile Include="OS\ExplorerWatcher.cs" />

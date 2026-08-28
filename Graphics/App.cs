@@ -12,7 +12,7 @@ namespace Caliban.Graphics;
 internal sealed class App : GameWindow
 {
     private readonly Dictionary<string, IDrawable> _gameObjects = new();
-
+    private Dictionary<int, Scene> SceneCache = new();
     private bool _loaded;
 
     public App()
@@ -130,8 +130,12 @@ internal sealed class App : GameWindow
             FramebufferSize.X * 0.5f,
             FramebufferSize.Y * 0.5f);
 
+        int x = 0;
         foreach (IDrawable drawable in _gameObjects.Values)
-            drawable.Draw(center.X, center.Y);
+        {
+            drawable.Draw(x, center.Y);
+            x += 300;
+        }
 
         SwapBuffers();
     }

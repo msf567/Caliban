@@ -26,12 +26,17 @@
 
     <ItemGroup>
         <None Update="Shaders\**\*">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Caliban\Caliban.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Assets\Palettes\Rock\DESERT\palette.bmp"/>
+        <EmbeddedResource Include="Assets\Palettes\Rock\DESERT\palette.bmp"/>
     </ItemGroup>
 
 </Project>
