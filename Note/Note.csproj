@@ -80,6 +80,10 @@
         <None Include="packages.config"/>
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\Caliban\Caliban.csproj">
+          <Project>{bec1191b-c5d5-4bfb-8442-2f6af92f089f}</Project>
+          <Name>Caliban</Name>
+        </ProjectReference>
         <ProjectReference Include="..\DebugLog\DebugLog.csproj">
             <Project>{6a19fc3c-67f1-4f2c-8986-43957f1605e0}</Project>
             <Name>DebugLog</Name>
