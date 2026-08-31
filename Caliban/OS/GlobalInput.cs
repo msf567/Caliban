@@ -1,5 +1,6 @@
 using System;
-using EventHook;
+using SharpHook;
+using SharpHook.Data;
 
 namespace Caliban.Core.Windows
 {
@@ -8,10 +9,10 @@ namespace Caliban.Core.Windows
         public readonly int X;
         public readonly int Y;
 
-        public Point(EventHook.Hooks.Point _p)
+        public Point(int x, int y)
         {
-            this.X = _p.x;
-            this.Y = _p.y;
+            this.X = x;
+            this.Y = y;
         }
     }
 
@@ -31,61 +32,104 @@ namespace Caliban.Core.Windows
 
     public class MouseArgs : EventArgs
     {
-        public MouseArgs(MouseEventArgs _e)
+        public MouseArgs(MouseMessages message, Point point, uint mouseData = 0)
         {
-            Message = (MouseMessages) _e.Message;
-            Point = new Point(_e.Point);
-            MouseData = _e.MouseData;
+            Message = message;
+            Point = point;
+            MouseData = mouseData;
         }
 
         public MouseMessages Message { get; set; }
-
         public Point Point { get; set; }
-
         public uint MouseData { get; set; }
     }
 
     public static class GlobalInput
     {
-        private static readonly EventHookFactory EventHookFactory = new EventHookFactory();
-        private static readonly KeyboardWatcher KbWatcher;
-        private static readonly MouseWatcher MouseWatcher;
+        private static readonly SimpleGlobalHook Hook;
 
-        public delegate void GlobalKeyPressEvent(string _key);
+        public delegate void GlobalKeyPressEvent(string key);
 
-        public delegate void GlobalMouseMoveEvent(MouseArgs _key);
+        public delegate void GlobalMouseMoveEvent(MouseArgs e);
 
-        public static GlobalKeyPressEvent OnGlobalKeyPress;
-        public static GlobalMouseMoveEvent OnGlobalMouseAction;
+        public static event GlobalKeyPressEvent? OnGlobalKeyPress;
+        public static event GlobalMouseMoveEvent? OnGlobalMouseAction;
 
         static GlobalInput()
         {
-            if (KbWatcher == null)
-            {
-                KbWatcher = EventHookFactory.GetKeyboardWatcher();
-                KbWatcher.Start();
-            }
+            Hook = new SimpleGlobalHook();
 
-            KbWatcher.OnKeyInput += GlobalKeyPress;
+            // Subscribe to Keyboard events
+            Hook.KeyPressed += OnKeyPressed;
 
-            if (MouseWatcher == null)
-            {
-                MouseWatcher = EventHookFactory.GetMouseWatcher();
-                MouseWatcher.Start();
-            }
+            // Subscribe to Mouse events
+            Hook.MouseMoved += OnMouseMoved;
+            Hook.MousePressed += OnMousePressed;
+            Hook.MouseReleased += OnMouseReleased;
+            Hook.MouseWheel += OnMouseWheel;
 
-            MouseWatcher.OnMouseInput += GlobalMouse;
+            // Start hook background task (does not block main thread)
+            Hook.RunAsync();
         }
 
-        private static void GlobalKeyPress(object _s, KeyInputEventArgs _e)
+        private static void OnKeyPressed(object? sender, KeyboardHookEventArgs e)
         {
-            if (_e.KeyData.EventType == KeyEvent.down)
-                OnGlobalKeyPress?.Invoke(_e.KeyData.Keyname);
+            OnGlobalKeyPress?.Invoke(e.Data.KeyCode.ToString());
         }
 
-        private static void GlobalMouse(object _s, MouseEventArgs _e)
+        private static void OnMouseMoved(object? sender, MouseHookEventArgs e)
         {
-            OnGlobalMouseAction?.Invoke(new MouseArgs(_e));
+            var args = new MouseArgs(
+                MouseMessages.WM_MOUSEMOVE,
+                new Point(e.Data.X, e.Data.Y)
+            );
+            OnGlobalMouseAction?.Invoke(args);
+        }
+
+        private static void OnMousePressed(object? sender, MouseHookEventArgs e)
+        {
+            var msg = e.Data.Button switch
+            {
+                MouseButton.Button1 => MouseMessages.WM_LBUTTONDOWN,
+                MouseButton.Button2 => MouseMessages.WM_RBUTTONDOWN,
+                MouseButton.Button3 => MouseMessages.WM_WHEELBUTTONDOWN,
+                _ => MouseMessages.WM_XBUTTONDOWN
+            };
+
+            var args = new MouseArgs(msg, new Point(e.Data.X, e.Data.Y));
+            OnGlobalMouseAction?.Invoke(args);
+        }
+
+        private static void OnMouseReleased(object? sender, MouseHookEventArgs e)
+        {
+            var msg = e.Data.Button switch
+            {
+                MouseButton.Button1 => MouseMessages.WM_LBUTTONUP,
+                MouseButton.Button2 => MouseMessages.WM_RBUTTONUP,
+                MouseButton.Button3 => MouseMessages.WM_WHEELBUTTONUP,
+                _ => MouseMessages.WM_XBUTTONUP
+            };
+
+            var args = new MouseArgs(msg, new Point(e.Data.X, e.Data.Y));
+            OnGlobalMouseAction?.Invoke(args);
+        }
+
+        private static void OnMouseWheel(object? sender, MouseWheelHookEventArgs e)
+        {
+            var args = new MouseArgs(
+                MouseMessages.WM_MOUSEWHEEL,
+                new Point(e.Data.X, e.Data.Y),
+                (uint)e.Data.Rotation
+            );
+            OnGlobalMouseAction?.Invoke(args);
+        }
+
+        /// <summary>
+        /// Call when shutting down the application to unhook Windows hooks cleanly.
+        /// </summary>
+        public static void Stop()
+        {
+            Hook.Dispose();
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Caliban.Core.Debug
 {
-    internal class DebugLogProgram
+    internal static class DebugLogProgram
     {
         private class DebugLogListener
         {

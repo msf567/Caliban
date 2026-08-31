@@ -128,7 +128,11 @@ namespace Caliban.Core.Game
 
         private void OpenExplorer()
         {
-            Process.Start(WorldParameters.WorldRoot.FullName);
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = WorldParameters.WorldRoot.FullName,
+                UseShellExecute = true
+            });
         }
 
         private void CloseExplorers()

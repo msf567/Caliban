@@ -9,8 +9,8 @@ using Caliban.Graphics.Transport;
 // Only in debug mode do we spawn a console window; otherwise the overlay runs
 // silently as a plain GUI app with no console attached.
 D.debugMode = args.Contains("debug");
-if (D.debugMode)
-    WinEx.SpawnConsole();
+//if (D.debugMode)
+//WinEx.SpawnConsole();
 
 var sandStorm = new SandStorm();
 
