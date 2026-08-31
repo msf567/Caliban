@@ -6,6 +6,8 @@ using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using Caliban.Core.Transport;
 using Caliban.Graphics.Drawables;
+using System.Text.Json;
+using Caliban.Core.Debug;
 
 namespace Caliban.Graphics;
 
@@ -54,6 +56,47 @@ internal sealed class App : GameWindow
                 ((SandStorm)_gameObjects["sandstorm"]).End();
                 break;
 
+            case MessageType.GRAPHICS_SCENE:
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(m.Value))
+                    {
+                        D.Write("Warning: Graphics scene payload was empty.");
+                        break;
+                    }
+
+                    GraphicsSceneDescription? scene = JsonSerializer.Deserialize<GraphicsSceneDescription>(m.Value);
+
+                    if (scene == null)
+                    {
+                        D.Write("Warning: Deserialized scene returned null.");
+                        break;
+                    }
+
+                    D.Write(scene.Seed);
+                    if (scene.Features != null)
+                    {
+                        foreach (var feature in scene.Features)
+                        {
+                            D.Write(feature.Type);
+                        }
+                    }
+                    else
+                    {
+                        D.Write("Notice: Scene contains no features.");
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    D.Write($"JSON Parsing Error in GRAPHICS_SCENE: {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    D.Write($"Unexpected error processing GRAPHICS_SCENE: {ex.Message}");
+                }
+
+                break;
+
             case MessageType.APP_CLOSE:
                 Close();
                 break;
@@ -75,8 +118,8 @@ internal sealed class App : GameWindow
     {
         base.OnLoad();
 
-        Console.WriteLine($"OpenGL: {GL.GetString(StringName.Version)}");
-        Console.WriteLine($"Transparent: {HasTransparentFramebuffer}");
+        D.Write($"OpenGL: {GL.GetString(StringName.Version)}");
+        D.Write($"Transparent: {HasTransparentFramebuffer}");
 
         GL.ClearColor(0f, 0f, 0f, 0f);
         GL.Disable(EnableCap.DepthTest);

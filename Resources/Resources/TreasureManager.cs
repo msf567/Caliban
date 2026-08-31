@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using Mono.Cecil;
 using Caliban.Core.Debug;
+using MemoryPack;
+using ManifestResourceAttributes = Mono.Cecil.ManifestResourceAttributes;
 
 // ReSharper disable once CheckNamespace
 namespace Treasures.Resources
@@ -107,14 +108,9 @@ namespace Treasures.Resources
             }
         }
 
-        private static byte[] ObjectToByteArray(Object obj)
+        private static byte[] ObjectToByteArray<T>(T obj)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            using (var ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
+            return MemoryPackSerializer.Serialize(obj);
         }
     }
 }

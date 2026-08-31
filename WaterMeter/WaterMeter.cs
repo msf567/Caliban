@@ -44,10 +44,10 @@ namespace WaterMeter
             window = new RenderingWindow(TITLE, Width, Height);
             buffer = new RenderingBuffer(Width, Height);
 
-            var style = Windows.GetWindowLong(hwnd, Windows.GWL_STYLE);
-            Windows.SetWindowLong(hwnd, Windows.GWL_STYLE, (style & ~Windows.WS_CAPTION));
+            var style = Caliban.Core.OS.Windows.GetWindowLong(hwnd, Caliban.Core.OS.Windows.GWL_STYLE);
+            Caliban.Core.OS.Windows.SetWindowLong(hwnd, Caliban.Core.OS.Windows.GWL_STYLE, (style & ~Caliban.Core.OS.Windows.WS_CAPTION));
 
-            Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Windows.Swp.NOSIZE);
+            Caliban.Core.OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Caliban.Core.OS.Windows.Swp.NOSIZE);
         }
 
         private void UpdateThread()

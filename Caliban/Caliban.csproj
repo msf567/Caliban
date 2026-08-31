@@ -1,122 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BEC1191B-C5D5-4BFB-8442-2F6AF92F089F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <RootNamespace>Caliban.Core</RootNamespace>
     <AssemblyName>Caliban.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <OutputPath>..\Builds\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+
+  <!-- Configuration Properties -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>../Builds/</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../Builds/</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- NuGet Package References -->
   <ItemGroup>
-    <Reference Include="CLIGL, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null">
+    <PackageReference Include="Colorful.Console" Version="1.2.15"/>
+    <!-- Suppress NU1701 warning for legacy .NET Framework compatibility fallback -->
+    <PackageReference Include="EventHook" Version="1.4.113" NoWarn="NU1701"/>
+    <PackageReference Include="NAudio" Version="2.2.1"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    <PackageReference Include="Terminal.Gui" Version="1.17.1"/>
+    <!-- Updated to 1.1.1 to match Terminal.Gui's dependency requirement -->
+    <PackageReference Include="NStack.Core" Version="1.1.1"/>
+  </ItemGroup>
+
+  <!-- Direct DLL References -->
+  <ItemGroup>
+    <Reference Include="CLIGL">
       <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
     </Reference>
-    <Reference Include="Colorful.Console, Version=1.2.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colorful.Console.1.2.15\lib\net461\Colorful.Console.dll</HintPath>
-    </Reference>
-    <Reference Include="EventHook, Version=1.4.113.0, Culture=neutral, PublicKeyToken=2c14189d5ed28bd7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EventHook.1.4.113\lib\net45\EventHook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\NAudio.1.9.0-preview2\lib\net35\NAudio.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Terminal.Gui, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Terminal.Gui.1.7.1\lib\net472\Terminal.Gui.dll</HintPath>
-    </Reference>
-    <Reference Include="NStack, Version=0.17.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NStack.Core.0.17.1\lib\netstandard2.0\NStack.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Audio\AudioManager.cs" />
-    <Compile Include="Audio\LoopStream.cs" />
-    <Compile Include="Audio\WavePlayer.cs" />
-    <Compile Include="Cinematics\Cinematic.cs" />
-    <Compile Include="Cinematics\CinematicCue.cs"/>
-    <Compile Include="Cinematics\CinematicPlayer.cs" />
-    <Compile Include="Cinematics\CinematicScriptParser.cs"/>
-    <Compile Include="ConsoleOutput\ConsoleFormat.cs" />
-    <Compile Include="Debug\Debug.cs"/>
-    <Compile Include="Game\Backpack.cs"/>
-    <Compile Include="Game\Clue.cs" />
-    <Compile Include="Game\MapClue.cs" />
-    <Compile Include="Game\ClueManager.cs" />
-    <Compile Include="Game\Player.cs"/>
-    <Compile Include="Game\SaveState.cs"/>
-    <Compile Include="Game\SoundClue.cs" />
-      <Compile Include="Transport\GraphicsSceneDescription.cs"/>
-    <Compile Include="Utility\FormsEx.cs" />
-    <Compile Include="Utility\Singleton.cs" />
-    <Compile Include="OS\ExplorerWatcher.cs" />
-    <Compile Include="Utility\Wallpaper.cs" />
-    <Compile Include="World\ChunkGenerator.cs" />
-    <Compile Include="World\Feature.cs"/>
-    <Compile Include="World\World.cs" />
-    <Compile Include="World\UIDFactory.cs" />
-    <Compile Include="World\WorldGenerator.cs" />
-    <Compile Include="World\WorldNode.cs" />
-      <Compile Include="World\WorldNodeTreeRenderer.cs"/>
-    <Compile Include="World\WorldParameters.cs" />
-    <Compile Include="Game\Game.cs" />
-    <Compile Include="Game\ModuleLoader.cs" />
-    <Compile Include="Game\WaterManager.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\MenuApp.cs"/>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transport\ClientApp.cs" />
-    <Compile Include="Transport\ClientTerminal.cs" />
-    <Compile Include="Transport\ConnectedClient.cs" />
-    <Compile Include="Transport\Globals.cs" />
-    <Compile Include="Transport\Messages.cs" />
-    <Compile Include="Transport\ServerTerminal.cs" />
-    <Compile Include="Transport\SocketListener.cs" />
-    <Compile Include="Utility\MathEx.cs" />
-    <Compile Include="Utility\StringEx.cs" />
-    <Compile Include="OS\GlobalInput.cs" />
-    <Compile Include="OS\Windows.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <InternalsVisibleTo Include="CALIBAN"/>
-  </ItemGroup>
+
+  <!-- COM References -->
   <ItemGroup>
     <COMReference Include="SHDocVw">
       <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
@@ -128,23 +57,18 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-      <ProjectReference Include="..\DebugLog\DebugLog.csproj">
-      <Project>{6a19fc3c-67f1-4f2c-8986-43957f1605e0}</Project>
-          <Name>DebugLog</Name>
-    </ProjectReference>
-      <ProjectReference Include="..\Resources\Resources.csproj">
-      <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
-          <Name>Resources</Name>
-    </ProjectReference>
 
+  <!-- Project References -->
+  <ItemGroup>
+    <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
+    <ProjectReference Include="..\Resources\Resources.csproj"/>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    -->
-  <Target Name="AfterBuild">
-  </Target>
+
+  <!-- Assembly Attributes -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>CALIBAN</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
 </Project>

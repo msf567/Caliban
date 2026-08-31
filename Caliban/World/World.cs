@@ -21,10 +21,12 @@ namespace Caliban.Core.World
         private FileSystemWatcher fileSystemWatcher;
         public WorldNode WorldRoot;
         private readonly ClueManager clueManager;
+        private ServerTerminal serverTerminal;
 
         public World(ServerTerminal _s)
         {
-            _s.MessageReceived += ServerOnMessageReceived;
+            serverTerminal = _s;
+            serverTerminal.MessageReceived += ServerOnMessageReceived;
             ClearNode(WorldParameters.WorldRoot.FullName);
             if (Directory.Exists(WorldParameters.WorldRoot.FullName))
                 DeleteDirectory(WorldParameters.WorldRoot.FullName);
@@ -36,7 +38,7 @@ namespace Caliban.Core.World
             var allNodes = WorldRoot.GetAllNodes();
             var victoryPath = allNodes.Find(_e => _e.FindFirstTreasureByType(TreasureType.SIMPLE_VICTORY) != null)?.FullName;
 
-            clueManager = new ClueManager(_s);
+            clueManager = new ClueManager(serverTerminal);
             // clueManager.AddClue(new SoundClue(victoryPath));
 
             clueManager.AddClue(new MapClue(victoryPath, this));
@@ -137,6 +139,8 @@ namespace Caliban.Core.World
             }
 
             //spawn features in graphics
+            //serverTerminal.BroadcastMessage(Messages.Build(MessageType.GRAPHICS_SCENE,
+            // new GraphicsSceneDescription(_node.RandomSeed, _node.Features.ToArray()).GetBytes()));
         }
 
         public void Update()

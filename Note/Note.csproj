@@ -1,111 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\packages\ILMerge.3.0.29\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')"/>
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{9025743F-CF9E-49C9-A138-383D2F2FA8B4}</ProjectGuid>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <OutputType>WinExe</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>Note</RootNamespace>
         <AssemblyName>Note</AssemblyName>
-        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-        <FileAlignment>512</FileAlignment>
+        <OutputPath>..\Builds\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ApplicationIcon>cmd.ico</ApplicationIcon>
+
+        <!-- Prevents duplicate attribute errors if you keep Properties\AssemblyInfo.cs -->
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+
+    <!-- Configuration Properties -->
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
-        <OutputPath>..\Builds</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
     </PropertyGroup>
-    <PropertyGroup>
-        <ApplicationIcon>cmd.ico</ApplicationIcon>
-    </PropertyGroup>
+
+    <!-- NuGet Package References -->
     <ItemGroup>
-        <Reference Include="Caliban.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <PackageReference Include="EventHook" Version="1.4.113" NoWarn="NU1701"/>
+    </ItemGroup>
+
+    <!-- Direct DLL References -->
+    <ItemGroup>
+        <Reference Include="Caliban.Core">
             <HintPath>..\Builds\Caliban.Core.dll</HintPath>
         </Reference>
-        <Reference Include="EventHook, Version=1.4.113.0, Culture=neutral, PublicKeyToken=2c14189d5ed28bd7, processorArchitecture=MSIL">
-            <HintPath>..\packages\EventHook.1.4.113\lib\net45\EventHook.dll</HintPath>
-        </Reference>
-        <Reference Include="System"/>
-        <Reference Include="System.Core"/>
-        <Reference Include="System.Data"/>
-        <Reference Include="System.Drawing"/>
-        <Reference Include="System.Windows.Forms"/>
-        <Reference Include="System.Xml"/>
     </ItemGroup>
+
+    <!-- Project References -->
     <ItemGroup>
-        <Compile Include="NoteForm.cs">
-            <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="NoteForm.Designer.cs">
-            <DependentUpon>NoteForm.cs</DependentUpon>
-        </Compile>
-        <Compile Include="NoteProgram.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Properties\Resources.Designer.cs">
-            <AutoGen>True</AutoGen>
-            <DesignTime>True</DesignTime>
-            <DependentUpon>Resources.resx</DependentUpon>
-        </Compile>
+        <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
+        <ProjectReference Include="..\Resources\Resources.csproj"/>
     </ItemGroup>
+
+    <!-- Embedded Resources -->
     <ItemGroup>
-        <EmbeddedResource Include="NoteForm.resx">
-            <DependentUpon>NoteForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Properties\Resources.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-            <SubType>Designer</SubType>
-        </EmbeddedResource>
+        <EmbeddedResource Include="Resources\Perfect DOS VGA 437.ttf"/>
     </ItemGroup>
+
+    <!-- Content & None -->
     <ItemGroup>
         <None Include="blip.wav"/>
-        <EmbeddedResource Include="Resources\Perfect DOS VGA 437.ttf"/>
-        <None Include="packages.config"/>
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\DebugLog\DebugLog.csproj">
-            <Project>{6a19fc3c-67f1-4f2c-8986-43957f1605e0}</Project>
-            <Name>DebugLog</Name>
-        </ProjectReference>
-        <ProjectReference Include="..\Resources\Resources.csproj">
-            <Project>{c3060e62-16c7-4b07-99c3-c6e791f5241c}</Project>
-            <Name>Resources</Name>
-        </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
         <Content Include="ILMerge.props"/>
         <Content Include="ILMergeOrder.txt"/>
     </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-           Other similar extension points exist, see Microsoft.Common.targets.
-      <Target Name="BeforeBuild">
-      </Target>
-      -->
-    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-        <PropertyGroup>
-            <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
-        </PropertyGroup>
-        <Error Condition="!Exists('..\packages\ILMerge.3.0.29\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.29\build\ILMerge.props'))"/>
-        <Error Condition="!Exists('..\packages\MSBuild.ILMerge.Task.2.0.0-pre501\build\MSBuild.ILMerge.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSBuild.ILMerge.Task.2.0.0-pre501\build\MSBuild.ILMerge.Task.targets'))"/>
-    </Target>
-    <Import Project="..\packages\MSBuild.ILMerge.Task.2.0.0-pre501\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\packages\MSBuild.ILMerge.Task.2.0.0-pre501\build\MSBuild.ILMerge.Task.targets')"/>
 
 </Project>

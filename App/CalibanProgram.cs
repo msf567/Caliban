@@ -54,7 +54,7 @@ namespace CALIBAN
 
             Game.OnGameStateChange += OnGameStateChange;
 
-            Windows.ConfigureMenuWindow();
+            Caliban.Core.OS.Windows.ConfigureMenuWindow();
 
             Caliban.Core.Menu.MenuApp.EnsureInit();
             TerminalApp.RootKeyEvent = RootKeyHandler;

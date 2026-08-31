@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using MemoryPack;
 
 namespace Treasures.Resources
 {
-    [Serializable]
-    public class Treasure
+    [MemoryPackable]
+    public partial class Treasure
     {
         public TreasureType type;
         public string fileName;
@@ -12,17 +13,17 @@ namespace Treasures.Resources
         public bool removeIfMoved; //TODO do cheat detection in water to detect if player has moved it by registering spawn location
         public Dictionary<string, string> InternalResources = new Dictionary<string, string>();
 
-        //TODO make treasure factory to simplify treasure generation
-        public Treasure(TreasureType _type, string _fileName)
+        [MemoryPackConstructor]
+        public Treasure(TreasureType type, string fileName)
         {
-            type = _type;
-            fileName = _fileName;
+            this.type = type;
+            this.fileName = fileName;
         }
 
-        public Treasure(string _fileName)
+        public Treasure(string fileName)
         {
-            type = TreasureType.SIMPLE;
-            fileName = _fileName;
+            this.type = TreasureType.SIMPLE;
+            this.fileName = fileName;
         }
 
         public void AddInternalResource(string resName, string val)

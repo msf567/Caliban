@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
@@ -9,8 +10,16 @@ using System.Threading;
 
 namespace Caliban.Core.Debug
 {
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public class LogDomainAttribute : Attribute
+    {
+        public string DomainName { get; }
+        public LogDomainAttribute(string domainName) => DomainName = domainName;
+    }
+
     public static class D
     {
+        private static readonly ConcurrentDictionary<Assembly, string> DomainCache = new ConcurrentDictionary<Assembly, string>();
         private static ConcurrentQueue<string> SendQueue = new ConcurrentQueue<string>();
         private static UdpClient udpClient;
         public static bool debugMode = false;
@@ -50,16 +59,31 @@ namespace Caliban.Core.Debug
             }
         }
 
-        internal static void Write(string m)
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Write(string m)
         {
             if (!inited)
                 Init();
+
+            Assembly callingAssembly = Assembly.GetCallingAssembly();
+            string domain = DomainCache.GetOrAdd(callingAssembly, ResolveDomainName);
+
+            string formattedMessage = $"[{domain}] {m}";
+
             if (debugMode)
             {
-                //Console.WriteLine(m);
+                //Console.WriteLine(formattedMessage);
             }
 
-            SendQueue.Enqueue(m);
+            SendQueue.Enqueue(formattedMessage);
+        }
+
+        public static void Write(object o) => Write(o?.ToString());
+
+        private static string ResolveDomainName(Assembly assembly)
+        {
+            var attribute = assembly.GetCustomAttribute<LogDomainAttribute>();
+            return attribute?.DomainName ?? assembly.GetName().Name ?? "UnknownDomain";
         }
 
         public static void Dispose()

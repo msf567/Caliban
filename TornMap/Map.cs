@@ -42,7 +42,6 @@ namespace TornMap
             var renderingWindow = new RenderingWindow(Title, windowWidth, WindowHeight);
             var renderingBuffer = new RenderingBuffer(windowWidth, WindowHeight);
             Console.OutputEncoding = Encoding.UTF8;
-            Log("hello!");
             //Console.WriteLine(GetString(baseClueLoc));
             while (!closeFlag)
             {
@@ -68,8 +67,7 @@ namespace TornMap
         {
             if (_m.Message == MouseMessages.WM_RBUTTONDOWN)
             {
-                Windows.GetWindowRect(Windows.GetConsoleWindow(), out var consoleRect);
-
+                Caliban.Core.OS.Windows.GetWindowRect(Caliban.Core.OS.Windows.GetConsoleWindow(), out var consoleRect);
                 if ((_m.Point.X > consoleRect.Left && _m.Point.X < consoleRect.Right && _m.Point.Y > consoleRect.Top &&
                      _m.Point.Y < consoleRect.Bottom) || TornMapProgram._debug)
                 {

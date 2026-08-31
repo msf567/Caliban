@@ -15,7 +15,7 @@ namespace WaterMeter
                 return;
 
             IntPtr hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Windows.Swp.NOSIZE);
+            Caliban.Core.OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Caliban.Core.OS.Windows.Swp.NOSIZE);
             int width = 20;
             int height = 40;
             WaterMeter waterMeter = new WaterMeter(width, height);

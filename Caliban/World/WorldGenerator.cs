@@ -24,7 +24,7 @@ namespace Caliban.Core.World
             ChunkGenerator.GenerateChunk(deepestNodes[random], Biome.DESERT);
             SpawnVictory(worldRoot);
 
-            WorldNodeTreeRenderer.SavePng(worldRoot, "generatedMap.png", verticalSpacing: 360, padding: 100, horizontalSpacing: 120);
+            //WorldNodeTreeRenderer.SavePng(worldRoot, "generatedMap.png", verticalSpacing: 360, padding: 100, horizontalSpacing: 120);
             return worldRoot;
         }
 
