@@ -31,15 +31,11 @@
 
     <!-- NuGet Package References -->
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4"/>
         <PackageReference Include="EventHook" Version="1.4.113" NoWarn="NU1701"/>
-    </ItemGroup>
-
-    <!-- Direct DLL References -->
-    <ItemGroup>
-        <Reference Include="CLIGL">
-            <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
-        </Reference>
+        <PackageReference Include="SadConsole" Version="10.10.1"/>
+        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.10.1"/>
+        <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*"/>
     </ItemGroup>
 
     <!-- Project References -->

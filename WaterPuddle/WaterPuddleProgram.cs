@@ -2,9 +2,12 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using Caliban.Core.Transport;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace WaterPuddle
 {
@@ -25,7 +28,7 @@ namespace WaterPuddle
                 //string executedLocation = Assembly.GetExecutingAssembly().Location;
                 string myID = AppDomain.CurrentDomain.FriendlyName.Replace(".exe", "").Split('_')[1];
 
-                SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_ADD, amount + " " + myID));
+                SendMessageToHost(MessageType.WATERLEVEL_ADD, amount + " " + myID);
                 //SendMessageToHost(Messages.Build(MessageType.DEBUG_LOG,$"Hello!"));
                 KillSelf("WaterPuddle.exe");
                 Deconstruct();

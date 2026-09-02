@@ -66,15 +66,17 @@ namespace Caliban.Core.Transport
                 connectedClient.MessageRecived += OnMessageReceived;
                 connectedClient.Disconnected += OnClientDisconnection;
 
-                connectedClient.StartListen();
-
                 long key = clientSocket.Handle.ToInt64();
                 if (MClients.ContainsKey(key))
                 {
                     //D.Write("Client with handle key '{0}' already exist!", key);
                 }
 
+                // Register the client BEFORE listening so the first (REGISTER) message can't
+                // arrive and be processed before the client is in the dictionary.
                 MClients[key] = connectedClient;
+
+                connectedClient.StartListen();
 
                 socket.BeginAccept(OnClientConnection, null);
             }
@@ -126,7 +128,12 @@ namespace Caliban.Core.Transport
 
         private void RegisterClient(Socket _socket, string _name)
         {
-            ConnectedClient c = MClients[_socket.Handle.ToInt64()];
+            if (!MClients.TryGetValue(_socket.Handle.ToInt64(), out ConnectedClient c))
+            {
+                D.Write("RegisterClient: unknown client handle for '" + _name + "'");
+                return;
+            }
+
             if (namedClients.ContainsKey(_name))
             {
                 D.Write("Registering another " + _name);
@@ -144,10 +151,9 @@ namespace Caliban.Core.Transport
 
         public void SendMessageToSelf(byte[] _message)
         {
-            byte[] sendData = new byte[_message.Length + 1];
-            sendData[0] = Convert.ToByte(_message.Length);
-            _message.CopyTo(sendData, 1);
-            OnMessageReceived(socket, sendData);
+            // OnMessageReceived now expects a de-framed message body (framing is handled by the
+            // transport layer), so the loopback message is passed through directly.
+            OnMessageReceived(socket, _message);
         }
 
         public void SendMessageToClient(string _clientName, byte[] _message)
@@ -172,13 +178,13 @@ namespace Caliban.Core.Transport
             }
         }
 
-        public void BroadcastMessage(byte[] _message)
+        public void BroadcastMessage(MessageType _type, string _message)
         {
             try
             {
                 foreach (ConnectedClient connectedClient in MClients.Values)
                 {
-                    connectedClient.Send(_message);
+                    connectedClient.Send(Messages.Build("CALIBAN", _type, _message));
                 }
             }
             catch (SocketException)
@@ -213,22 +219,16 @@ namespace Caliban.Core.Transport
 
         private void OnMessageReceived(Socket _socket, byte[] _message)
         {
-            if (MessageReceived != null)
+            // _message is a complete, de-framed message body from the transport layer.
+            Message m = Messages.Parse(_message);
+            //D.Write($"Got Message: [{m.ToString()}]");
+            if (m.Type == MessageType.REGISTER)
             {
-                int msgLen = Convert.ToInt16(_message[0]);
-                byte[] trimmedMessage = new byte[msgLen];
-                Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
-
-                Message m = Messages.Parse(trimmedMessage);
-                //D.Write($"Got Message: [{m.ToString()}]");
-                if (m.Type == MessageType.REGISTER)
-                {
-                    RegisterClient(_socket, m.Value);
-                }
-                else
-                {
-                    MessageReceived?.Invoke(_socket, trimmedMessage);
-                }
+                RegisterClient(_socket, m.Value);
+            }
+            else
+            {
+                MessageReceived?.Invoke(_socket, _message);
             }
         }
 

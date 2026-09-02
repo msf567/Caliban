@@ -25,25 +25,13 @@ namespace Caliban.Core.Transport
             OnServerConnection();
         }
 
-        public void SendMessage(string _message)
-        {
-            if (mSocClient == null)
-            {
-                return;
-            }
-
-            var messageData = System.Text.Encoding.ASCII.GetBytes(_message);
-            var sendData = new byte[messageData.Length + 1];
-            sendData[0] = Convert.ToByte(messageData.Length);
-            messageData.CopyTo(sendData, 1);
-            mSocClient.Send(sendData);
-        }
-
         public void SendMessage(byte[] _messageData)
         {
-            var sendData = new byte[_messageData.Length + 1];
-            sendData[0] = Convert.ToByte(_messageData.Length);
-            _messageData.CopyTo(sendData, 1);
+            // Frame the message with a 4-byte length prefix so payloads > 255 bytes are supported.
+            byte[] lengthPrefix = BitConverter.GetBytes(_messageData.Length);
+            var sendData = new byte[lengthPrefix.Length + _messageData.Length];
+            Buffer.BlockCopy(lengthPrefix, 0, sendData, 0, lengthPrefix.Length);
+            Buffer.BlockCopy(_messageData, 0, sendData, lengthPrefix.Length, _messageData.Length);
             mSocClient.Send(sendData);
         }
 
@@ -103,11 +91,8 @@ namespace Caliban.Core.Transport
 
         private void OnMessageReceived(Socket _socket, byte[] _message)
         {
-            if (MessageRecived == null) return;
-            int msgLen = Convert.ToInt16(_message[0]);
-            var trimmedMessage = new byte[msgLen];
-            Array.Copy(_message, 1, trimmedMessage, 0, msgLen);
-            MessageRecived(_socket, trimmedMessage);
+            // SocketListener already de-framed the message, so _message is a complete frame body.
+            MessageRecived?.Invoke(_socket, _message);
         }
 
         private void OnServerConnectionDroped(Socket _socket)

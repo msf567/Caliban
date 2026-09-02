@@ -2,12 +2,15 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using static System.Drawing.Image;
 
 namespace Caliban.Core.Utility
 {
     public sealed class Wallpaper
     {
-        Wallpaper() { }
+        Wallpaper()
+        {
+        }
 
         const int SPI_SETDESKWALLPAPER = 20;
         const int SPIF_UPDATEINIFILE = 0x01;
@@ -27,7 +30,7 @@ namespace Caliban.Core.Utility
         {
             Stream s = new System.Net.WebClient().OpenRead(uri.ToString());
 
-            System.Drawing.Image img = System.Drawing.Image.FromStream(s);
+            System.Drawing.Image img = FromStream(s);
             string tempPath = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");
             img.Save(tempPath, System.Drawing.Imaging.ImageFormat.Bmp);
 

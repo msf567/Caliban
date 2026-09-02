@@ -17,6 +17,7 @@ namespace Caliban.Core.Transport
         BIOME_SWITCH = 0x0006,
         CHOREO = 0x0007,
         GRAPHICS_SCENE = 0x0008,
+        HEARTBEAT = 0x0100,
         WATERLEVEL_SET = 0x0101,
         WATERLEVEL_GET = 0x0102,
         WATERLEVEL_ADD = 0x0103,
@@ -29,58 +30,77 @@ namespace Caliban.Core.Transport
 
     public struct Message
     {
+        public readonly string SenderID;
         public readonly MessageType Type;
         public readonly string Value;
 
-        public Message(MessageType _type, string _value)
+        public Message(string senderId, MessageType _type, string _value)
         {
+            SenderID = senderId;
             Type = _type;
             Value = _value;
         }
 
         public override string ToString()
         {
-            return "Type: " + Type + " Param: " + Value;
+            return $"SenderID: {SenderID} Type: {Type} Param: {Value}";
         }
     }
 
     public static class Messages
     {
-        public static byte[] Build(MessageType _type, byte[] _message)
+        public static byte[] Build(string senderId, MessageType type, byte[] message)
         {
-            var typeData = BitConverter.GetBytes((uint)_type);
-            var messageData = _message;
-            byte[] retMsg = new byte[4 + messageData.Length];
-            typeData.CopyTo(retMsg, 0);
-            messageData.CopyTo(retMsg, 4);
-            return retMsg;
+            senderId ??= string.Empty;
+            message ??= Array.Empty<byte>();
+
+            byte[] typeBytes = BitConverter.GetBytes((uint)type);
+            byte[] senderBytes = Encoding.UTF8.GetBytes(senderId);
+            byte[] senderLengthBytes = BitConverter.GetBytes(senderBytes.Length);
+
+            byte[] result = new byte[4 + 4 + senderBytes.Length + message.Length];
+
+            // Wire format: [4-byte Type][4-byte SenderID Length][SenderID UTF-8 Bytes][Payload Bytes]
+            Buffer.BlockCopy(typeBytes, 0, result, 0, 4);
+            Buffer.BlockCopy(senderLengthBytes, 0, result, 4, 4);
+            Buffer.BlockCopy(senderBytes, 0, result, 8, senderBytes.Length);
+            Buffer.BlockCopy(message, 0, result, 8 + senderBytes.Length, message.Length);
+
+            return result;
         }
 
-        public static byte[] Build(MessageType _type, string _message)
+        public static byte[] Build(string senderId, MessageType type, string message)
         {
-            var typeData = BitConverter.GetBytes((uint)_type);
-            var messageData = Encoding.ASCII.GetBytes(_message);
-            byte[] retMsg = new byte[4 + messageData.Length];
-            typeData.CopyTo(retMsg, 0);
-            messageData.CopyTo(retMsg, 4);
-            return retMsg;
+            byte[] messageData = Encoding.UTF8.GetBytes(message ?? string.Empty);
+            return Build(senderId, type, messageData);
         }
 
-        public static Message Parse(byte[] _bytes)
+        public static Message Parse(byte[] bytes)
         {
-            var type = (MessageType)BitConverter.ToInt32(_bytes.Take(4).ToArray(), 0);
-            var param = String(_bytes.Skip(4).Take(_bytes.Length - 4).ToArray());
-            return new Message(type, param);
-        }
+            if (bytes == null || bytes.Length < 8)
+            {
+                throw new ArgumentException("Invalid message packet: payload is too small.", nameof(bytes));
+            }
 
-        private static string String(byte[] _bytes)
-        {
-            var chars = new char[_bytes.Length];
-            var d = Encoding.UTF8.GetDecoder();
-            d.GetChars(_bytes, 0, _bytes.Length, chars, 0);
-            var szData = new string(chars);
+            // Extract Type (bytes 0..3)
+            var type = (MessageType)BitConverter.ToUInt32(bytes, 0);
 
-            return szData;
+            // Extract SenderID Length (bytes 4..7)
+            int senderLength = BitConverter.ToInt32(bytes, 4);
+            if (senderLength < 0 || 8 + senderLength > bytes.Length)
+            {
+                throw new ArgumentException("Invalid sender length specified in header.", nameof(bytes));
+            }
+
+            // Extract SenderID (bytes 8..8 + senderLength)
+            string senderId = Encoding.UTF8.GetString(bytes, 8, senderLength);
+
+            // Extract Payload (remaining bytes)
+            int payloadOffset = 8 + senderLength;
+            int payloadLength = bytes.Length - payloadOffset;
+            string payload = Encoding.UTF8.GetString(bytes, payloadOffset, payloadLength);
+
+            return new Message(senderId, type, payload);
         }
     }
 }

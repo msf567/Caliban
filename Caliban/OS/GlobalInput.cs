@@ -1,19 +1,14 @@
+#nullable enable
 using System;
 using SharpHook;
 using SharpHook.Data;
 
 namespace Caliban.Core.Windows
 {
-    public class Point
+    public class Point(int x, int y)
     {
-        public readonly int X;
-        public readonly int Y;
-
-        public Point(int x, int y)
-        {
-            this.X = x;
-            this.Y = y;
-        }
+        public readonly int X = x;
+        public readonly int Y = y;
     }
 
     public enum MouseMessages
@@ -30,18 +25,11 @@ namespace Caliban.Core.Windows
         WM_XBUTTONUP = 524, // 0x0000020C
     }
 
-    public class MouseArgs : EventArgs
+    public class MouseArgs(MouseMessages message, Point point, uint mouseData = 0) : EventArgs
     {
-        public MouseArgs(MouseMessages message, Point point, uint mouseData = 0)
-        {
-            Message = message;
-            Point = point;
-            MouseData = mouseData;
-        }
-
-        public MouseMessages Message { get; set; }
-        public Point Point { get; set; }
-        public uint MouseData { get; set; }
+        public MouseMessages Message { get; set; } = message;
+        public Point Point { get; set; } = point;
+        public uint MouseData { get; set; } = mouseData;
     }
 
     public static class GlobalInput

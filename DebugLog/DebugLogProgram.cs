@@ -107,7 +107,7 @@ namespace Caliban.Core.Debug
 
                         // Print domain header
                         Console.ForegroundColor = domainColor;
-                        Console.Write($"[{domain.PadRight(10)}] ");
+                        Console.Write($"[{domain.PadRight(1)}] ");
 
                         // Print body message
                         Console.ResetColor();

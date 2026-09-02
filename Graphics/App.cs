@@ -16,6 +16,8 @@ internal sealed class App : GameWindow
     private readonly Dictionary<string, IDrawable> _gameObjects = new();
     private Dictionary<int, Scene> SceneCache = new();
     private bool _loaded;
+    public ClientApp? TransportClient;
+    private double heartbeatTimer, heartbeatCount;
 
     public App()
         : base(
@@ -37,6 +39,8 @@ internal sealed class App : GameWindow
                 Vsync = VSyncMode.On
             })
     {
+        heartbeatCount = 0;
+        heartbeatTimer = 0;
     }
 
     public void ClientOnMessageReceived(byte[] _message)
@@ -47,7 +51,10 @@ internal sealed class App : GameWindow
             case MessageType.SANDSTORM_START:
                 ((SandStorm)_gameObjects["sandstorm"]).Begin();
                 break;
-
+            case MessageType.HEARTBEAT:
+                heartbeatCount = 0;
+                D.Write("Got Heartbeat!");
+                break;
             case MessageType.HOOKS_L_CLICK:
                 ((SandStorm)_gameObjects["sandstorm"]).OnMouseDown();
                 break;
@@ -121,6 +128,17 @@ internal sealed class App : GameWindow
         D.Write($"OpenGL: {GL.GetString(StringName.Version)}");
         D.Write($"Transparent: {HasTransparentFramebuffer}");
 
+        unsafe
+        {
+            var hwnd = GLFW.GetWin32Window(WindowPtr);
+            int exStyle = Core.OS.Windows.GetWindowLong(hwnd, Core.OS.Windows.GWL_EXSTYLE);
+
+            exStyle &= ~Core.OS.Windows.WS_EX_APPWINDOW;
+            exStyle |= Core.OS.Windows.WS_EX_TOOLWINDOW;
+
+            Core.OS.Windows.SetWindowLong(hwnd, Core.OS.Windows.GWL_EXSTYLE, exStyle);
+        }
+
         GL.ClearColor(0f, 0f, 0f, 0f);
         GL.Disable(EnableCap.DepthTest);
         GL.Enable(EnableCap.Blend);
@@ -155,9 +173,26 @@ internal sealed class App : GameWindow
     protected override void OnUpdateFrame(FrameEventArgs e)
     {
         base.OnUpdateFrame(e);
+        heartbeatCount += e.Time;
+        if (heartbeatCount > 5)
+        {
+            D.Write("Closing due to missed heartbeats.");
+            Close();
+        }
+
+        heartbeatTimer += e.Time;
+        if (heartbeatTimer > 1)
+        {
+            heartbeatTimer -= 1;
+            D.Write("Sending Heartbeat");
+            TransportClient.SendMessageToHost(MessageType.HEARTBEAT, "");
+        }
 
         if (KeyboardState.IsKeyDown(Keys.Escape))
+        {
+            D.Write("Closing due to [Esc].");
             Close();
+        }
 
         foreach (IDrawable drawable in _gameObjects.Values)
             drawable.Update(e);

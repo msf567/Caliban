@@ -112,7 +112,9 @@ namespace Caliban.Core.OS
         static uint WM_CLOSE = 0x10;
         public const int SW_HIDE = 0;
         public const int SW_SHOW = 5;
-
+        public static int GWL_EXSTYLE = -20;
+        public static int WS_EX_APPWINDOW = 0x00040000;
+        public static int WS_EX_TOOLWINDOW = 0x00000080;
         private const int STD_INPUT_HANDLE = -10;
         private static readonly IntPtr INVALID_HANDLE_VALUE = new IntPtr(-1);
         private const uint ENABLE_MOUSE_INPUT = 0x0010;

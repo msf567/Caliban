@@ -128,7 +128,7 @@ namespace Caliban.Core.Cinematics
                         dispatched[i] = true;
                         try
                         {
-                            server.SendMessageToSelf(Messages.Build(MessageType.CHOREO, cues[i].Label));
+                            server.SendMessageToSelf(Messages.Build("CALIBAN", MessageType.CHOREO, cues[i].Label));
                         }
                         catch (Exception e)
                         {

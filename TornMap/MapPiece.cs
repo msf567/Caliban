@@ -14,7 +14,7 @@ namespace TornMap
                 Thread.Sleep(10);
             }
 
-            SendMessageToHost(Messages.Build(MessageType.MAP_REVEAL, ""));
+            SendMessageToHost(MessageType.MAP_REVEAL, "");
 
             KillSelf("TornMap.exe");
             Deconstruct();

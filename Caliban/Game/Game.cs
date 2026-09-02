@@ -45,7 +45,7 @@ namespace Caliban.Core.Game
 
         public void Start()
         {
-            server.BroadcastMessage(Messages.Build(MessageType.GAME_START, ""));
+            server.BroadcastMessage(MessageType.GAME_START, "");
             SetState(GameState.IN_PROGRESS);
             player = new Player(server);
             world = new World.World(server);
@@ -59,7 +59,7 @@ namespace Caliban.Core.Game
         {
             if (_e.Message == MouseMessages.WM_LBUTTONDOWN)
             {
-                server.BroadcastMessage(Messages.Build(MessageType.HOOKS_L_CLICK, ""));
+                server.BroadcastMessage(MessageType.HOOKS_L_CLICK, "");
             }
         }
 
@@ -92,7 +92,7 @@ namespace Caliban.Core.Game
         {
             SetState(GameState.NOT_STARTED);
 
-            server.BroadcastMessage(Messages.Build(MessageType.GAME_CLOSE, ""));
+            server.BroadcastMessage(MessageType.GAME_CLOSE, "");
             Thread.Sleep(1000);
 
             player?.Dispose();
@@ -113,7 +113,7 @@ namespace Caliban.Core.Game
                     D.Write("CLick!");
                     break;
                 case MessageType.MAP_REVEAL:
-                    server.BroadcastMessage(Messages.Build(MessageType.SANDSTORM_START, ""));
+                    server.BroadcastMessage(MessageType.SANDSTORM_START, "");
                     break;
                 case MessageType.GAME_CLOSE:
                     break;

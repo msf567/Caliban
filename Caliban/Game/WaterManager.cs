@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Sockets;
 using System.Threading;
 using Caliban.Core.Debug;
@@ -56,8 +57,7 @@ namespace Caliban.Core.Game
 
                     break;
                 case MessageType.WATERLEVEL_GET:
-                    server.SendMessageToClient("WaterMeter",
-                        Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
+                    server.SendMessageToClient("WaterMeter", Messages.Build("CALIBAN", MessageType.WATERLEVEL_SET, CurrentLevel.ToString(CultureInfo.InvariantCulture)));
                     break;
             }
         }
@@ -88,10 +88,10 @@ namespace Caliban.Core.Game
         {
             CurrentLevel.Clamp(0, 100);
             if (CurrentLevel < 0 && Game.CurrentGame.State == GameState.IN_PROGRESS)
-                server.SendMessageToSelf(Messages.Build(MessageType.GAME_LOSE, ""));
+                server.SendMessageToSelf(Messages.Build("CALIBAN", MessageType.GAME_LOSE, ""));
 
             server.SendMessageToClient("WaterMeter",
-                Messages.Build(MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
+                Messages.Build("CALIBAN", MessageType.WATERLEVEL_SET, CurrentLevel.ToString()));
             Thread.Sleep(70);
         }
 

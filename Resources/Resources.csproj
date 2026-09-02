@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <OutputType>Library</OutputType>
         <RootNamespace>Treasures</RootNamespace>
         <AssemblyName>Treasures</AssemblyName>
@@ -44,7 +44,6 @@
         <EmbeddedResource Include="Resources\demoClue.wav"/>
         <EmbeddedResource Include="Resources\Note.exe"/>
         <EmbeddedResource Include="Resources\WaterMeter.exe"/>
-        <EmbeddedResource Include="Resources\CU.exe"/>
         <EmbeddedResource Include="Resources\Cinematics\Intro\Script.txt"/>
         <EmbeddedResource Include="Resources\Cinematics\Intro\Track.wav"/>
     </ItemGroup>
@@ -67,5 +66,27 @@
     <ItemGroup>
         <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
     </ItemGroup>
+    <Target Name="PreBuild" BeforeTargets="Build">
+        <Copy
+                SourceFiles="..\Builds\WaterMeter.exe"
+                DestinationFolder="$(ProjectDir)Resources\"
+                SkipUnchangedFiles="false"/>
 
+        <Copy
+                SourceFiles="..\Builds\WaterPuddle.exe"
+                DestinationFolder="$(ProjectDir)Resources\"
+                SkipUnchangedFiles="false"/>
+        <Copy
+                SourceFiles="..\Builds\Note.exe"
+                DestinationFolder="$(ProjectDir)Resources\"
+                SkipUnchangedFiles="false"/>
+        <Copy
+                SourceFiles="..\Builds\TornMap.exe"
+                DestinationFolder="$(ProjectDir)Resources\"
+                SkipUnchangedFiles="false"/>
+        <Copy
+                SourceFiles="..\Builds\SimpleVictory.exe"
+                DestinationFolder="$(ProjectDir)Resources\"
+                SkipUnchangedFiles="false"/>
+    </Target>
 </Project>

@@ -1,106 +1,93 @@
 using System;
-using System.Diagnostics;
 using System.Net.Sockets;
+using System.Runtime.Versioning;
 using System.Threading;
-using System.Windows.Forms;
-using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
-using CLIGL;
+using SadConsole;
+using SadRogue.Primitives;
+using Console = SadConsole.Console;
 using Message = Caliban.Core.Transport.Message;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace WaterMeter
 {
-    public class WaterMeter : ClientApp
+    public class WaterMeter : Console
     {
         public const string TITLE = "Water Meter";
-        private static Random r;
+        private const string CLIENT_NAME = "WaterMeter";
+        private const int PORT = 5678;
+
+        private readonly ClientTerminal client;
+        private bool registered;
 
         private float waterLevel;
         private bool initialized;
-        private bool closeFlag = false;
-        private RenderingWindow window;
-        private RenderingBuffer buffer;
-        public readonly int Width;
-        public readonly int Height;
+        private bool closeFlag;
 
-        public WaterMeter(int _w, int _h) : base("WaterMeter")
+        public WaterMeter(int _w, int _h) : base(_w, _h)
         {
-            Width = _w;
-            Height = _h;
-            ConfigureWindow();
+            client = new ClientTerminal();
+            client.Connected += OnConnected;
+            client.MessageRecived += (_s, _e) => OnMessageReceived(_e);
 
-            r = new Random(Guid.NewGuid().GetHashCode());
-
-            Thread t = new Thread(UpdateThread);
-            t.Start();
-        }
-
-        private void ConfigureWindow()
-        {
-            IntPtr hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            int sWidth = Screen.PrimaryScreen.Bounds.Width;
-
-            window = new RenderingWindow(TITLE, Width, Height);
-            buffer = new RenderingBuffer(Width, Height);
-
-            var style = Caliban.Core.OS.Windows.GetWindowLong(hwnd, Caliban.Core.OS.Windows.GWL_STYLE);
-            Caliban.Core.OS.Windows.SetWindowLong(hwnd, Caliban.Core.OS.Windows.GWL_STYLE, (style & ~Caliban.Core.OS.Windows.WS_CAPTION));
-
-            Caliban.Core.OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, -10, 0, 0, Caliban.Core.OS.Windows.Swp.NOSIZE);
-        }
-
-        private void UpdateThread()
-        {
-            while (!closeFlag)
+            try
             {
-                if (!IsReady)
-                    SetClientReady();
-                RenderWaterLevel();
-
-
-                Thread.Sleep(100);
-                if (!IsConnected)
-                    closeFlag = true;
+                client.Connect(PORT);
+                client.StartListen();
             }
+            catch (SocketException)
+            {
+                System.Console.WriteLine("Could not connect to server!");
+            }
+        }
+
+        public override void Update(TimeSpan delta)
+        {
+            if (closeFlag)
+            {
+                Game.Instance.MonoGameInstance.Exit();
+                return;
+            }
+
+            RenderWaterLevel();
+            base.Update(delta);
         }
 
         private void RenderWaterLevel()
         {
-            int waterHeight = (int)Math.Floor((waterLevel / 100.0f) * Height);
-            if (initialized)
+            if (!initialized)
             {
-                string waterLevelString = Math.Ceiling((waterLevel)).ToString();
-                buffer.ClearPixelBuffer(RenderingPixel.EmptyPixel);
-                buffer.SetRectangle(0, 0, Width, Height,
-                    new RenderingPixel(
-                        ' ',
-                        ConsoleColor.Black,
-                        ConsoleColor.Black));
-                buffer.SetRectangle(0, Height - waterHeight, Width, waterHeight,
-                    new RenderingPixel(
-                        '.',
-                        ConsoleColor.Blue,
-                        ConsoleColor.DarkBlue));
-                buffer.SetString(0, 0, waterLevelString, ConsoleColor.White, ConsoleColor.Black);
+                this.Fill(Color.Black, Color.Black, ' ');
+                return;
             }
-            else
-                buffer.SetRectangle(0, 0, Width, Height,
-                    new RenderingPixel(' ', ConsoleColor.Black, ConsoleColor.Black));
 
-            window.Render(buffer);
+            int waterHeight = (int)Math.Floor((waterLevel / 100.0f) * Height);
+            string waterLevelString = Math.Ceiling(waterLevel).ToString();
+
+            this.Clear();
+            this.Fill(Color.Black, Color.Black, ' ');
+            this.Fill(new Rectangle(0, Height - waterHeight, Width, waterHeight),
+                Color.Blue, Color.DarkBlue, '.');
+            this.Print(0, 0, waterLevelString, Color.White, Color.Black);
         }
 
         #region networking
 
-        protected override void ClientOnConnected(Socket _socket)
+        private void OnConnected(Socket _socket)
         {
-            base.ClientOnConnected(_socket);
+            if (!registered)
+            {
+                client.SendMessage(Messages.Build("WaterMeter", MessageType.REGISTER, CLIENT_NAME));
+                registered = true;
+            }
+
             Thread.Sleep(500);
-            SendMessageToHost(Messages.Build(MessageType.WATERLEVEL_GET, ""));
+            client.SendMessage(Messages.Build("WaterMeter", MessageType.WATERLEVEL_GET, ""));
         }
 
-        protected override void ClientOnMessageReceived(byte[] _message)
+        private void OnMessageReceived(byte[] _message)
         {
             Message m = Messages.Parse(_message);
             switch (m.Type)

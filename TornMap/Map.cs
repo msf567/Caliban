@@ -2,12 +2,15 @@
 using System.IO;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
 using CLIGL;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace TornMap
 {
@@ -60,7 +63,7 @@ namespace TornMap
         protected override void ClientOnConnected(Socket _socket)
         {
             base.ClientOnConnected(_socket);
-            client.SendMessage(Messages.Build(MessageType.MAP_REVEAL, ""));
+            SendMessageToHost(MessageType.MAP_REVEAL, "");
         }
 
         private void OnGlobalMouseAction(MouseArgs _m)
