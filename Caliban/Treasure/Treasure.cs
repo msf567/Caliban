@@ -1,11 +1,9 @@
-using System;
 using System.Collections.Generic;
-using MemoryPack;
 
+// ReSharper disable once CheckNamespace
 namespace Treasures.Resources
 {
-    [MemoryPackable]
-    public partial class Treasure
+    public class Treasure
     {
         public TreasureType type;
         public string fileName;
@@ -13,7 +11,6 @@ namespace Treasures.Resources
         public bool removeIfMoved; //TODO do cheat detection in water to detect if player has moved it by registering spawn location
         public Dictionary<string, string> InternalResources = new Dictionary<string, string>();
 
-        [MemoryPackConstructor]
         public Treasure(TreasureType type, string fileName)
         {
             this.type = type;

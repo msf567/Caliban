@@ -1,12 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using Mono.Cecil;
-using Caliban.Core.Debug;
-using MemoryPack;
 using ManifestResourceAttributes = Mono.Cecil.ManifestResourceAttributes;
 
 // ReSharper disable once CheckNamespace
@@ -22,6 +19,16 @@ namespace Treasures.Resources
 
     public static class TreasureManager
     {
+        private const string TreasuresAssemblyName = "Treasures";
+        private const string TreasuresFileName = "Treasures.dll";
+        private const string ResourcePrefix = "Treasures.Resources.";
+
+        // The Treasures.dll is loaded at runtime and its reference held here, so the treasure
+        // logic (this class) can live in Caliban.Core without a compile-time dependency on the
+        // Treasures assembly. This breaks the build cycle where Treasures.dll embeds the
+        // sub-program executables that themselves depend on Caliban.Core.
+        private static Assembly treasuresAssembly;
+
         private static readonly Dictionary<TreasureType, string> TreasureNames = new Dictionary<TreasureType, string>()
         {
             { TreasureType.WATER_PUDDLE, "WaterPuddle.exe" },
@@ -30,26 +37,60 @@ namespace Treasures.Resources
             { TreasureType.SIMPLE, "" },
         };
 
-        public static void Spawn(string _destFolder, Treasure _t, string _destName = "")
+        /// <summary>
+        /// Loads Treasures.dll from the application base directory and holds the reference.
+        /// Call this once at startup; subsequent treasure lookups reuse the held assembly.
+        /// </summary>
+        public static Assembly LoadTreasures()
         {
-            WriteTreasure("Treasures", _t, _destFolder, _destName);
+            treasuresAssembly = ResolveTreasuresAssembly();
+            return treasuresAssembly;
         }
 
-        private static void WriteTreasure(string _assemblyName, Treasure _t, string _destFolder,
-            string _destFileName = "")
+        private static Assembly TreasuresAssembly
+        {
+            get
+            {
+                if (treasuresAssembly == null)
+                    treasuresAssembly = ResolveTreasuresAssembly();
+                return treasuresAssembly;
+            }
+        }
+
+        private static Assembly ResolveTreasuresAssembly()
+        {
+            // Reuse the assembly if it is already loaded into the current AppDomain.
+            foreach (var loaded in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (string.Equals(loaded.GetName().Name, TreasuresAssemblyName, StringComparison.OrdinalIgnoreCase))
+                    return loaded;
+            }
+
+            string path = Path.Combine(AppContext.BaseDirectory, TreasuresFileName);
+            if (!File.Exists(path))
+                throw new FileNotFoundException("Could not locate " + TreasuresFileName + " next to the application.", path);
+
+            return Assembly.LoadFrom(path);
+        }
+
+        public static void Spawn(string _destFolder, Treasure _t, string _destName = "")
+        {
+            WriteTreasure(_t, _destFolder, _destName);
+        }
+
+        private static void WriteTreasure(Treasure _t, string _destFolder, string _destFileName = "")
         {
             string resName = _t.type == TreasureType.SIMPLE ? _t.fileName : TreasureNames[_t.type];
 
             if (!Directory.Exists(_destFolder))
                 Directory.CreateDirectory(_destFolder);
-            var thisAssembly = Assembly.GetExecutingAssembly();
             if (_destFileName == "")
                 _destFileName = resName;
 
             string fullPath = Path.Combine(_destFolder, _destFileName);
 
-            //D.Write("Looking for " + _assemblyName + ".Resources." +resName);
-            using (var resourceStream = thisAssembly.GetManifestResourceStream(_assemblyName + ".Resources." + resName))
+            //D.Write("Looking for " + ResourcePrefix + resName);
+            using (var resourceStream = TreasuresAssembly.GetManifestResourceStream(ResourcePrefix + resName))
             {
                 if (resourceStream == null)
                     return;
@@ -78,15 +119,13 @@ namespace Treasures.Resources
 
         public static Stream GetStream(string _resName)
         {
-            var thisAssembly = Assembly.GetExecutingAssembly();
-            return thisAssembly.GetManifestResourceStream("Treasures.Resources." + _resName);
+            return TreasuresAssembly.GetManifestResourceStream(ResourcePrefix + _resName);
         }
 
         public static string GetResourceText(string _textFileName)
         {
-            var thisAssembly = Assembly.GetExecutingAssembly();
             string res = "";
-            using (var stream = thisAssembly.GetManifestResourceStream("Treasures.Resources." + _textFileName))
+            using (var stream = TreasuresAssembly.GetManifestResourceStream(ResourcePrefix + _textFileName))
             {
                 if (stream != null)
                     using (StreamReader reader = new StreamReader(stream))
@@ -106,11 +145,6 @@ namespace Treasures.Resources
             {
                 _output.Write(buffer, 0, len);
             }
-        }
-
-        private static byte[] ObjectToByteArray<T>(T obj)
-        {
-            return MemoryPackSerializer.Serialize(obj);
         }
     }
 }

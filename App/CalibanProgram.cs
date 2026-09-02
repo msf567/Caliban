@@ -56,6 +56,12 @@ namespace CALIBAN
             }
 
             D.Init();
+
+            // Load Treasures.dll at runtime and hold the reference. The treasure logic lives in
+            // Caliban.Core but the actual resources (embedded sub-program exes, etc.) are pulled
+            // from this separately-built DLL, so it can be rebuilt without rebuilding the solution.
+            TreasureManager.LoadTreasures();
+
             server.StartListen(5678);
             server.MessageReceived += ServerOnMessageReceived;
             ModuleLoader.ModuleLoaded += ModuleLoaderOnModuleLoaded;

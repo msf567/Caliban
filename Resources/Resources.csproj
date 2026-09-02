@@ -58,14 +58,9 @@
         <Content Include="Resources\Notes\when.txt"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="MemoryPack" Version="1.10.0"/>
-    </ItemGroup>
-    
-    <!-- Project References -->
-    <ItemGroup>
-        <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
-    </ItemGroup>
+    <!-- No project references: Resources is a leaf assembly that only embeds the sub-program
+         builds. The treasure logic now lives in Caliban.Core and loads this DLL at runtime,
+         so this project must not depend on anything in the solution (breaks the build cycle). -->
     <Target Name="PreBuild" BeforeTargets="Build">
         <Copy
                 SourceFiles="..\Builds\WaterMeter.exe"

@@ -1,23 +1,30 @@
+#nullable enable
 using System;
 using System.IO;
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using static System.Drawing.Image;
+using System.Threading.Tasks;
 
 namespace Caliban.Core.Utility
 {
     public sealed class Wallpaper
     {
-        Wallpaper()
+        private Wallpaper()
         {
         }
 
-        const int SPI_SETDESKWALLPAPER = 20;
-        const int SPIF_UPDATEINIFILE = 0x01;
-        const int SPIF_SENDWININICHANGE = 0x02;
+        private const int SPI_SETDESKWALLPAPER = 20;
+        private const int SPIF_UPDATEINIFILE = 0x01;
+        private const int SPIF_SENDWININICHANGE = 0x02;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+        private static extern int SystemParametersInfo(
+            int uAction,
+            int uParam,
+            string lpvParam,
+            int fuWinIni);
 
         public enum Style : int
         {
@@ -26,34 +33,50 @@ namespace Caliban.Core.Utility
             Stretched
         }
 
-        public static void Set(Uri uri, Style style)
+        public static async Task Set(Uri uri, Style style)
         {
-            Stream s = new System.Net.WebClient().OpenRead(uri.ToString());
+            using HttpClient client = new();
+            using Stream stream = await client.GetStreamAsync(uri);
 
-            System.Drawing.Image img = FromStream(s);
-            string tempPath = Path.Combine(Path.GetTempPath(), "wallpaper.bmp");
-            img.Save(tempPath, System.Drawing.Imaging.ImageFormat.Bmp);
+            using System.Drawing.Image img = FromStream(stream);
 
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-            if (style == Style.Stretched)
+            string tempPath = Path.Combine(
+                Path.GetTempPath(),
+                "wallpaper.bmp");
+
+            img.Save(
+                tempPath,
+                System.Drawing.Imaging.ImageFormat.Bmp);
+
+            using RegistryKey? key =
+                Registry.CurrentUser.OpenSubKey(
+                    @"Control Panel\Desktop",
+                    writable: true);
+
+            if (key == null)
+                throw new InvalidOperationException(
+                    "Could not open the desktop registry key.");
+
+            switch (style)
             {
-                key.SetValue(@"WallpaperStyle", 2.ToString());
-                key.SetValue(@"TileWallpaper", 0.ToString());
+                case Style.Stretched:
+                    key.SetValue("WallpaperStyle", "2");
+                    key.SetValue("TileWallpaper", "0");
+                    break;
+
+                case Style.Centered:
+                    key.SetValue("WallpaperStyle", "1");
+                    key.SetValue("TileWallpaper", "0");
+                    break;
+
+                case Style.Tiled:
+                    key.SetValue("WallpaperStyle", "1");
+                    key.SetValue("TileWallpaper", "1");
+                    break;
             }
 
-            if (style == Style.Centered)
-            {
-                key.SetValue(@"WallpaperStyle", 1.ToString());
-                key.SetValue(@"TileWallpaper", 0.ToString());
-            }
-
-            if (style == Style.Tiled)
-            {
-                key.SetValue(@"WallpaperStyle", 1.ToString());
-                key.SetValue(@"TileWallpaper", 1.ToString());
-            }
-
-            SystemParametersInfo(SPI_SETDESKWALLPAPER,
+            SystemParametersInfo(
+                SPI_SETDESKWALLPAPER,
                 0,
                 tempPath,
                 SPIF_UPDATEINIFILE | SPIF_SENDWININICHANGE);

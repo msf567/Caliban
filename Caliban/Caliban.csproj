@@ -43,6 +43,19 @@
     <Reference Include="CLIGL">
       <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
     </Reference>
+    <!-- Used by TreasureManager to rewrite embedded resources when spawning C# treasure exes -->
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\packages\Mono.Cecil.0.10.3\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>..\packages\Mono.Cecil.0.10.3\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>..\packages\Mono.Cecil.0.10.3\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>..\packages\Mono.Cecil.0.10.3\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <!-- COM References -->
@@ -59,9 +72,11 @@
   </ItemGroup>
 
   <!-- Project References -->
+  <!-- NOTE: Resources (Treasures.dll) is intentionally NOT referenced here. TreasureManager now
+       loads Treasures.dll at runtime, breaking the build cycle where Treasures.dll embeds the
+       sub-program executables that depend on Caliban.Core. -->
   <ItemGroup>
     <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
-    <ProjectReference Include="..\Resources\Resources.csproj"/>
   </ItemGroup>
 
   <!-- Assembly Attributes -->

@@ -44,10 +44,11 @@
     </ItemGroup>
 
     <!-- Project References -->
+    <!-- Resources (Treasures.dll) is loaded at runtime by Caliban.Core's TreasureManager, so it is
+         no longer referenced here (avoids the build cycle with the embedded sub-program exes). -->
     <ItemGroup>
         <ProjectReference Include="..\Caliban\Caliban.csproj"/>
         <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
-        <ProjectReference Include="..\Resources\Resources.csproj"/>
     </ItemGroup>
 
     <!-- Content & None -->

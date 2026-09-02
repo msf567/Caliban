@@ -185,7 +185,7 @@ internal sealed class App : GameWindow
         {
             heartbeatTimer -= 1;
             D.Write("Sending Heartbeat");
-            TransportClient.SendMessageToHost(MessageType.HEARTBEAT, "");
+            TransportClient?.SendMessageToHost(MessageType.HEARTBEAT, "");
         }
 
         if (KeyboardState.IsKeyDown(Keys.Escape))
