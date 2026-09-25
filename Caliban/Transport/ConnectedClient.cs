@@ -38,9 +38,11 @@ namespace Caliban.Core.Transport
                 return;
             }
 
-            byte[] sendData = new byte[_buffer.Length + 1];
-            sendData[0] = Convert.ToByte(_buffer.Length);
-            _buffer.CopyTo(sendData, 1);
+            // Frame the message with a 4-byte length prefix so payloads > 255 bytes are supported.
+            byte[] lengthPrefix = BitConverter.GetBytes(_buffer.Length);
+            byte[] sendData = new byte[lengthPrefix.Length + _buffer.Length];
+            Buffer.BlockCopy(lengthPrefix, 0, sendData, 0, lengthPrefix.Length);
+            Buffer.BlockCopy(_buffer, 0, sendData, lengthPrefix.Length, _buffer.Length);
             mClientSocket.Send(sendData);
         }
 

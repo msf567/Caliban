@@ -27,9 +27,6 @@ namespace Note
                 Application.Run(noteForm);
             }
 
-            public new void SendMessageToHost(byte[] message) => base.SendMessageToHost(message);
-
-
             protected override void ClientOnMessageReceived(byte[] _message)
             {
                 base.ClientOnMessageReceived(_message);

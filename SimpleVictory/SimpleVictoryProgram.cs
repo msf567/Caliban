@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
+using System.Runtime.Versioning;
 using System.Threading;
 using Caliban.Core.Transport;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace SimpleVictory
 {
@@ -17,7 +20,7 @@ namespace SimpleVictory
                     Thread.Sleep(10);
                 }
 
-                SendMessageToHost(Messages.Build(MessageType.GAME_WIN, ""));
+                SendMessageToHost(MessageType.GAME_WIN, "");
 
                 // KillSelf();
                 Deconstruct();

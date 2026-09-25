@@ -9,16 +9,16 @@ using Caliban.Graphics.Transport;
 // Only in debug mode do we spawn a console window; otherwise the overlay runs
 // silently as a plain GUI app with no console attached.
 D.debugMode = args.Contains("debug");
-if (D.debugMode)
-    WinEx.SpawnConsole();
+//if (D.debugMode)
+//WinEx.SpawnConsole();
 
 var sandStorm = new SandStorm();
 
 using var app = new App();
 app.Spawn("sandstorm", sandStorm);
 app.Spawn("rock1", new Rock(1, Biome.DESERT));
-app.Spawn("rock2", new Rock(2, Biome.DESERT));
-app.Spawn("rock3", new Rock(1, Biome.DESERT));
-app.Spawn("rock4", new Rock(4, Biome.DESERT));
+//app.Spawn("rock2", new Rock(2, Biome.DESERT));
+//app.Spawn("rock3", new Rock(1, Biome.DESERT));
+//app.Spawn("rock4", new Rock(4, Biome.DESERT));
 _ = new AppTransportClient(app);
 app.Run();

@@ -5,7 +5,7 @@
              default. A console is only attached at runtime when the "debug"
              launch parameter is present (see Program.cs). -->
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -22,6 +22,7 @@
 
     <ItemGroup>
         <PackageReference Include="OpenTK" Version="4.9.4"/>
+        <PackageReference Include="System.Text.Json" Version="10.0.11"/>
     </ItemGroup>
 
     <ItemGroup>

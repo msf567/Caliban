@@ -37,7 +37,7 @@ namespace Caliban.Core.Game
             //Read the raw bytes of the resource
             byte[] resourcesBuffer = new byte[resourceStream.Length];
 
-            resourceStream.Read(resourcesBuffer, 0, resourcesBuffer.Length);
+            resourceStream.ReadExactly(resourcesBuffer);
             resourceStream.Close();
 
             //Load the bytes as an assembly

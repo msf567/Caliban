@@ -4,8 +4,11 @@ using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using System.Runtime.Versioning;
 using Caliban.Core.Transport;
 using Treasures.Resources;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace Note
 {
@@ -117,9 +120,8 @@ namespace Note
 
         private void NoteForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            noteClient.SendMessageToHost(Messages.Build(MessageType.APP_CLOSE, ""));
+            //noteClient.SendMessageToHost(Messages.Build(MessageType.APP_CLOSE, ""));
             closeFlag = true;
-            writeThread.Abort();
         }
 
         delegate void StringArgReturningVoidDelegate(string text);

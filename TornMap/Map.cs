@@ -2,12 +2,15 @@
 using System.IO;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Windows;
 using CLIGL;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace TornMap
 {
@@ -42,7 +45,6 @@ namespace TornMap
             var renderingWindow = new RenderingWindow(Title, windowWidth, WindowHeight);
             var renderingBuffer = new RenderingBuffer(windowWidth, WindowHeight);
             Console.OutputEncoding = Encoding.UTF8;
-            Log("hello!");
             //Console.WriteLine(GetString(baseClueLoc));
             while (!closeFlag)
             {
@@ -61,15 +63,14 @@ namespace TornMap
         protected override void ClientOnConnected(Socket _socket)
         {
             base.ClientOnConnected(_socket);
-            client.SendMessage(Messages.Build(MessageType.MAP_REVEAL, ""));
+            SendMessageToHost(MessageType.MAP_REVEAL, "");
         }
 
         private void OnGlobalMouseAction(MouseArgs _m)
         {
             if (_m.Message == MouseMessages.WM_RBUTTONDOWN)
             {
-                Windows.GetWindowRect(Windows.GetConsoleWindow(), out var consoleRect);
-
+                Caliban.Core.OS.Windows.GetWindowRect(Caliban.Core.OS.Windows.GetConsoleWindow(), out var consoleRect);
                 if ((_m.Point.X > consoleRect.Left && _m.Point.X < consoleRect.Right && _m.Point.Y > consoleRect.Top &&
                      _m.Point.Y < consoleRect.Bottom) || TornMapProgram._debug)
                 {

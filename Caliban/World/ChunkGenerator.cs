@@ -73,10 +73,9 @@ namespace Caliban.Core.World
 
             D.Write("Desert has " + _rootNode.ChildNodes.Count + " direct children");
             D.Write("Desert has " + _rootNode.GetAllNodes().Count + " total nodes.");
-            using (Stream s = new MemoryStream())
+            using (var s = new MemoryStream())
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(s, _rootNode);
+                System.Text.Json.JsonSerializer.Serialize(s, _rootNode);
                 D.Write("Desert is " + s.Length + " bytes big");
             }
         }

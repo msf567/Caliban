@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Caliban.Core.Cinematics;
@@ -15,6 +16,8 @@ using Menu = Caliban.Core.Menu.Menu;
 using Caliban.Core.Debug;
 using Terminal.Gui;
 using TerminalApp = Terminal.Gui.Application;
+
+[assembly: SupportedOSPlatform("windows")]
 
 namespace CALIBAN
 {
@@ -43,18 +46,29 @@ namespace CALIBAN
             {
                 if (!Process.GetProcessesByName("DebugLog").Any())
                 {
-                    Process.Start("DebugLog.exe");
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "DebugLog.exe",
+                        UseShellExecute = true,
+                        CreateNoWindow = false
+                    });
                 }
             }
 
             D.Init();
+
+            // Load Treasures.dll at runtime and hold the reference. The treasure logic lives in
+            // Caliban.Core but the actual resources (embedded sub-program exes, etc.) are pulled
+            // from this separately-built DLL, so it can be rebuilt without rebuilding the solution.
+            TreasureManager.LoadTreasures();
+
             server.StartListen(5678);
             server.MessageReceived += ServerOnMessageReceived;
             ModuleLoader.ModuleLoaded += ModuleLoaderOnModuleLoaded;
 
             Game.OnGameStateChange += OnGameStateChange;
 
-            Windows.ConfigureMenuWindow();
+            Caliban.Core.OS.Windows.ConfigureMenuWindow();
 
             Caliban.Core.Menu.MenuApp.EnsureInit();
             TerminalApp.RootKeyEvent = RootKeyHandler;
@@ -81,6 +95,7 @@ namespace CALIBAN
         private static void ServerOnMessageReceived(Socket socket, byte[] message)
         {
             Caliban.Core.Transport.Message m = Messages.Parse(message);
+            D.Write($"Received {m.Type} message from {m.SenderID}");
             switch (m.Type)
             {
                 case MessageType.CHOREO:
@@ -108,6 +123,10 @@ namespace CALIBAN
                     break;
                 case MessageType.DEBUG_LOG:
                     D.Write(m.Value);
+                    break;
+                case MessageType.HEARTBEAT:
+                    D.Write("Received Heartbeat");
+                    server.SendMessageToClient(m.SenderID, Messages.Build("CALIBAN", MessageType.HEARTBEAT, ""));
                     break;
                 case MessageType.APP_CLOSE:
                     CloseApp();
@@ -257,7 +276,7 @@ namespace CALIBAN
 
         private static void CloseApp()
         {
-            server.BroadcastMessage(Messages.Build(MessageType.APP_CLOSE, ""));
+            server.BroadcastMessage(MessageType.APP_CLOSE, "");
             CinematicPlayer.StopActive();
             CloseCurrentGame();
             ClearGraphics();
