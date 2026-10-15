@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace Caliban.Core.World
 {
@@ -8,7 +9,12 @@ namespace Caliban.Core.World
         ROCK,
     }
 
+    // Feature is abstract, so System.Text.Json needs polymorphic type info to know which
+    // concrete type to instantiate when deserializing a Feature[] (e.g. in GraphicsSceneDescription).
     [Serializable]
+    [JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+    [JsonDerivedType(typeof(CactusFeature), "cactus")]
+    [JsonDerivedType(typeof(RockFeature), "rock")]
     public abstract class Feature
     {
         public FeatureType Type;
@@ -30,6 +36,11 @@ namespace Caliban.Core.World
     public class RockFeature : Feature
     {
         public Biome biome;
+
+        // Parameterless constructor required for deserialization.
+        public RockFeature()
+        {
+        }
 
         public RockFeature(Biome b)
         {

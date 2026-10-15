@@ -57,7 +57,7 @@ namespace Caliban.Core.Windows
             Hook.MouseWheel += OnMouseWheel;
 
             // Start hook background task (does not block main thread)
-            Hook.RunAsync();
+            //Hook.RunAsync();
         }
 
         private static void OnKeyPressed(object? sender, KeyboardHookEventArgs e)

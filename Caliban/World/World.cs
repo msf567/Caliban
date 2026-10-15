@@ -139,8 +139,8 @@ namespace Caliban.Core.World
             }
 
             //spawn features in graphics
-            //serverTerminal.BroadcastMessage(Messages.Build(MessageType.GRAPHICS_SCENE,
-            // new GraphicsSceneDescription(_node.RandomSeed, _node.Features.ToArray()).GetBytes()));
+            serverTerminal.BroadcastMessage(MessageType.GRAPHICS_SCENE,
+                new GraphicsSceneDescription(_node.RandomSeed, _node.Features.ToArray()).GetBytes());
         }
 
         public void Update()
