@@ -4,11 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Versioning;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Caliban.Core.Cinematics;
 using Caliban.Core.Game;
-using Caliban.Core.OS;
 using Caliban.Core.Transport;
 using Caliban.Core.Utility;
 using Treasures.Resources;
@@ -58,8 +55,8 @@ namespace CALIBAN
             D.Init();
 
             // Load Treasures.dll at runtime and hold the reference. The treasure logic lives in
-            // Caliban.Core but the actual resources (embedded sub-program exes, etc.) are pulled
-            // from this separately-built DLL, so it can be rebuilt without rebuilding the solution.
+            // Caliban., Core, but the actual resources (embedded subprogram exes, etc.) are pulled
+            // from this separately built DLL, so it can be rebuilt without rebuilding the solution.
             TreasureManager.LoadTreasures();
 
             server.StartListen(5678);
@@ -99,7 +96,7 @@ namespace CALIBAN
 
         private static void ServerOnMessageReceived(Socket socket, byte[] message)
         {
-            Caliban.Core.Transport.Message m = Messages.Parse(message);
+            Message m = Messages.Parse(message);
             switch (m.Type)
             {
                 case MessageType.CHOREO:
@@ -109,7 +106,7 @@ namespace CALIBAN
                         case "DESKTOP_BG":
                             string folderLoc = AppDomain.CurrentDomain.BaseDirectory;
                             TreasureManager.Spawn(folderLoc, new Treasure("desert.jpg"));
-                            Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
+                            _ = Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
                             break;
                         case "SHOW_MENU":
                             TerminalApp.MainLoop.Invoke(() =>
@@ -120,7 +117,7 @@ namespace CALIBAN
                             });
                             break;
                         case "INTRO_NOTE":
-                            TerminalApp.MainLoop.Invoke(() => Menu.TriggerIntoNote());
+                            TerminalApp.MainLoop.Invoke(Menu.TriggerIntoNote);
                             break;
                     }
 
@@ -170,7 +167,7 @@ namespace CALIBAN
         }
 
         // Top-level Terminal.Gui key handler replacing the old Console.ReadKey state
-        // machine. Returns true when the key was consumed by the menu.
+        // machine. Returns true when the menu consumes the key.
         private static bool RootKeyHandler(KeyEvent _kb)
         {
             uint masks = (uint)(Key.ShiftMask | Key.AltMask | Key.CtrlMask);
@@ -288,8 +285,8 @@ namespace CALIBAN
         }
 
         // Requests the app to close. This only asks the Terminal.Gui loop to stop; the actual
-        // teardown runs after TerminalApp.Run() returns (see Main). RequestStop is marshalled
-        // onto the main loop so this is safe to call from background socket threads (APP_CLOSE)
+        // teardown runs after TerminalApp.Run() returns (see Main). RequestStop is marshaled
+        // onto the main loop, so this is safe to call from background socket threads (APP_CLOSE)
         // as well as from the UI key handler ('q'), and it can never leave the menu frozen.
         private static void CloseApp()
         {

@@ -7,8 +7,23 @@ namespace CLIGL
     /// in CLIGL, which can be used instead of passing around individual characters
     /// and colors.
     /// </summary>
-    public struct RenderingPixel
+    public struct RenderingPixel : IEquatable<RenderingPixel>
     {
+        public bool Equals(RenderingPixel other)
+        {
+            return Character == other.Character && ForegroundColor == other.ForegroundColor && BackgroundColor == other.BackgroundColor;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is RenderingPixel other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Character, (int)ForegroundColor, (int)BackgroundColor);
+        }
+
         public static RenderingPixel EmptyPixel = new RenderingPixel(' ', ConsoleColor.Black, ConsoleColor.Black);
         public static RenderingPixel FullPixel = new RenderingPixel(' ', ConsoleColor.White, ConsoleColor.White);
 

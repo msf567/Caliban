@@ -54,7 +54,6 @@
     <!-- Loose Content Files -->
     <ItemGroup>
         <Content Include="Resources\Cinematics\Intro\Intro.aup3"/>
-        <Content Include="unitypack.bat"/>
         <Content Include="Resources\Notes\fist.txt"/>
         <Content Include="Resources\Notes\mouse.txt"/>
         <Content Include="Resources\Notes\rhino.txt"/>

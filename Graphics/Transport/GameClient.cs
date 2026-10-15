@@ -3,18 +3,18 @@ using Caliban.Core.Transport;
 
 namespace Caliban.Graphics.Transport;
 
-internal sealed class AppTransportClient(App app) : ClientApp("Graphics")
+internal sealed class AppTransportClient(OverlayWindow window) : ClientApp("Graphics")
 {
-    private readonly App _app = app;
+    private readonly OverlayWindow _window = window;
 
     protected override void ClientOnConnected(Socket _socket)
     {
         base.ClientOnConnected(_socket);
-        _app.TransportClient = this;
+        _window.TransportClient = this;
     }
 
     protected override void ClientOnMessageReceived(byte[] _message)
     {
-        _app.ClientOnMessageReceived(_message);
+        _window.OnMessageReceived(_message);
     }
 }

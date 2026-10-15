@@ -41,9 +41,6 @@
 
   <!-- Direct DLL References -->
   <ItemGroup>
-    <Reference Include="CLIGL">
-      <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
-    </Reference>
     <!-- Used by TreasureManager to rewrite embedded resources when spawning C# treasure exes -->
     <Reference Include="Mono.Cecil">
       <HintPath>..\packages\Mono.Cecil.0.10.3\lib\net40\Mono.Cecil.dll</HintPath>

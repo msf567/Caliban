@@ -29,13 +29,6 @@
         <DefineConstants>TRACE</DefineConstants>
     </PropertyGroup>
 
-    <!-- Direct DLL References -->
-    <ItemGroup>
-        <Reference Include="CLIGL">
-            <HintPath>..\..\vs_dev_lib\CLIGL\CLIGL\bin\Release\CLIGL.dll</HintPath>
-        </Reference>
-    </ItemGroup>
-
     <!-- Project References -->
     <ItemGroup>
         <ProjectReference Include="..\Caliban\Caliban.csproj"/>

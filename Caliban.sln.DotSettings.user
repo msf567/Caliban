@@ -23,6 +23,7 @@
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe</s:String>
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114112</s:Int64>
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/SolutionBuilderNext/FileVerbosityLevel/@EntryValue">Quiet</s:String>
+	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=c5237fae_002Dd8d0_002D4625_002Db330_002D29d3c25509d4_0023Scratch/@EntryIndexedValue">True</s:Boolean>
 	
 	
 	

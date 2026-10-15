@@ -1,24 +1,37 @@
+using Avalonia;
+using Avalonia.OpenGL;
 using Caliban.Core.Debug;
-using Caliban.Core.World;
-using Caliban.Graphics;
-using Caliban.Graphics.Drawables;
-using Caliban.Graphics.Transport;
 
-// Debug mode is toggled by passing "debug" as a launch parameter, mirroring the
-// rest of Caliban (e.g. CalibanProgram sets D.debugMode = _args.Contains("debug")).
-// Only in debug mode do we spawn a console window; otherwise the overlay runs
-// silently as a plain GUI app with no console attached.
-D.debugMode = args.Contains("debug");
-//if (D.debugMode)
-//WinEx.SpawnConsole();
+namespace Caliban.Graphics;
 
-var sandStorm = new SandStorm();
+internal static class Program
+{
+    // Avalonia requires an STA entry point.
+    [STAThread]
+    public static void Main(string[] args)
+    {
+        // Debug mode is toggled by passing "debug" as a launch parameter,
+        // mirroring the rest of Caliban (e.g. CalibanProgram sets
+        // D.debugMode = _args.Contains("debug")).
+        D.debugMode = args.Contains("debug");
 
-using var app = new App();
-app.Spawn("sandstorm", sandStorm);
-app.Spawn("rock1", new Rock(1, Biome.DESERT));
-//app.Spawn("rock2", new Rock(2, Biome.DESERT));
-//app.Spawn("rock3", new Rock(1, Biome.DESERT));
-//app.Spawn("rock4", new Rock(4, Biome.DESERT));
-_ = new AppTransportClient(app);
-app.Run();
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+    }
+
+    private static AppBuilder BuildAvaloniaApp() => AppBuilder.Configure<GraphicsApplication>()
+        .UsePlatformDetect()
+        .With(new Win32PlatformOptions
+        {
+            // Force a *native* desktop-GL (WGL) context instead of Avalonia's
+            // default ANGLE/GLES backend: the overlay's shaders are desktop GLSL
+            // (#version 330/430 core) and the sandstorm uses a compute shader, so
+            // we request an OpenGL 4.3 core profile (falling back to 4.0).
+            RenderingMode = new[] { Win32RenderingMode.Wgl },
+            WglProfiles = new List<GlVersion>
+            {
+                new(GlProfileType.OpenGL, 4, 3),
+                new(GlProfileType.OpenGL, 4, 0)
+            }
+        })
+        .LogToTrace();
+}

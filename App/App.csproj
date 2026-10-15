@@ -36,13 +36,6 @@
         <PackageReference Include="NStack.Core" Version="1.1.1"/>
     </ItemGroup>
 
-    <!-- Direct DLL References -->
-    <ItemGroup>
-        <Reference Include="CSCore">
-            <HintPath>..\..\vs_dev_lib\cscore\CSCore\bin\Release\CSCore.dll</HintPath>
-        </Reference>
-    </ItemGroup>
-
     <!-- Project References -->
     <!-- Resources (Treasures.dll) is loaded at runtime by Caliban.Core's TreasureManager, so it is
          no longer referenced here (avoids the build cycle with the embedded sub-program exes). -->

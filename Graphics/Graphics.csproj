@@ -17,12 +17,19 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <OutputPath>..\Builds\</OutputPath>
+        <OutDir>..\Builds\</OutDir>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="OpenTK" Version="4.9.4"/>
         <PackageReference Include="System.Text.Json" Version="10.0.11"/>
+        <!-- Avalonia hosts the transparent overlay. The overlay is a transparent
+             Avalonia window whose OpenGlControlBase renders into a surface that
+             Avalonia composites through DWM - unlike a native GLFW fullscreen GL
+             swapchain, it is never promoted to the GPU independent-flip / MPO
+             present path that was making the overlay opaque. -->
+        <PackageReference Include="Avalonia" Version="11.3.22"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.22"/>
     </ItemGroup>
 
     <ItemGroup>

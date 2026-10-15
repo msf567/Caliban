@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:graphics="clr-namespace:Caliban.Graphics"
+        x:Class="Caliban.Graphics.OverlayWindow"
+        Title="Graphics"
+        SystemDecorations="None"
+        WindowState="FullScreen"
+        Topmost="True"
+        ShowInTaskbar="False"
+        CanResize="False"
+        TransparencyLevelHint="Transparent"
+        Background="Transparent">
+    <graphics:OverlayGlControl x:Name="GlControl" />
+</Window>
