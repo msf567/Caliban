@@ -84,6 +84,11 @@ namespace CALIBAN
 
             RunGraphics();
             TerminalApp.Run();
+
+            // The Terminal.Gui loop has now exited (a quit request just calls RequestStop).
+            // Run the heavy teardown here, off the UI event path, so a slow or failing
+            // shutdown step can never block/crash the loop and leave the menu frozen.
+            ShutdownServices();
             TerminalApp.Shutdown();
         }
 
@@ -95,7 +100,6 @@ namespace CALIBAN
         private static void ServerOnMessageReceived(Socket socket, byte[] message)
         {
             Caliban.Core.Transport.Message m = Messages.Parse(message);
-            D.Write($"Received {m.Type} message from {m.SenderID}");
             switch (m.Type)
             {
                 case MessageType.CHOREO:
@@ -125,7 +129,6 @@ namespace CALIBAN
                     D.Write(m.Value);
                     break;
                 case MessageType.HEARTBEAT:
-                    D.Write("Received Heartbeat");
                     server.SendMessageToClient(m.SenderID, Messages.Build("CALIBAN", MessageType.HEARTBEAT, ""));
                     break;
                 case MessageType.APP_CLOSE:
@@ -142,8 +145,18 @@ namespace CALIBAN
 
         private static void ClearGraphics()
         {
-            foreach (var process in Process.GetProcessesByName("Graphics.exe"))
-                process.Kill();
+            // GetProcessesByName expects the name WITHOUT the .exe extension.
+            foreach (var process in Process.GetProcessesByName("Graphics"))
+            {
+                try
+                {
+                    process.Kill();
+                }
+                catch (Exception)
+                {
+                    // ignored - process may already have exited
+                }
+            }
 
             if (File.Exists("Graphics.exe"))
                 try
@@ -274,16 +287,33 @@ namespace CALIBAN
             Game.CurrentGame.Start();
         }
 
+        // Requests the app to close. This only asks the Terminal.Gui loop to stop; the actual
+        // teardown runs after TerminalApp.Run() returns (see Main). RequestStop is marshalled
+        // onto the main loop so this is safe to call from background socket threads (APP_CLOSE)
+        // as well as from the UI key handler ('q'), and it can never leave the menu frozen.
         private static void CloseApp()
         {
-            server.BroadcastMessage(MessageType.APP_CLOSE, "");
+            TerminalApp.MainLoop?.Invoke(() => TerminalApp.RequestStop());
+        }
+
+        // Tears down all services. Runs on the main thread after the Terminal.Gui loop exits.
+        private static void ShutdownServices()
+        {
+            try
+            {
+                server.BroadcastMessage(MessageType.APP_CLOSE, "");
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+
             CinematicPlayer.StopActive();
             CloseCurrentGame();
             ClearGraphics();
             //Menu.ZipUp();
             server.Close();
             D.Dispose();
-            TerminalApp.RequestStop();
         }
     }
 }

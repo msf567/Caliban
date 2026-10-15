@@ -53,7 +53,6 @@ internal sealed class App : GameWindow
                 break;
             case MessageType.HEARTBEAT:
                 heartbeatCount = 0;
-                D.Write("Got Heartbeat!");
                 break;
             case MessageType.HOOKS_L_CLICK:
                 ((SandStorm)_gameObjects["sandstorm"]).OnMouseDown();
@@ -72,7 +71,7 @@ internal sealed class App : GameWindow
                         break;
                     }
 
-                    GraphicsSceneDescription? scene = JsonSerializer.Deserialize<GraphicsSceneDescription>(m.Value);
+                    GraphicsSceneDescription? scene = JsonSerializer.Deserialize<GraphicsSceneDescription>(m.Value, GraphicsSceneDescription.JsonOptions);
 
                     if (scene == null)
                     {
@@ -85,7 +84,7 @@ internal sealed class App : GameWindow
                     {
                         foreach (var feature in scene.Features)
                         {
-                            D.Write(feature.Type);
+                            D.Write(feature.Type.ToString());
                         }
                     }
                     else
@@ -184,7 +183,6 @@ internal sealed class App : GameWindow
         if (heartbeatTimer > 1)
         {
             heartbeatTimer -= 1;
-            D.Write("Sending Heartbeat");
             TransportClient?.SendMessageToHost(MessageType.HEARTBEAT, "");
         }
 

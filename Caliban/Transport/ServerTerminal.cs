@@ -191,6 +191,20 @@ namespace Caliban.Core.Transport
             {
             }
         }
+        
+        public void BroadcastMessage(MessageType _type, byte[] _message)
+        {
+            try
+            {
+                foreach (ConnectedClient connectedClient in MClients.Values)
+                {
+                    connectedClient.Send(Messages.Build("CALIBAN", _type, _message));
+                }
+            }
+            catch (SocketException)
+            {
+            }
+        }
 
         public void Close()
         {
@@ -200,8 +214,10 @@ namespace Caliban.Core.Transport
                 {
                     closed = true;
 
-                    // Close the clients
-                    foreach (ConnectedClient connectedClient in MClients.Values)
+                    // Close the clients. Iterate a snapshot because Stop() can trigger a
+                    // disconnect callback on another thread that mutates MClients, which would
+                    // otherwise throw "Collection was modified" mid-enumeration and abort shutdown.
+                    foreach (ConnectedClient connectedClient in MClients.Values.ToList())
                     {
                         connectedClient.Stop();
                     }

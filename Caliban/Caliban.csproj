@@ -28,14 +28,15 @@
 
   <!-- NuGet Package References -->
   <ItemGroup>
-    <PackageReference Include="Colorful.Console" Version="1.2.15"/>
+    <PackageReference Include="Colorful.Console" Version="1.2.15" />
+    <PackageReference Include="Microsoft.NET.HostModel" Version="3.1.16" />
     <!-- Suppress NU1701 warning for legacy .NET Framework compatibility fallback -->
-    <PackageReference Include="NAudio" Version="2.2.1"/>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-    <PackageReference Include="SharpHook" Version="8.0.0"/>
-    <PackageReference Include="Terminal.Gui" Version="1.17.1"/>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpHook" Version="8.0.0" />
+    <PackageReference Include="Terminal.Gui" Version="1.17.1" />
     <!-- Updated to 1.1.1 to match Terminal.Gui's dependency requirement -->
-    <PackageReference Include="NStack.Core" Version="1.1.1"/>
+    <PackageReference Include="NStack.Core" Version="1.1.1" />
   </ItemGroup>
 
   <!-- Direct DLL References -->
@@ -76,7 +77,7 @@
        loads Treasures.dll at runtime, breaking the build cycle where Treasures.dll embeds the
        sub-program executables that depend on Caliban.Core. -->
   <ItemGroup>
-    <ProjectReference Include="..\DebugLog\DebugLog.csproj"/>
+    <ProjectReference Include="..\DebugLog\DebugLog.csproj" />
   </ItemGroup>
 
   <!-- Assembly Attributes -->

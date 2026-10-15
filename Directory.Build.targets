@@ -1,0 +1,50 @@
+<Project>
+
+  <!--
+    Auto-imported by MSBuild for every project in the solution (Directory.Build.targets is
+    picked up automatically from the directory tree, so no per-project wiring is needed).
+
+    Goal: whenever one of the "treasure" sub-programs is built, refresh its embedded copy inside
+    the Resources (Treasures.dll) project and rebuild Resources so the fresh exe is packed in.
+
+    This replaces having to hardcode a post-build <Copy>/<MSBuild> step in every individual
+    sub-program .csproj. Add/remove a project name in TreasureSubPrograms below to change the set.
+  -->
+
+  <PropertyGroup>
+    <!-- Semicolon-delimited list of sub-program assemblies whose exe gets embedded into Treasures.dll -->
+    <TreasureSubPrograms>Note;SimpleVictory;TornMap;WaterMeter;WaterPuddle</TreasureSubPrograms>
+    <!-- True only when the project currently building is one of the treasure sub-programs -->
+    <IsTreasureSubProgram Condition="$(TreasureSubPrograms.Contains('$(MSBuildProjectName)'))">true</IsTreasureSubProgram>
+    <!-- Absolute path to the Resources project (this file lives at the solution root) -->
+    <ResourcesProject>$(MSBuildThisFileDirectory)Resources\Resources.csproj</ResourcesProject>
+    <ResourcesEmbedDir>$(MSBuildThisFileDirectory)Resources\Resources\</ResourcesEmbedDir>
+    <!-- The embedded artifact is the .exe apphost (matches EmbeddedResource names in Resources.csproj);
+         $(TargetPath) points at the managed .dll for a .NET Exe project, so build the .exe path explicitly -->
+    <TreasureExePath>$(TargetDir)$(TargetName).exe</TreasureExePath>
+  </PropertyGroup>
+
+  <!--
+    Runs after a treasure sub-program finishes building. Copies the freshly built exe into the
+    Resources project's embed folder, then rebuilds Resources so Treasures.dll re-embeds it.
+    Guard flag $(_SkipTreasureRebuild) prevents re-entrancy if Resources ever pulls this in.
+  -->
+  <Target Name="RebuildTreasuresAfterBuild"
+          AfterTargets="Build"
+          Condition="'$(IsTreasureSubProgram)' == 'true' and '$(_SkipTreasureRebuild)' != 'true'">
+
+    <Message Importance="high"
+             Text="[TreasureHook] $(MSBuildProjectName) built -> refreshing Resources\Resources\$(TargetName).exe and rebuilding Treasures.dll" />
+
+    <Copy SourceFiles="$(TreasureExePath)"
+          DestinationFolder="$(ResourcesEmbedDir)"
+          SkipUnchangedFiles="false" />
+
+    <!-- Rebuild Resources (Treasures.dll). Its own PreBuild target also refreshes the other
+         embedded exes from ..\Builds, so the whole set stays in sync. -->
+    <MSBuild Projects="$(ResourcesProject)"
+             Targets="Build"
+             Properties="Configuration=$(Configuration);Platform=$(Platform);_SkipTreasureRebuild=true" />
+  </Target>
+
+</Project>
