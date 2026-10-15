@@ -34,9 +34,6 @@
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SharpHook" Version="8.0.0" />
-    <PackageReference Include="Terminal.Gui" Version="1.17.1" />
-    <!-- Updated to 1.1.1 to match Terminal.Gui's dependency requirement -->
-    <PackageReference Include="NStack.Core" Version="1.1.1" />
   </ItemGroup>
 
   <!-- Direct DLL References -->

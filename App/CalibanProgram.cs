@@ -11,8 +11,6 @@ using Caliban.Core.Utility;
 using Treasures.Resources;
 using Menu = Caliban.Core.Menu.Menu;
 using Caliban.Core.Debug;
-using Terminal.Gui;
-using TerminalApp = Terminal.Gui.Application;
 
 [assembly: SupportedOSPlatform("windows")]
 
@@ -34,6 +32,14 @@ namespace CALIBAN
 #pragma warning disable CS0169
         private static string CheatReason;
 #pragma warning restore CS0169
+
+        private static bool isRunning = true;
+        private static readonly System.Collections.Concurrent.ConcurrentQueue<Action> mainThreadActions = new System.Collections.Concurrent.ConcurrentQueue<Action>();
+
+        public static void InvokeOnMainThread(Action action)
+        {
+            mainThreadActions.Enqueue(action);
+        }
 
         [STAThread]
         public static void Main(string[] _args)
@@ -65,10 +71,8 @@ namespace CALIBAN
 
             Game.OnGameStateChange += OnGameStateChange;
 
-            Caliban.Core.OS.Windows.ConfigureMenuWindow();
-
             Caliban.Core.Menu.MenuApp.EnsureInit();
-            TerminalApp.RootKeyEvent = RootKeyHandler;
+            Caliban.Core.Menu.MenuApp.OnKeyPressed = (key) => RootKeyHandler(key);
 
             menuState = D.debugMode ? MenuState.MAIN : MenuState.INTRO;
             Menu.Main();
@@ -80,13 +84,21 @@ namespace CALIBAN
             }
 
             RunGraphics();
-            TerminalApp.Run();
 
-            // The Terminal.Gui loop has now exited (a quit request just calls RequestStop).
+            while (isRunning)
+            {
+                while (mainThreadActions.TryDequeue(out var action))
+                {
+                    action();
+                }
+
+                System.Windows.Forms.Application.DoEvents();
+                System.Threading.Thread.Sleep(10);
+            }
+
             // Run the heavy teardown here, off the UI event path, so a slow or failing
             // shutdown step can never block/crash the loop and leave the menu frozen.
             ShutdownServices();
-            TerminalApp.Shutdown();
         }
 
         private static void ModuleLoaderOnModuleLoaded(string processName)
@@ -109,7 +121,7 @@ namespace CALIBAN
                             _ = Wallpaper.Set(new Uri(Path.Combine(folderLoc, "desert.jpg")), Wallpaper.Style.Stretched);
                             break;
                         case "SHOW_MENU":
-                            TerminalApp.MainLoop.Invoke(() =>
+                            InvokeOnMainThread(() =>
                             {
                                 Menu.ShowMenu();
                                 menuState = MenuState.MAIN;
@@ -117,7 +129,7 @@ namespace CALIBAN
                             });
                             break;
                         case "INTRO_NOTE":
-                            TerminalApp.MainLoop.Invoke(Menu.TriggerIntoNote);
+                            InvokeOnMainThread(Menu.TriggerIntoNote);
                             break;
                     }
 
@@ -166,37 +178,32 @@ namespace CALIBAN
                 }
         }
 
-        // Top-level Terminal.Gui key handler replacing the old Console.ReadKey state
+        // Top-level WinForms key handler replacing the old Console.ReadKey state
         // machine. Returns true when the menu consumes the key.
-        private static bool RootKeyHandler(KeyEvent _kb)
+        private static bool RootKeyHandler(System.Windows.Forms.Keys key)
         {
-            uint masks = (uint)(Key.ShiftMask | Key.AltMask | Key.CtrlMask);
-            int stripped = (int)((uint)_kb.Key & ~masks);
-
-            if (stripped == (int)Key.Esc)
+            if (key == System.Windows.Forms.Keys.Escape)
                 return HandleEscape();
-
-            char c = char.ToLowerInvariant((char)(stripped & 0xFF));
 
             if (menuState == MenuState.MAIN)
             {
-                switch (c)
+                switch (key)
                 {
-                    case 'a':
+                    case System.Windows.Forms.Keys.A:
                         D.Write("Menu key: About");
                         Menu.About();
                         menuState = MenuState.ABOUT;
                         return true;
-                    case 'h':
+                    case System.Windows.Forms.Keys.H:
                         D.Write("Menu key: Help");
                         Menu.Help();
                         menuState = MenuState.HELP;
                         return true;
-                    case 'e':
+                    case System.Windows.Forms.Keys.E:
                         D.Write("Menu key: Embark");
                         NewGame();
                         return true;
-                    case 'q':
+                    case System.Windows.Forms.Keys.Q:
                         D.Write("Menu key: Quit");
                         CloseApp();
                         return true;
@@ -235,28 +242,28 @@ namespace CALIBAN
             switch (_state)
             {
                 case GameState.WON:
-                    TerminalApp.MainLoop.Invoke(() =>
+                    InvokeOnMainThread(() =>
                     {
                         Menu.Win();
                         CloseCurrentGame();
                     });
                     break;
                 case GameState.LOST:
-                    TerminalApp.MainLoop.Invoke(() =>
+                    InvokeOnMainThread(() =>
                     {
                         Menu.Lose();
                         CloseCurrentGame();
                     });
                     break;
                 case GameState.CHEATED:
-                    TerminalApp.MainLoop.Invoke(() =>
+                    InvokeOnMainThread(() =>
                     {
                         Menu.Cheat(cheatReason);
                         CloseCurrentGame();
                     });
                     break;
                 case GameState.IN_PROGRESS:
-                    TerminalApp.MainLoop.Invoke(() =>
+                    InvokeOnMainThread(() =>
                     {
                         Menu.Standby();
                         menuState = MenuState.STANDBY;
@@ -284,13 +291,13 @@ namespace CALIBAN
             Game.CurrentGame.Start();
         }
 
-        // Requests the app to close. This only asks the Terminal.Gui loop to stop; the actual
-        // teardown runs after TerminalApp.Run() returns (see Main). RequestStop is marshaled
+        // Requests the app to close. This only asks the loop to stop; the actual
+        // teardown runs after the loop returns (see Main). RequestStop is marshaled
         // onto the main loop, so this is safe to call from background socket threads (APP_CLOSE)
         // as well as from the UI key handler ('q'), and it can never leave the menu frozen.
         private static void CloseApp()
         {
-            TerminalApp.MainLoop?.Invoke(() => TerminalApp.RequestStop());
+            InvokeOnMainThread(() => isRunning = false);
         }
 
         // Tears down all services. Runs on the main thread after the Terminal.Gui loop exits.

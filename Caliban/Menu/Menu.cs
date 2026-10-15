@@ -22,7 +22,6 @@ namespace Caliban.Core.Menu
 
         static Menu()
         {
-            ConfigureWindow();
             AudioManager.LoadFile("town_dusk_short.wav", "IntroMusic");
             //AudioManager.LoadFile(Treasures.Treasures.GetStream("town_dusk_short.wav"), "IntroMusic");
         }
@@ -67,15 +66,19 @@ namespace Caliban.Core.Menu
 
         public static void HideMenu()
         {
-            var handle = OS.Windows.GetConsoleWindow();
-            OS.Windows.ShowWindow(handle, OS.Windows.SW_HIDE);
-            Console.Clear();
+            if (MenuApp.IsInitialized)
+            {
+                MenuApp.Form.Hide();
+            }
         }
 
         public static void ShowMenu()
         {
-            OS.Windows.ShowWindow(OS.Windows.GetConsoleWindow(), OS.Windows.SW_SHOW);
-            DockToTop();
+            if (MenuApp.IsInitialized)
+            {
+                MenuApp.Form.Show();
+                // We shouldn't need DockToTop anymore as UpdateScreen handles it, but let's just make sure it's visible
+            }
         }
 
         public static void Main()
@@ -226,41 +229,6 @@ namespace Caliban.Core.Menu
             MenuApp.Show(screen, height);
         }
 
-        private static void ConfigureWindow()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.Title = "CALIBAN";
-            var hwnd = Process.GetCurrentProcess().MainWindowHandle;
-            var style = OS.Windows.GetWindowLong(hwnd, OS.Windows.GWL_STYLE);
-            // Strip the title/caption bar and everything that lets the user resize
-            // the window (sizing border, min/max/system-menu) so it is fixed size
-            // and chrome-less.
-            style &= ~OS.Windows.WS_CAPTION;
-            style &= ~OS.Windows.WS_SYSMENU;
-            style &= ~OS.Windows.WS_THICKFRAME;
-            style &= ~OS.Windows.WS_MINIMIZEBOX;
-            style &= ~OS.Windows.WS_MAXIMIZEBOX;
-            OS.Windows.SetWindowLong(hwnd, OS.Windows.GWL_STYLE, style);
-
-            // Apply the style change without moving/sizing/reordering the window.
-            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, 0, 0, 0, 0,
-                OS.Windows.Swp.NOMOVE | OS.Windows.Swp.NOSIZE | OS.Windows.Swp.NOZORDER |
-                OS.Windows.Swp.FRAMECHANGED);
-            DockToTop();
-        }
-
-        private static void DockToTop()
-        {
-            var hwnd = OS.Windows.GetConsoleWindow();
-            if (hwnd == IntPtr.Zero)
-                hwnd = Process.GetCurrentProcess().MainWindowHandle;
-
-            var sWidth = Screen.PrimaryScreen.Bounds.Width;
-            OS.Windows.GetWindowRect(hwnd, out OS.Windows.RECT r);
-
-            OS.Windows.SetWindowPos(hwnd, IntPtr.Zero, (sWidth / 2) - (r.Width / 2), 0, 0, 0,
-                OS.Windows.Swp.NOSIZE);
-        }
 
         private static readonly string[] titleGraphic =
         {

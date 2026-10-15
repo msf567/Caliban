@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0-windows</TargetFramework>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <RootNamespace>CALIBAN</RootNamespace>
         <AssemblyName>CALIBAN</AssemblyName>
         <OutputPath>..\Builds\</OutputPath>
@@ -32,8 +32,6 @@
 
     <!-- NuGet Package References -->
     <ItemGroup>
-        <PackageReference Include="Terminal.Gui" Version="1.17.1"/>
-        <PackageReference Include="NStack.Core" Version="1.1.1"/>
     </ItemGroup>
 
     <!-- Project References -->
